@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:satni_flutter/filter/filter.dart';
+import 'package:satni_flutter/filter/pod/filter.dart';
 
 import '../pod/search.dart';
 
@@ -13,6 +15,7 @@ class SearchPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('sátni.org'),
+        actions: const [FilterButton()],
       ),
       body: Column(
         children: [
@@ -27,12 +30,29 @@ class SearchPage extends ConsumerWidget {
             child: Consumer(
               builder: ((context, ref, child) {
                 final search = ref.watch(searchProvider);
-                return Text('$search');
+                final filter = ref.watch(filterProvider);
+                return Text('$search $filter');
               }),
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+class FilterButton extends StatelessWidget {
+  const FilterButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.checklist_rounded),
+      onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const FilterPage(),
+          )),
     );
   }
 }
