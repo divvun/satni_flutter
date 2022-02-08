@@ -1,0 +1,17 @@
+query Generated(
+    $origform: String!
+    $language: String!
+    $partOfSpeech: String!
+) {
+    generated(
+        origform: $origform
+        language: $language
+        partOfSpeech: $partOfSpeech
+    ) {
+        paradigmTemplate
+        analyses {
+            wordform
+            weight
+        }
+    }
+}
