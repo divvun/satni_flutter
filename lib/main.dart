@@ -30,7 +30,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SearchPage(),
+      home: const SearchPage(),
     );
   }
 }
