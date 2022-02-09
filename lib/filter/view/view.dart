@@ -9,53 +9,13 @@ class FilterPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Filtering')),
-        body: Column(
-          children: [
-            _displaySrcLangs(context, ref),
-            _displayTargetLangs(context, ref),
-            _displayDicts(context, ref),
-          ],
-        ));
-  }
-
-  Widget _displayDicts(
-    BuildContext context,
-    WidgetRef ref,
-  ) {
-    final availableDicts = [
-      'termwiki',
-      'gtsmenob',
-      'gtnobsme',
-      'gtnobsma',
-      'gtsmanob',
-      'gtsmefin',
-      'gtfinsme',
-      'gtsmesmn',
-      'gtsmnsme',
-      'gtfinsmn',
-      'gtsmnfin',
-      'gtfinnob',
-      'sammallahtismefin',
-    ];
-    final filter = ref.watch(filterProvider);
-    final dicts = [...filter.wantedDicts];
-
-    return Expanded(
-      child: ListView(
-        children: availableDicts
-            .map(
-              (dict) => CheckboxListTile(
-                title: Text(dict),
-                value: dicts.contains(dict),
-                onChanged: (newValue) {
-                  newValue! ? dicts.add(dict) : dicts.remove(dict);
-                  ref.read(filterProvider.notifier).updateDicts(dicts);
-                },
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-            )
-            .toList(),
+      appBar: AppBar(title: const Text('Filtering')),
+      body: ListView(
+        children: [
+          _displaySrcLangs(context, ref),
+          _displayTargetLangs(context, ref),
+          _displayDicts(context, ref),
+        ],
         shrinkWrap: true,
       ),
     );
@@ -80,23 +40,21 @@ class FilterPage extends ConsumerWidget {
     final filter = ref.watch(filterProvider);
     final srcLangs = [...filter.wantedSrcLangs];
 
-    return Expanded(
-      child: ListView(
-        children: availableLangs
-            .map(
-              (srcLang) => CheckboxListTile(
-                title: Text(srcLang),
-                value: srcLangs.contains(srcLang),
-                onChanged: (newValue) {
-                  newValue! ? srcLangs.add(srcLang) : srcLangs.remove(srcLang);
-                  ref.read(filterProvider.notifier).updateSrcLangs(srcLangs);
-                },
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-            )
-            .toList(),
-        shrinkWrap: true,
-      ),
+    return Column(
+      children: availableLangs
+          .map(
+            (srcLang) => CheckboxListTile(
+              title: Text(srcLang),
+              value: srcLangs.contains(srcLang),
+              onChanged: (newValue) {
+                newValue! ? srcLangs.add(srcLang) : srcLangs.remove(srcLang);
+                ref.read(filterProvider.notifier).updateSrcLangs(srcLangs);
+              },
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
+          )
+          .toList(),
+      // shrinkWrap: true,
     );
   }
 
@@ -119,27 +77,65 @@ class FilterPage extends ConsumerWidget {
     final filter = ref.watch(filterProvider);
     final targetLangs = [...filter.wantedTargetLangs];
 
-    return Expanded(
-      child: ListView(
-        children: availableLangs
-            .map(
-              (targetLang) => CheckboxListTile(
-                title: Text(targetLang),
-                value: targetLangs.contains(targetLang),
-                onChanged: (newValue) {
-                  newValue!
-                      ? targetLangs.add(targetLang)
-                      : targetLangs.remove(targetLang);
-                  ref
-                      .read(filterProvider.notifier)
-                      .updateTargetLangs(targetLangs);
-                },
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-            )
-            .toList(),
-        shrinkWrap: true,
-      ),
+    return Column(
+      children: availableLangs
+          .map(
+            (targetLang) => CheckboxListTile(
+              title: Text(targetLang),
+              value: targetLangs.contains(targetLang),
+              onChanged: (newValue) {
+                newValue!
+                    ? targetLangs.add(targetLang)
+                    : targetLangs.remove(targetLang);
+                ref
+                    .read(filterProvider.notifier)
+                    .updateTargetLangs(targetLangs);
+              },
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
+          )
+          .toList(),
+      // shrinkWrap: true,
+    );
+  }
+
+  Widget _displayDicts(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
+    final availableDicts = [
+      'termwiki',
+      'gtsmenob',
+      'gtnobsme',
+      'gtnobsma',
+      'gtsmanob',
+      'gtsmefin',
+      'gtfinsme',
+      'gtsmesmn',
+      'gtsmnsme',
+      'gtfinsmn',
+      'gtsmnfin',
+      'gtfinnob',
+      'sammallahtismefin',
+    ];
+    final filter = ref.watch(filterProvider);
+    final dicts = [...filter.wantedDicts];
+
+    return Column(
+      children: availableDicts
+          .map(
+            (dict) => CheckboxListTile(
+              title: Text(dict),
+              value: dicts.contains(dict),
+              onChanged: (newValue) {
+                newValue! ? dicts.add(dict) : dicts.remove(dict);
+                ref.read(filterProvider.notifier).updateDicts(dicts);
+              },
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
+          )
+          .toList(),
+      // shrinkWrap: true,
     );
   }
 }
