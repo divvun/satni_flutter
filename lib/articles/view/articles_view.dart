@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_flutter/graphql_api.graphql.dart';
-// import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:satni_flutter/generated/generated.dart';
 
-// import 'package:satni_flutter/generated/generated.dart';
 import '../articles.dart';
 
 class ArticlesView extends ConsumerWidget {
@@ -106,18 +105,19 @@ class DictArticle extends StatelessWidget {
               ),
               IconButton(
                 // ignore: avoid_returning_null_for_void
-                onPressed: () => null,
-                // lemma.node != null
-                //     ? Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //           builder: (context) => GeneratedPage(
-                //               lemma.node!.presentationLemma ?? 'guolli',
-                //               lemma.node!.language ?? 'sme',
-                //               lemma.node!.pos ?? 'N',
-                //               Key(lemma.node!.presentationLemma ?? 'guolli')),
-                //         ))
-                //     : null,
+                onPressed: () => lemma.node != null
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GeneratedPage(
+                              Arguments(
+                                lemma.node!.presentationLemma ?? 'guolli',
+                                lemma.node!.language ?? 'sme',
+                                lemma.node!.pos ?? 'N',
+                              ),
+                              Key(lemma.node!.presentationLemma ?? 'guolli')),
+                        ))
+                    : null,
                 icon: const Icon(Icons.info_outline),
               )
             ],
@@ -178,18 +178,19 @@ class DictArticle extends StatelessWidget {
               ),
               IconButton(
                 // ignore: avoid_returning_null_for_void
-                onPressed: () => null,
-                // lemma.node != null
-                //     ? Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //           builder: (context) => GeneratedPage(
-                //               lemma.node!.presentationLemma ?? 'guolli',
-                //               lemma.node!.language ?? 'sme',
-                //               lemma.node!.pos ?? 'N',
-                //               Key(lemma.node!.presentationLemma ?? 'guolli')),
-                //         ))
-                //     : null,
+                onPressed: () => lemma.node != null
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GeneratedPage(
+                              Arguments(
+                                lemma.node!.presentationLemma ?? 'guolli',
+                                lemma.node!.language ?? 'sme',
+                                lemma.node!.pos ?? 'N',
+                              ),
+                              Key(lemma.node!.presentationLemma ?? 'guolli')),
+                        ))
+                    : null,
                 icon: const Icon(Icons.info_outline),
               )
             ],
@@ -278,16 +279,17 @@ class TermArticle extends StatelessWidget {
               ),
               IconButton(
                 // ignore: avoid_returning_null_for_void
-                onPressed: () => null,
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => GeneratedPage(
-                //           term.expression.presentationLemma ?? 'guolli',
-                //           term.expression.language ?? 'sme',
-                //           term.expression.pos ?? 'N',
-                //           Key(term.expression.presentationLemma ?? 'guolli')),
-                //     )),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GeneratedPage(
+                          Arguments(
+                            term.expression.presentationLemma ?? 'guolli',
+                            term.expression.language ?? 'sme',
+                            term.expression.pos ?? 'N',
+                          ),
+                          Key(term.expression.presentationLemma ?? 'guolli')),
+                    )),
                 icon: const Icon(Icons.info_outline),
               )
             ],

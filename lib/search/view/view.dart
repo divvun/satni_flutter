@@ -80,7 +80,7 @@ class SearchResults extends ConsumerWidget {
     if (search.searchText.isEmpty) {
       return Text('Init: $search $filter');
     } else {
-      AsyncValue<AllLemmas$Query> results = ref.watch(stemProvider);
+      final AsyncValue<AllLemmas$Query> results = ref.watch(stemProvider);
 
       return results.when(
         loading: () => const CircularProgressIndicator(),
