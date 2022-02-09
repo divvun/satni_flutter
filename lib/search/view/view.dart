@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_flutter/filter/pod/filter.dart';
 import 'package:satni_flutter/filter/filter.dart';
+import 'package:satni_flutter/articles/articles.dart';
 import 'package:satni_flutter/graphql_api.dart';
 
 import '../pod/search.dart';
@@ -79,9 +80,9 @@ class SearchResults extends ConsumerWidget {
     if (search.searchText.isEmpty) {
       return Text('Init: $search $filter');
     } else {
-      AsyncValue<AllLemmas$Query> config = ref.watch(stemProvider);
+      AsyncValue<AllLemmas$Query> results = ref.watch(stemProvider);
 
-      return config.when(
+      return results.when(
         loading: () => const CircularProgressIndicator(),
         error: (err, stack) => Text('Error: $err'),
         data: (stems) {
@@ -131,12 +132,7 @@ class NewStems extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      print('article $stem');
-                      //   ArticlesPage(
-                      //   stem,
-                      //   Key(stem)
-                      // );
-                      return const Text('hallo');
+                      return ArticlesPage(stem, Key(stem));
                     },
                   ),
                 ),

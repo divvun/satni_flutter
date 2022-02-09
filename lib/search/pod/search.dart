@@ -2,6 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_flutter/api.dart';
 import 'package:satni_flutter/filter/pod/filter.dart';
 import 'package:satni_flutter/graphql_api.dart';
+
 import '../models/models.dart';
 
 class SearchNotifier extends StateNotifier<Search> {
