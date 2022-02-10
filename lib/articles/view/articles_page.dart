@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:enough_platform_widgets/platform.dart';
+import 'package:flutter/widgets.dart';
 import '../articles.dart';
 
 class ArticlesPage extends StatelessWidget {
@@ -8,8 +9,8 @@ class ArticlesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return PlatformScaffold(
+      appBar: PlatformAppBar(
         title: Text('Lookup page: $lemma'),
       ),
       body: Center(

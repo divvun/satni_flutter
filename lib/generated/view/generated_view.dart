@@ -1,3 +1,4 @@
+import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:satni_flutter/graphql_api.graphql.dart';
 import '../generated.dart';
@@ -20,7 +21,7 @@ class GeneratedView extends ConsumerWidget {
 
   List<Widget> _generated(BuildContext context, Generated$Query generated) {
     return generated.generated!
-        .map((e) => ListTile(
+        .map((e) => PlatformListTile(
               title: Text(
                   e?.analyses?.map((e) => e?.wordform).toList().join(", ") ??
                       'no forms'),

@@ -1,3 +1,4 @@
+import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_flutter/graphql_api.graphql.dart';
@@ -15,7 +16,7 @@ class ArticlesView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref.watch(articlesProvider(_lemma)).when(
-        loading: () => const CircularProgressIndicator(),
+        loading: () => PlatformCircularProgressIndicator(),
         data: (articles) => ListView(
               children: [..._articles(context, articles.terms, articles.dicts)],
             ),
@@ -103,12 +104,13 @@ class DictArticle extends StatelessWidget {
                 '${lemma.node!.pos}',
                 style: Theme.of(context).textTheme.bodyText2,
               ),
-              IconButton(
+              PlatformIconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
                     ? Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        platformPageRoute(
+                          context: context,
                           builder: (context) => GeneratedPage(
                               Arguments(
                                 lemma.node!.presentationLemma ?? 'guolli',
@@ -176,12 +178,13 @@ class DictArticle extends StatelessWidget {
                 '${lemma.node!.pos}',
                 style: Theme.of(context).textTheme.bodyText2,
               ),
-              IconButton(
+              PlatformIconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
                     ? Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        platformPageRoute(
+                          context: context,
                           builder: (context) => GeneratedPage(
                               Arguments(
                                 lemma.node!.presentationLemma ?? 'guolli',
@@ -277,11 +280,12 @@ class TermArticle extends StatelessWidget {
                 '${term.expression.pos}',
                 style: Theme.of(context).textTheme.bodyText2,
               ),
-              IconButton(
+              PlatformIconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    platformPageRoute(
+                      context: context,
                       builder: (context) => GeneratedPage(
                           Arguments(
                             term.expression.presentationLemma ?? 'guolli',

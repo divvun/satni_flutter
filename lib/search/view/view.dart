@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/semantics.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni_flutter/filter/pod/filter.dart';
 import 'package:satni_flutter/filter/filter.dart';
 import 'package:satni_flutter/articles/articles.dart';
 import 'package:satni_flutter/lemmatised/lemmatised.dart';
 import 'package:satni_flutter/graphql_api.dart';
+import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 
 import '../pod/search.dart';
 
@@ -28,13 +29,13 @@ class Searcher extends HookConsumerWidget {
           children: [
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: const Icon(Icons.search),
+              child: Icon(PlatformIcons(context).search),
             ),
             Flexible(
-              child: TextField(
+              child: PlatformTextField(
                 controller: _textController,
-                decoration: const InputDecoration.collapsed(
-                    hintText: 'Write a search string'),
+                // decoration: const InputDecoration.collapsed(
+                //     hintText: 'Write a search string'),
                 focusNode: _focusNode,
                 onChanged: (text) =>
                     ref.read(searchProvider.notifier).updateSearchText(text),
@@ -56,10 +57,10 @@ class SearchPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
+    return PlatformScaffold(
+      appBar: PlatformAppBar(
         title: const Text('sátni.org'),
-        actions: const [FilterButton()],
+        // actions: const [FilterButton()],
       ),
       body: Column(
         children: const [
@@ -99,7 +100,7 @@ class SearchResults extends ConsumerWidget {
       final AsyncValue<AllLemmas$Query> results = ref.watch(stemProvider);
 
       return results.when(
-        loading: () => const CircularProgressIndicator(),
+        loading: () => PlatformCircularProgressIndicator(),
         error: (err, stack) => Text('Error: $err'),
         data: (stems) => NewStems(data: stems),
       );
@@ -139,15 +140,14 @@ class NewStems extends StatelessWidget {
           children: ListTile.divideTiles(
             context: context,
             tiles: stems.map(
-              (stem) => ListTile(
+              (stem) => PlatformListTile(
                 title: Text(stem),
                 trailing: const Icon(Icons.star_border_rounded),
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ArticlesPage(stem, Key(stem));
-                    },
+                  platformPageRoute(
+                    context: context,
+                    builder: (context) => ArticlesPage(stem, Key(stem)),
                   ),
                 ),
               ),
@@ -167,11 +167,12 @@ class FilterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return PlatformIconButton(
       icon: const Icon(Icons.checklist_rounded),
       onPressed: () => Navigator.push(
           context,
-          MaterialPageRoute(
+          platformPageRoute(
+            context: context,
             builder: (context) => const FilterPage(),
           )),
     );
