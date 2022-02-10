@@ -162,6 +162,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  cupertino_icons:
+    dependency: transitive
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  cupertino_list_tile:
+    dependency: transitive
+    description:
+      name: cupertino_list_tile
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
+  cupertino_progress_bar:
+    dependency: transitive
+    description:
+      name: cupertino_progress_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
+  cupertino_stepper:
+    dependency: transitive
+    description:
+      name: cupertino_stepper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   dart_style:
     dependency: transitive
     description:
@@ -169,6 +197,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
+  enough_platform_widgets:
+    dependency: "direct main"
+    description:
+      name: enough_platform_widgets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   equatable:
     dependency: transitive
     description:
@@ -216,6 +251,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_platform_widgets:
+    dependency: transitive
+    description:
+      name: flutter_platform_widgets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.12.1"
   flutter_riverpod:
     dependency: transitive
     description:
@@ -276,7 +318,7 @@ packages:
       name: gql_dedupe_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2-alpha+1635885531760"
+    version: "2.0.3-alpha+1642769088438"
   gql_error_link:
     dependency: transitive
     description:
@@ -634,4 +676,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.16.0 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=2.5.0"
