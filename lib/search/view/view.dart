@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_flutter/filter/pod/filter.dart';
 import 'package:satni_flutter/filter/filter.dart';
 import 'package:satni_flutter/articles/articles.dart';
+import 'package:satni_flutter/lemmatised/lemmatised.dart';
 import 'package:satni_flutter/graphql_api.dart';
 
 import '../pod/search.dart';
@@ -63,10 +64,25 @@ class SearchPage extends HookConsumerWidget {
       body: Column(
         children: const [
           Searcher(),
+          Lemmatised(),
           SearchResults(),
         ],
       ),
     );
+  }
+}
+
+class Lemmatised extends ConsumerWidget {
+  const Lemmatised({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final search = ref.watch(searchProvider);
+    if (search.searchText.length < 3) {
+      return const Text('No analysis');
+    } else {
+      return LemmatisedView(search.searchText);
+    }
   }
 }
 
@@ -85,9 +101,7 @@ class SearchResults extends ConsumerWidget {
       return results.when(
         loading: () => const CircularProgressIndicator(),
         error: (err, stack) => Text('Error: $err'),
-        data: (stems) {
-          return NewStems(data: stems);
-        },
+        data: (stems) => NewStems(data: stems),
       );
     }
   }

@@ -87,3 +87,14 @@ Future<Generated$Query> getGenerated(origform, language, partOfSpeech) async {
 
   return Generated$Query.fromJson(result.data ?? {'generated': []});
 }
+
+Future<Lemmatised$Query> getLemmatised(String lookupString) async {
+  final result = await client.query(
+    QueryOptions(
+      document: LEMMATISED_QUERY_DOCUMENT,
+      variables: LemmatisedArguments(lookupString: lookupString).toJson(),
+    ),
+  );
+
+  return Lemmatised$Query.fromJson(result.data ?? {'lemmatised': []});
+}
