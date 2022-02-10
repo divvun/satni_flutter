@@ -459,6 +459,58 @@ Map<String, dynamic> _$TermArticles$QueryToJson(TermArticles$Query instance) =>
       'conceptList': instance.conceptList?.map((e) => e?.toJson()).toList(),
     };
 
+Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
+    _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisFromJson(
+            Map<String, dynamic> json) =>
+        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis()
+          ..analysis = json['analysis'] as String?
+          ..weight = (json['weight'] as num?)?.toDouble();
+
+Map<String,
+    dynamic> _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisToJson(
+        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis instance) =>
+    <String, dynamic>{
+      'analysis': instance.analysis,
+      'weight': instance.weight,
+    };
+
+Lemmatised$Query$LemmatiserResultType
+    _$Lemmatised$Query$LemmatiserResultTypeFromJson(
+            Map<String, dynamic> json) =>
+        Lemmatised$Query$LemmatiserResultType()
+          ..language = json['language'] as String?
+          ..wordforms = (json['wordforms'] as List<dynamic>?)
+              ?.map((e) => e as String?)
+              .toList()
+          ..analyses = (json['analyses'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$Lemmatised$Query$LemmatiserResultTypeToJson(
+        Lemmatised$Query$LemmatiserResultType instance) =>
+    <String, dynamic>{
+      'language': instance.language,
+      'wordforms': instance.wordforms,
+      'analyses': instance.analyses?.map((e) => e?.toJson()).toList(),
+    };
+
+Lemmatised$Query _$Lemmatised$QueryFromJson(Map<String, dynamic> json) =>
+    Lemmatised$Query()
+      ..lemmatised = (json['lemmatised'] as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Lemmatised$Query$LemmatiserResultType.fromJson(
+                  e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$Lemmatised$QueryToJson(Lemmatised$Query instance) =>
+    <String, dynamic>{
+      'lemmatised': instance.lemmatised?.map((e) => e?.toJson()).toList(),
+    };
+
 HasStemArguments _$HasStemArgumentsFromJson(Map<String, dynamic> json) =>
     HasStemArguments(
       stem: json['stem'] as String,
@@ -556,4 +608,15 @@ Map<String, dynamic> _$TermArticlesArgumentsToJson(
       'lemma': instance.lemma,
       'srcLangs': instance.srcLangs,
       'targetLangs': instance.targetLangs,
+    };
+
+LemmatisedArguments _$LemmatisedArgumentsFromJson(Map<String, dynamic> json) =>
+    LemmatisedArguments(
+      lookupString: json['lookupString'] as String,
+    );
+
+Map<String, dynamic> _$LemmatisedArgumentsToJson(
+        LemmatisedArguments instance) =>
+    <String, dynamic>{
+      'lookupString': instance.lookupString,
     };
