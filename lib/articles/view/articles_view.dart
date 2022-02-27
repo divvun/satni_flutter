@@ -263,8 +263,8 @@ class TermArticle extends StatelessWidget {
   }
 
   List<Widget> _termList(BuildContext context,
-      List<TermArticles$Query$ConceptType$TermType> turms) {
-    return turms
+      List<TermArticles$Query$ConceptType$TermType> terms) {
+    return terms
         .map(
           (term) => Row(
             children: <Widget>[
