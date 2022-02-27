@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:satni/graphql_api.graphql.dart';
 import '../lemmatised.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LemmatisedView extends ConsumerWidget {
   const LemmatisedView(this.lookupString, {Key? key}) : super(key: key);

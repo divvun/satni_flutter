@@ -1,12 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni/filter/pod/filter.dart';
-import 'package:satni/filter/filter.dart';
-import 'package:satni/lemmatised/lemmatised.dart';
-import 'package:satni/graphql_api.dart';
-import 'package:go_router/go_router.dart';
 
+// Package imports:
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
+import 'package:satni/filter/filter.dart';
+import 'package:satni/filter/pod/filter.dart';
+import 'package:satni/graphql_api.dart';
+import 'package:satni/lemmatised/lemmatised.dart';
 import '../pod/search.dart';
 
 class Searcher extends HookConsumerWidget {

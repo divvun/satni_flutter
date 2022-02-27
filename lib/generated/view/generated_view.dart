@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:satni/graphql_api.graphql.dart';
 import '../generated.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class GeneratedView extends ConsumerWidget {
   const GeneratedView(this.arguments, {Key? key}) : super(key: key);

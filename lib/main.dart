@@ -1,8 +1,13 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni/search/search.dart';
+
+// Project imports:
 import 'package:satni/articles/articles.dart';
+import 'package:satni/search/search.dart';
 
 void main() {
   runApp(
