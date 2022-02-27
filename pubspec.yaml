@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation:
+  go_router: ^3.0.2
   graphql: ^5.0.0
   hooks_riverpod: ^1.0.3
   json_annotation: ^4.4.0
