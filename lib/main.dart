@@ -10,6 +10,7 @@ import 'package:satni/articles/articles.dart';
 import 'package:satni/search/search.dart';
 
 void main() {
+  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   runApp(
     ProviderScope(
       child: App(),
