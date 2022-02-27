@@ -3,9 +3,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni/filter/pod/filter.dart';
 import 'package:satni/filter/filter.dart';
-import 'package:satni/articles/articles.dart';
 import 'package:satni/lemmatised/lemmatised.dart';
 import 'package:satni/graphql_api.dart';
+import 'package:go_router/go_router.dart';
 
 import '../pod/search.dart';
 
@@ -142,14 +142,7 @@ class NewStems extends StatelessWidget {
               (stem) => ListTile(
                 title: Text(stem),
                 trailing: const Icon(Icons.star_border_rounded),
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ArticlesPage(stem, Key(stem));
-                    },
-                  ),
-                ),
+                onTap: () => context.push('/articles/$stem'),
               ),
             ),
           ).toList(),

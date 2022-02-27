@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni/search/search.dart';
+import 'package:satni/articles/articles.dart';
 
 void main() {
   runApp(
-    const ProviderScope(
+    ProviderScope(
       child: App(),
     ),
   );
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
+
+  final _router = GoRouter(routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const SearchPage(),
+    ),
+    GoRoute(
+        path: '/articles/:lemma',
+        builder: (context, state) =>
+            ArticlesPage(state.params['lemma']!, Key(state.params['lemma']!)))
+  ]);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'sátni.org',
       theme: ThemeData(
         // This is the theme of your application.
@@ -30,7 +43,8 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SearchPage(),
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
     );
   }
 }
