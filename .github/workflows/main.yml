@@ -27,7 +27,15 @@ jobs:
         run: flutter --version
       - name: Build APK
         run: flutter build apk
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
       - name: Build AAB
         run: flutter build appbundle
-      - name: List build directory; have to find artefacts
-        run: ls -al
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: aab
+          path: build/app/outputs/bundle/release/app-release.aab
