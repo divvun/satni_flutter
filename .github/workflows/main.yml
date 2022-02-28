@@ -1,0 +1,33 @@
+name: Main buildchain
+on:
+  push:
+    branches:
+      - master
+      - dev-ci-*
+
+jobs:
+  apk_build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install a JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.2'
+          channel: 'stable'
+      - name: Disable Google phone-home
+        run: flutter config --no-analytics
+      - name: Verify flutter version
+        run: flutter --version
+      - name: Build APK
+        run: flutter build apk
+      - name: Build AAB
+        run: flutter build appbundle
+      - name: List build directory; have to find artefacts
+        run: ls -al
