@@ -35,11 +35,11 @@ AllLemmas$Query$StemTypeConnection$StemTypeEdge$StemType
             Map<String, dynamic> json) =>
         AllLemmas$Query$StemTypeConnection$StemTypeEdge$StemType()
           ..stem = json['stem'] as String
-          ..srclangs = (json['srclangs'] as List<dynamic>)
-              .map((e) => e as String)
+          ..srclangs = (json['srclangs'] as List<dynamic>?)
+              ?.map((e) => e as String?)
               .toList()
-          ..targetlangs = (json['targetlangs'] as List<dynamic>)
-              .map((e) => e as String)
+          ..targetlangs = (json['targetlangs'] as List<dynamic>?)
+              ?.map((e) => e as String?)
               .toList();
 
 Map<String,
@@ -164,9 +164,9 @@ DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge$LemmaType
     _$DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge$LemmaTypeFromJson(
             Map<String, dynamic> json) =>
         DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge$LemmaType()
-          ..lemma = json['lemma'] as String?
-          ..presentationLemma = json['presentationLemma'] as String?
-          ..language = json['language'] as String?
+          ..lemma = json['lemma'] as String
+          ..presentationLemma = json['presentationLemma'] as String
+          ..language = json['language'] as String
           ..pos = json['pos'] as String?
           ..dialect = json['dialect'] as String?
           ..country = json['country'] as String?;
@@ -223,9 +223,9 @@ DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaT
     _$DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge$LemmaTypeFromJson(
             Map<String, dynamic> json) =>
         DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge$LemmaType()
-          ..lemma = json['lemma'] as String?
-          ..presentationLemma = json['presentationLemma'] as String?
-          ..language = json['language'] as String?
+          ..lemma = json['lemma'] as String
+          ..presentationLemma = json['presentationLemma'] as String
+          ..language = json['language'] as String
           ..pos = json['pos'] as String?
           ..dialect = json['dialect'] as String?
           ..country = json['country'] as String?;
@@ -351,8 +351,9 @@ DictArticles$Query$DictEntryType _$DictArticles$Query$DictEntryTypeFromJson(
           : DictArticles$Query$DictEntryType$LemmaTypeConnection.fromJson(
               json['lookupLemmas'] as Map<String, dynamic>)
       ..translationGroups = (json['translationGroups'] as List<dynamic>)
-          .map((e) =>
-              DictArticles$Query$DictEntryType$TranslationGroupType.fromJson(
+          .map((e) => e == null
+              ? null
+              : DictArticles$Query$DictEntryType$TranslationGroupType.fromJson(
                   e as Map<String, dynamic>))
           .toList();
 
@@ -364,28 +365,82 @@ Map<String, dynamic> _$DictArticles$Query$DictEntryTypeToJson(
       'targetLang': instance.targetLang,
       'lookupLemmas': instance.lookupLemmas?.toJson(),
       'translationGroups':
-          instance.translationGroups.map((e) => e.toJson()).toList(),
+          instance.translationGroups.map((e) => e?.toJson()).toList(),
     };
 
 DictArticles$Query _$DictArticles$QueryFromJson(Map<String, dynamic> json) =>
     DictArticles$Query()
       ..dictEntryList = (json['dictEntryList'] as List<dynamic>?)
-          ?.map((e) => DictArticles$Query$DictEntryType.fromJson(
-              e as Map<String, dynamic>))
+          ?.map((e) => e == null
+              ? null
+              : DictArticles$Query$DictEntryType.fromJson(
+                  e as Map<String, dynamic>))
           .toList();
 
 Map<String, dynamic> _$DictArticles$QueryToJson(DictArticles$Query instance) =>
     <String, dynamic>{
-      'dictEntryList': instance.dictEntryList?.map((e) => e.toJson()).toList(),
+      'dictEntryList': instance.dictEntryList?.map((e) => e?.toJson()).toList(),
+    };
+
+Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
+    _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisFromJson(
+            Map<String, dynamic> json) =>
+        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis()
+          ..analysis = json['analysis'] as String
+          ..weight = (json['weight'] as num).toDouble();
+
+Map<String,
+    dynamic> _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisToJson(
+        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis instance) =>
+    <String, dynamic>{
+      'analysis': instance.analysis,
+      'weight': instance.weight,
+    };
+
+Lemmatised$Query$LemmatiserResultType
+    _$Lemmatised$Query$LemmatiserResultTypeFromJson(
+            Map<String, dynamic> json) =>
+        Lemmatised$Query$LemmatiserResultType()
+          ..language = json['language'] as String
+          ..wordforms = (json['wordforms'] as List<dynamic>)
+              .map((e) => e as String?)
+              .toList()
+          ..analyses = (json['analyses'] as List<dynamic>)
+              .map((e) => e == null
+                  ? null
+                  : Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$Lemmatised$Query$LemmatiserResultTypeToJson(
+        Lemmatised$Query$LemmatiserResultType instance) =>
+    <String, dynamic>{
+      'language': instance.language,
+      'wordforms': instance.wordforms,
+      'analyses': instance.analyses.map((e) => e?.toJson()).toList(),
+    };
+
+Lemmatised$Query _$Lemmatised$QueryFromJson(Map<String, dynamic> json) =>
+    Lemmatised$Query()
+      ..lemmatised = (json['lemmatised'] as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Lemmatised$Query$LemmatiserResultType.fromJson(
+                  e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$Lemmatised$QueryToJson(Lemmatised$Query instance) =>
+    <String, dynamic>{
+      'lemmatised': instance.lemmatised?.map((e) => e?.toJson()).toList(),
     };
 
 TermArticles$Query$ConceptType$TermType$LemmaType
     _$TermArticles$Query$ConceptType$TermType$LemmaTypeFromJson(
             Map<String, dynamic> json) =>
         TermArticles$Query$ConceptType$TermType$LemmaType()
-          ..lemma = json['lemma'] as String?
-          ..presentationLemma = json['presentationLemma'] as String?
-          ..language = json['language'] as String?
+          ..lemma = json['lemma'] as String
+          ..presentationLemma = json['presentationLemma'] as String
+          ..language = json['language'] as String
           ..pos = json['pos'] as String?
           ..dialect = json['dialect'] as String?
           ..country = json['country'] as String?;
@@ -408,8 +463,9 @@ TermArticles$Query$ConceptType$TermType
           ..note = json['note'] as String?
           ..source = json['source'] as String?
           ..status = json['status'] as String?
-          ..expression =
-              TermArticles$Query$ConceptType$TermType$LemmaType.fromJson(
+          ..expression = json['expression'] == null
+              ? null
+              : TermArticles$Query$ConceptType$TermType$LemmaType.fromJson(
                   json['expression'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$TermArticles$Query$ConceptType$TermTypeToJson(
@@ -418,7 +474,7 @@ Map<String, dynamic> _$TermArticles$Query$ConceptType$TermTypeToJson(
       'note': instance.note,
       'source': instance.source,
       'status': instance.status,
-      'expression': instance.expression.toJson(),
+      'expression': instance.expression?.toJson(),
     };
 
 TermArticles$Query$ConceptType _$TermArticles$Query$ConceptTypeFromJson(
@@ -431,8 +487,10 @@ TermArticles$Query$ConceptType _$TermArticles$Query$ConceptTypeFromJson(
       ..definition = json['definition'] as String?
       ..explanation = json['explanation'] as String?
       ..terms = (json['terms'] as List<dynamic>)
-          .map((e) => TermArticles$Query$ConceptType$TermType.fromJson(
-              e as Map<String, dynamic>))
+          .map((e) => e == null
+              ? null
+              : TermArticles$Query$ConceptType$TermType.fromJson(
+                  e as Map<String, dynamic>))
           .toList();
 
 Map<String, dynamic> _$TermArticles$Query$ConceptTypeToJson(
@@ -442,7 +500,7 @@ Map<String, dynamic> _$TermArticles$Query$ConceptTypeToJson(
       'collections': instance.collections,
       'definition': instance.definition,
       'explanation': instance.explanation,
-      'terms': instance.terms.map((e) => e.toJson()).toList(),
+      'terms': instance.terms.map((e) => e?.toJson()).toList(),
     };
 
 TermArticles$Query _$TermArticles$QueryFromJson(Map<String, dynamic> json) =>
@@ -457,58 +515,6 @@ TermArticles$Query _$TermArticles$QueryFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$TermArticles$QueryToJson(TermArticles$Query instance) =>
     <String, dynamic>{
       'conceptList': instance.conceptList?.map((e) => e?.toJson()).toList(),
-    };
-
-Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
-    _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisFromJson(
-            Map<String, dynamic> json) =>
-        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis()
-          ..analysis = json['analysis'] as String?
-          ..weight = (json['weight'] as num?)?.toDouble();
-
-Map<String,
-    dynamic> _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisToJson(
-        Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis instance) =>
-    <String, dynamic>{
-      'analysis': instance.analysis,
-      'weight': instance.weight,
-    };
-
-Lemmatised$Query$LemmatiserResultType
-    _$Lemmatised$Query$LemmatiserResultTypeFromJson(
-            Map<String, dynamic> json) =>
-        Lemmatised$Query$LemmatiserResultType()
-          ..language = json['language'] as String?
-          ..wordforms = (json['wordforms'] as List<dynamic>?)
-              ?.map((e) => e as String?)
-              .toList()
-          ..analyses = (json['analyses'] as List<dynamic>?)
-              ?.map((e) => e == null
-                  ? null
-                  : Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
-                      .fromJson(e as Map<String, dynamic>))
-              .toList();
-
-Map<String, dynamic> _$Lemmatised$Query$LemmatiserResultTypeToJson(
-        Lemmatised$Query$LemmatiserResultType instance) =>
-    <String, dynamic>{
-      'language': instance.language,
-      'wordforms': instance.wordforms,
-      'analyses': instance.analyses?.map((e) => e?.toJson()).toList(),
-    };
-
-Lemmatised$Query _$Lemmatised$QueryFromJson(Map<String, dynamic> json) =>
-    Lemmatised$Query()
-      ..lemmatised = (json['lemmatised'] as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Lemmatised$Query$LemmatiserResultType.fromJson(
-                  e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$Lemmatised$QueryToJson(Lemmatised$Query instance) =>
-    <String, dynamic>{
-      'lemmatised': instance.lemmatised?.map((e) => e?.toJson()).toList(),
     };
 
 HasStemArguments _$HasStemArgumentsFromJson(Map<String, dynamic> json) =>
@@ -591,6 +597,17 @@ Map<String, dynamic> _$DictArticlesArgumentsToJson(
       'wantedDicts': instance.wantedDicts,
     };
 
+LemmatisedArguments _$LemmatisedArgumentsFromJson(Map<String, dynamic> json) =>
+    LemmatisedArguments(
+      lookupString: json['lookupString'] as String,
+    );
+
+Map<String, dynamic> _$LemmatisedArgumentsToJson(
+        LemmatisedArguments instance) =>
+    <String, dynamic>{
+      'lookupString': instance.lookupString,
+    };
+
 TermArticlesArguments _$TermArticlesArgumentsFromJson(
         Map<String, dynamic> json) =>
     TermArticlesArguments(
@@ -608,15 +625,4 @@ Map<String, dynamic> _$TermArticlesArgumentsToJson(
       'lemma': instance.lemma,
       'srcLangs': instance.srcLangs,
       'targetLangs': instance.targetLangs,
-    };
-
-LemmatisedArguments _$LemmatisedArgumentsFromJson(Map<String, dynamic> json) =>
-    LemmatisedArguments(
-      lookupString: json['lookupString'] as String,
-    );
-
-Map<String, dynamic> _$LemmatisedArgumentsToJson(
-        LemmatisedArguments instance) =>
-    <String, dynamic>{
-      'lookupString': instance.lookupString,
     };

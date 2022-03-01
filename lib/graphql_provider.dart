@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql/client.dart';
 
 final client = getClient(
-  uri: 'https://satni.uit.no/newsatni/',
+// uri: 'https://satni.uit.no/newsatni/',
+  uri: 'http://localhost:8000/graphql/',
 );
 
 GraphQLClient getClient({

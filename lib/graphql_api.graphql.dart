@@ -48,9 +48,9 @@ class AllLemmas$Query$StemTypeConnection$StemTypeEdge$StemType
 
   late String stem;
 
-  late List<String> srclangs;
+  List<String?>? srclangs;
 
-  late List<String> targetlangs;
+  List<String?>? targetlangs;
 
   @override
   List<Object?> get props => [stem, srclangs, targetlangs];
@@ -199,11 +199,11 @@ class DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge$LemmaTy
       _$DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge$LemmaTypeFromJson(
           json);
 
-  String? lemma;
+  late String lemma;
 
-  String? presentationLemma;
+  late String presentationLemma;
 
-  String? language;
+  late String language;
 
   String? pos;
 
@@ -270,11 +270,11 @@ class DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$
       _$DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge$LemmaTypeFromJson(
           json);
 
-  String? lemma;
+  late String lemma;
 
-  String? presentationLemma;
+  late String presentationLemma;
 
-  String? language;
+  late String language;
 
   String? pos;
 
@@ -420,7 +420,7 @@ class DictArticles$Query$DictEntryType extends JsonSerializable
 
   DictArticles$Query$DictEntryType$LemmaTypeConnection? lookupLemmas;
 
-  late List<DictArticles$Query$DictEntryType$TranslationGroupType>
+  late List<DictArticles$Query$DictEntryType$TranslationGroupType?>
       translationGroups;
 
   @override
@@ -438,12 +438,69 @@ class DictArticles$Query extends JsonSerializable with EquatableMixin {
   factory DictArticles$Query.fromJson(Map<String, dynamic> json) =>
       _$DictArticles$QueryFromJson(json);
 
-  List<DictArticles$Query$DictEntryType>? dictEntryList;
+  List<DictArticles$Query$DictEntryType?>? dictEntryList;
 
   @override
   List<Object?> get props => [dictEntryList];
   @override
   Map<String, dynamic> toJson() => _$DictArticles$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
+    extends JsonSerializable with EquatableMixin {
+  Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis();
+
+  factory Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis.fromJson(
+          Map<String, dynamic> json) =>
+      _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisFromJson(json);
+
+  late String analysis;
+
+  late double weight;
+
+  @override
+  List<Object?> get props => [analysis, weight];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Lemmatised$Query$LemmatiserResultType extends JsonSerializable
+    with EquatableMixin {
+  Lemmatised$Query$LemmatiserResultType();
+
+  factory Lemmatised$Query$LemmatiserResultType.fromJson(
+          Map<String, dynamic> json) =>
+      _$Lemmatised$Query$LemmatiserResultTypeFromJson(json);
+
+  late String language;
+
+  late List<String?> wordforms;
+
+  late List<Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis?> analyses;
+
+  @override
+  List<Object?> get props => [language, wordforms, analyses];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$Lemmatised$Query$LemmatiserResultTypeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Lemmatised$Query extends JsonSerializable with EquatableMixin {
+  Lemmatised$Query();
+
+  factory Lemmatised$Query.fromJson(Map<String, dynamic> json) =>
+      _$Lemmatised$QueryFromJson(json);
+
+  List<Lemmatised$Query$LemmatiserResultType?>? lemmatised;
+
+  @override
+  List<Object?> get props => [lemmatised];
+  @override
+  Map<String, dynamic> toJson() => _$Lemmatised$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -455,11 +512,11 @@ class TermArticles$Query$ConceptType$TermType$LemmaType extends JsonSerializable
           Map<String, dynamic> json) =>
       _$TermArticles$Query$ConceptType$TermType$LemmaTypeFromJson(json);
 
-  String? lemma;
+  late String lemma;
 
-  String? presentationLemma;
+  late String presentationLemma;
 
-  String? language;
+  late String language;
 
   String? pos;
 
@@ -490,7 +547,7 @@ class TermArticles$Query$ConceptType$TermType extends JsonSerializable
 
   String? status;
 
-  late TermArticles$Query$ConceptType$TermType$LemmaType expression;
+  TermArticles$Query$ConceptType$TermType$LemmaType? expression;
 
   @override
   List<Object?> get props => [note, source, status, expression];
@@ -515,7 +572,7 @@ class TermArticles$Query$ConceptType extends JsonSerializable
 
   String? explanation;
 
-  late List<TermArticles$Query$ConceptType$TermType> terms;
+  late List<TermArticles$Query$ConceptType$TermType?> terms;
 
   @override
   List<Object?> get props =>
@@ -537,63 +594,6 @@ class TermArticles$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [conceptList];
   @override
   Map<String, dynamic> toJson() => _$TermArticles$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis
-    extends JsonSerializable with EquatableMixin {
-  Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis();
-
-  factory Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis.fromJson(
-          Map<String, dynamic> json) =>
-      _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisFromJson(json);
-
-  String? analysis;
-
-  double? weight;
-
-  @override
-  List<Object?> get props => [analysis, weight];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysisToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Lemmatised$Query$LemmatiserResultType extends JsonSerializable
-    with EquatableMixin {
-  Lemmatised$Query$LemmatiserResultType();
-
-  factory Lemmatised$Query$LemmatiserResultType.fromJson(
-          Map<String, dynamic> json) =>
-      _$Lemmatised$Query$LemmatiserResultTypeFromJson(json);
-
-  String? language;
-
-  List<String?>? wordforms;
-
-  List<Lemmatised$Query$LemmatiserResultType$LemmatiserAnalysis?>? analyses;
-
-  @override
-  List<Object?> get props => [language, wordforms, analyses];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$Lemmatised$Query$LemmatiserResultTypeToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Lemmatised$Query extends JsonSerializable with EquatableMixin {
-  Lemmatised$Query();
-
-  factory Lemmatised$Query.fromJson(Map<String, dynamic> json) =>
-      _$Lemmatised$QueryFromJson(json);
-
-  List<Lemmatised$Query$LemmatiserResultType?>? lemmatised;
-
-  @override
-  List<Object?> get props => [lemmatised];
-  @override
-  Map<String, dynamic> toJson() => _$Lemmatised$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1284,6 +1284,101 @@ class DictArticlesQuery
 }
 
 @JsonSerializable(explicitToJson: true)
+class LemmatisedArguments extends JsonSerializable with EquatableMixin {
+  LemmatisedArguments({required this.lookupString});
+
+  @override
+  factory LemmatisedArguments.fromJson(Map<String, dynamic> json) =>
+      _$LemmatisedArgumentsFromJson(json);
+
+  late String lookupString;
+
+  @override
+  List<Object?> get props => [lookupString];
+  @override
+  Map<String, dynamic> toJson() => _$LemmatisedArgumentsToJson(this);
+}
+
+final LEMMATISED_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Lemmatised'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+            variable: VariableNode(name: NameNode(value: 'lookupString')),
+            type:
+                NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+            defaultValue: DefaultValueNode(value: null),
+            directives: [])
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+            name: NameNode(value: 'lemmatised'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                  name: NameNode(value: 'lookupString'),
+                  value: VariableNode(name: NameNode(value: 'lookupString')))
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                  name: NameNode(value: 'language'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: 'wordforms'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: 'analyses'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(selections: [
+                    FieldNode(
+                        name: NameNode(value: 'analysis'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
+                    FieldNode(
+                        name: NameNode(value: 'weight'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null)
+                  ]))
+            ]))
+      ]))
+]);
+
+class LemmatisedQuery
+    extends GraphQLQuery<Lemmatised$Query, LemmatisedArguments> {
+  LemmatisedQuery({required this.variables});
+
+  @override
+  final DocumentNode document = LEMMATISED_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = 'Lemmatised';
+
+  @override
+  final LemmatisedArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  Lemmatised$Query parse(Map<String, dynamic> json) =>
+      Lemmatised$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
 class TermArticlesArguments extends JsonSerializable with EquatableMixin {
   TermArticlesArguments(
       {required this.lemma, required this.srcLangs, required this.targetLangs});
@@ -1464,99 +1559,4 @@ class TermArticlesQuery
   @override
   TermArticles$Query parse(Map<String, dynamic> json) =>
       TermArticles$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class LemmatisedArguments extends JsonSerializable with EquatableMixin {
-  LemmatisedArguments({required this.lookupString});
-
-  @override
-  factory LemmatisedArguments.fromJson(Map<String, dynamic> json) =>
-      _$LemmatisedArgumentsFromJson(json);
-
-  late String lookupString;
-
-  @override
-  List<Object?> get props => [lookupString];
-  @override
-  Map<String, dynamic> toJson() => _$LemmatisedArgumentsToJson(this);
-}
-
-final LEMMATISED_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Lemmatised'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'lookupString')),
-            type:
-                NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'lemmatised'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'lookupString'),
-                  value: VariableNode(name: NameNode(value: 'lookupString')))
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'language'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'wordforms'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'analyses'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'analysis'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'weight'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ]))
-            ]))
-      ]))
-]);
-
-class LemmatisedQuery
-    extends GraphQLQuery<Lemmatised$Query, LemmatisedArguments> {
-  LemmatisedQuery({required this.variables});
-
-  @override
-  final DocumentNode document = LEMMATISED_QUERY_DOCUMENT;
-
-  @override
-  final String operationName = 'Lemmatised';
-
-  @override
-  final LemmatisedArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  Lemmatised$Query parse(Map<String, dynamic> json) =>
-      Lemmatised$Query.fromJson(json);
 }
