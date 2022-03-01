@@ -25,6 +25,10 @@ jobs:
         run: flutter config --no-analytics
       - name: Verify flutter version
         run: flutter --version
+      - name: Install keystore
+        run: echo ${{ secrets.KEYSTORE }} | base64 -d > main.jks
+      - name: Verify Keystore contents
+        run: sha1sum main.jks
       - name: Build APK
         run: flutter build apk
       - name: Upload APK artifact
