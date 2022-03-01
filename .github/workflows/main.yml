@@ -11,20 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install a JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '2.10.2'
-          channel: 'stable'
-      - name: Disable Google phone-home
-        run: flutter config --no-analytics
-      - name: Verify flutter version
-        run: flutter --version
+      # - name: Install a JDK
+      #   uses: actions/setup-java@v2
+      #   with:
+      #     distribution: 'zulu'
+      #     java-version: '11'
+      # - name: Install Flutter
+      #   uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '2.10.2'
+      #     channel: 'stable'
+      # - name: Disable Google phone-home
+      #   run: flutter config --no-analytics
+      # - name: Verify flutter version
+      #   run: flutter --version
       - name: Install keystore
         run: echo ${{ secrets.KEYSTORE }} | base64 -d > main.jks
       - name: Verify Keystore contents
@@ -33,7 +33,7 @@ jobs:
         id: pwd
         run: pwd
       - name: Debug the pwd step
-        run: echo "${{ steps.pwd }}"
+        run: echo "${{ toJSON(steps.pwd) }}"
       - name: Build APK
         run: flutter build apk
       - name: Upload APK artifact
