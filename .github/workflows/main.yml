@@ -7,7 +7,7 @@ on:
 
 jobs:
   apk_build:
-    name: Build APK
+    name: Build Android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +29,11 @@ jobs:
         run: echo ${{ secrets.KEYSTORE }} | base64 -d > main.jks
       - name: Verify Keystore contents
         run: sha1sum main.jks
+      - name: Capture working directory
+        id: pwd
+        run: pwd
+      - name: Debug the pwd step
+        run: echo "${{ steps.pwd }}"
       - name: Build APK
         run: flutter build apk
       - name: Upload APK artifact
