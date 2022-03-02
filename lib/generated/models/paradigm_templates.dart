@@ -727,5 +727,116 @@ final Map<String, dynamic> paradigmTemplates = {
         '+PrfPrc'
       ],
     }
+  },
+  'smn': {
+    'A': {
+      // name: "General adjective paradigm"
+      // morphology:
+      //   pos: A
+      //
+      // Prepend '+A' in front of the elements in the list
+      //
+      'Default': [
+        '+Attr',
+        '+Pl+Nom',
+        '+Der/Comp+A+Attr',
+        '+Der/Comp+A+Sg+Nom',
+        '+Der/Superl+A+Sg+Nom',
+      ],
+    },
+    'N': {
+      // name: "General noun paradigm"
+      // morphology:
+      //   pos: N
+      //
+      // Prepend '+N' in front of the elements in the list
+      //
+
+      'Default': [
+        '+Sg+Nom',
+        '+Sg+Acc',
+        '+Sg+Gen',
+        '+Sg+Ill',
+        '+Sg+Loc',
+        '+Sg+Com',
+        '+Sg+Abe',
+        '+Ess',
+        '+Par',
+        '+Pl+Nom',
+        '+Pl+Acc',
+        '+Pl+Gen',
+        '+Pl+Ill',
+        '+Pl+Loc',
+        '+Pl+Com',
+        '+Pl+Abe',
+      ]
+    },
+    'V': {
+      // name: "verb homonymy (plus valence)"
+      // morphology:
+      //   pos: V
+      // lexicon:
+      //   XPATH:
+      //     homonymy: ".//l/@hid"
+      //     valence: ".//l/@type"
+      //   homonymy:
+      //     - "Hom1"
+      //     - "Hom2"
+      //
+      // Prepend +{{ homonymy }}'+V' in front of the elements in the list
+      //
+      'hom': [
+        '+Ind+Prs+Sg1',
+        '+Ind+Prs+Sg2',
+        '+Ind+Prs+Sg3',
+        '+Ind+Prs+Du1',
+        '+Ind+Prs+Du2',
+        '+Ind+Prs+Du3',
+        '+Ind+Prs+Pl1',
+        '+Ind+Prs+Pl2',
+        '+Ind+Prs+Pl3',
+        '+Ind+Prt+Sg1',
+        '+Ind+Prt+Sg2',
+        '+Ind+Prt+Sg3',
+        '+Ind+Prt+Du1',
+        '+Ind+Prt+Du2',
+        '+Ind+Prt+Du3',
+        '+Ind+Prt+Pl1',
+        '+Ind+Prt+Pl2',
+        '+Ind+Prt+Pl3',
+        '+Ind+Prs+ConNeg',
+        '+Ind+Prt+ConNeg',
+        '+PrfPrc',
+      ],
+      // name: "General verb paradigm"
+      // morphology:
+      //   pos: V
+      //
+      // Prepend '+V' in front of the elements in the list
+      //
+      'Default': [
+        '+Ind+Prs+Sg1',
+        '+Ind+Prs+Sg2',
+        '+Ind+Prs+Sg3',
+        '+Ind+Prs+Du1',
+        '+Ind+Prs+Du2',
+        '+Ind+Prs+Du3',
+        '+Ind+Prs+Pl1',
+        '+Ind+Prs+Pl2',
+        '+Ind+Prs+Pl3',
+        '+Ind+Prt+Sg1',
+        '+Ind+Prt+Sg2',
+        '+Ind+Prt+Sg3',
+        '+Ind+Prt+Du1',
+        '+Ind+Prt+Du2',
+        '+Ind+Prt+Du3',
+        '+Ind+Prt+Pl1',
+        '+Ind+Prt+Pl2',
+        '+Ind+Prt+Pl3',
+        '+Ind+Prs+ConNeg',
+        '+Ind+Prt+ConNeg',
+        '+PrfPrc',
+      ]
+    }
   }
 };
