@@ -31,7 +31,7 @@ jobs:
         run: sha1sum main.jks
       - name: Capture working directory
         id: pwd
-        run: pwd
+        run: echo "::set-output name=wd::$(pwd)"
       - name: Debug the pwd step
         run: echo "${{ toJSON(steps.pwd) }}"
       - name: Build APK
