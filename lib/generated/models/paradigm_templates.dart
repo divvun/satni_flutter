@@ -1,4 +1,265 @@
 final Map<String, dynamic> paradigmTemplates = {
+  'sma': {
+    'A': {
+      // name: 'A+Ord paradigm'
+      // morphology:
+      //   pos: A
+      // lexicon:
+      //   XPATH:
+      //     ord_type: './/l/@type'
+      //   ord_type:
+      //     - 'Ord'
+      //
+      // Prepend '+A+{{ ord_type }}' to the elements in the list
+      //
+      'Ord': [
+        '+Sg+Nom',
+        '+Sg+Acc',
+        '+Sg+Gen',
+        '+Sg+Ill',
+        '+Sg+Loc',
+        '+Sg+Com',
+        '+Ess',
+        '+Pl+Nom',
+        '+Pl+Acc',
+        '+Pl+Gen',
+        '+Pl+Ill',
+        '+Pl+Loc',
+        '+Pl+Com'
+      ],
+      // name: 'adjectives'
+      // morphology:
+      //   pos: A
+      //
+      // Prepend '+A' in front of the elements in the list
+      //
+      'Default': [
+        '+Attr',
+        '+Sg+Nom',
+        '+Der/Comp+A+Attr',
+        '+Der/Comp+A+Sg+Nom',
+        '+Der/Superl+A+Sg+Nom'
+      ]
+    },
+    'N': {
+      // name: "proper place nouns - tanta pluralia"
+      // morphology:
+      //   pos: N
+      //   type: Prop
+      // lexicon:
+      //   XPATH:
+      //     sem_type: ".//l/@sem_type"
+      //     nr: ".//l/@nr"
+      //     type: ".//l/@type"
+      //   sem_type:
+      //     - "Plc"
+      //     - "Org"
+      //     - "Obj"
+      //   nr: "Pl"
+      //   type: "Prop"
+      //
+      // Prepend '+N+Prop+Sem/' first, then sem_type
+      //
+      'prop_tanta_plur': [
+        '+Pl+Gen',
+        '+Pl+Ill',
+        '+Pl+Ine',
+        '+Pl+Ela',
+      ],
+      // name: "proper nouns"
+      // morphology:
+      //   pos: N
+      //   type: Prop
+      //
+      // Prepend '+N+Prop'
+      //
+      'Prop': [
+        '+Sg+Gen',
+        '+Sg+Acc',
+        '+Sg+Ill',
+        '+Sg+Ine',
+        '+Sg+Ela',
+        '+Sg+Com',
+      ],
+      // name: 'common nouns - tanta pluralia'
+      // morphology:
+      //   pos: N
+      //   number: Pl
+      // lexicon:
+      //   XPATH:
+      //     num: './/l/@num'
+      //   num:
+      //     - 'Pl'
+      //     - 'pl'
+      //
+      // Prepend '+N' to the elements in the list
+      //
+      'plur_tanta': [
+        '+Pl+Nom',
+        '+Pl+Gen',
+        '+Pl+Acc',
+        '+Pl+Ill',
+        '+Pl+Ine',
+        'Pl+Ela',
+        '+Pl+Com',
+      ],
+      // name: "proper nouns with semantic type"
+      // morphology:
+      //   pos: N
+      //   type: Prop
+      // lexicon:
+      //   XPATH:
+      //     sem_type: ".//l/@sem_type"
+      //   sem_type:
+      //     - "Plc"
+      //     - "Org"
+      //     - "Obj"
+      //
+      // Prepend '+N+Prop+Sem/', the sem_type to the elements in the list
+      //
+      'prop_sem': [
+        '+Sg+Gen',
+        '+Sg+Ill',
+        '+Sg+Ine',
+        '+Sg+Ela',
+      ],
+      // name: 'nouns'
+      // morphology:
+      //   pos: N
+      //
+      // Prepend '+N' to the elements in the list
+      //
+      'Default': [
+        '+Sg+Nom',
+        '+Sg+Gen',
+        '+Sg+Acc',
+        '+Sg+Ill',
+        '+Sg+Ine',
+        '+Sg+Ela',
+        '+Sg+Com',
+        '+Pl+Nom',
+        '+Pl+Gen',
+        '+Pl+Acc',
+        '+Pl+Ill',
+        '+Pl+Ine',
+        '+Pl+Ela',
+        '+Pl+Com',
+        '+Ess',
+      ]
+    },
+    'Num': {
+      // name: 'numerals'
+      // morphology:
+      //   pos: Num
+      //
+      // Prepend '+Num' to the elements of the list
+      //
+      'Default': [
+        '+Sg+Nom',
+        '+Sg+Gen',
+        '+Sg+Acc',
+        '+Sg+Ill',
+        '+Sg+Ine',
+        '+Sg+Ela',
+        '+Sg+Com',
+        '+Pl+Nom',
+        '+Pl+Gen',
+        '+Pl+Acc',
+        '+Pl+Ill',
+        '+Pl+Ine',
+        '+Pl+Ela',
+        '+Pl+Com',
+        '+Ess',
+      ]
+    },
+    'V': {
+      // name: 'impersonal verbs'
+      // morphology:
+      //   pos: V
+      // lexicon:
+      //   XPATH:
+      //     context: './/l/@context'
+      //   context: 'upers'
+      //
+      // Prepend '+V' to the elements of the list
+      //
+      'impersonal': [
+        '+Ind+Prs+Sg3',
+        '+Ind+Prt+Sg3',
+        '+ConNeg',
+        '+PrfPrc',
+        '+Ger',
+        '+VGen',
+      ],
+      // name: "verb homonymy (plus valence)"
+      // morphology:
+      //   pos: V
+      // lexicon:
+      //   XPATH:
+      //     homonymy: ".//l/@hid"
+      //     valence: ".//l/@type"
+      //   homonymy:
+      //     - "Hom1"
+      //     - "Hom2"
+      //
+      // Prepend '+V' to the elements of the list
+      //
+      'verb_hom': [
+        '+Ind+Prs+Sg1',
+        '+Ind+Prs+Sg2',
+        '+Ind+Prs+Sg3',
+        '+Ind+Prs+Du1',
+        '+Ind+Prs+Du2',
+        '+Ind+Prs+Du3',
+        '+Ind+Prs+Pl1',
+        '+Ind+Prs+Pl2',
+        '+Ind+Prs+Pl3',
+        '+Ind+Prt+Sg1',
+        '+Ind+Prt+Sg2',
+        '+Ind+Prt+Sg3',
+        '+Ind+Prt+Du1',
+        '+Ind+Prt+Du2',
+        '+Ind+Prt+Du3',
+        '+Ind+Prt+Pl1',
+        '+Ind+Prt+Pl2',
+        '+Ind+Prt+Pl3',
+        '+ConNeg',
+        '+PrfPrc',
+        '+Ger',
+        '+VGen',
+      ],
+      // name: "verbs"
+      // morphology:
+      //   pos: V
+      //
+      // Prepend '+V' to the elements of the list
+      //
+      'Default': [
+        '+Ind+Prs+Sg1',
+        '+Ind+Prs+Sg2',
+        '+Ind+Prs+Sg3',
+        '+Ind+Prs+Du1',
+        '+Ind+Prs+Du2',
+        '+Ind+Prs+Du3',
+        '+Ind+Prs+Pl1',
+        '+Ind+Prs+Pl2',
+        '+Ind+Prs+Pl3',
+        '+Ind+Prt+Sg1',
+        '+Ind+Prt+Sg2',
+        '+Ind+Prt+Sg3',
+        '+Ind+Prt+Du1',
+        '+Ind+Prt+Du2',
+        '+Ind+Prt+Du3',
+        '+Ind+Prt+Pl1',
+        '+Ind+Prt+Pl2',
+        '+Ind+Prt+Pl3',
+        '+ConNeg',
+        '+PrfPrc',
+        '+Ger',
+        '+VGen',
+      ],
+    }
+  },
   'sme': {
     'A': {
       // lexicon:
