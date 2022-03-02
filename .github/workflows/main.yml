@@ -77,6 +77,6 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           packageName: ${{ env.APP_ID }}
-          releaseFiles: aab/app-release.aab
+          releaseFiles: app-release.aab
           track: internal
-          serviceAccountJson: "{}"
+          serviceAccountJson: "${{ secrets.SERVICE_ACCOUNT }}"
