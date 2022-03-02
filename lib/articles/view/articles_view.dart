@@ -111,37 +111,14 @@ class DictArticle extends StatelessWidget {
               IconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
-                    ? Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          final _language = lemma.node!.language;
-                          final _pos = lemma.node!.pos;
-
-                          final _languagePt = paradigmTemplates[_language];
-                          final _posPt = paradigmTemplates[_language][_pos];
-
-                          try {
-                            List<String> _templates =
-                                List.from(_posPt['Default'].map((template) {
-                              final String _a = template as String;
-                              final String _t = '+$_pos$_a';
-
-                              return _t;
-                            }).toList());
-                            print(_templates.runtimeType);
-                            List<String> u = List.from(_templates);
-                            print(u.runtimeType);
-                            return GeneratedPage(
-                                Arguments(
-                                  lemma.node!.presentationLemma,
-                                  lemma.node!.language,
-                                  _templates,
-                                ),
-                                Key(lemma.node!.presentationLemma));
-                          } catch (e) {
-                            return Text('list to string went wrong');
-                          }
-                        },
-                      ))
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _generated(
+                              lemma.node!.presentationLemma,
+                              lemma.node!.language,
+                              lemma.node!.pos),
+                        ))
                     : null,
                 icon: const Icon(Icons.info_outline),
               )
@@ -205,46 +182,14 @@ class DictArticle extends StatelessWidget {
               IconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
-                    ? Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          final _language = lemma.node!.language;
-                          final _pos = lemma.node!.pos;
-
-                          final _languagePt = paradigmTemplates[_language];
-                          final _posPt = paradigmTemplates[_language][_pos];
-
-                          try {
-                            List<String> _templates =
-                                List.from(_posPt['Default'].map((template) {
-                              final String _a = template as String;
-                              final String _t = '+$_pos$_a';
-
-                              return _t;
-                            }).toList());
-                            print(_templates.runtimeType);
-                            List<String> u = List.from(_templates);
-                            print(u.runtimeType);
-
-                            return GeneratedPage(
-                                Arguments(
-                                  lemma.node!.presentationLemma,
-                                  lemma.node!.language,
-                                  _templates,
-                                ),
-                                Key(lemma.node!.presentationLemma));
-                          } catch (e) {
-                            return Text('list to string went wrong');
-                          }
-
-                          // return GeneratedPage(
-                          //     Arguments(
-                          //       lemma.node!.presentationLemma,
-                          //       lemma.node!.language,
-                          //       _templates,
-                          //     ),
-                          //     Key(lemma.node!.presentationLemma));
-                        },
-                      ))
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _generated(
+                              lemma.node!.presentationLemma,
+                              lemma.node!.language,
+                              lemma.node!.pos),
+                        ))
                     : null,
                 icon: const Icon(Icons.info_outline),
               )
@@ -334,44 +279,14 @@ class TermArticle extends StatelessWidget {
               ),
               IconButton(
                 // ignore: avoid_returning_null_for_void
-                onPressed: () => Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    final _language = term.expression!.language;
-                    final _pos = term.expression!.pos;
-
-                    final _languagePt = paradigmTemplates[_language];
-                    final _posPt = paradigmTemplates[_language][_pos];
-
-                    try {
-                      List<String> _templates =
-                          List.from(_posPt['Default'].map((template) {
-                        final String _a = template as String;
-                        final String _t = '+$_pos$_a';
-
-                        return _t;
-                      }).toList());
-                      print(_templates.runtimeType);
-                      List<String> u = List.from(_templates);
-                      print(u.runtimeType);
-                      return GeneratedPage(
-                          Arguments(
-                            term.expression!.presentationLemma,
-                            term.expression!.language,
-                            _templates,
-                          ),
-                          Key(term.expression!.presentationLemma));
-                    } catch (e) {
-                      return Text('list to string went wrong');
-                    }
-                    // return GeneratedPage(
-                    //     Arguments(
-                    //       term.expression!.presentationLemma,
-                    //       term.expression!.language,
-                    //       _templates,
-                    //     ),
-                    //     Key(term.expression!.presentationLemma));
-                  },
-                )),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => _generated(
+                          term.expression!.presentationLemma,
+                          term.expression!.language,
+                          term.expression!.pos),
+                    )),
                 icon: const Icon(Icons.info_outline),
               )
             ],
@@ -379,4 +294,15 @@ class TermArticle extends StatelessWidget {
         )
         .toList();
   }
+}
+
+Widget _generated(String lemma, String language, String? pos) {
+  return GeneratedPage(
+      Arguments(
+        lemma,
+        language,
+        List<String>.from(paradigmTemplates[language][pos]['Default']
+            .map((template) => '+$pos$template')),
+      ),
+      Key(lemma));
 }
