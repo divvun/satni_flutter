@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:satni/generated/generated.dart';
+import 'package:satni/generated/models/paradigm_templates.dart';
 import 'package:satni/graphql_api.graphql.dart';
 import '../articles.dart';
 
@@ -43,9 +44,9 @@ class ArticlesView extends ConsumerWidget {
         .toList();
   }
 
-  List<Widget> _makeDicts(BuildContext context, DictArticles$Query dicts) {
-    return dicts.dictEntryList!
-        .map((dictEntry) => DictArticle(dictEntry))
+  List<Widget> _makeDicts(BuildContext context, DictArticles$Query? dicts) {
+    return dicts!.dictEntryList!
+        .map((dictEntry) => DictArticle(dictEntry!))
         .toList();
   }
 }
@@ -99,7 +100,7 @@ class DictArticle extends StatelessWidget {
           (lemma) => Row(
             children: <Widget>[
               Text(
-                '${lemma!.node!.presentationLemma}',
+                lemma!.node!.presentationLemma,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               const Spacer(),
@@ -110,17 +111,37 @@ class DictArticle extends StatelessWidget {
               IconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
-                    ? Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GeneratedPage(
-                              Arguments(
-                                lemma.node!.presentationLemma ?? 'guolli',
-                                lemma.node!.language ?? 'sme',
-                                lemma.node!.pos ?? 'N',
-                              ),
-                              Key(lemma.node!.presentationLemma ?? 'guolli')),
-                        ))
+                    ? Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          final _language = lemma.node!.language;
+                          final _pos = lemma.node!.pos;
+
+                          final _languagePt = paradigmTemplates[_language];
+                          final _posPt = _languagePt[_pos];
+
+                          try {
+                            final _templates =
+                                _posPt['Default'].map((template) {
+                              final String _a = template as String;
+                              final String _t = '+$_pos$_a';
+
+                              return _t;
+                            }).toList();
+                            print(_templates.runtimeType);
+                            List<String> u = List.from(_templates);
+                            print(u.runtimeType);
+                            return GeneratedPage(
+                                Arguments(
+                                  lemma.node!.presentationLemma,
+                                  lemma.node!.language,
+                                  u,
+                                ),
+                                Key(lemma.node!.presentationLemma));
+                          } catch (e) {
+                            return Text('list to string went wrong');
+                          }
+                        },
+                      ))
                     : null,
                 icon: const Icon(Icons.info_outline),
               )
@@ -132,10 +153,11 @@ class DictArticle extends StatelessWidget {
 
   List<Widget> _translationGroups(
       BuildContext context,
-      List<DictArticles$Query$DictEntryType$TranslationGroupType>
+      List<DictArticles$Query$DictEntryType$TranslationGroupType?>
           translationGroups) {
     return translationGroups
-        .map((translationGroup) => _translationGroup(context, translationGroup))
+        .map(
+            (translationGroup) => _translationGroup(context, translationGroup!))
         .toList();
   }
 
@@ -166,7 +188,7 @@ class DictArticle extends StatelessWidget {
           (lemma) => Row(
             children: <Widget>[
               Text(
-                '${lemma!.node!.presentationLemma}',
+                lemma!.node!.presentationLemma,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               restriction != null
@@ -183,17 +205,46 @@ class DictArticle extends StatelessWidget {
               IconButton(
                 // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
-                    ? Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GeneratedPage(
-                              Arguments(
-                                lemma.node!.presentationLemma ?? 'guolli',
-                                lemma.node!.language ?? 'sme',
-                                lemma.node!.pos ?? 'N',
-                              ),
-                              Key(lemma.node!.presentationLemma ?? 'guolli')),
-                        ))
+                    ? Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          final _language = lemma.node!.language;
+                          final _pos = lemma.node!.pos;
+
+                          final _languagePt = paradigmTemplates[_language];
+                          final _posPt = _languagePt[_pos];
+
+                          try {
+                            final _templates =
+                                _posPt['Default'].map((template) {
+                              final String _a = template as String;
+                              final String _t = '+$_pos$_a';
+
+                              return _t;
+                            }).toList();
+                            print(_templates.runtimeType);
+                            List<String> u = List.from(_templates);
+                            print(u.runtimeType);
+
+                            return GeneratedPage(
+                                Arguments(
+                                  lemma.node!.presentationLemma,
+                                  lemma.node!.language,
+                                  u,
+                                ),
+                                Key(lemma.node!.presentationLemma));
+                          } catch (e) {
+                            return Text('list to string went wrong');
+                          }
+
+                          // return GeneratedPage(
+                          //     Arguments(
+                          //       lemma.node!.presentationLemma,
+                          //       lemma.node!.language,
+                          //       _templates,
+                          //     ),
+                          //     Key(lemma.node!.presentationLemma));
+                        },
+                      ))
                     : null,
                 icon: const Icon(Icons.info_outline),
               )
@@ -257,7 +308,7 @@ class TermArticle extends StatelessWidget {
               child: Column(children: [
                 const Divider(),
                 Text(
-                  '${concept.terms[0].expression.language}',
+                  concept.terms[0]!.expression!.language,
                   style: Theme.of(context).textTheme.caption,
                 ),
                 ..._termList(context, concept.terms),
@@ -267,33 +318,59 @@ class TermArticle extends StatelessWidget {
   }
 
   List<Widget> _termList(BuildContext context,
-      List<TermArticles$Query$ConceptType$TermType> terms) {
+      List<TermArticles$Query$ConceptType$TermType?> terms) {
     return terms
         .map(
           (term) => Row(
             children: <Widget>[
               Text(
-                '${term.expression.presentationLemma}',
+                term!.expression!.presentationLemma,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               const Spacer(),
               Text(
-                '${term.expression.pos}',
+                '${term.expression!.pos}',
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               IconButton(
                 // ignore: avoid_returning_null_for_void
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GeneratedPage(
+                onPressed: () => Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    final _language = term.expression!.language;
+                    final _pos = term.expression!.pos;
+
+                    final _languagePt = paradigmTemplates[_language];
+                    final _posPt = _languagePt[_pos];
+
+                    try {
+                      final _templates = _posPt['Default'].map((template) {
+                        final String _a = template as String;
+                        final String _t = '+$_pos$_a';
+
+                        return _t;
+                      }).toList();
+                      print(_templates.runtimeType);
+                      List<String> u = List.from(_templates);
+                      print(u.runtimeType);
+                      return GeneratedPage(
                           Arguments(
-                            term.expression.presentationLemma ?? 'guolli',
-                            term.expression.language ?? 'sme',
-                            term.expression.pos ?? 'N',
+                            term.expression!.presentationLemma,
+                            term.expression!.language,
+                            u,
                           ),
-                          Key(term.expression.presentationLemma ?? 'guolli')),
-                    )),
+                          Key(term.expression!.presentationLemma));
+                    } catch (e) {
+                      return Text('list to string went wrong');
+                    }
+                    // return GeneratedPage(
+                    //     Arguments(
+                    //       term.expression!.presentationLemma,
+                    //       term.expression!.language,
+                    //       _templates,
+                    //     ),
+                    //     Key(term.expression!.presentationLemma));
+                  },
+                )),
                 icon: const Icon(Icons.info_outline),
               )
             ],

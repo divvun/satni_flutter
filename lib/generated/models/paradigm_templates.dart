@@ -135,7 +135,7 @@ final Map<String, dynamic> paradigmTemplates = {
       //
       // Prepend '+N' to the elements in the list
       //
-      'default': [
+      'Default': [
         "+Sg+Nom",
         "+Sg+Acc",
         "+Sg+Gen",
@@ -287,7 +287,7 @@ final Map<String, dynamic> paradigmTemplates = {
       //
       // Prepend '+Num' to the elements of the list
       //
-      'default': [
+      'Default': [
         "+Sg+Nom",
         "+Sg+Acc",
         "+Sg+Gen",
@@ -442,7 +442,7 @@ final Map<String, dynamic> paradigmTemplates = {
       //
       // Prepend '+V' to the elements of the list
       //
-      'default': [
+      'Default': [
         "+Ind+Prs+Sg1",
         "+Ind+Prs+Sg2",
         "+Ind+Prs+Sg3",

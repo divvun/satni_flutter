@@ -25,13 +25,13 @@ class LemmatisedView extends ConsumerWidget {
 
   List<Widget> _lemmatised(BuildContext context, Lemmatised$Query lemmatised) {
     return lemmatised.lemmatised!
-        .where((element) => element!.wordforms!.isNotEmpty)
+        .where((element) => element!.wordforms.isNotEmpty)
         .map((languageResult) => Column(
               children: [
-                Text('${languageResult!.language}'),
-                Text(languageResult.wordforms!.join(", ")),
-                Text(languageResult.analyses!
-                    .map((aResult) => '${aResult!.analysis}')
+                Text(languageResult!.language),
+                Text(languageResult.wordforms.join(", ")),
+                Text(languageResult.analyses
+                    .map((aResult) => aResult!.analysis)
                     .toList()
                     .join('\n')),
               ],
