@@ -79,4 +79,4 @@ jobs:
           packageName: ${{ env.APP_ID }}
           releaseFiles: app-release.aab
           track: internal
-          serviceAccountJson: "${{ secrets.SERVICE_ACCOUNT }}"
+          serviceAccountJsonPlainText: "${{ secrets.SERVICE_ACCOUNT }}"
