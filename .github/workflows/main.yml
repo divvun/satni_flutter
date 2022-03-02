@@ -78,7 +78,7 @@ jobs:
 
   ios_build:
     name: Build iOS
-    runs-on: macso-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install Flutter
