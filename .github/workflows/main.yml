@@ -5,8 +5,11 @@ on:
       - master
       - dev-ci-*
 
+env:
+  APP_ID: "divvun.org.satni"
+
 jobs:
-  apk_build:
+  android_build:
     name: Build Android
     runs-on: ubuntu-latest
     env:
@@ -56,3 +59,24 @@ jobs:
         with:
           name: aab
           path: build/app/outputs/bundle/release/app-release.aab
+
+  android_push:
+    name: Deploy Android
+    needs:
+      - android_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download the AAB
+        uses: actions/download-artifact@v2
+        with:
+          name: aab
+      - name: DEBUG echo file structure
+        run: ls -R aab
+      - name: Push the AAB to Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          packageName: ${{ env.APP_ID }}
+          releaseFiles: aab/app-release.aab
+          track: internal
+          serviceAccountJson: "{}"
