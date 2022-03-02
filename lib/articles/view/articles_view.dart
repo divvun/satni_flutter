@@ -117,16 +117,16 @@ class DictArticle extends StatelessWidget {
                           final _pos = lemma.node!.pos;
 
                           final _languagePt = paradigmTemplates[_language];
-                          final _posPt = _languagePt[_pos];
+                          final _posPt = paradigmTemplates[_language][_pos];
 
                           try {
-                            final _templates =
-                                _posPt['Default'].map((template) {
+                            List<String> _templates =
+                                List.from(_posPt['Default'].map((template) {
                               final String _a = template as String;
                               final String _t = '+$_pos$_a';
 
                               return _t;
-                            }).toList();
+                            }).toList());
                             print(_templates.runtimeType);
                             List<String> u = List.from(_templates);
                             print(u.runtimeType);
@@ -134,7 +134,7 @@ class DictArticle extends StatelessWidget {
                                 Arguments(
                                   lemma.node!.presentationLemma,
                                   lemma.node!.language,
-                                  u,
+                                  _templates,
                                 ),
                                 Key(lemma.node!.presentationLemma));
                           } catch (e) {
@@ -211,16 +211,16 @@ class DictArticle extends StatelessWidget {
                           final _pos = lemma.node!.pos;
 
                           final _languagePt = paradigmTemplates[_language];
-                          final _posPt = _languagePt[_pos];
+                          final _posPt = paradigmTemplates[_language][_pos];
 
                           try {
-                            final _templates =
-                                _posPt['Default'].map((template) {
+                            List<String> _templates =
+                                List.from(_posPt['Default'].map((template) {
                               final String _a = template as String;
                               final String _t = '+$_pos$_a';
 
                               return _t;
-                            }).toList();
+                            }).toList());
                             print(_templates.runtimeType);
                             List<String> u = List.from(_templates);
                             print(u.runtimeType);
@@ -229,7 +229,7 @@ class DictArticle extends StatelessWidget {
                                 Arguments(
                                   lemma.node!.presentationLemma,
                                   lemma.node!.language,
-                                  u,
+                                  _templates,
                                 ),
                                 Key(lemma.node!.presentationLemma));
                           } catch (e) {
@@ -340,15 +340,16 @@ class TermArticle extends StatelessWidget {
                     final _pos = term.expression!.pos;
 
                     final _languagePt = paradigmTemplates[_language];
-                    final _posPt = _languagePt[_pos];
+                    final _posPt = paradigmTemplates[_language][_pos];
 
                     try {
-                      final _templates = _posPt['Default'].map((template) {
+                      List<String> _templates =
+                          List.from(_posPt['Default'].map((template) {
                         final String _a = template as String;
                         final String _t = '+$_pos$_a';
 
                         return _t;
-                      }).toList();
+                      }).toList());
                       print(_templates.runtimeType);
                       List<String> u = List.from(_templates);
                       print(u.runtimeType);
@@ -356,7 +357,7 @@ class TermArticle extends StatelessWidget {
                           Arguments(
                             term.expression!.presentationLemma,
                             term.expression!.language,
-                            u,
+                            _templates,
                           ),
                           Key(term.expression!.presentationLemma));
                     } catch (e) {
