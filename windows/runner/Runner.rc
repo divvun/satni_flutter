@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "satni_flutter2" "\0"
+            VALUE "CompanyName", "divvun.org" "\0"
+            VALUE "FileDescription", "satni" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "satni_flutter2" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "satni_flutter2.exe" "\0"
-            VALUE "ProductName", "satni_flutter2" "\0"
+            VALUE "InternalName", "satni" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 divvun.org. All rights reserved." "\0"
+            VALUE "OriginalFilename", "satni.exe" "\0"
+            VALUE "ProductName", "satni" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

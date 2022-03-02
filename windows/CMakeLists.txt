@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(satni_flutter2 LANGUAGES CXX)
+project(satni LANGUAGES CXX)
 
-set(BINARY_NAME "satni_flutter2")
+set(BINARY_NAME "satni")
 
 cmake_policy(SET CMP0063 NEW)
 

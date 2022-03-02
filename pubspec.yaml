@@ -1,7 +1,7 @@
-name: satni_flutter
-description: A new Flutter project.
+name: satni
+description: Sámi dictionary and terminology app
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 0.1.0+1
 
 environment:
   sdk: ">=2.16.0 <3.0.0"

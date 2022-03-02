@@ -1,4 +1,4 @@
-# satni_flutter2
+# satni
 
 A new Flutter project.
 

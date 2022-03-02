@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni_flutter/search/search.dart';
+import 'package:satni/search/search.dart';
 
 void main() {
   runApp(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:satni_flutter/graphql_api.graphql.dart';
+import 'package:satni/graphql_api.graphql.dart';
 import '../generated.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

@@ -1,4 +1,4 @@
-import 'package:satni_flutter/graphql_api.dart';
+import 'package:satni/graphql_api.dart';
 
 class Articles {
   final Map<String, List<TermArticles$Query$ConceptType>> terms;

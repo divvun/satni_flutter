@@ -1,6 +1,6 @@
 {
-    "name": "satni_flutter2",
-    "short_name": "satni_flutter2",
+    "name": "satni",
+    "short_name": "satni",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

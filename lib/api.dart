@@ -1,5 +1,5 @@
-import 'package:satni_flutter/graphql_api.dart';
-import 'package:satni_flutter/graphql_provider.dart';
+import 'package:satni/graphql_api.dart';
+import 'package:satni/graphql_provider.dart';
 import 'package:graphql/client.dart';
 
 Future<Map<String, List<TermArticles$Query$ConceptType>>> getTerms(

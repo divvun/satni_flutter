@@ -1,4 +1,4 @@
-package com.example.satni_flutter2
+package divvun.org.satni
 
 import io.flutter.embedding.android.FlutterActivity
 

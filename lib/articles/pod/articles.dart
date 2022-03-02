@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni_flutter/api.dart';
-import 'package:satni_flutter/filter/models/filter.dart';
-import 'package:satni_flutter/filter/pod/filter.dart';
+import 'package:satni/api.dart';
+import 'package:satni/filter/models/filter.dart';
+import 'package:satni/filter/pod/filter.dart';
 
 import '../models/articles.dart';
 
