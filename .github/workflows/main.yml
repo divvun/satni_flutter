@@ -17,11 +17,6 @@ jobs:
       version_code: ${{ github.run_number }}
     steps:
       - uses: actions/checkout@v2
-      - name: Install a JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -80,3 +75,24 @@ jobs:
           track: internal
           status: draft
           serviceAccountJsonPlainText: "${{ secrets.SERVICE_ACCOUNT }}"
+
+  ios_build:
+    name: Build iOS
+    runs-on: macso-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.2'
+          channel: 'stable'
+      - name: Disable Google phone-home
+        run: flutter config --no-analytics
+      - name: Verify flutter version
+        run: flutter --version
+      - name: DEBUG get iOS build options
+        run: flutter help build ios
+      - name: Build iOS app
+        run: flutter build ios --release --no-codesign
+      - name: List build directory; have to find artefacts
+        run: ls -al
