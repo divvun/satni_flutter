@@ -1,12 +1,12 @@
-query Generated(
+    query Generated(
     $origform: String!
     $language: String!
-    $partOfSpeech: String!
+    $paradigmTemplates: [String]!
 ) {
     generated(
         origform: $origform
         language: $language
-        partOfSpeech: $partOfSpeech
+        paradigmTemplates: $paradigmTemplates
     ) {
         paradigmTemplate
         analyses {

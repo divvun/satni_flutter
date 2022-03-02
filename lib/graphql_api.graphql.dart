@@ -890,7 +890,7 @@ class GeneratedArguments extends JsonSerializable with EquatableMixin {
   GeneratedArguments(
       {required this.origform,
       required this.language,
-      required this.partOfSpeech});
+      required this.paradigmTemplates});
 
   @override
   factory GeneratedArguments.fromJson(Map<String, dynamic> json) =>
@@ -900,10 +900,10 @@ class GeneratedArguments extends JsonSerializable with EquatableMixin {
 
   late String language;
 
-  late String partOfSpeech;
+  late List<String?> paradigmTemplates;
 
   @override
-  List<Object?> get props => [origform, language, partOfSpeech];
+  List<Object?> get props => [origform, language, paradigmTemplates];
   @override
   Map<String, dynamic> toJson() => _$GeneratedArgumentsToJson(this);
 }
@@ -926,9 +926,11 @@ final GENERATED_QUERY_DOCUMENT = DocumentNode(definitions: [
             defaultValue: DefaultValueNode(value: null),
             directives: []),
         VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'partOfSpeech')),
-            type:
-                NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+            variable: VariableNode(name: NameNode(value: 'paradigmTemplates')),
+            type: ListTypeNode(
+                type: NamedTypeNode(
+                    name: NameNode(value: 'String'), isNonNull: false),
+                isNonNull: true),
             defaultValue: DefaultValueNode(value: null),
             directives: [])
       ],
@@ -945,8 +947,9 @@ final GENERATED_QUERY_DOCUMENT = DocumentNode(definitions: [
                   name: NameNode(value: 'language'),
                   value: VariableNode(name: NameNode(value: 'language'))),
               ArgumentNode(
-                  name: NameNode(value: 'partOfSpeech'),
-                  value: VariableNode(name: NameNode(value: 'partOfSpeech')))
+                  name: NameNode(value: 'paradigmTemplates'),
+                  value:
+                      VariableNode(name: NameNode(value: 'paradigmTemplates')))
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [

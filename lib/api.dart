@@ -76,14 +76,15 @@ Future<AllLemmas$Query> getStems(
   return AllLemmas$Query.fromJson(result.data ?? {'stemList': []});
 }
 
-Future<Generated$Query> getGenerated(origform, language, partOfSpeech) async {
+Future<Generated$Query> getGenerated(
+    origform, language, paradigmTemplates) async {
   final result = await client.query(
     QueryOptions(
       document: GENERATED_QUERY_DOCUMENT,
       variables: GeneratedArguments(
               origform: origform,
               language: language,
-              partOfSpeech: partOfSpeech)
+              paradigmTemplates: paradigmTemplates)
           .toJson(),
     ),
   );

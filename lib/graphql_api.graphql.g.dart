@@ -564,14 +564,16 @@ GeneratedArguments _$GeneratedArgumentsFromJson(Map<String, dynamic> json) =>
     GeneratedArguments(
       origform: json['origform'] as String,
       language: json['language'] as String,
-      partOfSpeech: json['partOfSpeech'] as String,
+      paradigmTemplates: (json['paradigmTemplates'] as List<dynamic>)
+          .map((e) => e as String?)
+          .toList(),
     );
 
 Map<String, dynamic> _$GeneratedArgumentsToJson(GeneratedArguments instance) =>
     <String, dynamic>{
       'origform': instance.origform,
       'language': instance.language,
-      'partOfSpeech': instance.partOfSpeech,
+      'paradigmTemplates': instance.paradigmTemplates,
     };
 
 DictArticlesArguments _$DictArticlesArgumentsFromJson(

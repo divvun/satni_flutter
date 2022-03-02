@@ -1,7 +1,7 @@
 class Arguments {
-  Arguments(this.origform, this.language, this.partOfSpeech);
+  Arguments(this.origform, this.language, this.paradigmTemplates);
 
   final String origform;
   final String language;
-  final String partOfSpeech;
+  final List<String> paradigmTemplates;
 }
