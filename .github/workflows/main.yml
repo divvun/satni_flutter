@@ -9,6 +9,8 @@ jobs:
   apk_build:
     name: Build Android
     runs-on: ubuntu-latest
+    env:
+      keystore: main.jks
     steps:
       - uses: actions/checkout@v2
       # - name: Install a JDK
@@ -26,14 +28,24 @@ jobs:
       # - name: Verify flutter version
       #   run: flutter --version
       - name: Install keystore
-        run: echo ${{ secrets.KEYSTORE }} | base64 -d > main.jks
+        run: echo ${{ secrets.KEYSTORE }} | base64 -d > ${{ env.keystore }}
       - name: Verify Keystore contents
         run: sha1sum main.jks
       - name: Capture working directory
         id: pwd
         run: echo "::set-output name=wd::$(pwd)"
+      - name: Inject key information
+        env:
+          KSK: ${{ secrets.KEYSTORE_KEY }}
+          WD: ${{ steps.pwd.outputs.wd }}
+          KS: ${{ env.keystore }}
+        run: |
+          sed -e "s|c5b6486b-091e-42cd-a253-2f62f06ac970|$KSK|g" -E -i android/key.properties
+          sed -e "s|eed0bb70-0e0e-466a-afeb-16c49c9c22de|$WD/$KS|g" -E -i android/key.properties
       - name: Debug the pwd step
         run: echo "${{ toJSON(steps.pwd) }}"
+      - name: Verify non-secret part of key.properties
+        run: tail -n1 android/key.properties
       - name: Build APK
         run: flutter build apk
       - name: Upload APK artifact
