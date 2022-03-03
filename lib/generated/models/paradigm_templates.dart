@@ -1130,5 +1130,131 @@ final Map<String, dynamic> paradigmTemplates = {
         '+PrfPrc',
       ]
     }
+  },
+  'nob': {
+    'V': {
+      // name: "verbs"
+      // morphology:
+      //   pos: V
+      //
+      'Default': [
+        '+Imp',
+        '+Ind+Prs',
+        '+Ind+Prt',
+        '+PrfPtc',
+      ]
+    }
+  },
+  'fin': {
+    'A': {
+      // name: "adjectives"
+      // morphology:
+      //   pos: A
+      //
+      // Prepend '+A' to the elements of the list
+      //
+      'Default': [
+        '+Sg+Nom',
+        '+Sg+Gen',
+        '+Sg+Par',
+        '+Sg+Ine',
+        '+Sg+Ill',
+        '+Sg+Ela',
+        '+Sg+Ade',
+        '+Sg+All',
+        '+Sg+Abl',
+        '+Sg+Ess',
+        '+Sg+Tra',
+        '+Sg+Ins',
+        '+Sg+Com',
+        '+Pl+Nom',
+        '+Pl+Gen',
+        '+Pl+Par',
+        '+Pl+Ine',
+        '+Pl+Ill',
+        '+Pl+Ela',
+        '+Pl+Ade',
+        '+Pl+All',
+        '+Pl+Abl',
+        '+Pl+Ess',
+        '+Pl+Tra',
+        '+Pl+Ins',
+        '+Pl+Com',
+        '+Comp+Sg+Nom',
+        '+Comp+Sg+Gen',
+        '+Comp+Sg+Ill',
+        '+Comp+Pl+Nom',
+        '+Comp+Pl+Gen',
+        '+Comp+Pl+Ill',
+        '+Superl+Sg+Nom',
+        '+Superl+Sg+Gen',
+        '+Superl+Sg+Ill',
+        '+Superl+Pl+Nom',
+        '+Superl+Pl+Gen',
+        '+Superl+Pl+Ill',
+      ],
+    },
+    'N': {
+      // name: "common nouns"
+      // morphology:
+      //   pos: N
+      //
+      // Prepend '+N' to the elements of the list
+      //
+      'Default': [
+        '+Sg+Nom',
+        '+Sg+Gen',
+        '+Sg+Par',
+        '+Sg+Ine',
+        '+Sg+Ill',
+        '+Sg+Ela',
+        '+Sg+Ade',
+        '+Sg+Abe',
+        '+Sg+All',
+        '+Sg+Abl',
+        '+Sg+Ess',
+        '+Sg+Tra',
+        '+Sg+Ins',
+        '+Sg+Com',
+        '+Pl+Nom',
+        '+Pl+Gen',
+        '+Pl+Par',
+        '+Pl+Ine',
+        '+Pl+Ill',
+        '+Pl+Ela',
+        '+Pl+Ade',
+        '+Pl+Abe',
+        '+Pl+All',
+        '+Pl+Abl',
+        '+Pl+Ess',
+        '+Pl+Tra',
+        '+Pl+Ins',
+        '+Pl+Com',
+      ],
+    },
+    'V': {
+      // name: "verbs"
+      // morphology:
+      //   pos: V
+      //
+      // Prepend '+V' to the elements of the list
+      //
+      'Default': [
+        '+Act+Ind+Prs+Sg1',
+        '+Act+Ind+Prs+Sg2',
+        '+Act+Ind+Prs+Sg3',
+        '+Act+Ind+Prs+Pl1',
+        '+Act+Ind+Prs+Pl2',
+        '+Act+Ind+Prs+Pl3',
+        '+Act+Ind+Prt+Sg1',
+        '+Act+Ind+Prt+Sg2',
+        '+Act+Ind+Prt+Sg3',
+        '+Act+Ind+Prt+Pl1',
+        '+Act+Ind+Prt+Pl2',
+        '+Act+Ind+Prt+Pl3',
+        '+Ind+Prs+ConNeg',
+        '+PrfPrc',
+      ],
+    },
   }
 };
