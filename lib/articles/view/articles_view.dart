@@ -109,7 +109,6 @@ class DictArticle extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               IconButton(
-                // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
                     ? Navigator.push(
                         context,
@@ -180,7 +179,6 @@ class DictArticle extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               IconButton(
-                // ignore: avoid_returning_null_for_void
                 onPressed: () => lemma.node != null
                     ? Navigator.push(
                         context,
@@ -278,7 +276,6 @@ class TermArticle extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               IconButton(
-                // ignore: avoid_returning_null_for_void
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
