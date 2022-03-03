@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       keystore: main.jks
-      version_code: ${{ github.run_number }}+${{ github.run_attempt }}
+      version_code: ${{ github.run_number }}
     steps:
       - uses: actions/checkout@v2
       - name: Install a JDK
