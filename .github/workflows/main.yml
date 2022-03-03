@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       keystore: main.jks
+      version_code: ${{ github.run_number }}+${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v2
       - name: Install a JDK
@@ -46,14 +47,14 @@ jobs:
           sed -e "s|c5b6486b-091e-42cd-a253-2f62f06ac970|$KSK|g" -E -i android/key.properties
           sed -e "s|eed0bb70-0e0e-466a-afeb-16c49c9c22de|$WD/$KS|g" -E -i android/key.properties
       - name: Build APK
-        run: flutter build apk
+        run: flutter build apk --build-number "${{ env.version_code }}"
       - name: Upload APK artifact
         uses: actions/upload-artifact@v2
         with:
           name: apk
           path: build/app/outputs/flutter-apk/app-release.apk
       - name: Build AAB
-        run: flutter build appbundle
+        run: flutter build appbundle --build-number "${{ env.version_code }}"
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v2
         with:
