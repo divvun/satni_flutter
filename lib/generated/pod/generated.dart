@@ -9,6 +9,6 @@ import '../generated.dart';
 final generatedProvider =
     FutureProvider.family<Generated$Query, Arguments>((ref, arguments) async {
   final generated = await getGenerated(
-      arguments.origform, arguments.language, arguments.paradigmTemplates);
+      arguments.origform, arguments.language, arguments.pos);
   return generated;
 });

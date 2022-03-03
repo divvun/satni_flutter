@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:satni/generated/models/paradigm_templates.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.graphql.dart';
@@ -20,14 +21,49 @@ class GeneratedView extends ConsumerWidget {
         data: (generated) => ListView(
               children: [
                 ListTile(title: Text(g2m(generated).toString())),
-                ..._generated(context, generated)
+                ..._generated(context, arguments, generated)
               ],
             ),
         error: (_, __) => const Text('Oops, generation went awry'));
   }
 
-  List<Widget> _generated(BuildContext context, Generated$Query generated) {
+  List<Widget> _generated(
+      BuildContext context, Arguments arguments, Generated$Query generated) {
     final m = g2m(generated);
+    if (paradigmTemplates.keys.contains(arguments.language)) {
+      if (arguments.language == 'sme') {
+        if (arguments.pos == 'N') {
+          return _smeNounDefaultGenerated(m);
+        }
+        if (arguments.pos == 'V') {
+          return _smeVerbDefaultGenerated(m);
+        }
+        if (arguments.pos == 'A') {
+          return _smeAdjectiveDefaultGenerated(m);
+        }
+        if (arguments.pos == 'Adv') {
+          return _smeAdverbDefaultGenerated(m);
+        }
+        return [];
+      }
+      if (arguments.language == 'sma') {
+        if (arguments.pos == 'N') {
+          return _smaNounDefaultGenerated(m);
+        }
+        if (arguments.pos == 'V') {
+          return _smaVerbDefaultGenerated(m);
+        }
+        if (arguments.pos == 'A') {
+          return _smaAdjectiveDefaultGenerated(m);
+        }
+        return [];
+      }
+    }
+
+    return [];
+  }
+
+  List<Widget> _smeNounDefaultGenerated(Map<String, String> m) {
     return [
       ...['Nom', 'Acc', 'Gen', 'Ill', 'Loc', 'Com'].map(
         (nounCase) => Row(
@@ -45,9 +81,9 @@ class GeneratedView extends ConsumerWidget {
     ];
   }
 
-  List<Widget> _smeNounDefaultGenerated(Map<String, String> m) {
+  List<Widget> _smaNounDefaultGenerated(Map<String, String> m) {
     return [
-      ...['Nom', 'Acc', 'Gen', 'Ill', 'Loc', 'Com'].map(
+      ...['Nom', 'Acc', 'Gen', 'Ill', 'Ine', 'Ela', 'Com'].map(
         (nounCase) => Row(
           children: [
             Expanded(child: Text(nounCase)),
@@ -86,18 +122,51 @@ class GeneratedView extends ConsumerWidget {
       Row(
         children: [
           const Expanded(child: Text('Attr, Comp')),
-          Expanded(child: Text(m['+Der/Comp+A+Attr'] ?? '')),
+          Expanded(child: Text(m['+A+Der/Comp+A+Attr'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('Sg, Nom, Comp')),
-          Expanded(child: Text(m['+Der/Comp+A+Sg+Nom'] ?? '')),
+          Expanded(child: Text(m['+A+Der/Comp+A+Sg+Nom'] ?? '')),
         ],
       ),
       Row(children: [
         const Expanded(child: Text('Pl, Nom, Comp')),
-        Expanded(child: Text(m['+Der/Comp+A+Pl+Nom'] ?? '')),
+        Expanded(child: Text(m['+A+Der/Superl+A+Sg+Nom'] ?? '')),
+      ])
+    ];
+  }
+
+  List<Widget> _smaAdjectiveDefaultGenerated(Map<String, String> m) {
+    return [
+      Row(
+        children: [
+          const Expanded(child: Text('Attr')),
+          Expanded(child: Text(m['+A+Attr'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('Sg, Nom')),
+          Expanded(child: Text(m['+A+Sg+Nom'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('Attr, Comp')),
+          Expanded(child: Text(m['+A+Der/Comp+A+Attr'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('Sg, Nom, Comp')),
+          Expanded(child: Text(m['+A+Der/Comp+A+Sg+Nom'] ?? '')),
+        ],
+      ),
+      Row(children: [
+        const Expanded(child: Text('Pl, Nom, Comp')),
+        Expanded(child: Text(m['+A+Der/Superl+A+Sg+Nom'] ?? '')),
       ])
     ];
   }
@@ -130,82 +199,174 @@ class GeneratedView extends ConsumerWidget {
       Row(
         children: [
           const Expanded(child: Text('mun')),
-          Expanded(child: Text(m['V+Ind+Prs+Sg1'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Sg1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg1'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('don')),
-          Expanded(child: Text(m['V+Ind+Prs+Sg2'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Sg2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg2'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('son')),
-          Expanded(child: Text(m['V+Ind+Prs+Sg3'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Sg3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg3'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('moai')),
-          Expanded(child: Text(m['V+Ind+Prs+Du1'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Du1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du1'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('doai')),
-          Expanded(child: Text(m['V+Ind+Prs+Du2'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Du2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du2'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('soai')),
-          Expanded(child: Text(m['V+Ind+Prs+Du3'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Du3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du3'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('mii')),
-          Expanded(child: Text(m['V+Ind+Prs+Pl1'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Pl1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl1'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('dii')),
-          Expanded(child: Text(m['V+Ind+Prs+Pl2'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Pl2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl2'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('dii')),
-          Expanded(child: Text(m['V+Ind+Prs+Pl3'] ?? '')),
-          Expanded(child: Text(m['V+Ind+Prt+Pl3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl3'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('odne in')),
-          Expanded(child: Text(m['V+Ind+Prs+ConNeg'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prs+ConNeg'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('ikte in')),
-          Expanded(child: Text(m['V+Ind+Prt+ConNeg'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+ConNeg'] ?? '')),
         ],
       ),
       Row(
         children: [
           const Expanded(child: Text('lean')),
           Expanded(child: Text(m['+V+PrfPrc'] ?? '')),
+        ],
+      ),
+    ];
+  }
+
+  List<Widget> _smaVerbDefaultGenerated(Map<String, String> m) {
+    return [
+      Row(
+        children: [
+          const Expanded(child: Text('manne')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg1'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('datne')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg2'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('dïhte')),
+          Expanded(child: Text(m['+V+Ind+Prs+Sg3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Sg3'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('månnoeh')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du1'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('dåtnoeh')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du2'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('dah guaktah')),
+          Expanded(child: Text(m['+V+Ind+Prs+Du3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Du3'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('mijjieh')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl1'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl1'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('dijjieh')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl2'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl2'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('dah')),
+          Expanded(child: Text(m['+V+Ind+Prs+Pl3'] ?? '')),
+          Expanded(child: Text(m['+V+Ind+Prt+Pl3'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('ij')),
+          Expanded(child: Text(m['+V+ConNeg'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('lea')),
+          Expanded(child: Text(m['+V+PrfPrc'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('lea')),
+          Expanded(child: Text(m['+V+Ger'] ?? '')),
+        ],
+      ),
+      Row(
+        children: [
+          const Expanded(child: Text('')),
+          Expanded(child: Text(m['+V+VGen'] ?? '')),
         ],
       ),
     ];

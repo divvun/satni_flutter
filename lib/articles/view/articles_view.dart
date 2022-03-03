@@ -298,8 +298,7 @@ Widget _generated(String lemma, String language, String? pos) {
       Arguments(
         lemma,
         language,
-        List<String>.from(paradigmTemplates[language][pos]['Default']
-            .map((template) => '+$pos$template')),
+        pos ?? 'N',
       ),
       Key(lemma));
 }
