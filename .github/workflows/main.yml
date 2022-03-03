@@ -93,6 +93,6 @@ jobs:
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app
-        run: flutter build ios --no-codesign
+        run: flutter build ios
       - name: List build directory; have to find artefacts
         run: ls -al
