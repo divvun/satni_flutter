@@ -72,12 +72,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: aab
-      - name: DEBUG echo file structure
-        run: ls -R
       - name: Push the AAB to Google Play
         uses: r0adkll/upload-google-play@v1
         with:
           packageName: ${{ env.APP_ID }}
           releaseFiles: app-release.aab
           track: internal
+          status: draft
           serviceAccountJsonPlainText: "${{ secrets.SERVICE_ACCOUNT }}"
