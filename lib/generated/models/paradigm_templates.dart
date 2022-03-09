@@ -42,110 +42,43 @@ final Map<String, dynamic> paradigmTemplates = {
       ]
     },
     'N': {
-      // name: "proper place nouns - tanta pluralia"
-      // morphology:
-      //   pos: N
-      //   type: Prop
-      // lexicon:
-      //   XPATH:
-      //     sem_type: ".//l/@sem_type"
-      //     nr: ".//l/@nr"
-      //     type: ".//l/@type"
-      //   sem_type:
-      //     - "Plc"
-      //     - "Org"
-      //     - "Obj"
-      //   nr: "Pl"
-      //   type: "Prop"
-      //
-      // Prepend '+N+Prop+Sem/' first, then sem_type
-      //
-      'prop_tanta_plur': [
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Ine',
-        '+Pl+Ela',
-      ],
-      // name: "proper nouns"
-      // morphology:
-      //   pos: N
-      //   type: Prop
-      //
-      // Prepend '+N+Prop'
-      //
-      'Prop': [
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Ine',
-        '+Sg+Ela',
-        '+Sg+Com',
-      ],
-      // name: 'common nouns - tanta pluralia'
-      // morphology:
-      //   pos: N
-      //   number: Pl
-      // lexicon:
-      //   XPATH:
-      //     num: './/l/@num'
-      //   num:
-      //     - 'Pl'
-      //     - 'pl'
-      //
-      // Prepend '+N' to the elements in the list
-      //
-      'plur_tanta': [
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Ine',
-        'Pl+Ela',
-        '+Pl+Com',
-      ],
-      // name: "proper nouns with semantic type"
-      // morphology:
-      //   pos: N
-      //   type: Prop
-      // lexicon:
-      //   XPATH:
-      //     sem_type: ".//l/@sem_type"
-      //   sem_type:
-      //     - "Plc"
-      //     - "Org"
-      //     - "Obj"
-      //
-      // Prepend '+N+Prop+Sem/', the sem_type to the elements in the list
-      //
-      'prop_sem': [
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Ine',
-        '+Sg+Ela',
-      ],
-      // name: 'nouns'
-      // morphology:
-      //   pos: N
-      //
-      // Prepend '+N' to the elements in the list
-      //
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Ine',
-        '+Sg+Ela',
-        '+Sg+Com',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Ine',
-        '+Pl+Ela',
-        '+Pl+Com',
-        '+Ess',
-      ]
+      'Default': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+          },
+          {
+            'name': 'Ine',
+            'paradigms': ['+N+Sg+Ine', '+N+Pl+Ine'],
+          },
+          {
+            'name': 'Ela',
+            'paradigms': ['+N+Sg+Ela', '+N+Pl+Ela'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Sg+Com', '+N+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
+        ]
+      },
     },
     'Num': {
       // name: 'numerals'
@@ -333,66 +266,6 @@ final Map<String, dynamic> paradigmTemplates = {
       ]
     },
     'N': {
-      // morphology:
-      // pos: N
-      // noun_type:
-      //   - 'Coll'
-      //
-      // Prepend '+N+Coll' to the elements in the list
-      //
-      'Coll': ['+Sg+Nom', '+Sg+Acc', '+Sg+Ill', '+Sg+Loc', '+Sg+Com', '+Ess'],
-      // name: 'Noun+G3, Noun+G7, Noun+NomAg paradigms'
-      // morphology:
-      //   pos: N
-      // lexicon:
-      //   XPATH:
-      //     nom_type: './/l/@type'
-      //   nom_type:
-      //     - 'G3'
-      //     - 'G7'
-      //     - 'NomAg'
-      //
-      // Prepend '+N+{{ nom_type }}' to the elements in the list
-      //
-      'nom_type': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
-      // name: 'Nouns without illative plural paradigm'
-      // description: |
-      //   Remove illative plural when the lexicon contains illpl='no'
-      //   ex.) eahketroađđi
-      // morphology:
-      //   pos: N
-      // lexicon:
-      //   XPATH:
-      //     illpl: './/l/@illpl'
-      //     lex_pos: './/l/@pos'
-      //   illpl: 'no'
-      //   lex_pos: 'N'
-      //
-      // Prepend '+N' to the elements in the list
-      //
-      'illpl': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess'
-      ],
       'Default': {
         'header': ['', 'Sg', 'Pl'],
         'rows': [
@@ -426,138 +299,6 @@ final Map<String, dynamic> paradigmTemplates = {
           },
         ]
       },
-      // name: 'Common noun pluralia tanta'
-      // morphology:
-      //   pos: N
-      //   number: Pl
-      // lexicon:
-      //   XPATH:
-      //     nr: './/l/@nr'
-      //     lex_pos: './/l/@pos'
-      //   nr:
-      //     - 'Pl'
-      //     - 'pl'
-      //   lex_pos: 'N'
-      //
-      // Prepend '+N' to the elements in the list
-      //
-      'plur_tanta': [
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Ess'
-      ],
-      // name: 'Proper nouns tanta pluralia'
-      // morphology:
-      //   pos: 'N'
-      //   type: 'Prop'
-      //   number: 'Pl'
-      //   semantics:
-      //     - 'Sem/Plc'
-      //     - 'Sem/Obj'
-      // lexicon:
-      //   XPATH:
-      //     type: './/l/@type'
-      //     nr: './/l/@nr'
-      //     sem_type: './/l/@sem_type'
-      //   type: 'Prop'
-      //   nr:
-      //     - 'Pl'
-      //     - 'pl'
-      //
-      // Prepend '+N+Prop' first, then sem_type, semantics, or nothing
-      //
-      // Original template
-      // {% if sem_type %}
-      // {{ lemma }}+N+Prop+{{ sem_type }}+Pl+Gen
-      // {{ lemma }}+N+Prop+{{ sem_type }}+Pl+Loc
-      // {{ lemma }}+N+Prop+{{ sem_type }}+Pl+Ill
-      // {% elif semantics %}
-      // {{ lemma }}+N+Prop+{{ semantics }}+Pl+Gen
-      // {{ lemma }}+N+Prop+{{ semantics }}+Pl+Loc
-      // {{ lemma }}+N+Prop+{{ semantics }}+Pl+Ill
-      // {% else %}
-      // {{ lemma }}+N+Prop+Pl+Gen
-      // {{ lemma }}+N+Prop+Pl+Loc
-      // {{ lemma }}+N+Prop+Pl+Ill
-      // {% endif %}
-      'prop_tanta_plur': ['+Pl+Gen', '+Pl+Loc', '+Pl+Ill'],
-      // name: 'Proper person nouns'
-      // description: 'Generates a paradigm for proper nouns.'
-      // morphology:
-      //   pos: N
-      // lexicon:
-      //   XPATH:
-      //     sem_type: './/l/@sem_type'
-      //     type: './/l/@type'
-      //   type: Prop
-      //   sem_type:
-      //     - 'mal'
-      //     - 'Mal'
-      //     - 'fem'
-      //     - 'Fem'
-      //     - 'Ani'
-      //     - 'ani'
-      //
-      // Prepend '+N+Prop' first, then followed, according to type, +Sem/{{ capitalised type}}
-      //
-      'prop_person': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Loc',
-        '+Sg+Ill',
-        '+Sg+Com',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Loc',
-        '+Pl+Ill',
-        '+Pl+Com',
-        '+Ess'
-      ],
-
-      // lexicon:
-      //   XPATH:
-      //     sem_type: './/l/@sem_type'
-      //     type: './/l/@type'
-      //   type: Prop
-      //   sem_type:
-      //     - 'Org'
-      //     - 'org'
-      // Prepend '+N+Prop' first then according to type, add +Sem/{{ capitalised type}}
-      //
-      //
-      // Add '+N+Prop+Sem/Org
-      //
-      'prop_org': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Loc',
-        '+Sg+Ill',
-        '+Sg+Com'
-      ],
-
-      // name: 'Proper place nouns'
-      // description: 'Generates a paradigm for proper nouns.'
-      // morphology:
-      //   pos: N
-      // lexicon:
-      //   XPATH:
-      //     sem_type: './/l/@sem_type'
-      //     type: './/l/@type'
-      //   type: Prop
-      //   sem_type:
-      //     - 'Plc'
-      //     - 'plc'
-      //
-      //
-      // Prepend '+N+Prop+Sem/Plc' to the elements of the list
-      //
-      'prop_place': ['+Sg+Gen', '+Sg+Loc', '+Sg+Ill']
     },
     'Num': {
       //
@@ -804,25 +545,46 @@ final Map<String, dynamic> paradigmTemplates = {
     },
     'N': {
       'Default': {
-        [
-          '+Sg+Nom',
-          '+Pl+Nom',
-          '+Sg+Acc',
-          '+Pl+Acc',
-          '+Sg+Gen',
-          '+Pl+Gen',
-          '+Sg+Ill',
-          '+Pl+Ill',
-          '+Sg+Ine',
-          '+Pl+Ine',
-          '+Sg+Ela',
-          '+Pl+Ela',
-          '+Sg+Com',
-          '+Pl+Com',
-          '+Abe',
-          '+Ess'
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+          },
+          {
+            'name': 'Ine',
+            'paradigms': ['+N+Sg+Ine', '+N+Pl+Ine'],
+          },
+          {
+            'name': 'Ela',
+            'paradigms': ['+N+Sg+Ela', '+N+Pl+Ela'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Sg+Com', '+N+Pl+Com'],
+          },
+          {
+            'name': 'Abe',
+            'paradigms': ['+N+Abe'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
         ]
-      }
+      },
     },
     'V': {
       'Default': {
@@ -866,31 +628,47 @@ final Map<String, dynamic> paradigmTemplates = {
       ],
     },
     'N': {
-      // name: "General noun paradigm"
-      // morphology:
-      //   pos: N
-      //
-      // Prepend '+N' in front of the elements in the list
-      //
-
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Sg+Abe',
-        '+Ess',
-        '+Par',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Pl+Abe',
-      ]
+      'Default': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Sg+Loc', '+N+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Sg+Com', '+N+Pl+Com'],
+          },
+          {
+            'name': 'Abe',
+            'paradigms': ['+N+Sg+Abe', '+N+Pl+Abe'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
+          {
+            'name': 'Par',
+            'paradigms': ['+N+Par'],
+          },
+        ]
+      },
     },
     'V': {
       // name: "verb homonymy (plus valence)"
@@ -1023,147 +801,47 @@ final Map<String, dynamic> paradigmTemplates = {
       ],
     },
     'N': {
-      // name: "Noun+NomAg paradigms"
-      // morphology:
-      //   pos: N
-      // lexicon:
-      //   XPATH:
-      //     nom_type: ".//l/@type"
-      //   nom_type:
-      //     - "NomAg"
-      //
-      // Prepend '+N+{{ nom_type }}' in front of the elements in the list
-      //
-      'nomag': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Sg+Abe',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Pl+Abe',
-        '+Ess',
-        '+Par',
-      ],
-      // name: "nouns"
-      // morphology:
-      //   pos:
-      //     - N
-      // lexicon:
-      //   XPATH:
-      //     homonymy: ".//l/@hid"
-      //   homonymy:
-      //     - "Hom1"
-      //     - "Hom2"
-      //
-      // Prepend '+{{ nom_type }}+N' in front of the elements in the list
-      //
-      'hom': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Sg+Abe',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Pl+Abe',
-        '+Ess',
-        '+Par',
-      ],
-      // name: "Proper nouns tanta pluralia"
-      // morphology:
-      //   pos: "N"
-      //   noun_type: "Prop"
-      //   number: "Pl"
-      //   semantics:
-      //     - "Sem/Plc"
-      //     - "Sem/Obj"
-      // lexicon:
-      //   XPATH:
-      //     type: ".//l/@type"
-      //     nr: ".//l/@nr"
-      //     sem_type: ".//l/@sem_type"
-      //   type: "Prop"
-      //   nr:
-      //     - "Pl"
-      //     - "pl"
-      //
-      // Prepend '+N+Prop' first, then sem_type, semantics, or nothing
-      //
-      'prop_tanta_plur': [
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Abe',
-      ],
-      // name: "proper nouns"
-      // morphology:
-      //   pos: N
-      //   noun_type: Prop
-      //
-      // Prepend '+N+Prop'
-      //
-      'prop': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Abe',
-        '+Der/Dim+N+Sg+Nom',
-        '+Der/Dim+N+Sg+Gen',
-        '+Der/Dim+N+Sg+Ill',
-      ],
-      // name: "nouns"
-      // morphology:
-      //   pos:
-      //     - N
-      //
-      // Prepend '+N' in front of the elements in the list
-      //
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Sg+Abe',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Pl+Abe',
-        '+Ess',
-        '+Par',
-        '+Der/Dimin+N+Sg+Nom',
-        '+Der/Dimin+N+Sg+Ill',
-        '+Der/Dimin+N+Pl+Nom',
-        '+Der/Dimin+N+Pl+Acc',
-        '+Sg+Loc+PxSg1',
-        '+Ess+PxSg1',
-        '+Sg+Loc+PxSg3',
-        '+Ess+PxSg3',
-        '+Sg+Loc+PxPl1',
-        '+Ess+PxPl1',
-      ],
+      'Default': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Sg+Loc', '+N+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Sg+Com', '+N+Pl+Com'],
+          },
+          {
+            'name': 'Abe',
+            'paradigms': ['+N+Sg+Abe', '+N+Pl+Abe'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
+          {
+            'name': 'Par',
+            'paradigms': ['+N+Par'],
+          },
+        ]
+      },
     },
     'Num': {
       // name: "numerals"
@@ -1316,42 +994,71 @@ final Map<String, dynamic> paradigmTemplates = {
       ],
     },
     'N': {
-      // name: "common nouns"
-      // morphology:
-      //   pos: N
-      //
-      // Prepend '+N' to the elements of the list
-      //
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Par',
-        '+Sg+Ine',
-        '+Sg+Ill',
-        '+Sg+Ela',
-        '+Sg+Ade',
-        '+Sg+Abe',
-        '+Sg+All',
-        '+Sg+Abl',
-        '+Sg+Ess',
-        '+Sg+Tra',
-        '+Sg+Ins',
-        '+Sg+Com',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Par',
-        '+Pl+Ine',
-        '+Pl+Ill',
-        '+Pl+Ela',
-        '+Pl+Ade',
-        '+Pl+Abe',
-        '+Pl+All',
-        '+Pl+Abl',
-        '+Pl+Ess',
-        '+Pl+Tra',
-        '+Pl+Ins',
-        '+Pl+Com',
-      ],
+      'Default': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+          },
+          {
+            'name': 'Par',
+            'paradigms': ['+N+Sg+Par', '+N+Pl+Par'],
+          },
+          {
+            'name': 'Ine',
+            'paradigms': ['+N+Sg+Ine', '+N+Pl+Ine'],
+          },
+          {
+            'name': 'Ela',
+            'paradigms': ['+N+Sg+Ela', '+N+Pl+Ela'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+          },
+          {
+            'name': 'Ade',
+            'paradigms': ['+N+Sg+Ade', '+N+Pl+Ade'],
+          },
+          {
+            'name': 'Abl',
+            'paradigms': ['+N+Sg+Abl', '+N+Pl+Abl'],
+          },
+          {
+            'name': 'All',
+            'paradigms': ['+N+Sg+All', '+N+Pl+All'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Sg+Ess', '+N+Pl+Ess'],
+          },
+          {
+            'name': 'Tra',
+            'paradigms': ['+N+Sg+Tra', '+N+Pl+Tra'],
+          },
+          {
+            'name': 'Ins',
+            'paradigms': ['+N+Sg+Ins', '+N+Pl+Ins'],
+          },
+          {
+            'name': 'Abe',
+            'paradigms': ['+N+Sg+Abe', '+N+Pl+Abe'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Com'],
+          },
+        ]
+      },
     },
     'V': {
       // name: "verbs"
