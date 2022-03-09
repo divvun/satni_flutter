@@ -90,6 +90,14 @@ jobs:
         run: flutter config --no-analytics
       - name: Verify flutter version
         run: flutter --version
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.5'
+      - name: "Fastlane: Get certs and profiles"
+        uses: maierj/fastlane-action@v2.2.0
+        with:
+          lane: "match_distribution"
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app
