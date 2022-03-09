@@ -1,45 +1,135 @@
 final Map<String, dynamic> paradigmTemplates = {
   'sma': {
     'A': {
-      // name: 'A+Ord paradigm'
-      // morphology:
-      //   pos: A
-      // lexicon:
-      //   XPATH:
-      //     ord_type: './/l/@type'
-      //   ord_type:
-      //     - 'Ord'
-      //
-      // Prepend '+A+{{ ord_type }}' to the elements in the list
-      //
-      'Ord': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
-      // name: 'adjectives'
-      // morphology:
-      //   pos: A
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Default': [
-        '+Attr',
-        '+Sg+Nom',
-        '+Der/Comp+A+Attr',
-        '+Der/Comp+A+Sg+Nom',
-        '+Der/Superl+A+Sg+Nom'
-      ]
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+              '+A+Der/Comp+A+Attr',
+              '+A+Der/Superl+A+Attr'
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+              '+A+Der/Comp+A+Sg+Nom',
+              '+A+Der/Superl+A+Sg+Nom'
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+              '+A+Der/Comp+A+Pl+Nom',
+              '+A+Der/Superl+A+Pl+Nom'
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Sg+Acc',
+              '+A+Der/Comp+A+Sg+Acc',
+              '+A+Der/Superl+A+Sg+Acc'
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Pl+Acc',
+              '+A+Der/Comp+A+Pl+Acc',
+              '+A+Der/Superl+A+Pl+Acc'
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Sg+Gen',
+              '+A+Der/Comp+A+Sg+Gen',
+              '+A+Der/Superl+A+Sg+Gen'
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Pl+Gen',
+              '+A+Der/Comp+A+Pl+Gen',
+              '+A+Der/Superl+A+Pl+Gen'
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Sg+Ill',
+              '+A+Der/Comp+A+Sg+Ill',
+              '+A+Der/Superl+A+Sg+Ill'
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Pl+Ill',
+              '+A+Der/Comp+A+Pl+Ill',
+              '+A+Der/Superl+A+Pl+Ill'
+            ],
+          },
+          {
+            'name': 'Sg/Ine',
+            'paradigms': [
+              '+A+Sg+Ine',
+              '+A+Der/Comp+A+Sg+Ine',
+              '+A+Der/Superl+A+Sg+Ine'
+            ],
+          },
+          {
+            'name': 'Pl/Ine',
+            'paradigms': [
+              '+A+Pl+Ine',
+              '+A+Der/Comp+A+Pl+Ine',
+              '+A+Der/Superl+A+Pl+Ine'
+            ],
+          },
+          {
+            'name': 'Sg/Ela',
+            'paradigms': [
+              '+A+Sg+Ela',
+              '+A+Der/Comp+A+Sg+Ela',
+              '+A+Der/Superl+A+Sg+Ela'
+            ],
+          },
+          {
+            'name': 'Pl/Ela',
+            'paradigms': [
+              '+A+Pl+Ela',
+              '+A+Der/Comp+A+Pl+Ela',
+              '+A+Der/Superl+A+Pl+Ela'
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Sg+Com',
+              '+A+Der/Comp+A+Sg+Com',
+              '+A+Der/Superl+A+Sg+Com'
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Pl+Com',
+              '+A+Der/Comp+A+Pl+Com',
+              '+A+Der/Superl+A+Pl+Com'
+            ],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
+          },
+        ]
+      },
     },
     'N': {
       'Default': {
@@ -81,7 +171,7 @@ final Map<String, dynamic> paradigmTemplates = {
       },
     },
     'Num': {
-      // name: 'numerals'
+      // 'name': 'numerals'
       // morphology:
       //   pos: Num
       //
@@ -163,65 +253,119 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'sme': {
     'A': {
-      // lexicon:
-      // XPATH:
-      //   ord_type: './/l/@type'
-      // ord_type:
-      //   - 'Ord'
-      //
-      // Prepend '+A+{{ ord_type }}' to the elements in the list
-      //
-      'Ord': [
-        '+Attr',
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
-      // lexicon:
-      // XPATH:
-      //   context: './/l/@paradigme'
-      // context:
-      //   - 'cases'
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Cases': [
-        '+Attr',
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Default': [
-        '+Attr',
-        '+Sg+Nom',
-        '+Pl+Nom',
-        '+Der/Comp+A+Attr',
-        '+Der/Comp+A+Sg+Nom',
-        '+Der/Superl+A+Sg+Nom'
-      ]
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+              '+A+Der/Comp+A+Attr',
+              '+A+Der/Superl+A+Attr'
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+              '+A+Der/Comp+A+Sg+Nom',
+              '+A+Der/Superl+A+Sg+Nom'
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+              '+A+Der/Comp+A+Pl+Nom',
+              '+A+Der/Superl+A+Pl+Nom'
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Sg+Acc',
+              '+A+Der/Comp+A+Sg+Acc',
+              '+A+Der/Superl+A+Sg+Acc'
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Pl+Acc',
+              '+A+Der/Comp+A+Pl+Acc',
+              '+A+Der/Superl+A+Pl+Acc'
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Sg+Gen',
+              '+A+Der/Comp+A+Sg+Gen',
+              '+A+Der/Superl+A+Sg+Gen'
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Pl+Gen',
+              '+A+Der/Comp+A+Pl+Gen',
+              '+A+Der/Superl+A+Pl+Gen'
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Sg+Ill',
+              '+A+Der/Comp+A+Sg+Ill',
+              '+A+Der/Superl+A+Sg+Ill'
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Pl+Ill',
+              '+A+Der/Comp+A+Pl+Ill',
+              '+A+Der/Superl+A+Pl+Ill'
+            ],
+          },
+          {
+            'name': 'Sg/Loc',
+            'paradigms': [
+              '+A+Sg+Loc',
+              '+A+Der/Comp+A+Sg+Loc',
+              '+A+Der/Superl+A+Sg+Loc'
+            ],
+          },
+          {
+            'name': 'Pl/Loc',
+            'paradigms': [
+              '+A+Pl+Loc',
+              '+A+Der/Comp+A+Pl+Loc',
+              '+A+Der/Superl+A+Pl+Loc'
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Sg+Com',
+              '+A+Der/Comp+A+Sg+Com',
+              '+A+Der/Superl+A+Sg+Com'
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Pl+Com',
+              '+A+Der/Comp+A+Pl+Com',
+              '+A+Der/Superl+A+Pl+Com'
+            ],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
+          },
+        ]
+      }
     },
     'Adv': {
       //
@@ -289,7 +433,7 @@ final Map<String, dynamic> paradigmTemplates = {
       ]
     },
     'Pron': {
-      // name: 'Pronoun dem paradigm'
+      // 'name': 'Pronoun dem paradigm'
       // morphology:
       //   pos: Pron
       //   pron_type: Dem
@@ -395,62 +539,151 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'smj': {
     'A': {
-      'Default': [
-        'A+Attr',
-        'A+Der/Comp+A+Attr',
-        'A+Der/Superl+A+Attr',
-        'A+Sg+Nom',
-        'A+Der/Comp+A+Sg+Nom',
-        'A+Der/Superl+A+Sg+Nom',
-        'A+Pl+Nom',
-        'A+Der/Comp+A+Pl+Nom',
-        'A+Der/Superl+A+Pl+Nom',
-        'A+Sg+Acc',
-        'A+Der/Comp+A+Sg+Acc',
-        'A+Der/Superl+A+Sg+Acc',
-        'A+Pl+Acc',
-        'A+Der/Comp+A+Pl+Acc',
-        'A+Der/Superl+A+Pl+Acc',
-        'A+Sg+Gen',
-        'A+Der/Comp+A+Sg+Gen',
-        'A+Der/Superl+A+Sg+Gen',
-        'A+Pl+Gen',
-        'A+Der/Comp+A+Pl+Gen',
-        'A+Der/Superl+A+Pl+Gen',
-        'A+Sg+Ill',
-        'A+Der/Comp+A+Sg+Ill',
-        'A+Der/Superl+A+Sg+Ill',
-        'A+Pl+Ill',
-        'A+Der/Comp+A+Pl+Ill',
-        'A+Der/Superl+A+Pl+Ill',
-        'A+Sg+Ine',
-        'A+Der/Comp+A+Sg+Ine',
-        'A+Der/Superl+A+Sg+Ine',
-        'A+Pl+Ine',
-        'A+Der/Comp+A+Pl+Ine',
-        'A+Der/Superl+A+Pl+Ine',
-        'A+Sg+Ela',
-        'A+Der/Comp+A+Sg+Ela',
-        'A+Der/Superl+A+Sg+Ela',
-        'A+Pl+Ela',
-        'A+Der/Comp+A+Pl+Ela',
-        'A+Der/Superl+A+Pl+Ela',
-        'A+Sg+Com',
-        'A+Der/Comp+A+Sg+Com',
-        'A+Der/Superl+A+Sg+Com',
-        'A+Pl+Com',
-        'A+Der/Comp+A+Pl+Com',
-        'A+Der/Superl+A+Pl+Com',
-        'A+Sg+Abe',
-        'A+Der/Comp+A+Sg+Abe',
-        'A+Der/Superl+A+Sg+Abe',
-        'A+Pl+Abe',
-        'A+Der/Comp+A+Pl+Abe',
-        'A+Der/Superl+A+Pl+Abe',
-        'A+Ess',
-        'A+Der/Comp+A+Ess',
-        'A+Der/Superl+A+Ess'
-      ],
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+              '+A+Der/Comp+A+Attr',
+              '+A+Der/Superl+A+Attr'
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+              '+A+Der/Comp+A+Sg+Nom',
+              '+A+Der/Superl+A+Sg+Nom'
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+              '+A+Der/Comp+A+Pl+Nom',
+              '+A+Der/Superl+A+Pl+Nom'
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Sg+Acc',
+              '+A+Der/Comp+A+Sg+Acc',
+              '+A+Der/Superl+A+Sg+Acc'
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Pl+Acc',
+              '+A+Der/Comp+A+Pl+Acc',
+              '+A+Der/Superl+A+Pl+Acc'
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Sg+Gen',
+              '+A+Der/Comp+A+Sg+Gen',
+              '+A+Der/Superl+A+Sg+Gen'
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Pl+Gen',
+              '+A+Der/Comp+A+Pl+Gen',
+              '+A+Der/Superl+A+Pl+Gen'
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Sg+Ill',
+              '+A+Der/Comp+A+Sg+Ill',
+              '+A+Der/Superl+A+Sg+Ill'
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Pl+Ill',
+              '+A+Der/Comp+A+Pl+Ill',
+              '+A+Der/Superl+A+Pl+Ill'
+            ],
+          },
+          {
+            'name': 'Sg/Ine',
+            'paradigms': [
+              '+A+Sg+Ine',
+              '+A+Der/Comp+A+Sg+Ine',
+              '+A+Der/Superl+A+Sg+Ine'
+            ],
+          },
+          {
+            'name': 'Pl/Ine',
+            'paradigms': [
+              '+A+Pl+Ine',
+              '+A+Der/Comp+A+Pl+Ine',
+              '+A+Der/Superl+A+Pl+Ine'
+            ],
+          },
+          {
+            'name': 'Sg/Ela',
+            'paradigms': [
+              '+A+Sg+Ela',
+              '+A+Der/Comp+A+Sg+Ela',
+              '+A+Der/Superl+A+Sg+Ela'
+            ],
+          },
+          {
+            'name': 'Pl/Ela',
+            'paradigms': [
+              '+A+Pl+Ela',
+              '+A+Der/Comp+A+Pl+Ela',
+              '+A+Der/Superl+A+Pl+Ela'
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Sg+Com',
+              '+A+Der/Comp+A+Sg+Com',
+              '+A+Der/Superl+A+Sg+Com'
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Pl+Com',
+              '+A+Der/Comp+A+Pl+Com',
+              '+A+Der/Superl+A+Pl+Com'
+            ],
+          },
+          {
+            'name': 'Sg/Abe',
+            'paradigms': [
+              '+A+Sg+Abe',
+              '+A+Der/Comp+A+Sg+Abe',
+              '+A+Der/Superl+A+Sg+Abe'
+            ],
+          },
+          {
+            'name': 'Pl/Abe',
+            'paradigms': [
+              '+A+Pl+Abe',
+              '+A+Der/Comp+A+Pl+Abe',
+              '+A+Der/Superl+A+Pl+Abe'
+            ],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
+          },
+        ]
+      },
     },
     'N': {
       'Default': {
@@ -553,19 +786,139 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'smn': {
     'A': {
-      // name: "General adjective paradigm"
-      // morphology:
-      //   pos: A
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Default': [
-        '+Attr',
-        '+Pl+Nom',
-        '+Der/Comp+A+Attr',
-        '+Der/Comp+A+Sg+Nom',
-        '+Der/Superl+A+Sg+Nom',
-      ],
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+              '+A+Der/Comp+A+Attr',
+              '+A+Der/Superl+A+Attr'
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+              '+A+Der/Comp+A+Sg+Nom',
+              '+A+Der/Superl+A+Sg+Nom'
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+              '+A+Der/Comp+A+Pl+Nom',
+              '+A+Der/Superl+A+Pl+Nom'
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Sg+Acc',
+              '+A+Der/Comp+A+Sg+Acc',
+              '+A+Der/Superl+A+Sg+Acc'
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Pl+Acc',
+              '+A+Der/Comp+A+Pl+Acc',
+              '+A+Der/Superl+A+Pl+Acc'
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Sg+Gen',
+              '+A+Der/Comp+A+Sg+Gen',
+              '+A+Der/Superl+A+Sg+Gen'
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Pl+Gen',
+              '+A+Der/Comp+A+Pl+Gen',
+              '+A+Der/Superl+A+Pl+Gen'
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Sg+Ill',
+              '+A+Der/Comp+A+Sg+Ill',
+              '+A+Der/Superl+A+Sg+Ill'
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Pl+Ill',
+              '+A+Der/Comp+A+Pl+Ill',
+              '+A+Der/Superl+A+Pl+Ill'
+            ],
+          },
+          {
+            'name': 'Sg/Ine',
+            'paradigms': [
+              '+A+Sg+Ine',
+              '+A+Der/Comp+A+Sg+Ine',
+              '+A+Der/Superl+A+Sg+Ine'
+            ],
+          },
+          {
+            'name': 'Pl/Ine',
+            'paradigms': [
+              '+A+Pl+Ine',
+              '+A+Der/Comp+A+Pl+Ine',
+              '+A+Der/Superl+A+Pl+Ine'
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Sg+Com',
+              '+A+Der/Comp+A+Sg+Com',
+              '+A+Der/Superl+A+Sg+Com'
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Pl+Com',
+              '+A+Der/Comp+A+Pl+Com',
+              '+A+Der/Superl+A+Pl+Com'
+            ],
+          },
+          {
+            'name': 'Sg/Abe',
+            'paradigms': [
+              '+A+Sg+Abe',
+              '+A+Der/Comp+A+Sg+Abe',
+              '+A+Der/Superl+A+Sg+Abe'
+            ],
+          },
+          {
+            'name': 'Pl/Abe',
+            'paradigms': [
+              '+A+Pl+Abe',
+              '+A+Der/Comp+A+Pl+Abe',
+              '+A+Der/Superl+A+Pl+Abe'
+            ],
+          },
+          {
+            'name': 'Par',
+            'paradigms': ['+A+Par', '+A+Der/Comp+A+Par', '+A+Der/Superl+A+Par'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
+          },
+        ]
+      }
     },
     'N': {
       'Default': {
@@ -668,65 +1021,79 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'sms': {
     'A': {
-      // name: "adjectives"
-      // morphology:
-      //   pos:
-      //     - A
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Default': [
-        '+Attr',
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Sg+Abe',
-        '+Ess',
-        '+Par',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Pl+Abe',
-        '+Comp+Sg+Nom',
-        '+Comp+Sg+Gen',
-        '+Comp+Sg+Acc',
-        '+Comp+Sg+Ill',
-        '+Comp+Sg+Loc',
-        '+Comp+Sg+Com',
-        '+Comp+Sg+Abe',
-        '+Comp+Ess',
-        '+Comp+Par',
-        '+Comp+Pl+Nom',
-        '+Comp+Pl+Gen',
-        '+Comp+Pl+Acc',
-        '+Comp+Pl+Ill',
-        '+Comp+Pl+Loc',
-        '+Comp+Pl+Com',
-        '+Comp+Pl+Abe',
-        '+Superl+Sg+Nom',
-        '+Superl+Sg+Gen',
-        '+Superl+Sg+Acc',
-        '+Superl+Sg+Ill',
-        '+Superl+Sg+Loc',
-        '+Superl+Sg+Com',
-        '+Superl+Sg+Abe',
-        '+Superl+Ess',
-        '+Superl+Par',
-        '+Superl+Pl+Nom',
-        '+Superl+Pl+Gen',
-        '+Superl+Pl+Acc',
-        '+Superl+Pl+Ill',
-        '+Superl+Pl+Loc',
-        '+Superl+Pl+Com',
-        '+Superl+Pl+Abe',
-        '+Der/vuõtt+N+Sg+Nom',
-      ],
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': ['+A+Attr', '+A+Comp+Attr', '+A+Superl+Attr'],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': ['+A+Sg+Nom', '+A+Comp+Sg+Nom', '+A+Superl+Sg+Nom'],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': ['+A+Pl+Nom', '+A+Comp+Pl+Nom', '+A+Superl+Pl+Nom'],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': ['+A+Sg+Acc', '+A+Comp+Sg+Acc', '+A+Superl+Sg+Acc'],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': ['+A+Pl+Acc', '+A+Comp+Pl+Acc', '+A+Superl+Pl+Acc'],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': ['+A+Sg+Gen', '+A+Comp+Sg+Gen', '+A+Superl+Sg+Gen'],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': ['+A+Pl+Gen', '+A+Comp+Pl+Gen', '+A+Superl+Pl+Gen'],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': ['+A+Sg+Ill', '+A+Comp+Sg+Ill', '+A+Superl+Sg+Ill'],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': ['+A+Pl+Ill', '+A+Comp+Pl+Ill', '+A+Superl+Pl+Ill'],
+          },
+          {
+            'name': 'Sg/Loc',
+            'paradigms': ['+A+Sg+Loc', '+A+Comp+Sg+Loc', '+A+Superl+Sg+Loc'],
+          },
+          {
+            'name': 'Pl/Loc',
+            'paradigms': ['+A+Pl+Loc', '+A+Comp+Pl+Loc', '+A+Superl+Pl+Loc'],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': ['+A+Sg+Com', '+A+Comp+Sg+Com', '+A+Superl+Sg+Com'],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': ['+A+Pl+Com', '+A+Comp+Pl+Com', '+A+Superl+Pl+Com'],
+          },
+          {
+            'name': 'Sg/Abe',
+            'paradigms': ['+A+Sg+Abe', '+A+Comp+Sg+Abe', '+A+Superl+Sg+Abe'],
+          },
+          {
+            'name': 'Pl/Abe',
+            'paradigms': ['+A+Pl+Abe', '+A+Comp+Pl+Abe', '+A+Superl+Pl+Abe'],
+          },
+          {
+            'name': 'Par',
+            'paradigms': ['+A+Par', '+A+Comp+Par', '+A+Superl+Par'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+A+Ess', '+A+Comp+Ess', '+A+Superl+Ess'],
+          },
+        ],
+      }
     },
     'N': {
       'Default': {
@@ -772,7 +1139,7 @@ final Map<String, dynamic> paradigmTemplates = {
       },
     },
     'Num': {
-      // name: "numerals"
+      // 'name': "numerals"
       // morphology:
       //   pos:
       //     - Num
@@ -799,7 +1166,7 @@ final Map<String, dynamic> paradigmTemplates = {
       ],
     },
     'Pron': {
-      // name: "personal pronouns"
+      // 'name': "personal pronouns"
       // morphology:
       //   pos: Pron
       //   number:
@@ -875,6 +1242,17 @@ final Map<String, dynamic> paradigmTemplates = {
     }
   },
   'nob': {
+    'A': {
+      'Default': {
+        'header': ['', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': '',
+            'paradigms': ['+A+Comp+Indef', '+A+Superl+Indef']
+          }
+        ]
+      }
+    },
     'V': {
       'Default': {
         'header': ['', 'Inf', 'Prs', 'Prt', 'PrfPrc', 'Imp'],
@@ -895,52 +1273,119 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'fin': {
     'A': {
-      // name: "adjectives"
-      // morphology:
-      //   pos: A
-      //
-      // Prepend '+A' to the elements of the list
-      //
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Gen',
-        '+Sg+Par',
-        '+Sg+Ine',
-        '+Sg+Ill',
-        '+Sg+Ela',
-        '+Sg+Ade',
-        '+Sg+All',
-        '+Sg+Abl',
-        '+Sg+Ess',
-        '+Sg+Tra',
-        '+Sg+Ins',
-        '+Sg+Com',
-        '+Pl+Nom',
-        '+Pl+Gen',
-        '+Pl+Par',
-        '+Pl+Ine',
-        '+Pl+Ill',
-        '+Pl+Ela',
-        '+Pl+Ade',
-        '+Pl+All',
-        '+Pl+Abl',
-        '+Pl+Ess',
-        '+Pl+Tra',
-        '+Pl+Ins',
-        '+Pl+Com',
-        '+Comp+Sg+Nom',
-        '+Comp+Sg+Gen',
-        '+Comp+Sg+Ill',
-        '+Comp+Pl+Nom',
-        '+Comp+Pl+Gen',
-        '+Comp+Pl+Ill',
-        '+Superl+Sg+Nom',
-        '+Superl+Sg+Gen',
-        '+Superl+Sg+Ill',
-        '+Superl+Pl+Nom',
-        '+Superl+Pl+Gen',
-        '+Superl+Pl+Ill',
-      ],
+      'Default': {
+        'header': ['', 'Pos', 'Comp' 'Sup'],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': ['+A+Attr', '+A+Comp+Attr', '+A+Superl+Attr'],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': ['+A+Sg+Nom', '+A+Comp+Sg+Nom', '+A+Superl+Sg+Nom'],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': ['+A+Pl+Nom', '+A+Comp+Pl+Nom', '+A+Superl+Pl+Nom'],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': ['+A+Sg+Gen', '+A+Comp+Sg+Gen', '+A+Superl+Sg+Gen'],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': ['+A+Pl+Gen', '+A+Comp+Pl+Gen', '+A+Superl+Pl+Gen'],
+          },
+          {
+            'name': 'Sg/Par',
+            'paradigms': ['+A+Sg+Par', '+A+Comp+Sg+Par', '+A+Superl+Sg+Par'],
+          },
+          {
+            'name': 'Pl/Par',
+            'paradigms': ['+A+Pl+Par', '+A+Comp+Pl+Par', '+A+Superl+Pl+Par'],
+          },
+          {
+            'name': 'Sg/All',
+            'paradigms': ['+A+Sg+All', '+A+Comp+Sg+All', '+A+Superl+Sg+All'],
+          },
+          {
+            'name': 'Pl/All',
+            'paradigms': ['+A+Pl+All', '+A+Comp+Pl+All', '+A+Superl+Pl+All'],
+          },
+          {
+            'name': 'Sg/Abl',
+            'paradigms': ['+A+Sg+Abl', '+A+Comp+Sg+Abl', '+A+Superl+Sg+Abl'],
+          },
+          {
+            'name': 'Pl/Abl',
+            'paradigms': ['+A+Pl+Abl', '+A+Comp+Pl+Abl', '+A+Superl+Pl+Abl'],
+          },
+          {
+            'name': 'Sg/Ade',
+            'paradigms': ['+A+Sg+Ade', '+A+Comp+Sg+Ade', '+A+Superl+Sg+Ade'],
+          },
+          {
+            'name': 'Pl/Ade',
+            'paradigms': ['+A+Pl+Ade', '+A+Comp+Pl+Ade', '+A+Superl+Pl+Ade'],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': ['+A+Sg+Ill', '+A+Comp+Sg+Ill', '+A+Superl+Sg+Ill'],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': ['+A+Pl+Ill', '+A+Comp+Pl+Ill', '+A+Superl+Pl+Ill'],
+          },
+          {
+            'name': 'Sg/Ine',
+            'paradigms': ['+A+Sg+Ine', '+A+Comp+Sg+Ine', '+A+Superl+Sg+Ine'],
+          },
+          {
+            'name': 'Pl/Ine',
+            'paradigms': ['+A+Pl+Ine', '+A+Comp+Pl+Ine', '+A+Superl+Pl+Ine'],
+          },
+          {
+            'name': 'Sg/Ela',
+            'paradigms': ['+A+Sg+Ela', '+A+Comp+Sg+Ela', '+A+Superl+Sg+Ela'],
+          },
+          {
+            'name': 'Pl/Ela',
+            'paradigms': ['+A+Pl+Ela', '+A+Comp+Pl+Ela', '+A+Superl+Pl+Ela'],
+          },
+          {
+            'name': 'Sg/Abe',
+            'paradigms': ['+A+Sg+Abe', '+A+Comp+Sg+Abe', '+A+Superl+Sg+Abe'],
+          },
+          {
+            'name': 'Pl/Abe',
+            'paradigms': ['+A+Pl+Abe', '+A+Comp+Pl+Abe', '+A+Superl+Pl+Abe'],
+          },
+          {
+            'name': 'Sg/Ess',
+            'paradigms': ['+A+Sg+Ess', '+A+Comp+Sg+Ess', '+A+Superl+Sg+Ess'],
+          },
+          {
+            'name': 'Pl/Ess',
+            'paradigms': ['+A+Pl+Ess', '+A+Comp+Pl+Ess', '+A+Superl+Pl+Ess'],
+          },
+          {
+            'name': 'Sg/Tra',
+            'paradigms': ['+A+Sg+Tra', '+A+Comp+Sg+Tra', '+A+Superl+Sg+Tra'],
+          },
+          {
+            'name': 'Pl/Tra',
+            'paradigms': ['+A+Pl+Tra', '+A+Comp+Pl+Tra', '+A+Superl+Pl+Tra'],
+          },
+          {
+            'name': 'Sg/Ins',
+            'paradigms': ['+A+Sg+Ins', '+A+Comp+Sg+Ins', '+A+Superl+Sg+Ins'],
+          },
+          {
+            'name': 'Pl/Ins',
+            'paradigms': ['+A+Pl+Ins', '+A+Comp+Pl+Ins', '+A+Superl+Pl+Ins'],
+          },
+        ]
+      }
     },
     'N': {
       'Default': {
@@ -1010,12 +1455,6 @@ final Map<String, dynamic> paradigmTemplates = {
       },
     },
     'V': {
-      // name: "verbs"
-      // morphology:
-      //   pos: V
-      //
-      // Prepend '+V' to the elements of the list
-      //
       'Default': {
         'header': ['', 'Prs', 'Prt'],
         'rows': [
