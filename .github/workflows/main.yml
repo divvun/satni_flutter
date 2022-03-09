@@ -101,8 +101,6 @@ jobs:
         with:
           lane: "match_distribution"
           env: "distribution"
-      - name: Update profiles
-        run: xcode-project use-profiles
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app

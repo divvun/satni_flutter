@@ -7,5 +7,11 @@ platform :ios do
       type: "appstore",
       readonly: true
     )
+    update_project_provisioning(
+      xcodeproj: "ios/Runner.xcodeproj",
+      profile: ENV["sigh_org.divvun.satni_appstore_profile-path"],
+      build_configuration: "Release",
+      code_signing_identity: "Apple Distribution"
+    )
   end
 end
