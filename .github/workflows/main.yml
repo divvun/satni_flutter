@@ -81,6 +81,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Unpack the secrets file
+        run: echo "${{ secrets.IOS_SECRET_BLOCK }}" | base64 -d > fastlane/.env.distribution
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -98,6 +100,7 @@ jobs:
         uses: maierj/fastlane-action@v2.2.0
         with:
           lane: "match_distribution"
+          env: "distribution"
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app
