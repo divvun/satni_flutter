@@ -106,92 +106,60 @@ final Map<String, dynamic> paradigmTemplates = {
       ]
     },
     'V': {
-      // name: 'impersonal verbs'
-      // morphology:
-      //   pos: V
-      // lexicon:
-      //   XPATH:
-      //     context: './/l/@context'
-      //   context: 'upers'
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'impersonal': [
-        '+Ind+Prs+Sg3',
-        '+Ind+Prt+Sg3',
-        '+ConNeg',
-        '+PrfPrc',
-        '+Ger',
-        '+VGen',
-      ],
-      // name: "verb homonymy (plus valence)"
-      // morphology:
-      //   pos: V
-      // lexicon:
-      //   XPATH:
-      //     homonymy: ".//l/@hid"
-      //     valence: ".//l/@type"
-      //   homonymy:
-      //     - "Hom1"
-      //     - "Hom2"
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'verb_hom': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+ConNeg',
-        '+PrfPrc',
-        '+Ger',
-        '+VGen',
-      ],
-      // name: "verbs"
-      // morphology:
-      //   pos: V
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'Default': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+ConNeg',
-        '+PrfPrc',
-        '+Ger',
-        '+VGen',
-      ],
-    }
+      'Default': {
+        'header': ['', 'Prs', 'Prt'],
+        'rows': [
+          {
+            'name': 'manne',
+            'paradigms': ['+V+Ind+Prs+Sg1', '+V+Ind+Prt+Sg1'],
+          },
+          {
+            'name': 'datne',
+            'paradigms': ['+V+Ind+Prs+Sg2', '+V+Ind+Prt+Sg2'],
+          },
+          {
+            'name': 'dïhte',
+            'paradigms': ['+V+Ind+Prs+Sg3', '+V+Ind+Prt+Sg3'],
+          },
+          {
+            'name': 'månnoeh',
+            'paradigms': ['+V+Ind+Prs+Du1', '+V+Ind+Prt+Du1'],
+          },
+          {
+            'name': 'dotne/dåtnoeh',
+            'paradigms': ['+V+Ind+Prs+Du2', '+V+Ind+Prt+Du2'],
+          },
+          {
+            'name': 'dah guaktah',
+            'paradigms': ['+V+Ind+Prs+Du3', '+V+Ind+Prt+Du3'],
+          },
+          {
+            'name': 'mij',
+            'paradigms': ['+V+Ind+Prs+Pl1', '+V+Ind+Prt+Pl1'],
+          },
+          {
+            'name': 'dijjieh',
+            'paradigms': ['+V+Ind+Prs+Pl2', '+V+Ind+Prt+Pl2'],
+          },
+          {
+            'name': 'dah',
+            'paradigms': ['+V+Ind+Prs+Pl3', '+V+Ind+Prt+Pl3'],
+          },
+          {
+            'name': 'ij',
+            'paradigms': ['+V+ConNeg']
+          },
+          {
+            'name': 'lea',
+            'paradigms': ['+V+PrfPrc']
+          },
+          {
+            'name': 'lea',
+            'paradigms': ['+V+Ger']
+          },
+        ]
+      }
+    },
   },
   'sme': {
     'A': {
@@ -370,119 +338,60 @@ final Map<String, dynamic> paradigmTemplates = {
       'pers': ['+Nom', '+Acc', '+Gen', '+Ill', '+Loc', '+Com', '+Ess'],
     },
     'V': {
-      // lexicon:
-      //   XPATH:
-      //     context: './/l/@context'
-      //   context:
-      //     - 'dat'
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'impersonal_dat': [
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc'
-      ],
-      // lexicon:
-      //   XPATH:
-      //     context: './/l/@context'
-      //   context:
-      //     - 'upers'
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'impersonal': [
-        '+Ind+Prs+Sg3',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc'
-      ],
-      // name: 'Negative verb paradigm'
-      // morphology:
-      //   pos: V
-      //   negative:
-      //     - 'Neg'
-      //
-      // Prepend '+V+Neg' to the elements of the list
-      //
-      'negative': [
-        '+Ind+Sg1',
-        '+Ind+Sg2',
-        '+Ind+Sg3',
-        '+Ind+Du1',
-        '+Ind+Du2',
-        '+Ind+Du3',
-        '+Ind+Pl1',
-        '+Ind+Pl2',
-        '+Ind+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc'
-      ],
-      // name: 'Reciprocal verb paradigm'
-      // description: 'Use Pl3 for paradigm for reciprocal verbs, such as `deaivvadit`'
-      // morphology:
-      //   pos: V
-      // lexicon:
-      //   XPATH:
-      //     context: './/l/@context'
-      //   context:
-      //     - 'sii'
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'reciprocal': [
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc'
-      ],
-      // name: 'General verb paradigm'
-      // morphology:
-      //   pos: V
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'Default': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc'
-      ],
-    }
+      'Default': {
+        'header': ['', 'Prs', 'Prt'],
+        'rows': [
+          {
+            'paradigms': ['+V+Ind+Prs+Sg1', '+V+Ind+Prt+Sg1'],
+            'name': 'mun',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Sg2', '+V+Ind+Prt+Sg2'],
+            'name': 'don',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Sg3', '+V+Ind+Prt+Sg3'],
+            'name': 'son',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Du1', '+V+Ind+Prt+Du1'],
+            'name': 'moai',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Du2', '+V+Ind+Prt+Du2'],
+            'name': 'doai',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Du3', '+V+Ind+Prt+Du3'],
+            'name': 'soai',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Pl1', '+V+Ind+Prt+Pl1'],
+            'name': 'mii',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Pl2', '+V+Ind+Prt+Pl2'],
+            'name': 'dii',
+          },
+          {
+            'paradigms': ['+V+Ind+Prs+Pl3', '+V+Ind+Prt+Pl3'],
+            'name': 'sii',
+          },
+          {
+            'name': 'otne in',
+            'paradigms': ['+V+Ind+Prs+ConNeg']
+          },
+          {
+            'name': 'ikte in',
+            'paradigms': ['+V+Ind+Prt+ConNeg']
+          },
+          {
+            'name': 'lean',
+            'paradigms': ['+V+PrfPrc']
+          },
+        ]
+      }
+    },
   },
   'smj': {
     'A': {
@@ -588,25 +497,56 @@ final Map<String, dynamic> paradigmTemplates = {
     },
     'V': {
       'Default': {
-        [
-          '+Ind+Prs+Sg1',
-          '+Ind+Prt+Sg1',
-          '+Ind+Prs+Sg2',
-          '+Ind+Prt+Sg2',
-          '+Ind+Prs+Sg3',
-          '+Ind+Prt+Sg3',
-          '+Ind+Prs+Du1',
-          '+Ind+Prt+Du1',
-          '+Ind+Prs+Du2',
-          '+Ind+Prt+Du2',
-          '+Ind+Prs+Du3',
-          '+Ind+Prt+Du3',
-          '+Ind+Prs+Pl1',
-          '+Ind+Prt+Pl1',
-          '+Ind+Prs+Pl2',
-          '+Ind+Prt+Pl2',
-          '+Ind+Prs+Pl3',
-          '+Ind+Prt+Pl3'
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'mån',
+            'paradigms': ['+V+Ind+Prs+Sg1', '+V+Ind+Prt+Sg1'],
+          },
+          {
+            'name': 'duon',
+            'paradigms': ['+V+Ind+Prs+Sg2', '+V+Ind+Prt+Sg2'],
+          },
+          {
+            'name': 'sån',
+            'paradigms': ['+V+Ind+Prs+Sg3', '+V+Ind+Prt+Sg3'],
+          },
+          {
+            'name': 'måj',
+            'paradigms': ['+V+Ind+Prs+Du1', '+V+Ind+Prt+Du1'],
+          },
+          {
+            'name': 'dåj',
+            'paradigms': ['+V+Ind+Prs+Du2', '+V+Ind+Prt+Du2'],
+          },
+          {
+            'name': 'såj',
+            'paradigms': ['+V+Ind+Prs+Du3', '+V+Ind+Prt+Du3'],
+          },
+          {
+            'name': 'mij',
+            'paradigms': ['+V+Ind+Prs+Pl1', '+V+Ind+Prt+Pl1'],
+          },
+          {
+            'name': 'dij',
+            'paradigms': ['+V+Ind+Prs+Pl2', '+V+Ind+Prt+Pl2'],
+          },
+          {
+            'name': 'sij',
+            'paradigms': ['+V+Ind+Prs+Pl3', '+V+Ind+Prt+Pl3'],
+          },
+          {
+            'name': 'uddni iv',
+            'paradigms': ['+V+Ind+ConNeg']
+          },
+          {
+            'name': 'iektu ittjiv',
+            'paradigms': ['+V+Ind+ConNeg']
+          },
+          {
+            'name': 'lav',
+            'paradigms': ['+V+PrfPrc']
+          }
         ],
       }
     }
@@ -671,71 +611,59 @@ final Map<String, dynamic> paradigmTemplates = {
       },
     },
     'V': {
-      // name: "verb homonymy (plus valence)"
-      // morphology:
-      //   pos: V
-      // lexicon:
-      //   XPATH:
-      //     homonymy: ".//l/@hid"
-      //     valence: ".//l/@type"
-      //   homonymy:
-      //     - "Hom1"
-      //     - "Hom2"
-      //
-      // Prepend +{{ homonymy }}'+V' in front of the elements in the list
-      //
-      'hom': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc',
-      ],
-      // name: "General verb paradigm"
-      // morphology:
-      //   pos: V
-      //
-      // Prepend '+V' in front of the elements in the list
-      //
-      'Default': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Du1',
-        '+Ind+Prs+Du2',
-        '+Ind+Prs+Du3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Du1',
-        '+Ind+Prt+Du2',
-        '+Ind+Prt+Du3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc',
-      ]
+      'Default': {
+        'header': ['', 'Prs', 'Prt'],
+        'rows': [
+          {
+            'name': 'mun',
+            'paradigms': ['+V+Ind+Prs+Sg1', '+V+Ind+Prt+Sg1'],
+          },
+          {
+            'name': 'tun',
+            'paradigms': ['+V+Ind+Prs+Sg2', '+V+Ind+Prt+Sg2'],
+          },
+          {
+            'name': 'sun',
+            'paradigms': ['+V+Ind+Prs+Sg3', '+V+Ind+Prt+Sg3'],
+          },
+          {
+            'name': 'muoi',
+            'paradigms': ['+V+Ind+Prs+Du1', '+V+Ind+Prt+Du1'],
+          },
+          {
+            'name': 'tuoi',
+            'paradigms': ['+V+Ind+Prs+Du2', '+V+Ind+Prt+Du2'],
+          },
+          {
+            'name': 'suoi',
+            'paradigms': ['+V+Ind+Prs+Du3', '+V+Ind+Prt+Du3'],
+          },
+          {
+            'name': 'mij',
+            'paradigms': ['+V+Ind+Prs+Pl1', '+V+Ind+Prt+Pl1'],
+          },
+          {
+            'name': 'tij',
+            'paradigms': ['+V+Ind+Prs+Pl2', '+V+Ind+Prt+Pl2'],
+          },
+          {
+            'name': 'sij',
+            'paradigms': ['+V+Ind+Prs+Pl3', '+V+Ind+Prt+Pl3'],
+          },
+          {
+            'name': 'onne jiem',
+            'paradigms': ['+V+Ind+Prs+ConNeg']
+          },
+          {
+            'name': 'jieht jiem',
+            'paradigms': ['+V+Ind+Prt+ConNeg']
+          },
+          {
+            'name': 'lam',
+            'paradigms': ['+V+PrfPrc']
+          },
+        ]
+      }
     }
   },
   'sms': {
@@ -903,45 +831,66 @@ final Map<String, dynamic> paradigmTemplates = {
       ]
     },
     'V': {
-      // name: "verbs"
-      // morphology:
-      //   pos: V
-      //
-      // Prepend '+V' to the elements of the list
-      //
-      'Default': [
-        '+Ind+Prs+Sg1',
-        '+Ind+Prs+Sg2',
-        '+Ind+Prs+Sg3',
-        '+Ind+Prs+Pl1',
-        '+Ind+Prs+Pl2',
-        '+Ind+Prs+Pl3',
-        '+Ind+Prs+Sg4',
-        '+Ind+Prt+Sg1',
-        '+Ind+Prt+Sg2',
-        '+Ind+Prt+Sg3',
-        '+Ind+Prt+Pl1',
-        '+Ind+Prt+Pl2',
-        '+Ind+Prt+Pl3',
-        '+Ind+Prt+Sg4',
-        '+Ind+Prs+ConNeg',
-        '+Ind+Prt+ConNeg',
-        '+PrfPrc',
-      ]
+      'Default': {
+        'header': ['', 'Prs', 'Prt'],
+        'rows': [
+          {
+            'name': 'mon',
+            'paradigms': ['+V+Ind+Prs+Sg1', '+V+Ind+Prt+Sg1'],
+          },
+          {
+            'name': 'ton',
+            'paradigms': ['+V+Ind+Prs+Sg2', '+V+Ind+Prt+Sg2'],
+          },
+          {
+            'name': 'son',
+            'paradigms': ['+V+Ind+Prs+Sg3', '+V+Ind+Prt+Sg3'],
+          },
+          {
+            'name': 'mii',
+            'paradigms': ['+V+Ind+Prs+Pl1', '+V+Ind+Prt+Pl1'],
+          },
+          {
+            'name': 'tij',
+            'paradigms': ['+V+Ind+Prs+Pl2', '+V+Ind+Prt+Pl2'],
+          },
+          {
+            'name': 'sij',
+            'paradigms': ['+V+Ind+Prs+Pl3', '+V+Ind+Prt+Pl3'],
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Ind+Prs+Sg4', '+V+Ind+Prt+Sg4'],
+          },
+          {
+            'name': 'täʹbbe jiõm',
+            'paradigms': ['+V+Ind+Prs+ConNeg']
+          },
+          {
+            'name': 'jåhtta jiõm',
+            'paradigms': ['+V+Ind+Prt+ConNeg']
+          },
+        ]
+      }
     }
   },
   'nob': {
     'V': {
-      // name: "verbs"
-      // morphology:
-      //   pos: V
-      //
-      'Default': [
-        '+Imp',
-        '+Ind+Prs',
-        '+Ind+Prt',
-        '+PrfPtc',
-      ]
+      'Default': {
+        'header': ['', 'Inf', 'Prs', 'Prt', 'PrfPrc', 'Imp'],
+        'rows': [
+          {
+            'name': '',
+            'paradigms': [
+              '+V+Inf',
+              '+V+Ind+Prs',
+              '+V+Ind+Prt',
+              '+V+PrfPrc',
+              '+V+Imp'
+            ]
+          },
+        ]
+      }
     }
   },
   'fin': {
@@ -1067,22 +1016,43 @@ final Map<String, dynamic> paradigmTemplates = {
       //
       // Prepend '+V' to the elements of the list
       //
-      'Default': [
-        '+Act+Ind+Prs+Sg1',
-        '+Act+Ind+Prs+Sg2',
-        '+Act+Ind+Prs+Sg3',
-        '+Act+Ind+Prs+Pl1',
-        '+Act+Ind+Prs+Pl2',
-        '+Act+Ind+Prs+Pl3',
-        '+Act+Ind+Prt+Sg1',
-        '+Act+Ind+Prt+Sg2',
-        '+Act+Ind+Prt+Sg3',
-        '+Act+Ind+Prt+Pl1',
-        '+Act+Ind+Prt+Pl2',
-        '+Act+Ind+Prt+Pl3',
-        '+Ind+Prs+ConNeg',
-        '+PrfPrc',
-      ],
+      'Default': {
+        'header': ['', 'Prs', 'Prt'],
+        'rows': [
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Sg1', '+V+Act+Ind+Prt+Sg1']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Sg2', '+V+Act+Ind+Prt+Sg2']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Sg3', '+V+Act+Ind+Prt+Sg3']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Pl1', '+V+Act+Ind+Prt+Pl1']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Pl2', '+V+Act+Ind+Prt+Pl2']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Act+Ind+Prs+Pl3', '+V+Act+Ind+Prt+Pl3']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+Ind+Prs+ConNeg']
+          },
+          {
+            'name': '',
+            'paradigms': ['+V+PrfPrc']
+          }
+        ]
+      },
     },
   }
 };
