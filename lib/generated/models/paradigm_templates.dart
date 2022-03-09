@@ -393,23 +393,35 @@ final Map<String, dynamic> paradigmTemplates = {
         '+Sg+Com',
         '+Ess'
       ],
-      //
-      // Prepend '+N' to the elements in the list
-      //
       'Default': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
+        {
+          'name': 'Nom',
+          'paradigms': ['+N+Sg+Nom', '+N+Pl+Nom'],
+        },
+        {
+          'name': 'Acc',
+          'paradigms': ['+N+Sg+Acc', '+N+Pl+Acc'],
+        },
+        {
+          'name': 'Gen',
+          'paradigms': ['+N+Sg+Gen', '+N+Pl+Gen'],
+        },
+        {
+          'name': 'Ill',
+          'paradigms': ['+N+Sg+Ill', '+N+Pl+Ill'],
+        },
+        {
+          'name': 'Loc',
+          'paradigms': ['+N+Sg+Loc', '+N+Pl+Loc'],
+        },
+        {
+          'name': 'Com',
+          'paradigms': ['+N+Sg+Com', '+N+Pl+Com'],
+        },
+        {
+          'name': 'Ess',
+          'paradigms': ['+N+Ess'],
+        },
       ],
       // name: 'Common noun pluralia tanta'
       // morphology:
@@ -1364,3 +1376,22 @@ final Map<String, dynamic> paradigmTemplates = {
     },
   }
 };
+
+List<String> wantedParadigms(
+  String language,
+  String partOfSpeech,
+  String subsection,
+) {
+  List<String> paradigms = [];
+  for (var row in paradigmTemplates[language][partOfSpeech][subsection]) {
+    paradigms.addAll(
+      List<String>.from(
+        row['paradigms'].map(
+          (paradigm) => paradigm,
+        ),
+      ),
+    );
+  }
+
+  return paradigms;
+}

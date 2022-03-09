@@ -114,9 +114,11 @@ class DictArticle extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => _generated(
-                              lemma.node!.presentationLemma,
-                              lemma.node!.language,
-                              lemma.node!.pos),
+                            lemma.node!.presentationLemma,
+                            lemma.node!.language,
+                            lemma.node!.pos,
+                            'Default',
+                          ),
                         ))
                     : null,
                 icon: const Icon(Icons.info_outline),
@@ -184,9 +186,11 @@ class DictArticle extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => _generated(
-                              lemma.node!.presentationLemma,
-                              lemma.node!.language,
-                              lemma.node!.pos),
+                            lemma.node!.presentationLemma,
+                            lemma.node!.language,
+                            lemma.node!.pos,
+                            'Default',
+                          ),
                         ))
                     : null,
                 icon: const Icon(Icons.info_outline),
@@ -280,9 +284,11 @@ class TermArticle extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => _generated(
-                          term.expression!.presentationLemma,
-                          term.expression!.language,
-                          term.expression!.pos),
+                        term.expression!.presentationLemma,
+                        term.expression!.language,
+                        term.expression!.pos,
+                        'Default',
+                      ),
                     )),
                 icon: const Icon(Icons.info_outline),
               )
@@ -293,12 +299,15 @@ class TermArticle extends StatelessWidget {
   }
 }
 
-Widget _generated(String lemma, String language, String? pos) {
+Widget _generated(
+    String lemma, String language, String? pos, String posDomain) {
   return GeneratedPage(
       Arguments(
         lemma,
         language,
-        pos ?? 'N',
+        pos!,
+        posDomain,
+        wantedParadigms(language, pos, posDomain),
       ),
       Key(lemma));
 }

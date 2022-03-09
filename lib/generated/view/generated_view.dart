@@ -20,7 +20,7 @@ class GeneratedView extends ConsumerWidget {
         loading: () => const CircularProgressIndicator(),
         data: (generated) => ListView(
               children: [
-                ListTile(title: Text(g2m(generated).toString())),
+                // ListTile(title: Text(g2m(generated).toString())),
                 ..._generated(context, arguments, generated)
               ],
             ),
@@ -33,7 +33,7 @@ class GeneratedView extends ConsumerWidget {
     if (paradigmTemplates.keys.contains(arguments.language)) {
       if (arguments.language == 'sme') {
         if (arguments.pos == 'N') {
-          return _smeNounDefaultGenerated(m);
+          return _smiNounDefaultGenerated(m, arguments);
         }
         if (arguments.pos == 'V') {
           return _smeVerbDefaultGenerated(m);
@@ -63,21 +63,27 @@ class GeneratedView extends ConsumerWidget {
     return [];
   }
 
-  List<Widget> _smeNounDefaultGenerated(Map<String, String> m) {
+  List<Widget> _smiNounDefaultGenerated(
+      Map<String, String> m, Arguments arguments) {
+    // print(
+    //     '${paradigmTemplates[arguments.language][arguments.pos][arguments.posDomain]["header"]}');
     return [
-      ...['Nom', 'Acc', 'Gen', 'Ill', 'Loc', 'Com'].map(
-        (nounCase) => Row(
+      // Row(children: [
+      //   ...paradigmTemplates[arguments.language][arguments.pos]
+      //           [arguments.posDomain]['header']
+      //       .map((element) => Expanded(child: Text(element ?? '')))
+      // ]),
+      ...paradigmTemplates[arguments.language][arguments.pos]
+              [arguments.posDomain]
+          .map(
+        (row) => Row(
           children: [
-            Expanded(child: Text(nounCase)),
-            Expanded(child: Text(m['+N+Sg+$nounCase'] ?? '')),
-            Expanded(child: Text(m['+N+Pl+$nounCase'] ?? ''))
+            Expanded(child: Text(row['name'])),
+            ...row['paradigms']
+                .map((paradigm) => Expanded(child: Text(m[paradigm] ?? ''))),
           ],
         ),
       ),
-      Row(children: [
-        const Expanded(child: Text('Ess')),
-        Expanded(child: Text(m['+N+Ess'] ?? ''))
-      ])
     ];
   }
 

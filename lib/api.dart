@@ -1443,16 +1443,16 @@ Future<AllLemmas$Query> getStems(
   return AllLemmas$Query.fromJson(result.data ?? {'stemList': []});
 }
 
-Future<Generated$Query> getGenerated(origform, language, pos) async {
+Future<Generated$Query> getGenerated(
+    origform, language, wantedParadigms) async {
   final result = await client.query(
     QueryOptions(
       document: GENERATED_QUERY_DOCUMENT,
       variables: GeneratedArguments(
-          origform: origform,
-          language: language,
-          paradigmTemplates: List<String>.from(_paradigmTemplates[language][pos]
-                  ['Default']
-              .map((template) => '+$pos$template'))).toJson(),
+              origform: origform,
+              language: language,
+              paradigmTemplates: wantedParadigms)
+          .toJson(),
     ),
   );
 
