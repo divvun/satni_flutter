@@ -13,5 +13,9 @@ platform :ios do
       build_configuration: "Release",
       code_signing_identity: "Apple Distribution"
     )
+    update_project_team(
+      path: "ios/Runner.xcodeproj",
+      teamid: ENV["IOS_TEAM_ID"]
+    )
   end
 end
