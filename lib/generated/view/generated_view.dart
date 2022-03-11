@@ -48,15 +48,27 @@ class GeneratedView extends ConsumerWidget {
       ...paradigmTemplates[arguments.language][arguments.pos]
               [arguments.posDomain]['rows']
           .map(
-        (row) => Row(
-          children: [
-            Expanded(child: Text(row['name'])),
-            ...row['paradigms']
-                .map((paradigm) => Expanded(child: Text(m[paradigm] ?? ''))),
-          ],
-        ),
+        (row) => GeneratedRow(row, m),
       ),
     ];
+  }
+}
+
+class GeneratedRow extends StatelessWidget {
+  const GeneratedRow(this.row, this.m, {Key? key}) : super(key: key);
+
+  final Map<String, dynamic> row;
+  final Map<String, String> m;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(child: Text(row['name'])),
+        ...row['paradigms']
+            .map((paradigm) => Expanded(child: Text(m[paradigm] ?? ''))),
+      ],
+    );
   }
 }
 
