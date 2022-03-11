@@ -22,32 +22,19 @@ class ArticlesView extends ConsumerWidget {
     return ref.watch(articlesProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
         data: (articles) => ListView(
-              children: [..._articles(context, articles.terms, articles.dicts)],
+              children: [
+                ...articles.terms.entries.map(
+                  (entry) => TermArticle(
+                    entry.key,
+                    entry.value,
+                  ),
+                ),
+                ...articles.dicts.dictEntryList!.map(
+                  (dictEntry) => DictArticle(dictEntry!),
+                )
+              ],
             ),
         error: (_, __) => const Text('Oops, articles went awry'));
-  }
-
-  List<Widget> _articles(
-      BuildContext context,
-      Map<String, List<TermArticles$Query$ConceptType>> terms,
-      DictArticles$Query dicts) {
-    return [..._makeTerms(context, terms), ..._makeDicts(context, dicts)];
-  }
-
-  List<Widget> _makeTerms(BuildContext context,
-      Map<String, List<TermArticles$Query$ConceptType>> terms) {
-    return terms.entries
-        .map((entry) => TermArticle(
-              entry.key,
-              entry.value,
-            ))
-        .toList();
-  }
-
-  List<Widget> _makeDicts(BuildContext context, DictArticles$Query? dicts) {
-    return dicts!.dictEntryList!
-        .map((dictEntry) => DictArticle(dictEntry!))
-        .toList();
   }
 }
 
@@ -74,159 +61,192 @@ class DictArticle extends StatelessWidget {
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: _articleContent(context, dictEntry))
+              child: DictArticleContent(dictEntry))
         ],
       ),
     );
   }
+}
 
-  Widget _articleContent(
-      BuildContext context, final DictArticles$Query$DictEntryType dictEntry) {
-    return Column(children: [
-      ..._lookupLemmas(context, dictEntry.lookupLemmas),
-      Padding(
-        padding: const EdgeInsets.only(left: 16.0),
-        child: Column(children: [
-          ..._translationGroups(context, dictEntry.translationGroups)
-        ]),
-      ),
-    ]);
-  }
+class DictArticleContent extends StatelessWidget {
+  const DictArticleContent(
+    this.dictEntry, {
+    Key? key,
+  }) : super(key: key);
+  final DictArticles$Query$DictEntryType dictEntry;
 
-  List<Widget> _lookupLemmas(BuildContext context,
-      DictArticles$Query$DictEntryType$LemmaTypeConnection? lemmas) {
-    return lemmas!.edges
-        .map(
-          (lemma) => Row(
-            children: <Widget>[
-              Text(
-                lemma!.node!.presentationLemma,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              const Spacer(),
-              Text(
-                '${lemma.node!.pos}',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              IconButton(
-                onPressed: () => lemma.node != null
-                    ? Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => _generated(
-                            lemma.node!.presentationLemma,
-                            lemma.node!.language,
-                            lemma.node!.pos,
-                            'Default',
-                          ),
-                        ))
-                    : null,
-                icon: const Icon(Icons.info_outline),
-              )
-            ],
-          ),
-        )
-        .toList();
-  }
-
-  List<Widget> _translationGroups(
-      BuildContext context,
-      List<DictArticles$Query$DictEntryType$TranslationGroupType?>
-          translationGroups) {
-    return translationGroups
-        .map(
-            (translationGroup) => _translationGroup(context, translationGroup!))
-        .toList();
-  }
-
-  Widget _translationGroup(BuildContext context,
-      DictArticles$Query$DictEntryType$TranslationGroupType translationGroup) {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
-        ..._translationLemmas(context, translationGroup.translationLemmas,
-            translationGroup.restriction),
+        ...dictEntry.lookupLemmas!.edges.map(
+          (lemma) => DictLookupLemma(lemma!),
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
-          child: Column(children: [
-            ..._examples(context, translationGroup.exampleGroups)
-          ]),
+          child: Column(
+            children: dictEntry.translationGroups
+                .map((translationGroup) =>
+                    DictTranslationGroup(translationGroup!))
+                .toList(),
+          ),
         ),
       ],
     );
   }
+}
 
-  List<Widget> _translationLemmas(
-      BuildContext context,
-      DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection?
-          lemmas,
-      DictArticles$Query$DictEntryType$TranslationGroupType$RestrictionType?
-          restriction) {
-    return lemmas!.edges
-        .map(
-          (lemma) => Row(
-            children: <Widget>[
-              Text(
-                lemma!.node!.presentationLemma,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              restriction != null
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Text('(${restriction.restriction})'),
-                    )
-                  : const Text(''),
-              const Spacer(),
-              Text(
-                '${lemma.node!.pos}',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              IconButton(
-                onPressed: () => lemma.node != null
-                    ? Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => _generated(
-                            lemma.node!.presentationLemma,
-                            lemma.node!.language,
-                            lemma.node!.pos,
-                            'Default',
-                          ),
-                        ))
-                    : null,
-                icon: const Icon(Icons.info_outline),
-              )
-            ],
-          ),
-        )
-        .toList();
+class DictTranslationGroup extends StatelessWidget {
+  const DictTranslationGroup(
+    this.translationGroup, {
+    Key? key,
+  }) : super(key: key);
+
+  final DictArticles$Query$DictEntryType$TranslationGroupType translationGroup;
+  @override
+  Widget build(BuildContext context) {
+    final restriction = translationGroup.restriction;
+    return Column(
+      children: [
+        ...translationGroup.translationLemmas!.edges.map(
+          (lemma) => DictTranslationLemma(lemma!, restriction),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Column(
+              children: translationGroup.exampleGroups!
+                  .map((exampleGroup) => ExampleGroup(exampleGroup!))
+                  .toList()),
+        ),
+      ],
+    );
   }
+}
 
-  List<Widget> _examples(
-      BuildContext context,
-      List<DictArticles$Query$DictEntryType$TranslationGroupType$ExampleGroupType?>?
-          exampleGroups) {
-    return exampleGroups!
-        .map((exampleGroup) => Padding(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              child: Column(
-                children: [
-                  Text(exampleGroup!.example),
-                  Text(
-                    exampleGroup.translation,
-                    style: const TextStyle(fontStyle: FontStyle.italic),
-                  ),
-                ],
-              ),
-            ))
-        .toList();
+class DictTranslationLemma extends StatelessWidget {
+  const DictTranslationLemma(
+    this.lemma,
+    this.restriction, {
+    Key? key,
+  }) : super(key: key);
+
+  final DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge
+      lemma;
+  final DictArticles$Query$DictEntryType$TranslationGroupType$RestrictionType?
+      restriction;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Text(
+          lemma.node!.presentationLemma,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        restriction != null
+            ? Padding(
+                padding: const EdgeInsets.only(left: 4.0),
+                child: Text('(${restriction!.restriction})'),
+              )
+            : const Text(''),
+        const Spacer(),
+        Text(
+          '${lemma.node!.pos}',
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+        IconButton(
+          onPressed: () => lemma.node != null
+              ? Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => _generated(
+                      lemma.node!.presentationLemma,
+                      lemma.node!.language,
+                      lemma.node!.pos,
+                      'Default',
+                    ),
+                  ))
+              : null,
+          icon: const Icon(Icons.info_outline),
+        )
+      ],
+    );
+  }
+}
+
+class ExampleGroup extends StatelessWidget {
+  const ExampleGroup(
+    this.exampleGroup, {
+    Key? key,
+  }) : super(key: key);
+
+  final DictArticles$Query$DictEntryType$TranslationGroupType$ExampleGroupType
+      exampleGroup;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4.0),
+      child: Column(
+        children: [
+          Text(exampleGroup.example),
+          Text(
+            exampleGroup.translation,
+            style: const TextStyle(fontStyle: FontStyle.italic),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DictLookupLemma extends StatelessWidget {
+  const DictLookupLemma(
+    this.lemma, {
+    Key? key,
+  }) : super(key: key);
+
+  final DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge
+      lemma;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Text(
+          lemma.node!.presentationLemma,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        const Spacer(),
+        Text(
+          '${lemma.node!.pos}',
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+        IconButton(
+          onPressed: () => lemma.node != null
+              ? Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => _generated(
+                      lemma.node!.presentationLemma,
+                      lemma.node!.language,
+                      lemma.node!.pos,
+                      'Default',
+                    ),
+                  ))
+              : null,
+          icon: const Icon(Icons.info_outline),
+        )
+      ],
+    );
   }
 }
 
 class TermArticle extends StatelessWidget {
-  const TermArticle(this.articleName, this.terms, {Key? key}) : super(key: key);
+  const TermArticle(this.articleName, this.concepts, {Key? key})
+      : super(key: key);
 
   final String articleName;
-  final List<TermArticles$Query$ConceptType> terms;
+  final List<TermArticles$Query$ConceptType> concepts;
 
   @override
   Widget build(BuildContext context) {
@@ -240,62 +260,75 @@ class TermArticle extends StatelessWidget {
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
-          ..._conceptList(context, terms)
+          ...concepts.map((concept) => ConceptWidget(concept))
         ],
       ),
     );
   }
+}
 
-  List<Widget> _conceptList(
-      BuildContext context, List<TermArticles$Query$ConceptType> concepts) {
-    return concepts
-        .map((concept) => Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Column(children: [
-                const Divider(),
-                Text(
-                  concept.terms[0]!.expression!.language,
-                  style: Theme.of(context).textTheme.caption,
-                ),
-                ..._termList(context, concept.terms),
-              ]),
-            ))
-        .toList();
+class ConceptWidget extends StatelessWidget {
+  const ConceptWidget(
+    this.concept, {
+    Key? key,
+  }) : super(key: key);
+
+  final TermArticles$Query$ConceptType concept;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Column(children: [
+        const Divider(),
+        Text(
+          concept.terms[0]!.expression!.language,
+          style: Theme.of(context).textTheme.caption,
+        ),
+        ...concept.terms.map(
+          (term) => TermEntry(term!),
+        ),
+      ]),
+    );
   }
+}
 
-  List<Widget> _termList(BuildContext context,
-      List<TermArticles$Query$ConceptType$TermType?> terms) {
-    return terms
-        .map(
-          (term) => Row(
-            children: <Widget>[
-              Text(
-                term!.expression!.presentationLemma,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              const Spacer(),
-              Text(
-                '${term.expression!.pos}',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              IconButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => _generated(
-                        term.expression!.presentationLemma,
-                        term.expression!.language,
-                        term.expression!.pos,
-                        'Default',
-                      ),
-                    )),
-                icon: const Icon(Icons.info_outline),
-              )
-            ],
-          ),
+class TermEntry extends StatelessWidget {
+  const TermEntry(
+    this.term, {
+    Key? key,
+  }) : super(key: key);
+
+  final TermArticles$Query$ConceptType$TermType term;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Text(
+          term.expression!.presentationLemma,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        const Spacer(),
+        Text(
+          '${term.expression!.pos}',
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+        IconButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => _generated(
+                  term.expression!.presentationLemma,
+                  term.expression!.language,
+                  term.expression!.pos,
+                  'Default',
+                ),
+              )),
+          icon: const Icon(Icons.info_outline),
         )
-        .toList();
+      ],
+    );
   }
 }
 
