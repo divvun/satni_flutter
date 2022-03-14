@@ -107,6 +107,7 @@ class DictTranslationGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     final restriction = translationGroup.restriction;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ...translationGroup.translationLemmas!.edges.map(
           (lemma) => DictTranslationLemma(lemma!, restriction),
@@ -114,6 +115,7 @@ class DictTranslationGroup extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: translationGroup.exampleGroups!
                   .map((exampleGroup) => ExampleGroup(exampleGroup!))
                   .toList()),
@@ -187,6 +189,7 @@ class ExampleGroup extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(exampleGroup.example),
           Text(
