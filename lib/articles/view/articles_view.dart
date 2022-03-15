@@ -112,13 +112,11 @@ class DictTranslationGroup extends StatelessWidget {
         ...translationGroup.translationLemmas!.edges.map(
           (lemma) => DictTranslationLemma(lemma!, restriction),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: translationGroup.exampleGroups!
-                  .map((exampleGroup) => ExampleGroup(exampleGroup!))
-                  .toList()),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: translationGroup.exampleGroups!
+              .map((exampleGroup) => ExampleGroup(exampleGroup!))
+              .toList(),
         ),
       ],
     );
@@ -187,14 +185,35 @@ class ExampleGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4.0),
+      padding: const EdgeInsets.only(bottom: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(exampleGroup.example),
-          Text(
-            exampleGroup.translation,
-            style: const TextStyle(fontStyle: FontStyle.italic),
+          Container(
+              padding: const EdgeInsets.only(left: 8.0),
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    width: 4,
+                    color: Theme.of(context).dividerColor,
+                  ),
+                ),
+              ),
+              child: Text(exampleGroup.example)),
+          Container(
+            padding: const EdgeInsets.only(left: 8.0),
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(
+                  width: 4,
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
+            ),
+            child: Text(
+              exampleGroup.translation,
+              style: const TextStyle(fontStyle: FontStyle.italic),
+            ),
           ),
         ],
       ),
