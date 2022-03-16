@@ -41,13 +41,24 @@ class Searcher extends HookConsumerWidget {
                     ref.read(searchProvider.notifier).updateSearchText(text),
               ),
             ),
-            const Icon(Icons.search),
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: _textController.text != ''
+                  ? () {
+                      context.push('/articles/${_textController.text}');
+                    }
+                  : null,
+            ),
             IconButton(
               icon: const Icon(Icons.close),
-              onPressed: () {
-                _textController.clear();
-                ref.read(searchProvider.notifier).updateSearchText('');
-              },
+              onPressed: _textController.text != ''
+                  ? () {
+                      _textController.clear();
+                      ref
+                          .read(searchProvider.notifier)
+                          .updateSearchText(_textController.text);
+                    }
+                  : null,
             ),
             const SearchModeMenu(),
           ],
