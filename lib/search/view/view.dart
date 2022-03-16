@@ -31,10 +31,6 @@ class Searcher extends HookConsumerWidget {
         ),
         child: Row(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: const Icon(Icons.search),
-            ),
             Flexible(
               child: TextField(
                 controller: _textController,
@@ -45,7 +41,14 @@ class Searcher extends HookConsumerWidget {
                     ref.read(searchProvider.notifier).updateSearchText(text),
               ),
             ),
-            const Icon(Icons.close),
+            const Icon(Icons.search),
+            IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () {
+                _textController.clear();
+                ref.read(searchProvider.notifier).updateSearchText('');
+              },
+            ),
             const SearchModeMenu(),
           ],
         ),
