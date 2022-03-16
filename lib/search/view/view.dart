@@ -11,6 +11,7 @@ import 'package:satni/filter/filter.dart';
 import 'package:satni/filter/pod/filter.dart';
 import 'package:satni/graphql_api.dart';
 import 'package:satni/lemmatised/lemmatised.dart';
+import 'package:satni/search/search.dart';
 import '../pod/search.dart';
 
 class Searcher extends HookConsumerWidget {
@@ -44,13 +45,43 @@ class Searcher extends HookConsumerWidget {
                     ref.read(searchProvider.notifier).updateSearchText(text),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: const Icon(Icons.close),
-            )
+            const Icon(Icons.close),
+            const SearchModeMenu(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class SearchModeMenu extends HookConsumerWidget {
+  const SearchModeMenu({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selected = useState(SearchModes.start);
+    return PopupMenuButton(
+      onSelected: (SearchModes value) {
+        selected.value = value;
+        ref.read(searchProvider.notifier).updateSearchMode(value);
+      },
+      itemBuilder: (_) => [
+        CheckedPopupMenuItem(
+          checked: selected.value == SearchModes.start,
+          value: SearchModes.start,
+          child: const Text('Start'),
+        ),
+        CheckedPopupMenuItem(
+          checked: selected.value == SearchModes.middle,
+          value: SearchModes.middle,
+          child: const Text('Middle'),
+        ),
+        CheckedPopupMenuItem(
+          checked: selected.value == SearchModes.end,
+          value: SearchModes.end,
+          child: const Text('End'),
+        ),
+      ],
     );
   }
 }

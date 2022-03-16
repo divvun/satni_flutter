@@ -13,6 +13,10 @@ class SearchNotifier extends StateNotifier<Search> {
   void updateSearchText(String searchText) {
     state = state.copyWith(searchText: searchText);
   }
+
+  void updateSearchMode(SearchModes searchMode) {
+    state = state.copyWith(searchMode: searchMode);
+  }
 }
 
 final searchProvider =
@@ -22,7 +26,7 @@ final stemProvider = FutureProvider<AllLemmas$Query>((ref) async {
   final search = ref.watch(searchProvider);
   final filter = ref.watch(filterProvider);
 
-  final stems = await getStems(search.searchText, search.searchMode,
+  final stems = await getStems(search.searchText, search.searchMode.name,
       filter.wantedSrcLangs, filter.wantedTargetLangs, filter.wantedDicts);
   return stems;
 });

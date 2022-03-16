@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SearchTearOff {
   const _$SearchTearOff();
 
-  _Search call({String searchText = '', String searchMode = 'start'}) {
+  _Search call(
+      {String searchText = '', SearchModes searchMode = SearchModes.start}) {
     return _Search(
       searchText: searchText,
       searchMode: searchMode,
@@ -31,7 +32,7 @@ const $Search = _$SearchTearOff();
 /// @nodoc
 mixin _$Search {
   String get searchText => throw _privateConstructorUsedError;
-  String get searchMode => throw _privateConstructorUsedError;
+  SearchModes get searchMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchCopyWith<Search> get copyWith => throw _privateConstructorUsedError;
@@ -41,7 +42,7 @@ mixin _$Search {
 abstract class $SearchCopyWith<$Res> {
   factory $SearchCopyWith(Search value, $Res Function(Search) then) =
       _$SearchCopyWithImpl<$Res>;
-  $Res call({String searchText, String searchMode});
+  $Res call({String searchText, SearchModes searchMode});
 }
 
 /// @nodoc
@@ -65,7 +66,7 @@ class _$SearchCopyWithImpl<$Res> implements $SearchCopyWith<$Res> {
       searchMode: searchMode == freezed
           ? _value.searchMode
           : searchMode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SearchModes,
     ));
   }
 }
@@ -75,7 +76,7 @@ abstract class _$SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
   factory _$SearchCopyWith(_Search value, $Res Function(_Search) then) =
       __$SearchCopyWithImpl<$Res>;
   @override
-  $Res call({String searchText, String searchMode});
+  $Res call({String searchText, SearchModes searchMode});
 }
 
 /// @nodoc
@@ -100,7 +101,7 @@ class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
       searchMode: searchMode == freezed
           ? _value.searchMode
           : searchMode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SearchModes,
     ));
   }
 }
@@ -108,14 +109,14 @@ class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Search with DiagnosticableTreeMixin implements _Search {
-  _$_Search({this.searchText = '', this.searchMode = 'start'});
+  _$_Search({this.searchText = '', this.searchMode = SearchModes.start});
 
   @JsonKey()
   @override
   final String searchText;
   @JsonKey()
   @override
-  final String searchMode;
+  final SearchModes searchMode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -155,12 +156,12 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
 }
 
 abstract class _Search implements Search {
-  factory _Search({String searchText, String searchMode}) = _$_Search;
+  factory _Search({String searchText, SearchModes searchMode}) = _$_Search;
 
   @override
   String get searchText;
   @override
-  String get searchMode;
+  SearchModes get searchMode;
   @override
   @JsonKey(ignore: true)
   _$SearchCopyWith<_Search> get copyWith => throw _privateConstructorUsedError;
