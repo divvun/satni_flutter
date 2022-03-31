@@ -227,7 +227,7 @@ class FilterButton extends StatelessWidget {
       onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const FilterPage(),
+            builder: (context) => FilterPage(),
           )),
     );
   }
