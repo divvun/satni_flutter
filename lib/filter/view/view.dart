@@ -16,6 +16,7 @@ class FilterPage extends ConsumerWidget {
     'nno',
     'nob',
     'sma',
+    'smj',
     'sme',
     'smn',
     'sms',
