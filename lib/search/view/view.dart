@@ -30,6 +30,7 @@ class Searcher extends HookConsumerWidget {
         ),
         child: Row(
           children: [
+            const Icon(Icons.search),
             Flexible(
               child: TextField(
                 controller: _textController,
@@ -111,7 +112,17 @@ class Status extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('$srcLangs'),
+        ElevatedButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FilterPage(),
+            ),
+          ),
+          child: Text(
+            srcLangs.join(','),
+          ),
+        ),
         IconButton(
             icon: const Icon(Icons.multiple_stop),
             onPressed: () {
@@ -120,7 +131,17 @@ class Status extends ConsumerWidget {
             }),
         // Icon(Icons.repeat),
         // Icon(Icons.swap_horiz),
-        Text('$targetLangs')
+        ElevatedButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FilterPage(),
+            ),
+          ),
+          child: Text(
+            targetLangs.join(','),
+          ),
+        ),
       ],
     );
   }
@@ -134,7 +155,6 @@ class SearchPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('sátni.org'),
-        actions: const [FilterButton()],
       ),
       body: Column(
         children: const [
@@ -241,22 +261,6 @@ class NewStems extends ConsumerWidget {
           controller: _scrollController,
         ),
       ),
-    );
-  }
-}
-
-class FilterButton extends StatelessWidget {
-  const FilterButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.checklist_rounded),
-      onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => FilterPage(),
-          )),
     );
   }
 }
