@@ -145,6 +145,12 @@ class Status extends ConsumerWidget {
             onPressed: () {
               ref.read(filterProvider.notifier).updateSrcLangs(targetLangs);
               ref.read(filterProvider.notifier).updateTargetLangs(srcLangs);
+              final dicts = availableDicts
+                  .where((dictData) => (dictData['name'] == 'termwiki' ||
+                      (targetLangs.contains(dictData['src']) &&
+                          srcLangs.contains(dictData['target']))))
+                  .map((dictData) => '${dictData['name']}');
+              ref.read(filterProvider.notifier).updateDicts(dicts.toList());
             }),
         // Icon(Icons.repeat),
         // Icon(Icons.swap_horiz),
