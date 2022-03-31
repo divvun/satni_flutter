@@ -41,7 +41,7 @@ class Searcher extends HookConsumerWidget {
               ),
             ),
             IconButton(
-              icon: const Icon(Icons.search),
+              icon: const Icon(Icons.send),
               onPressed: ref.watch(searchProvider).searchText != ''
                   ? () {
                       context.push('/articles/${_textController.text}');
@@ -49,7 +49,7 @@ class Searcher extends HookConsumerWidget {
                   : null,
             ),
             IconButton(
-              icon: const Icon(Icons.close),
+              icon: const Icon(Icons.clear_all),
               onPressed: _textController.text != ''
                   ? () {
                       _textController.clear();
