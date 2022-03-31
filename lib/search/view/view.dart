@@ -99,6 +99,33 @@ class SearchModeMenu extends HookConsumerWidget {
   }
 }
 
+class Status extends ConsumerWidget {
+  const Status({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final filter = ref.watch(filterProvider);
+    final srcLangs = [...filter.wantedSrcLangs];
+    final targetLangs = [...filter.wantedTargetLangs];
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('$srcLangs'),
+        IconButton(
+            icon: const Icon(Icons.multiple_stop),
+            onPressed: () {
+              ref.read(filterProvider.notifier).updateSrcLangs(targetLangs);
+              ref.read(filterProvider.notifier).updateTargetLangs(srcLangs);
+            }),
+        // Icon(Icons.repeat),
+        // Icon(Icons.swap_horiz),
+        Text('$targetLangs')
+      ],
+    );
+  }
+}
+
 class SearchPage extends HookConsumerWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -111,6 +138,7 @@ class SearchPage extends HookConsumerWidget {
       ),
       body: Column(
         children: const [
+          Status(),
           Searcher(),
           Lemmatised(),
           SearchResults(),
