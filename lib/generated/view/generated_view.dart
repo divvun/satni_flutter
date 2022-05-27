@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni/generated/models/paradigm_templates.dart';
 
 // Project imports:
+import 'package:satni/generated/models/paradigm_templates.dart';
 import 'package:satni/graphql_api.graphql.dart';
 import '../generated.dart';
 

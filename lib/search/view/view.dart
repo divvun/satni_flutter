@@ -12,7 +12,6 @@ import 'package:satni/filter/pod/filter.dart';
 import 'package:satni/graphql_api.dart';
 import 'package:satni/lemmatised/lemmatised.dart';
 import 'package:satni/search/search.dart';
-import '../pod/search.dart';
 
 class Searcher extends HookConsumerWidget {
   const Searcher({Key? key}) : super(key: key);
@@ -145,20 +144,23 @@ class SearchResults extends ConsumerWidget {
     if (search.searchText.isEmpty) {
       return Text('Init: $search $filter');
     } else {
-      final AsyncValue<AllLemmas$Query> results = ref.watch(stemProvider);
+      final StemState stemState = ref.watch(stemNotifierProvider);
 
-      return results.when(
+      return stemState.when(
         loading: () => const CircularProgressIndicator(),
-        error: (err, stack) => Text('Error: $err'),
-        data: (stems) => NewStems(data: stems),
+        error: (err) => Text('Error: $err'),
+        success: (stems) => NewStems(data: stems),
+        loadingMore: (stems) => NewStems(data: stems),
       );
     }
   }
 }
 
-class NewStems extends StatelessWidget {
-  NewStems({required AllLemmas$Query data, Key? key})
-      : _data = data,
+class NewStems extends ConsumerWidget {
+  NewStems({
+    required AllLemmas$Query data,
+    Key? key,
+  })  : _data = data,
         super(key: key);
 
   final AllLemmas$Query _data;
@@ -167,6 +169,7 @@ class NewStems extends StatelessWidget {
   @override
   Widget build(
     BuildContext context,
+    WidgetRef ref,
   ) {
     final itemCount = _data.stemList!.edges.length;
 
@@ -174,6 +177,16 @@ class NewStems extends StatelessWidget {
       return Container();
     }
 
+    _scrollController.addListener(() {
+      var triggerFetchMoreSize =
+          0.9 * _scrollController.position.maxScrollExtent;
+      if (_data.stemList!.pageInfo.hasNextPage &&
+          _scrollController.position.pixels > triggerFetchMoreSize) {
+        ref
+            .read(stemNotifierProvider.notifier)
+            .fetchMoreStems('${_data.stemList!.pageInfo.endCursor}');
+      }
+    });
     List<String> stems = [];
 
     for (final edge in _data.stemList!.edges) {
