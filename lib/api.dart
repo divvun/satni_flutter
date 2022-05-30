@@ -5,31 +5,6 @@ import 'package:graphql/client.dart';
 import 'package:satni/graphql_api.dart';
 import 'package:satni/graphql_provider.dart';
 
-class Watcher {
-  GraphQLClient client;
-  WatchQueryOptions options;
-  late ObservableQuery result;
-
-  Watcher({
-    required this.client,
-    required this.options,
-  }) {
-    options.eagerlyFetchResults = true;
-    // sørger for at data hentes umiddelbart. Mao. første kall e tadd hånd om
-    // allerede. Påfyll gjøres med fetchMore
-
-    result = client.watchQuery(options);
-    // result.stream e strømmen man skal høre på
-  }
-
-  void fetchMore(FetchMoreOptions fetchMoreOptions) {
-    result.fetchMore(fetchMoreOptions);
-    result.fetchResults();
-  }
-}
-
-
-
 Future<Map<String, List<TermArticles$Query$ConceptType>>> getTerms(
     lookupString, srcLangs, targetLangs) async {
   final result = await client.query(
