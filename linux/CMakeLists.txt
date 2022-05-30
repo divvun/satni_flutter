@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "satni")
-set(APPLICATION_ID "divvun.org.satni")
+set(APPLICATION_ID "org.divvun.satni")
 
 cmake_policy(SET CMP0063 NEW)
 

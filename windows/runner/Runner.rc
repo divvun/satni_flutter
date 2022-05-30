@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "divvun.org" "\0"
+            VALUE "CompanyName", "org.divvun" "\0"
             VALUE "FileDescription", "satni" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "satni" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 divvun.org. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 org.divvun. All rights reserved." "\0"
             VALUE "OriginalFilename", "satni.exe" "\0"
             VALUE "ProductName", "satni" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
