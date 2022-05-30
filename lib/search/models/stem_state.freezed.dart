@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'stem_state.dart';
@@ -11,37 +12,7 @@ part of 'stem_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$StemStateTearOff {
-  const _$StemStateTearOff();
-
-  _Error error(String message) {
-    return _Error(
-      message,
-    );
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _LoadingMore loadingMore(AllLemmas$Query stems) {
-    return _LoadingMore(
-      stems,
-    );
-  }
-
-  _Success success(AllLemmas$Query stems) {
-    return _Success(
-      stems,
-    );
-  }
-}
-
-/// @nodoc
-const $StemState = _$StemStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$StemState {
@@ -113,26 +84,26 @@ class _$StemStateCopyWithImpl<$Res> implements $StemStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+class __$$_ErrorCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
 
   @override
-  _Error get _value => super._value as _Error;
+  _$_Error get _value => super._value as _$_Error;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_Error(
+    return _then(_$_Error(
       message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -158,7 +129,7 @@ class _$_Error implements _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Error &&
+            other is _$_Error &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -168,8 +139,8 @@ class _$_Error implements _Error {
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorCopyWith<_Error> get copyWith =>
-      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -247,27 +218,29 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements StemState {
-  const factory _Error(String message) = _$_Error;
+  const factory _Error(final String message) = _$_Error;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+class __$$_LoadingCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  _$_Loading get _value => super._value as _$_Loading;
 }
 
 /// @nodoc
@@ -283,7 +256,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -369,28 +342,28 @@ abstract class _Loading implements StemState {
 }
 
 /// @nodoc
-abstract class _$LoadingMoreCopyWith<$Res> {
-  factory _$LoadingMoreCopyWith(
-          _LoadingMore value, $Res Function(_LoadingMore) then) =
-      __$LoadingMoreCopyWithImpl<$Res>;
+abstract class _$$_LoadingMoreCopyWith<$Res> {
+  factory _$$_LoadingMoreCopyWith(
+          _$_LoadingMore value, $Res Function(_$_LoadingMore) then) =
+      __$$_LoadingMoreCopyWithImpl<$Res>;
   $Res call({AllLemmas$Query stems});
 }
 
 /// @nodoc
-class __$LoadingMoreCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
-    implements _$LoadingMoreCopyWith<$Res> {
-  __$LoadingMoreCopyWithImpl(
-      _LoadingMore _value, $Res Function(_LoadingMore) _then)
-      : super(_value, (v) => _then(v as _LoadingMore));
+class __$$_LoadingMoreCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+    implements _$$_LoadingMoreCopyWith<$Res> {
+  __$$_LoadingMoreCopyWithImpl(
+      _$_LoadingMore _value, $Res Function(_$_LoadingMore) _then)
+      : super(_value, (v) => _then(v as _$_LoadingMore));
 
   @override
-  _LoadingMore get _value => super._value as _LoadingMore;
+  _$_LoadingMore get _value => super._value as _$_LoadingMore;
 
   @override
   $Res call({
     Object? stems = freezed,
   }) {
-    return _then(_LoadingMore(
+    return _then(_$_LoadingMore(
       stems == freezed
           ? _value.stems
           : stems // ignore: cast_nullable_to_non_nullable
@@ -416,7 +389,7 @@ class _$_LoadingMore implements _LoadingMore {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LoadingMore &&
+            other is _$_LoadingMore &&
             const DeepCollectionEquality().equals(other.stems, stems));
   }
 
@@ -426,8 +399,8 @@ class _$_LoadingMore implements _LoadingMore {
 
   @JsonKey(ignore: true)
   @override
-  _$LoadingMoreCopyWith<_LoadingMore> get copyWith =>
-      __$LoadingMoreCopyWithImpl<_LoadingMore>(this, _$identity);
+  _$$_LoadingMoreCopyWith<_$_LoadingMore> get copyWith =>
+      __$$_LoadingMoreCopyWithImpl<_$_LoadingMore>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -505,35 +478,36 @@ class _$_LoadingMore implements _LoadingMore {
 }
 
 abstract class _LoadingMore implements StemState {
-  const factory _LoadingMore(AllLemmas$Query stems) = _$_LoadingMore;
+  const factory _LoadingMore(final AllLemmas$Query stems) = _$_LoadingMore;
 
-  AllLemmas$Query get stems;
+  AllLemmas$Query get stems => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadingMoreCopyWith<_LoadingMore> get copyWith =>
+  _$$_LoadingMoreCopyWith<_$_LoadingMore> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
   $Res call({AllLemmas$Query stems});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, (v) => _then(v as _$_Success));
 
   @override
-  _Success get _value => super._value as _Success;
+  _$_Success get _value => super._value as _$_Success;
 
   @override
   $Res call({
     Object? stems = freezed,
   }) {
-    return _then(_Success(
+    return _then(_$_Success(
       stems == freezed
           ? _value.stems
           : stems // ignore: cast_nullable_to_non_nullable
@@ -559,7 +533,7 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
+            other is _$_Success &&
             const DeepCollectionEquality().equals(other.stems, stems));
   }
 
@@ -569,8 +543,8 @@ class _$_Success implements _Success {
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -648,10 +622,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements StemState {
-  const factory _Success(AllLemmas$Query stems) = _$_Success;
+  const factory _Success(final AllLemmas$Query stems) = _$_Success;
 
-  AllLemmas$Query get stems;
+  AllLemmas$Query get stems => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'filter.dart';
@@ -11,64 +12,7 @@ part of 'filter.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FilterTearOff {
-  const _$FilterTearOff();
-
-  _Filter call(
-      {List<String> wantedSrcLangs = const [
-        'eng',
-        'fin',
-        'lat',
-        'nno',
-        'nob',
-        'sma',
-        'smj',
-        'sme',
-        'smn',
-        'sms',
-        'swe'
-      ],
-      List<String> wantedTargetLangs = const [
-        'eng',
-        'fin',
-        'lat',
-        'nno',
-        'nob',
-        'sma',
-        'smj',
-        'sme',
-        'smn',
-        'sms',
-        'swe'
-      ],
-      List<String> wantedDicts = const [
-        'termwiki',
-        'gtsmenob',
-        'gtnobsme',
-        'gtnobsma',
-        'gtsmanob',
-        'gtsmefin',
-        'gtfinsme',
-        'gtsmesmn',
-        'gtsmnsme',
-        'gtfinsmn',
-        'gtsmnfin',
-        'gtfinnob',
-        'sammallahtismefin'
-      ]}) {
-    return _Filter(
-      wantedSrcLangs: wantedSrcLangs,
-      wantedTargetLangs: wantedTargetLangs,
-      wantedDicts: wantedDicts,
-    );
-  }
-}
-
-/// @nodoc
-const $Filter = _$FilterTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Filter {
@@ -122,9 +66,9 @@ class _$FilterCopyWithImpl<$Res> implements $FilterCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FilterCopyWith<$Res> implements $FilterCopyWith<$Res> {
-  factory _$FilterCopyWith(_Filter value, $Res Function(_Filter) then) =
-      __$FilterCopyWithImpl<$Res>;
+abstract class _$$_FilterCopyWith<$Res> implements $FilterCopyWith<$Res> {
+  factory _$$_FilterCopyWith(_$_Filter value, $Res Function(_$_Filter) then) =
+      __$$_FilterCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<String> wantedSrcLangs,
@@ -133,13 +77,13 @@ abstract class _$FilterCopyWith<$Res> implements $FilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
-    implements _$FilterCopyWith<$Res> {
-  __$FilterCopyWithImpl(_Filter _value, $Res Function(_Filter) _then)
-      : super(_value, (v) => _then(v as _Filter));
+class __$$_FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
+    implements _$$_FilterCopyWith<$Res> {
+  __$$_FilterCopyWithImpl(_$_Filter _value, $Res Function(_$_Filter) _then)
+      : super(_value, (v) => _then(v as _$_Filter));
 
   @override
-  _Filter get _value => super._value as _Filter;
+  _$_Filter get _value => super._value as _$_Filter;
 
   @override
   $Res call({
@@ -147,17 +91,17 @@ class __$FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
     Object? wantedTargetLangs = freezed,
     Object? wantedDicts = freezed,
   }) {
-    return _then(_Filter(
+    return _then(_$_Filter(
       wantedSrcLangs: wantedSrcLangs == freezed
-          ? _value.wantedSrcLangs
+          ? _value._wantedSrcLangs
           : wantedSrcLangs // ignore: cast_nullable_to_non_nullable
               as List<String>,
       wantedTargetLangs: wantedTargetLangs == freezed
-          ? _value.wantedTargetLangs
+          ? _value._wantedTargetLangs
           : wantedTargetLangs // ignore: cast_nullable_to_non_nullable
               as List<String>,
       wantedDicts: wantedDicts == freezed
-          ? _value.wantedDicts
+          ? _value._wantedDicts
           : wantedDicts // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -168,7 +112,7 @@ class __$FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
 
 class _$_Filter with DiagnosticableTreeMixin implements _Filter {
   _$_Filter(
-      {this.wantedSrcLangs = const [
+      {final List<String> wantedSrcLangs = const [
         'eng',
         'fin',
         'lat',
@@ -181,7 +125,7 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
         'sms',
         'swe'
       ],
-      this.wantedTargetLangs = const [
+      final List<String> wantedTargetLangs = const [
         'eng',
         'fin',
         'lat',
@@ -194,7 +138,7 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
         'sms',
         'swe'
       ],
-      this.wantedDicts = const [
+      final List<String> wantedDicts = const [
         'termwiki',
         'gtsmenob',
         'gtnobsme',
@@ -208,17 +152,34 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
         'gtsmnfin',
         'gtfinnob',
         'sammallahtismefin'
-      ]});
+      ]})
+      : _wantedSrcLangs = wantedSrcLangs,
+        _wantedTargetLangs = wantedTargetLangs,
+        _wantedDicts = wantedDicts;
 
-  @JsonKey()
+  final List<String> _wantedSrcLangs;
   @override
-  final List<String> wantedSrcLangs;
   @JsonKey()
+  List<String> get wantedSrcLangs {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_wantedSrcLangs);
+  }
+
+  final List<String> _wantedTargetLangs;
   @override
-  final List<String> wantedTargetLangs;
   @JsonKey()
+  List<String> get wantedTargetLangs {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_wantedTargetLangs);
+  }
+
+  final List<String> _wantedDicts;
   @override
-  final List<String> wantedDicts;
+  @JsonKey()
+  List<String> get wantedDicts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_wantedDicts);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -239,41 +200,42 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Filter &&
+            other is _$_Filter &&
             const DeepCollectionEquality()
-                .equals(other.wantedSrcLangs, wantedSrcLangs) &&
+                .equals(other._wantedSrcLangs, _wantedSrcLangs) &&
             const DeepCollectionEquality()
-                .equals(other.wantedTargetLangs, wantedTargetLangs) &&
+                .equals(other._wantedTargetLangs, _wantedTargetLangs) &&
             const DeepCollectionEquality()
-                .equals(other.wantedDicts, wantedDicts));
+                .equals(other._wantedDicts, _wantedDicts));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(wantedSrcLangs),
-      const DeepCollectionEquality().hash(wantedTargetLangs),
-      const DeepCollectionEquality().hash(wantedDicts));
+      const DeepCollectionEquality().hash(_wantedSrcLangs),
+      const DeepCollectionEquality().hash(_wantedTargetLangs),
+      const DeepCollectionEquality().hash(_wantedDicts));
 
   @JsonKey(ignore: true)
   @override
-  _$FilterCopyWith<_Filter> get copyWith =>
-      __$FilterCopyWithImpl<_Filter>(this, _$identity);
+  _$$_FilterCopyWith<_$_Filter> get copyWith =>
+      __$$_FilterCopyWithImpl<_$_Filter>(this, _$identity);
 }
 
 abstract class _Filter implements Filter {
   factory _Filter(
-      {List<String> wantedSrcLangs,
-      List<String> wantedTargetLangs,
-      List<String> wantedDicts}) = _$_Filter;
+      {final List<String> wantedSrcLangs,
+      final List<String> wantedTargetLangs,
+      final List<String> wantedDicts}) = _$_Filter;
 
   @override
-  List<String> get wantedSrcLangs;
+  List<String> get wantedSrcLangs => throw _privateConstructorUsedError;
   @override
-  List<String> get wantedTargetLangs;
+  List<String> get wantedTargetLangs => throw _privateConstructorUsedError;
   @override
-  List<String> get wantedDicts;
+  List<String> get wantedDicts => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FilterCopyWith<_Filter> get copyWith => throw _privateConstructorUsedError;
+  _$$_FilterCopyWith<_$_Filter> get copyWith =>
+      throw _privateConstructorUsedError;
 }

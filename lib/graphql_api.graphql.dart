@@ -619,6 +619,7 @@ class HasStemArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$HasStemArgumentsToJson(this);
 }
 
+final HAS_STEM_QUERY_DOCUMENT_OPERATION_NAME = 'HasStem';
 final HAS_STEM_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -682,7 +683,7 @@ class HasStemQuery extends GraphQLQuery<HasStem$Query, HasStemArguments> {
   final DocumentNode document = HAS_STEM_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'HasStem';
+  final String operationName = HAS_STEM_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final HasStemArguments variables;
@@ -727,6 +728,7 @@ class AllLemmasArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$AllLemmasArgumentsToJson(this);
 }
 
+final ALL_LEMMAS_QUERY_DOCUMENT_OPERATION_NAME = 'AllLemmas';
 final ALL_LEMMAS_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -873,7 +875,7 @@ class AllLemmasQuery extends GraphQLQuery<AllLemmas$Query, AllLemmasArguments> {
   final DocumentNode document = ALL_LEMMAS_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'AllLemmas';
+  final String operationName = ALL_LEMMAS_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final AllLemmasArguments variables;
@@ -908,6 +910,7 @@ class GeneratedArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$GeneratedArgumentsToJson(this);
 }
 
+final GENERATED_QUERY_DOCUMENT_OPERATION_NAME = 'Generated';
 final GENERATED_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -989,7 +992,7 @@ class GeneratedQuery extends GraphQLQuery<Generated$Query, GeneratedArguments> {
   final DocumentNode document = GENERATED_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'Generated';
+  final String operationName = GENERATED_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final GeneratedArguments variables;
@@ -1027,6 +1030,7 @@ class DictArticlesArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$DictArticlesArgumentsToJson(this);
 }
 
+final DICT_ARTICLES_QUERY_DOCUMENT_OPERATION_NAME = 'DictArticles';
 final DICT_ARTICLES_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -1274,7 +1278,7 @@ class DictArticlesQuery
   final DocumentNode document = DICT_ARTICLES_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'DictArticles';
+  final String operationName = DICT_ARTICLES_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final DictArticlesArguments variables;
@@ -1302,6 +1306,7 @@ class LemmatisedArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$LemmatisedArgumentsToJson(this);
 }
 
+final LEMMATISED_QUERY_DOCUMENT_OPERATION_NAME = 'Lemmatised';
 final LEMMATISED_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -1369,7 +1374,7 @@ class LemmatisedQuery
   final DocumentNode document = LEMMATISED_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'Lemmatised';
+  final String operationName = LEMMATISED_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final LemmatisedArguments variables;
@@ -1402,6 +1407,7 @@ class TermArticlesArguments extends JsonSerializable with EquatableMixin {
   Map<String, dynamic> toJson() => _$TermArticlesArgumentsToJson(this);
 }
 
+final TERM_ARTICLES_QUERY_DOCUMENT_OPERATION_NAME = 'TermArticles';
 final TERM_ARTICLES_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -1552,7 +1558,7 @@ class TermArticlesQuery
   final DocumentNode document = TERM_ARTICLES_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'TermArticles';
+  final String operationName = TERM_ARTICLES_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final TermArticlesArguments variables;

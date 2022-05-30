@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'search.dart';
@@ -11,23 +12,7 @@ part of 'search.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SearchTearOff {
-  const _$SearchTearOff();
-
-  _Search call(
-      {String searchText = '', SearchModes searchMode = SearchModes.start}) {
-    return _Search(
-      searchText: searchText,
-      searchMode: searchMode,
-    );
-  }
-}
-
-/// @nodoc
-const $Search = _$SearchTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Search {
@@ -72,28 +57,28 @@ class _$SearchCopyWithImpl<$Res> implements $SearchCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
-  factory _$SearchCopyWith(_Search value, $Res Function(_Search) then) =
-      __$SearchCopyWithImpl<$Res>;
+abstract class _$$_SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
+  factory _$$_SearchCopyWith(_$_Search value, $Res Function(_$_Search) then) =
+      __$$_SearchCopyWithImpl<$Res>;
   @override
   $Res call({String searchText, SearchModes searchMode});
 }
 
 /// @nodoc
-class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
-    implements _$SearchCopyWith<$Res> {
-  __$SearchCopyWithImpl(_Search _value, $Res Function(_Search) _then)
-      : super(_value, (v) => _then(v as _Search));
+class __$$_SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
+    implements _$$_SearchCopyWith<$Res> {
+  __$$_SearchCopyWithImpl(_$_Search _value, $Res Function(_$_Search) _then)
+      : super(_value, (v) => _then(v as _$_Search));
 
   @override
-  _Search get _value => super._value as _Search;
+  _$_Search get _value => super._value as _$_Search;
 
   @override
   $Res call({
     Object? searchText = freezed,
     Object? searchMode = freezed,
   }) {
-    return _then(_Search(
+    return _then(_$_Search(
       searchText: searchText == freezed
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
@@ -111,11 +96,11 @@ class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
 class _$_Search with DiagnosticableTreeMixin implements _Search {
   _$_Search({this.searchText = '', this.searchMode = SearchModes.start});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String searchText;
-  @JsonKey()
   @override
+  @JsonKey()
   final SearchModes searchMode;
 
   @override
@@ -136,7 +121,7 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Search &&
+            other is _$_Search &&
             const DeepCollectionEquality()
                 .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
@@ -151,18 +136,20 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
 
   @JsonKey(ignore: true)
   @override
-  _$SearchCopyWith<_Search> get copyWith =>
-      __$SearchCopyWithImpl<_Search>(this, _$identity);
+  _$$_SearchCopyWith<_$_Search> get copyWith =>
+      __$$_SearchCopyWithImpl<_$_Search>(this, _$identity);
 }
 
 abstract class _Search implements Search {
-  factory _Search({String searchText, SearchModes searchMode}) = _$_Search;
+  factory _Search({final String searchText, final SearchModes searchMode}) =
+      _$_Search;
 
   @override
-  String get searchText;
+  String get searchText => throw _privateConstructorUsedError;
   @override
-  SearchModes get searchMode;
+  SearchModes get searchMode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SearchCopyWith<_Search> get copyWith => throw _privateConstructorUsedError;
+  _$$_SearchCopyWith<_$_Search> get copyWith =>
+      throw _privateConstructorUsedError;
 }
