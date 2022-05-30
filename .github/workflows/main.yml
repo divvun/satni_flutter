@@ -27,6 +27,7 @@ jobs:
         with:
           flutter-version: '2.10.2'
           channel: 'stable'
+          flutter-version: '3.0.1'
       - name: Disable Google phone-home
         run: flutter config --no-analytics
       - name: Verify flutter version
