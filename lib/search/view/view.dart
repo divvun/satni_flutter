@@ -271,6 +271,9 @@ class NewStems extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView(
+          shrinkWrap: true,
+          controller: _scrollController,
+          scrollDirection: Axis.vertical,
           children: ListTile.divideTiles(
             context: context,
             tiles: stems.map(
@@ -281,9 +284,6 @@ class NewStems extends ConsumerWidget {
               ),
             ),
           ).toList(),
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          controller: _scrollController,
         ),
       ),
     );
