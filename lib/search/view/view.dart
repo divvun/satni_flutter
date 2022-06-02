@@ -172,6 +172,38 @@ class Status extends ConsumerWidget {
   }
 }
 
+class HitCounter extends ConsumerWidget {
+  const HitCounter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stemState = ref.watch(stemNotifierProvider);
+
+    return stemState.when(
+      error: (error) => Container(),
+      initial: () => Container(),
+      loading: () => Container(),
+      loadingMore: (data) => _searchStatus(data, ref),
+      success: (data) => _searchStatus(data, ref),
+    );
+  }
+
+  Widget _searchStatus(AllLemmas$Query data, WidgetRef ref) {
+    final searchText =
+        ref.watch(searchProvider.select((search) => search.searchText));
+    return (data.stemList!.totalCount! > 0)
+        ? Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+                '$searchText: ${data.stemList!.edges.length}/${data.stemList!.totalCount}'),
+          )
+        : Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('$searchText: Nothing found'),
+          );
+  }
+}
+
 class SearchPage extends HookConsumerWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -182,11 +214,19 @@ class SearchPage extends HookConsumerWidget {
         title: const Text('sátni.org'),
       ),
       body: Column(
-        children: const [
-          Status(),
-          Searcher(),
-          Lemmatised(),
-          SearchResults(),
+        children: [
+          const Status(),
+          const Searcher(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Row(
+              children: const [
+                HitCounter(),
+                Lemmatised(),
+              ],
+            ),
+          ),
+          const SearchResults(),
         ],
       ),
     );
