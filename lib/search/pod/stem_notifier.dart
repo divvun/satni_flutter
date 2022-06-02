@@ -13,6 +13,7 @@ class StemNotifier extends StateNotifier<StemState> {
     print('constructing stemnotifier $_searchText');
     observableQuery = client.watchQuery(_queryOptions);
     if (_searchText.isNotEmpty) {
+      state = const StemState.loading();
       observableQuery.fetchResults();
       listenToStream();
     }
