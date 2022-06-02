@@ -104,6 +104,6 @@ jobs:
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app
-        run: flutter build ios -vv
+        run: flutter build ios -v
       - name: List build directory; have to find artefacts
         run: ls -al
