@@ -212,20 +212,15 @@ class SearchResults extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final search = ref.watch(searchProvider);
-    final filter = ref.watch(filterProvider);
-    if (search.searchText.isEmpty) {
-      return Text('Init: $search $filter');
-    } else {
-      final StemState stemState = ref.watch(stemNotifierProvider);
+    final stemState = ref.watch(stemNotifierProvider);
 
-      return stemState.when(
-        loading: () => const CircularProgressIndicator(),
-        error: (err) => Text('Error: $err'),
-        success: (stems) => NewStems(data: stems),
-        loadingMore: (stems) => NewStems(data: stems),
-      );
-    }
+    return stemState.when(
+      error: (error) => Text(error),
+      initial: () => const Text('Welcome'),
+      loading: () => const CircularProgressIndicator(),
+      loadingMore: (data) => NewStems(data: data),
+      success: (data) => NewStems(data: data),
+    );
   }
 }
 

@@ -10,6 +10,8 @@ part 'stem_state.freezed.dart';
 class StemState with _$StemState {
   const factory StemState.error(String message) = _Error;
 
+  const factory StemState.initial() = _Initial;
+
   const factory StemState.loading() = _Loading;
 
   const factory StemState.loadingMore(AllLemmas$Query stems) = _LoadingMore;

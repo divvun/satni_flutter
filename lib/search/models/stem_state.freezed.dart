@@ -19,6 +19,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AllLemmas$Query stems) loadingMore,
     required TResult Function(AllLemmas$Query stems) success,
@@ -27,6 +28,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -35,6 +37,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -44,6 +47,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoadingMore value) loadingMore,
     required TResult Function(_Success value) success,
@@ -52,6 +56,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -60,6 +65,7 @@ mixin _$StemState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -146,6 +152,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AllLemmas$Query stems) loadingMore,
     required TResult Function(AllLemmas$Query stems) success,
@@ -157,6 +164,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -168,6 +176,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -183,6 +192,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoadingMore value) loadingMore,
     required TResult Function(_Success value) success,
@@ -194,6 +204,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -205,6 +216,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -224,6 +236,127 @@ abstract class _Error implements StemState {
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitialCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
+
+  @override
+  _$_Initial get _value => super._value as _$_Initial;
+}
+
+/// @nodoc
+
+class _$_Initial implements _Initial {
+  const _$_Initial();
+
+  @override
+  String toString() {
+    return 'StemState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) error,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AllLemmas$Query stems) loadingMore,
+    required TResult Function(AllLemmas$Query stems) success,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? error,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AllLemmas$Query stems)? loadingMore,
+    TResult Function(AllLemmas$Query stems)? success,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? error,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AllLemmas$Query stems)? loadingMore,
+    TResult Function(AllLemmas$Query stems)? success,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingMore value) loadingMore,
+    required TResult Function(_Success value) success,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingMore value)? loadingMore,
+    TResult Function(_Success value)? success,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingMore value)? loadingMore,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements StemState {
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -266,6 +399,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AllLemmas$Query stems) loadingMore,
     required TResult Function(AllLemmas$Query stems) success,
@@ -277,6 +411,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -288,6 +423,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -303,6 +439,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoadingMore value) loadingMore,
     required TResult Function(_Success value) success,
@@ -314,6 +451,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -325,6 +463,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -406,6 +545,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AllLemmas$Query stems) loadingMore,
     required TResult Function(AllLemmas$Query stems) success,
@@ -417,6 +557,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -428,6 +569,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -443,6 +585,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoadingMore value) loadingMore,
     required TResult Function(_Success value) success,
@@ -454,6 +597,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -465,6 +609,7 @@ class _$_LoadingMore implements _LoadingMore {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -550,6 +695,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(AllLemmas$Query stems) loadingMore,
     required TResult Function(AllLemmas$Query stems) success,
@@ -561,6 +707,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -572,6 +719,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? error,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(AllLemmas$Query stems)? loadingMore,
     TResult Function(AllLemmas$Query stems)? success,
@@ -587,6 +735,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Error value) error,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoadingMore value) loadingMore,
     required TResult Function(_Success value) success,
@@ -598,6 +747,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
@@ -609,6 +759,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Error value)? error,
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_LoadingMore value)? loadingMore,
     TResult Function(_Success value)? success,
