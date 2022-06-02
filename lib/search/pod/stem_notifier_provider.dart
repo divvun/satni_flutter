@@ -7,13 +7,14 @@ import 'package:satni/filter/pod/filter.dart';
 import 'package:satni/graphql_api.dart';
 import 'package:satni/search/search.dart';
 
-final stemNotifierProvider = StateNotifierProvider<StemNotifier, StemState>(
-    (StateNotifierProviderRef<StemNotifier, StemState> ref) {
+final stemNotifierProvider =
+    StateNotifierProvider.autoDispose<StemNotifier, StemState>(
+        (AutoDisposeStateNotifierProviderRef<StemNotifier, StemState> ref) {
   print('stemNotifierProvider');
   final search = ref.watch(searchProvider);
   final filter = ref.watch(filterProvider);
 
-  final QueryOptions queryOptions = QueryOptions(
+  final queryOptions = WatchQueryOptions(
     document: ALL_LEMMAS_QUERY_DOCUMENT,
     variables: AllLemmasArguments(
       inputValue: search.searchText,
@@ -23,5 +24,5 @@ final stemNotifierProvider = StateNotifierProvider<StemNotifier, StemState>(
       wantedDicts: filter.wantedDicts,
     ).toJson(),
   );
-  return StemNotifier(queryOptions);
+  return StemNotifier(queryOptions, search.searchText);
 });
