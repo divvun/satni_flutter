@@ -17,7 +17,7 @@ platform :ios do
     update_code_signing_settings(
       path: "ios/Runner.xcodeproj",
       targets: ["Runner"],
-      build_configuration: ["Release"],
+      build_configurations: ["Release"],
       code_sign_identity: "iPhone Distribution"
     )
     update_project_team(
