@@ -25,4 +25,12 @@ platform :ios do
       teamid: ENV["IOS_TEAM_ID"]
     )
   end
+
+  desc "Codesign the application"
+  lane :signoff do
+    resign(
+      ipa: "tbd",
+      signing_identity: "Apple Distribution: The University of Tromso (2K5J2584NX)",
+    )
+  end
 end
