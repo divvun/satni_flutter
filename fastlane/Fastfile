@@ -31,6 +31,7 @@ platform :ios do
     resign(
       ipa: "/Users/runner/work/satni_flutter/satni_flutter/build/ios/iphoneos/Runner.app",
       signing_identity: "Apple Distribution: The University of Tromso (2K5J2584NX)",
+      provisioning_profile: ENV["sigh_org.divvun.satni_appstore_profile-path"]
     )
   end
 end
