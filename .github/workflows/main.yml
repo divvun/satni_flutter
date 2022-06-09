@@ -105,7 +105,7 @@ jobs:
         run: flutter doctor -v
       - name: DEBUG get iOS build options
         run: flutter help build ios
-      - name: Build iOS app --no-codesign --release
-        run: flutter build ios
+      - name: Build iOS app
+        run: flutter build ios --no-codesign --release
       - name: List build directory; have to find artefacts
         run: ls -al
