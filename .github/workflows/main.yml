@@ -107,5 +107,10 @@ jobs:
         run: flutter help build ios
       - name: Build iOS app
         run: flutter build ios --no-codesign --release
-      - name: List build directory; have to find artefacts
+      - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/iphoneos
+      - name: Attempt to sign the app
+        uses: maierj/fastlane-action@v2.2.1
+        with:
+          lane: "signoff"
+          env: "distribution"

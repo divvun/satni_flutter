@@ -29,7 +29,7 @@ platform :ios do
   desc "Codesign the application"
   lane :signoff do
     resign(
-      ipa: "tbd",
+      ipa: "/Users/runner/work/satni_flutter/satni_flutter/build/ios/iphoneos/Runner.app",
       signing_identity: "Apple Distribution: The University of Tromso (2K5J2584NX)",
     )
   end
