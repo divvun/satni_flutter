@@ -108,4 +108,4 @@ jobs:
       - name: Build iOS app
         run: flutter build ios --no-codesign --release
       - name: List build directory; have to find artefacts
-        run: ls -al build/ios
+        run: ls -al build/ios/iphoneos
