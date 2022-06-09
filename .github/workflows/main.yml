@@ -104,11 +104,11 @@ jobs:
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
-        run: flutter help build ios
+        run: flutter help build ipa
       - name: Build iOS app
-        run: flutter build ios --no-codesign --release
+        run: flutter build ipa --no-codesign --release
       - name: DEBUG List build directory; have to find artefacts
-        run: ls -al build/ios/Release-iphoneos
+        run: ls -al build/ios/ipa
       - name: Attempt to sign the app
         uses: maierj/fastlane-action@v2.2.1
         with:
