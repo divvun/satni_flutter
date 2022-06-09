@@ -102,7 +102,7 @@ jobs:
           lane: "match_distribution"
           env: "distribution"
       - name: DEBUG the flutter environment
-        run: flutter doctor
+        run: flutter doctor -v
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app --no-codesign --release
