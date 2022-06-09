@@ -101,6 +101,8 @@ jobs:
         with:
           lane: "match_distribution"
           env: "distribution"
+      - name: DEBUG the flutter environment
+        run: flutter doctor
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS app
