@@ -101,7 +101,7 @@ jobs:
           ruby-version: '3.1.2'
       - name: Prepare a keychain for imports
         run: |
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          KEYCHAIN_PATH=/Users/runner/Library/Keychains/app-signing.keychain-db
 
           security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
           security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
@@ -112,7 +112,7 @@ jobs:
           lane: "match_distribution"
           env: "distribution"
         env:
-          MATCH_KEYCHAIN_NAME: ${{ env.RUNNER_TEMP }}/app-signing.keychain-db
+          MATCH_KEYCHAIN_NAME: app-signing
           MATCH_KEYCHAIN_PASSWORD: hodor
       - name: DEBUG the flutter environment
         run: flutter doctor -v
