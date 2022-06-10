@@ -140,3 +140,4 @@ jobs:
         env:
           MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
           MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
+          SPACESHIP_SKIP_2FA_UPGRADE: 1
