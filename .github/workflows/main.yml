@@ -7,6 +7,7 @@ on:
 
 env:
   APP_ID: "divvun.org.satni"
+  FLUTTER_VERSION: "3.0.1"
 
 jobs:
   android_build:
@@ -20,7 +21,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.10.2'
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: 'stable'
       - name: Disable Google phone-home
         run: flutter config --no-analytics
@@ -92,7 +93,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.0.1'
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: 'stable'
       - name: Disable Google phone-home
         run: flutter config --no-analytics
