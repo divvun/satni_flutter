@@ -5,7 +5,7 @@
     <key>compileBitcode</key>
     <true/>
     <key>method</key>
-    <string>appstore</string>
+    <string>app-store</string>
     <key>provisioningProfiles</key>
     <dict>
         <key>org.divvun.satni</key>
