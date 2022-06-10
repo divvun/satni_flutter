@@ -131,7 +131,7 @@ jobs:
           --build-number=${{ github.run_number }}
           --build-name=${{ github.sha }}
       - name: DEBUG List build directory; have to find artefacts
-        run: ls -al build/ios/
+        run: ls -al build/ios/ipa
       - name: "Fastlane: Send the app to the App Store"
         uses: maierj/fastlane-action@v2.2.1
         with:
