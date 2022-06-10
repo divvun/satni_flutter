@@ -78,7 +78,7 @@ jobs:
 
   ios_build:
     name: Build iOS
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v2
       - name: Unpack the secrets file
