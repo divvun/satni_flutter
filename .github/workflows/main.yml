@@ -128,7 +128,7 @@ jobs:
           flutter build ipa
           --release
           --export-options-plist ios/Runner.xcodeproj/export.plist
-          --build-number=${{ github.run_id }}
+          --build-number=${{ github.run_number }}
           --build-name=${{ github.sha }}
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/
