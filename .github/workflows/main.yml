@@ -117,10 +117,6 @@ jobs:
         env:
           MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
           MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
-      - name: DEBUG Verify contents of keychain
-        run: |
-          KEYCHAIN_PATH=/Users/runner/Library/Keychains/$KEYCHAIN_NAME.keychain-db
-          security list-keychain -d user -s $KEYCHAIN_PATH
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
