@@ -123,7 +123,15 @@ jobs:
         run: flutter doctor -v
       - name: DEBUG get iOS build options
         run: flutter help build ios
-      - name: Build iOS
-        run: flutter build ios --release
+      - name: Build iOS IPA
+        run: flutter build ipa --release
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/ipa
+      - name: "Fastlane: Send the app to the App Store"
+        uses: maierj/fastlane-action@v2.2.1
+        with:
+          lane: "publish"
+          env: "distribution"
+        env:
+          MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
