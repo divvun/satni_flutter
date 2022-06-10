@@ -33,7 +33,7 @@ platform :ios do
       readonly: true
     )
     pilot(
-      ipa: "/Users/runner/work/satni_flutter/satni_flutter/build/ios/ipa/Runner.ipa"
+      ipa: "build/ios/ipa/satni.ipa"
     )
   end
 end
