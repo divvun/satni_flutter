@@ -110,7 +110,7 @@ jobs:
           security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
 
-          security default-keychain $KEYCHAIN_PATH
+          security default-keychain -s $KEYCHAIN_PATH
       - name: "Fastlane: Get certs and profiles"
         uses: maierj/fastlane-action@v2.2.1
         with:
