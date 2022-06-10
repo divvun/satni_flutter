@@ -124,7 +124,12 @@ jobs:
       - name: DEBUG get iOS build options
         run: flutter help build ios
       - name: Build iOS IPA
-        run: flutter build ipa --release
+        run: >-
+          flutter build ipa
+            --release
+            --export-options-plist ios/Runner.xcodeproj/export.plist
+            --build-number=${{ github.run_id }}
+            --build-name=${{ github.sha }}
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/
       - name: "Fastlane: Send the app to the App Store"
