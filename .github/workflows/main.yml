@@ -78,7 +78,10 @@ jobs:
 
   ios_build:
     name: Build iOS
-    runs-on: macos-12
+    # runs-on: macos-12
+    runs-on: macos-latest
+    env:
+      KEYCHAIN_PASSWORD: hodor
     steps:
       - uses: actions/checkout@v2
       - name: Unpack the secrets file
@@ -96,17 +99,27 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2'
+      - name: Prepare a keychain for imports
+        run: |
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
       - name: "Fastlane: Get certs and profiles"
         uses: maierj/fastlane-action@v2.2.1
         with:
           lane: "match_distribution"
           env: "distribution"
+        env:
+          MATCH_KEYCHAIN_NAME: app-signing
+          MATCH_KEYCHAIN_PASSWORD: hodor
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
         run: flutter help build ipa
       - name: Build iOS IPA
-        run: flutter build ipa --release -v
+        run: flutter build ipa --release
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/ipa
       - name: Attempt to sign the app
