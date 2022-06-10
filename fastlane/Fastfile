@@ -25,4 +25,15 @@ platform :ios do
       teamid: ENV["IOS_TEAM_ID"]
     )
   end
+
+  desc "Publish the app to the App Store"
+  lane :publish do
+    match(
+      type: "appstore",
+      readonly: true
+    )
+    pilot(
+      ipa: "/Users/runner/work/satni_flutter/satni_flutter/build/ios/ipa/Runner.ipa"
+    )
+  end
 end
