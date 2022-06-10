@@ -116,9 +116,9 @@ jobs:
         with:
           lane: "match_distribution"
           env: "distribution"
-        env:
-          MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
-          MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
+        # env:
+          # MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
+          # MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
