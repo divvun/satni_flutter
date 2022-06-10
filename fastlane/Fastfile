@@ -11,14 +11,14 @@ platform :ios do
       xcodeproj: "ios/Runner.xcodeproj",
       profile: ENV["sigh_org.divvun.satni_appstore_profile-path"],
       build_configuration: "Release",
-      # code_signing_identity: "Apple Distribution"
-      code_signing_identity: "iPhone Distribution"
+      code_signing_identity: "Apple Distribution"
+      # code_signing_identity: "iPhone Distribution"
     )
     update_code_signing_settings(
       path: "ios/Runner.xcodeproj",
       targets: ["Runner"],
       build_configurations: ["Release"],
-      code_sign_identity: "iPhone Distribution"
+      code_sign_identity: "Apple Distribution"
     )
     update_project_team(
       path: "ios/Runner.xcodeproj",
