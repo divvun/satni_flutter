@@ -82,6 +82,7 @@ jobs:
     runs-on: macos-latest
     env:
       KEYCHAIN_PASSWORD: hodor
+      KEYCHAIN_NAME: app-signing
     steps:
       - uses: actions/checkout@v2
       - name: Unpack the secrets file
@@ -112,14 +113,14 @@ jobs:
           lane: "match_distribution"
           env: "distribution"
         env:
-          MATCH_KEYCHAIN_NAME: app-signing
-          MATCH_KEYCHAIN_PASSWORD: hodor
+          MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
-        run: flutter help build ipa
-      - name: Build iOS IPA
-        run: flutter build ipa --release
+        run: flutter help build ios
+      - name: Build iOS
+        run: flutter build ios --release
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/ipa
       - name: Attempt to sign the app
