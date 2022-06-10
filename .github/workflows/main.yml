@@ -9,72 +9,72 @@ env:
   APP_ID: "divvun.org.satni"
 
 jobs:
-  # android_build:
-  #   name: Build Android
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     keystore: main.jks
-  #     version_code: ${{ github.run_number }}
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Install Flutter
-  #       uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: '2.10.2'
-  #         channel: 'stable'
-  #     - name: Disable Google phone-home
-  #       run: flutter config --no-analytics
-  #     - name: Verify flutter version
-  #       run: flutter --version
-  #     - name: Install keystore
-  #       run: echo ${{ secrets.KEYSTORE }} | base64 -d > ${{ env.keystore }}
-  #     - name: Verify Keystore contents
-  #       run: sha1sum main.jks
-  #     - name: Capture working directory
-  #       id: pwd
-  #       run: echo "::set-output name=wd::$(pwd)"
-  #     - name: Inject key information
-  #       env:
-  #         KSK: ${{ secrets.KEYSTORE_KEY }}
-  #         WD: ${{ steps.pwd.outputs.wd }}
-  #         KS: ${{ env.keystore }}
-  #       run: |
-  #         sed -e "s|c5b6486b-091e-42cd-a253-2f62f06ac970|$KSK|g" -E -i android/key.properties
-  #         sed -e "s|eed0bb70-0e0e-466a-afeb-16c49c9c22de|$WD/$KS|g" -E -i android/key.properties
-  #     - name: Build APK
-  #       run: flutter build apk --build-number "${{ env.version_code }}"
-  #     - name: Upload APK artifact
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: apk
-  #         path: build/app/outputs/flutter-apk/app-release.apk
-  #     - name: Build AAB
-  #       run: flutter build appbundle --build-number "${{ env.version_code }}"
-  #     - name: Upload AAB artifact
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: aab
-  #         path: build/app/outputs/bundle/release/app-release.aab
+  android_build:
+    name: Build Android
+    runs-on: ubuntu-latest
+    env:
+      keystore: main.jks
+      version_code: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.2'
+          channel: 'stable'
+      - name: Disable Google phone-home
+        run: flutter config --no-analytics
+      - name: Verify flutter version
+        run: flutter --version
+      - name: Install keystore
+        run: echo ${{ secrets.KEYSTORE }} | base64 -d > ${{ env.keystore }}
+      - name: Verify Keystore contents
+        run: sha1sum main.jks
+      - name: Capture working directory
+        id: pwd
+        run: echo "::set-output name=wd::$(pwd)"
+      - name: Inject key information
+        env:
+          KSK: ${{ secrets.KEYSTORE_KEY }}
+          WD: ${{ steps.pwd.outputs.wd }}
+          KS: ${{ env.keystore }}
+        run: |
+          sed -e "s|c5b6486b-091e-42cd-a253-2f62f06ac970|$KSK|g" -E -i android/key.properties
+          sed -e "s|eed0bb70-0e0e-466a-afeb-16c49c9c22de|$WD/$KS|g" -E -i android/key.properties
+      - name: Build APK
+        run: flutter build apk --build-number "${{ env.version_code }}"
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Build AAB
+        run: flutter build appbundle --build-number "${{ env.version_code }}"
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: aab
+          path: build/app/outputs/bundle/release/app-release.aab
 
-  # android_push:
-  #   name: Deploy Android
-  #   needs:
-  #     - android_build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Download the AAB
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: aab
-  #     - name: Push the AAB to Google Play
-  #       uses: r0adkll/upload-google-play@v1
-  #       with:
-  #         packageName: ${{ env.APP_ID }}
-  #         releaseFiles: app-release.aab
-  #         track: internal
-  #         status: draft
-  #         serviceAccountJsonPlainText: "${{ secrets.SERVICE_ACCOUNT }}"
+  android_push:
+    name: Deploy Android
+    needs:
+      - android_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download the AAB
+        uses: actions/download-artifact@v2
+        with:
+          name: aab
+      - name: Push the AAB to Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          packageName: ${{ env.APP_ID }}
+          releaseFiles: app-release.aab
+          track: internal
+          status: draft
+          serviceAccountJsonPlainText: "${{ secrets.SERVICE_ACCOUNT }}"
 
   ios_build:
     name: Build iOS
