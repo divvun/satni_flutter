@@ -33,7 +33,8 @@ platform :ios do
       readonly: true
     )
     pilot(
-      ipa: "build/ios/ipa/satni.ipa"
+      ipa: "build/ios/ipa/satni.ipa",
+      api_key_path: "ios/key.json"
     )
   end
 end
