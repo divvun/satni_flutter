@@ -6,7 +6,7 @@ on:
       - dev-ci-*
 
 env:
-  APP_ID: "divvun.org.satni"
+  APP_ID: "org.divvun.satni"
   FLUTTER_VERSION: "3.0.1"
 
 jobs:
