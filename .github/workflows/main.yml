@@ -102,7 +102,7 @@ jobs:
           ruby-version: '3.1.2'
       - name: Prepare a keychain for imports
         run: |
-          KEYCHAIN_PATH=$RUNNER_TEMP/$KEYCHAIN_NAME.keychain-db
+          KEYCHAIN_PATH=/Users/runner/Library/Keychains/$KEYCHAIN_NAME.keychain-db
 
           echo "$KEYCHAIN_PATH"
 
@@ -116,9 +116,9 @@ jobs:
         with:
           lane: "match_distribution"
           env: "distribution"
-        # env:
-          # MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
-          # MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
+        env:
+          MATCH_KEYCHAIN_NAME: ${{ env.KEYCHAIN_NAME }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ env.KEYCHAIN_PASSWORD }}
       - name: DEBUG the flutter environment
         run: flutter doctor -v
       - name: DEBUG get iOS build options
