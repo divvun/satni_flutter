@@ -106,7 +106,7 @@ jobs:
       - name: DEBUG get iOS build options
         run: flutter help build ipa
       - name: Build iOS IPA
-        run: flutter build ipa --release
+        run: flutter build ipa --release -v
       - name: DEBUG List build directory; have to find artefacts
         run: ls -al build/ios/ipa
       - name: Attempt to sign the app
