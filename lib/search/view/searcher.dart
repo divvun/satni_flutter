@@ -8,7 +8,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:satni/search/search.dart';
-import 'articles.dart';
 
 class Searcher extends HookConsumerWidget {
   const Searcher({Key? key}) : super(key: key);

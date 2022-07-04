@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/articles/articles.dart';
+import 'package:satni/search/search.dart';
 
 class SearchPage extends HookConsumerWidget {
   const SearchPage({Key? key}) : super(key: key);

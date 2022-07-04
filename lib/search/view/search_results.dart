@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:satni/search/search.dart';
-import 'articles.dart';
 
 class SearchResults extends ConsumerWidget {
   const SearchResults({Key? key}) : super(key: key);
