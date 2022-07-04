@@ -8,26 +8,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:satni/filter/filter.dart';
 import 'package:satni/filter/pod/filter.dart';
 
-class Status extends ConsumerWidget {
-  const Status({Key? key}) : super(key: key);
+class FilterStatus extends ConsumerWidget {
+  const FilterStatus({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filter = ref.watch(filterProvider);
     final availableDicts = [
-      {'name': 'termwiki'},
-      {'name': 'gtsmenob', 'src': 'sme', 'target': 'nob'},
-      {'name': 'gtnobsme', 'src': 'nob', 'target': 'sme'},
+      {'name': 'gtfinnob', 'src': 'fin', 'target': 'nob'},
+      {'name': 'gtfinsme', 'src': 'fin', 'target': 'sme'},
+      {'name': 'gtfinsmn', 'src': 'fin', 'target': 'smn'},
       {'name': 'gtnobsma', 'src': 'nob', 'target': 'sma'},
+      {'name': 'gtnobsme', 'src': 'nob', 'target': 'sme'},
       {'name': 'gtsmanob', 'src': 'sma', 'target': 'nob'},
       {'name': 'gtsmefin', 'src': 'sme', 'target': 'fin'},
-      {'name': 'gtfinsme', 'src': 'fin', 'target': 'sme'},
+      {'name': 'gtsmenob', 'src': 'sme', 'target': 'nob'},
       {'name': 'gtsmesmn', 'src': 'sme', 'target': 'smn'},
-      {'name': 'gtsmnsme', 'src': 'smn', 'target': 'sme'},
-      {'name': 'gtfinsmn', 'src': 'fin', 'target': 'smn'},
       {'name': 'gtsmnfin', 'src': 'smn', 'target': 'fin'},
-      {'name': 'gtfinnob', 'src': 'fin', 'target': 'nob'},
+      {'name': 'gtsmnsme', 'src': 'smn', 'target': 'sme'},
       {'name': 'sammallahtismefin', 'src': 'sme', 'target': 'fin'},
+      {'name': 'termwiki'},
     ];
     final srcLangs = [...filter.wantedSrcLangs];
     final targetLangs = [...filter.wantedTargetLangs];

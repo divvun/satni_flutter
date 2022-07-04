@@ -1,3 +1,4 @@
+export 'filter_status.dart';
 export 'hit_counter.dart';
 export 'lemmatised.dart';
 export 'new_stems.dart';
@@ -6,4 +7,3 @@ export 'search_page.dart';
 export 'search_results.dart';
 export 'search_status.dart';
 export 'searcher.dart';
-export 'status.dart';

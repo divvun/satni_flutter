@@ -15,7 +15,7 @@ class SearchPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Status(),
+          const FilterStatus(),
           const Searcher(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
