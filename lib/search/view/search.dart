@@ -4,5 +4,6 @@ export 'new_stems.dart';
 export 'search_mode_menu.dart';
 export 'search_page.dart';
 export 'search_results.dart';
+export 'search_status.dart';
 export 'searcher.dart';
 export 'status.dart';

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.dart';
 import 'package:satni/search/search.dart';
 
 class HitCounter extends ConsumerWidget {
@@ -19,23 +18,8 @@ class HitCounter extends ConsumerWidget {
       error: (error) => Container(),
       initial: () => Container(),
       loading: () => Container(),
-      loadingMore: (data) => _searchStatus(data, ref),
-      success: (data) => _searchStatus(data, ref),
+      loadingMore: (data) => SearchStatus(data),
+      success: (data) => SearchStatus(data),
     );
-  }
-
-  Widget _searchStatus(AllLemmas$Query data, WidgetRef ref) {
-    final searchText =
-        ref.watch(searchProvider.select((search) => search.searchText));
-    return (data.stemList!.totalCount! > 0)
-        ? Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-                '$searchText: ${data.stemList!.edges.length}/${data.stemList!.totalCount}'),
-          )
-        : Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('$searchText: Nothing found'),
-          );
   }
 }

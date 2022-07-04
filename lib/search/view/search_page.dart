@@ -1,17 +1,14 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 // Project imports:
 import 'package:satni/search/search.dart';
 
-class SearchPage extends HookConsumerWidget {
+class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('sátni.org'),
