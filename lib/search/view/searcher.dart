@@ -34,7 +34,7 @@ class Searcher extends HookConsumerWidget {
                     hintText: 'Write a search string'),
                 focusNode: focusNode,
                 onChanged: (text) =>
-                    ref.read(searchProvider.notifier).updateSearchText(text),
+                    ref.read(searchDebounceServiceProvider).searchStem(text),
               ),
             ),
             IconButton(
