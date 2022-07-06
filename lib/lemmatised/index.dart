@@ -1,3 +1,4 @@
-export 'data/lemmatised_provider.dart';
+export 'application/index.dart';
+export 'data/index.dart';
 export 'domain/index.dart';
 export 'presentation/index.dart';

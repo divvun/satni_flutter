@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/generated/domain/paradigm_templates.dart';
 import 'package:satni/generated/index.dart';
 import 'package:satni/graphql_api.graphql.dart';
 
@@ -13,19 +12,6 @@ class GeneratedView extends ConsumerWidget {
   const GeneratedView(this.arguments, {Key? key}) : super(key: key);
 
   final Arguments arguments;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(generatedProvider(arguments)).when(
-        loading: () => const CircularProgressIndicator(),
-        data: (generated) => ListView(
-              children: [
-                // ListTile(title: Text(g2m(generated).toString())),
-                ..._generated(context, arguments, generated)
-              ],
-            ),
-        error: (_, __) => const Text('Oops, generation went awry'));
-  }
 
   List<Widget> _generated(
       BuildContext context, Arguments arguments, Generated$Query generated) {
@@ -52,13 +38,26 @@ class GeneratedView extends ConsumerWidget {
       ),
     ];
   }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ref.watch(generatedService(arguments)).when(
+        loading: () => const CircularProgressIndicator(),
+        data: (generated) => ListView(
+              children: [
+                // ListTile(title: Text(g2m(generated).toString())),
+                ..._generated(context, arguments, generated)
+              ],
+            ),
+        error: (_, __) => const Text('Oops, generation went awry'));
+  }
 }
 
 class GeneratedRow extends StatelessWidget {
   const GeneratedRow(this.row, this.m, {Key? key}) : super(key: key);
 
-  final Map<String, dynamic> row;
   final Map<String, String> m;
+  final Map<String, dynamic> row;
 
   @override
   Widget build(BuildContext context) {

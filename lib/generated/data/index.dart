@@ -1,1 +1,1 @@
-export 'generated.dart';
+export 'generated_repository.dart';

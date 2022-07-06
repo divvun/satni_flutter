@@ -1,1 +1,1 @@
-export 'lemmatised_provider.dart';
+export 'lemmatised_repository.dart';

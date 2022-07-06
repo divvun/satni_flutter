@@ -31,7 +31,7 @@ class LemmatisedView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(lemmatisedProvider(lookupString)).when(
+    return ref.watch(lemmatisedService(lookupString)).when(
         loading: () => const CircularProgressIndicator(),
         data: (lemmatised) => Column(
               children: [..._lemmatised(context, lemmatised)],
