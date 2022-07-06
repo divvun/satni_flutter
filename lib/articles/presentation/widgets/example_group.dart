@@ -12,6 +12,7 @@ class ExampleGroup extends StatelessWidget {
 
   final DictArticles$Query$DictEntryType$TranslationGroupType$ExampleGroupType
       exampleGroup;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -14,6 +14,7 @@ class DictTranslationLemma extends StatelessWidget {
 
   final DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge
       lemma;
+
   final DictArticles$Query$DictEntryType$TranslationGroupType$RestrictionType?
       restriction;
 

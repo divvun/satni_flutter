@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import '../../index.dart';
+import 'package:satni/articles/index.dart';
 
 class ArticlesView extends ConsumerWidget {
   const ArticlesView({required String lemma, Key? key})
@@ -16,7 +16,7 @@ class ArticlesView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(articlesProvider(_lemma)).when(
+    return ref.watch(articlesServiceProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
         data: (articles) => ListView(
               children: [

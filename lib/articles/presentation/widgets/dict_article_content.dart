@@ -10,6 +10,7 @@ class DictArticleContent extends StatelessWidget {
     this.dictEntry, {
     Key? key,
   }) : super(key: key);
+
   final DictArticles$Query$DictEntryType dictEntry;
 
   @override

@@ -12,6 +12,7 @@ class DictTranslationGroup extends StatelessWidget {
   }) : super(key: key);
 
   final DictArticles$Query$DictEntryType$TranslationGroupType translationGroup;
+
   @override
   Widget build(BuildContext context) {
     final restriction = translationGroup.restriction;

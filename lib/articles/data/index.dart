@@ -1,1 +1,2 @@
-export 'articles_notifier.dart';
+export 'term_fetcher_repository.dart';
+export 'dict_fetcher_repository.dart';
