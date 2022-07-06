@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.graphql.dart';
-import 'articles.dart';
+import '../index.dart';
 
 class DictTranslationGroup extends StatelessWidget {
   const DictTranslationGroup(

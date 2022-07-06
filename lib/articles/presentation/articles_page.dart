@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../articles.dart';
+import '../index.dart';
 
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage(this.lemma, Key? key) : super(key: key);

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.graphql.dart';
-import 'articles.dart';
+import '../index.dart';
 
 class DictArticle extends StatelessWidget {
   const DictArticle(this.dictEntry, {Key? key}) : super(key: key);

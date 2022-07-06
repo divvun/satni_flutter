@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.dart';
-import 'articles.dart';
+import '../index.dart';
 
 class TermArticle extends StatelessWidget {
   const TermArticle(this.articleName, this.concepts, {Key? key})
