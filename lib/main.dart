@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/articles/articles.dart';
-import 'package:satni/search/search.dart';
+import 'package:satni/articles/index.dart';
+import 'package:satni/search/index.dart';
 
 void main() {
   GoRouter.setUrlPathStrategy(UrlPathStrategy.path);

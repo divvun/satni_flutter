@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.dart';
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 class SearchStatus extends ConsumerWidget {
   const SearchStatus(this.data, {Key? key}) : super(key: key);

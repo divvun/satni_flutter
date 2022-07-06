@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rxdart/rxdart.dart';
 
 // Project imports:
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 class SearchDebounceService {
   SearchDebounceService(this.ref) {

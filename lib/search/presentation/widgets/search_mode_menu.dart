@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 class SearchModeMenu extends HookConsumerWidget {
   const SearchModeMenu({Key? key}) : super(key: key);

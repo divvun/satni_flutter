@@ -5,7 +5,7 @@ import 'package:graphql/client.dart';
 // Project imports:
 import 'package:satni/graphql_api.dart';
 import 'package:satni/graphql_provider.dart';
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 class StemNotifier extends StateNotifier<StemState> {
   StemNotifier(this._queryOptions, this._searchText)

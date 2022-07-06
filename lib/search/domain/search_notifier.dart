@@ -2,7 +2,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 // Project imports:
 

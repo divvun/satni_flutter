@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.dart';
-import 'package:satni/search/search.dart';
+import 'package:satni/search/index.dart';
 
 class NewStems extends ConsumerWidget {
   NewStems({
