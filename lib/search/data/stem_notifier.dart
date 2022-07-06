@@ -4,20 +4,20 @@ import 'package:graphql/client.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.dart';
-import 'package:satni/graphql_provider.dart';
 import 'package:satni/search/index.dart';
 
 class StemNotifier extends StateNotifier<StemState> {
-  StemNotifier(this._queryOptions, this._searchText)
+  StemNotifier(this._queryOptions, this._searchText, this._client)
       : super(const StemState.initial()) {
     print('constructing stemnotifier $_searchText');
-    observableQuery = client.watchQuery(_queryOptions);
+    observableQuery = _client.watchQuery(_queryOptions);
     if (_searchText.isNotEmpty) {
       state = const StemState.loading();
       observableQuery.fetchResults();
       listenToStream();
     }
   }
+final GraphQLClient _client;
 
   late ObservableQuery observableQuery;
   String oldEndcursor = '';
