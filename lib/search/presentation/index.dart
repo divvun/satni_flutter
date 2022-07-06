@@ -1,9 +1,9 @@
-export 'filter_status.dart';
-export 'hit_counter.dart';
-export 'lemmatised.dart';
-export 'new_stems.dart';
-export 'search_mode_menu.dart';
+export 'widgets/filter_status.dart';
+export 'widgets/hit_counter.dart';
+export 'widgets/lemmatised.dart';
+export 'widgets/new_stems.dart';
+export 'widgets/search_mode_menu.dart';
 export 'search_page.dart';
-export 'search_results.dart';
-export 'search_status.dart';
-export 'searcher.dart';
+export 'widgets/search_results.dart';
+export 'widgets/search_status.dart';
+export 'widgets/searcher.dart';
