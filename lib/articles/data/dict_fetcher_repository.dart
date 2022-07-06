@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql/client.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.graphql.dart';
-import 'package:satni/graphql_provider.dart';
+import 'package:satni/graphql/index.dart';
 
 class DictFetcherRepository {
   const DictFetcherRepository(this._client);

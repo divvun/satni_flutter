@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.dart';
+import 'package:satni/graphql/index.dart';
 import 'package:satni/search/index.dart';
 
 class SearchStatus extends ConsumerWidget {

@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:satni/generated/index.dart';
-import 'package:satni/graphql_api.graphql.dart';
+import 'package:satni/graphql/index.dart';
 
 class GeneratedView extends ConsumerWidget {
   const GeneratedView(this.arguments, {Key? key}) : super(key: key);

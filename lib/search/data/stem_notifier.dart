@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql/client.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.dart';
+import 'package:satni/graphql/index.dart';
 import 'package:satni/search/index.dart';
 
 class StemNotifier extends StateNotifier<StemState> {
@@ -17,7 +17,7 @@ class StemNotifier extends StateNotifier<StemState> {
       listenToStream();
     }
   }
-final GraphQLClient _client;
+  final GraphQLClient _client;
 
   late ObservableQuery observableQuery;
   String oldEndcursor = '';

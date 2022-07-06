@@ -2,7 +2,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.dart';
+import 'package:satni/graphql/index.dart';
 import 'package:satni/lemmatised/index.dart';
 
 final lemmatisedService =

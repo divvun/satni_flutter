@@ -2,7 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.graphql.dart';
+import 'package:satni/graphql/index.dart';
 
 part 'stem_state.freezed.dart';
 

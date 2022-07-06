@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/graphql_api.graphql.dart';
+import 'package:satni/graphql/index.dart';
 import '../index.dart';
 
 class DictArticleContent extends StatelessWidget {
