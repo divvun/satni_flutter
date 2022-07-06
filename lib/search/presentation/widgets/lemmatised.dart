@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/lemmatised/lemmatised.dart';
+import 'package:satni/lemmatised/index.dart';
 import 'package:satni/search/index.dart';
 
 class Lemmatised extends ConsumerWidget {

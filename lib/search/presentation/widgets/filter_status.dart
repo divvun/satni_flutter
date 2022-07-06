@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/filter/filter.dart';
-import 'package:satni/filter/pod/filter.dart';
+import 'package:satni/filter/index.dart';
 
 class FilterStatus extends ConsumerWidget {
   const FilterStatus({Key? key}) : super(key: key);

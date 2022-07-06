@@ -6,22 +6,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:satni/graphql_api.graphql.dart';
-import '../lemmatised.dart';
+import 'package:satni/lemmatised/index.dart';
 
 class LemmatisedView extends ConsumerWidget {
   const LemmatisedView(this.lookupString, {Key? key}) : super(key: key);
 
   final String lookupString;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(lemmatisedProvider(lookupString)).when(
-        loading: () => const CircularProgressIndicator(),
-        data: (lemmatised) => Column(
-              children: [..._lemmatised(context, lemmatised)],
-            ),
-        error: (_, __) => const Text('Oops, generation went awry'));
-  }
 
   List<Widget> _lemmatised(BuildContext context, Lemmatised$Query lemmatised) {
     return lemmatised.lemmatised!
@@ -37,5 +27,15 @@ class LemmatisedView extends ConsumerWidget {
               ],
             ))
         .toList();
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ref.watch(lemmatisedProvider(lookupString)).when(
+        loading: () => const CircularProgressIndicator(),
+        data: (lemmatised) => Column(
+              children: [..._lemmatised(context, lemmatised)],
+            ),
+        error: (_, __) => const Text('Oops, generation went awry'));
   }
 }

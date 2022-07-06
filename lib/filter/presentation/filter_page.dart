@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import '../pod/filter.dart';
+import 'package:satni/filter/index.dart';
 
 class FilterPage extends ConsumerWidget {
   FilterPage({Key? key}) : super(key: key);
@@ -61,7 +61,7 @@ class FilterPage extends ConsumerWidget {
     WidgetRef ref,
   ) {
     final filter = ref.watch(filterProvider);
-    final srcLangs = [...filter.wantedSrcLangs];
+    final List<String> srcLangs = [...filter.wantedSrcLangs];
     return availableLangs.map(
       (srcLang) => CheckboxListTile(
         title: Text(srcLang),
@@ -98,7 +98,7 @@ class FilterPage extends ConsumerWidget {
     WidgetRef ref,
   ) {
     final filter = ref.watch(filterProvider);
-    final targetLangs = [...filter.wantedTargetLangs];
+    final List<String> targetLangs = [...filter.wantedTargetLangs];
 
     return availableLangs.map(
       (targetLang) => CheckboxListTile(
@@ -138,7 +138,7 @@ class FilterPage extends ConsumerWidget {
     WidgetRef ref,
   ) {
     final filter = ref.watch(filterProvider);
-    final dicts = [...filter.wantedDicts];
+    final List<String> dicts = [...filter.wantedDicts];
     return availableDicts
         .where((dictData) => (dictData['name'] == 'termwiki' ||
             (filter.wantedSrcLangs.contains(dictData['src']) &&

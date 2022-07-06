@@ -4,8 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 // Project imports:
 import 'package:satni/api.dart';
 import 'package:satni/articles/index.dart';
-import 'package:satni/filter/models/filter.dart';
-import 'package:satni/filter/pod/filter.dart';
+import 'package:satni/filter/index.dart';
 
 final articlesProvider = StateNotifierProvider.family<ArticlesNotifier,
     AsyncValue<Articles>, String>((ref, lemma) {

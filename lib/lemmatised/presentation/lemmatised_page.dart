@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../lemmatised.dart';
+import 'package:satni/lemmatised/index.dart';
 
 class LemmatisedPage extends StatelessWidget {
   const LemmatisedPage(this.lookupString, Key? key) : super(key: key);

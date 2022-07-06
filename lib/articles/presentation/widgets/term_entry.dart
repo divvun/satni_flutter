@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/generated/generated.dart';
-import 'package:satni/generated/models/paradigm_templates.dart';
+import 'package:satni/generated/index.dart';
 import 'package:satni/graphql_api.dart';
 
 class TermEntry extends StatelessWidget {

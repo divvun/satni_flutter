@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/generated/models/paradigm_templates.dart';
+import 'package:satni/generated/domain/paradigm_templates.dart';
+import 'package:satni/generated/index.dart';
 import 'package:satni/graphql_api.graphql.dart';
-import '../generated.dart';
 
 class GeneratedView extends ConsumerWidget {
   const GeneratedView(this.arguments, {Key? key}) : super(key: key);
