@@ -57,25 +57,6 @@ Future<DictArticles$Query> getDicts(
   return dictArticles;
 }
 
-Future<AllLemmas$Query> getStems(
-    searchText, searchMode, srcLangs, targetLangs, wantedDicts) async {
-  print('$searchText, $searchMode, $srcLangs, $targetLangs, $wantedDicts');
-  final result = await client.query(
-    QueryOptions(
-      document: ALL_LEMMAS_QUERY_DOCUMENT,
-      variables: AllLemmasArguments(
-        inputValue: searchText,
-        searchMode: searchMode.toString(),
-        srcLangs: srcLangs,
-        targetLangs: targetLangs,
-        wantedDicts: wantedDicts,
-      ).toJson(),
-    ),
-  );
-
-  return AllLemmas$Query.fromJson(result.data ?? {'stemList': []});
-}
-
 Future<Generated$Query> getGenerated(
     origform, language, wantedParadigms) async {
   final result = await client.query(
