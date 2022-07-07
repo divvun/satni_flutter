@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:satni/filter/index.dart';
+import 'package:satni/routing/app_router.dart';
 
 class FilterStatus extends ConsumerWidget {
   const FilterStatus({Key? key}) : super(key: key);
@@ -35,12 +37,7 @@ class FilterStatus extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => FilterPage(),
-            ),
-          ),
+          onPressed: () => context.pushNamed(DivvunRoutes.filtering.name),
           child: Text(
             srcLangs.length < 4
                 ? srcLangs.join(',')
@@ -62,12 +59,7 @@ class FilterStatus extends ConsumerWidget {
         // Icon(Icons.repeat),
         // Icon(Icons.swap_horiz),
         ElevatedButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => FilterPage(),
-            ),
-          ),
+          onPressed: () => context.pushNamed(DivvunRoutes.filtering.name),
           child: Text(
             targetLangs.length < 4
                 ? targetLangs.join(',')

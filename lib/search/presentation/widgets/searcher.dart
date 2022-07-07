@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import 'package:satni/routing/index.dart';
 import 'package:satni/search/index.dart';
 
 class Searcher extends HookConsumerWidget {
@@ -40,9 +41,10 @@ class Searcher extends HookConsumerWidget {
             IconButton(
               icon: const Icon(Icons.send),
               onPressed: ref.watch(searchProvider).searchText != ''
-                  ? () {
-                      context.push('/articles/${textController.text}');
-                    }
+                  ? () => context.pushNamed(
+                        DivvunRoutes.articles.name,
+                        params: {'lemma': textController.text},
+                      )
                   : null,
             ),
             IconButton(

@@ -1,9 +1,12 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:go_router/go_router.dart';
+
 // Project imports:
-import 'package:satni/generated/index.dart';
 import 'package:satni/graphql/index.dart';
+import 'package:satni/routing/index.dart';
 
 class DictTranslationLemma extends StatelessWidget {
   const DictTranslationLemma(
@@ -39,21 +42,15 @@ class DictTranslationLemma extends StatelessWidget {
         ),
         IconButton(
           onPressed: () => lemma.node != null
-              ? Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => GeneratedPage(
-                      Arguments(
-                        lemma.node!.presentationLemma,
-                        lemma.node!.language,
-                        '${lemma.node!.pos}',
-                        'Default',
-                        wantedParadigms(lemma.node!.language,
-                            '${lemma.node!.pos}', 'Default'),
-                      ),
-                      Key(lemma.node!.presentationLemma),
-                    ),
-                  ),
+              ? context.pushNamed(
+                  DivvunRoutes.paradigm.name,
+                  params: {
+                    'lemma': lemma.node!.presentationLemma,
+                  },
+                  queryParams: {
+                    'lang': lemma.node!.language,
+                    'pos': '${lemma.node!.pos}',
+                  },
                 )
               : null,
           icon: const Icon(Icons.info_outline),

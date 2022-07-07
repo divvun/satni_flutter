@@ -1,9 +1,12 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:go_router/go_router.dart';
+
 // Project imports:
-import 'package:satni/generated/index.dart';
 import 'package:satni/graphql/index.dart';
+import 'package:satni/routing/index.dart';
 
 class TermEntry extends StatelessWidget {
   const TermEntry(
@@ -27,23 +30,17 @@ class TermEntry extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => GeneratedPage(
-                Arguments(
-                  term.expression!.presentationLemma,
-                  term.expression!.language,
-                  '${term.expression!.pos}',
-                  'Default',
-                  wantedParadigms(term.expression!.language,
-                      '${term.expression!.pos}', 'Default'),
-                ),
-                Key(term.expression!.presentationLemma),
-              ),
-            ),
-          ),
           icon: const Icon(Icons.info_outline),
+          onPressed: () => context.pushNamed(
+            DivvunRoutes.paradigm.name,
+            params: {
+              'lemma': term.expression!.presentationLemma,
+            },
+            queryParams: {
+              'lang': term.expression!.language,
+              'pos': '${term.expression!.pos}',
+            },
+          ),
         )
       ],
     );

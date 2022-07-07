@@ -14,8 +14,8 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routeInformationParser: goRouter.routeInformationParser,
-      routerDelegate: goRouter.routerDelegate,
+      routeInformationParser: divvunRouter.routeInformationParser,
+      routerDelegate: divvunRouter.routerDelegate,
     );
   }
 }

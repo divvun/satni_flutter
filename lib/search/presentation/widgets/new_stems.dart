@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:satni/graphql/index.dart';
+import 'package:satni/routing/app_router.dart';
 import 'package:satni/search/index.dart';
 
 class NewStems extends ConsumerWidget {
@@ -60,7 +61,10 @@ class NewStems extends ConsumerWidget {
               (stem) => ListTile(
                 title: Text(stem),
                 trailing: const Icon(Icons.star_border_rounded),
-                onTap: () => context.push('/articles/$stem'),
+                onTap: () => context.pushNamed(
+                  DivvunRoutes.articles.name,
+                  params: {'lemma': stem},
+                ),
               ),
             ),
           ).toList(),
