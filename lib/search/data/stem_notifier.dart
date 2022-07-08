@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql/client.dart';
 
 // Project imports:
+import 'package:satni/filter/index.dart';
 import 'package:satni/graphql/index.dart';
 import 'package:satni/search/index.dart';
 
@@ -17,11 +18,11 @@ class StemNotifier extends StateNotifier<StemState> {
       listenToStream();
     }
   }
-  final GraphQLClient _client;
 
   late ObservableQuery observableQuery;
   String oldEndcursor = '';
 
+  final GraphQLClient _client;
   final WatchQueryOptions _queryOptions;
   final String _searchText;
 
@@ -79,3 +80,23 @@ class StemNotifier extends StateNotifier<StemState> {
     }
   }
 }
+
+final stemNotifierProvider =
+    StateNotifierProvider.autoDispose<StemNotifier, StemState>(
+        (AutoDisposeStateNotifierProviderRef<StemNotifier, StemState> ref) {
+  print('stemNotifierProvider');
+  final search = ref.watch(searchProvider);
+  final filter = ref.watch(filterProvider);
+
+  final queryOptions = WatchQueryOptions(
+    document: ALL_LEMMAS_QUERY_DOCUMENT,
+    variables: AllLemmasArguments(
+      inputValue: search.searchText,
+      searchMode: search.searchMode.name,
+      srcLangs: filter.wantedSrcLangs,
+      targetLangs: filter.wantedTargetLangs,
+      wantedDicts: filter.wantedDicts,
+    ).toJson(),
+  );
+  return StemNotifier(queryOptions, search.searchText, client);
+});
