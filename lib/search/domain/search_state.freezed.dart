@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'stem_state.dart';
+part of 'search_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$StemState {
+mixin _$SearchState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) error,
@@ -75,18 +75,19 @@ mixin _$StemState {
 }
 
 /// @nodoc
-abstract class $StemStateCopyWith<$Res> {
-  factory $StemStateCopyWith(StemState value, $Res Function(StemState) then) =
-      _$StemStateCopyWithImpl<$Res>;
+abstract class $SearchStateCopyWith<$Res> {
+  factory $SearchStateCopyWith(
+          SearchState value, $Res Function(SearchState) then) =
+      _$SearchStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StemStateCopyWithImpl<$Res> implements $StemStateCopyWith<$Res> {
-  _$StemStateCopyWithImpl(this._value, this._then);
+class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
+  _$SearchStateCopyWithImpl(this._value, this._then);
 
-  final StemState _value;
+  final SearchState _value;
   // ignore: unused_field
-  final $Res Function(StemState) _then;
+  final $Res Function(SearchState) _then;
 }
 
 /// @nodoc
@@ -97,7 +98,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, (v) => _then(v as _$_Error));
@@ -128,7 +129,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'StemState.error(message: $message)';
+    return 'SearchState.error(message: $message)';
   }
 
   @override
@@ -229,7 +230,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements StemState {
+abstract class _Error implements SearchState {
   const factory _Error(final String message) = _$_Error;
 
   String get message => throw _privateConstructorUsedError;
@@ -246,7 +247,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -262,7 +263,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'StemState.initial()';
+    return 'SearchState.initial()';
   }
 
   @override
@@ -355,7 +356,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements StemState {
+abstract class _Initial implements SearchState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -367,7 +368,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, (v) => _then(v as _$_Loading));
@@ -383,7 +384,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'StemState.loading()';
+    return 'SearchState.loading()';
   }
 
   @override
@@ -476,7 +477,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements StemState {
+abstract class _Loading implements SearchState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -489,7 +490,7 @@ abstract class _$$_LoadingMoreCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingMoreCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+class __$$_LoadingMoreCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$$_LoadingMoreCopyWith<$Res> {
   __$$_LoadingMoreCopyWithImpl(
       _$_LoadingMore _value, $Res Function(_$_LoadingMore) _then)
@@ -521,7 +522,7 @@ class _$_LoadingMore implements _LoadingMore {
 
   @override
   String toString() {
-    return 'StemState.loadingMore(stems: $stems)';
+    return 'SearchState.loadingMore(stems: $stems)';
   }
 
   @override
@@ -622,7 +623,7 @@ class _$_LoadingMore implements _LoadingMore {
   }
 }
 
-abstract class _LoadingMore implements StemState {
+abstract class _LoadingMore implements SearchState {
   const factory _LoadingMore(final AllLemmas$Query stems) = _$_LoadingMore;
 
   AllLemmas$Query get stems => throw _privateConstructorUsedError;
@@ -640,7 +641,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$StemStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, (v) => _then(v as _$_Success));
@@ -671,7 +672,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'StemState.success(stems: $stems)';
+    return 'SearchState.success(stems: $stems)';
   }
 
   @override
@@ -772,7 +773,7 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements StemState {
+abstract class _Success implements SearchState {
   const factory _Success(final AllLemmas$Query stems) = _$_Success;
 
   AllLemmas$Query get stems => throw _privateConstructorUsedError;

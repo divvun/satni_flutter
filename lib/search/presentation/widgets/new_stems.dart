@@ -37,7 +37,7 @@ class NewStems extends ConsumerWidget {
       if (_data.stemList!.pageInfo.hasNextPage &&
           _scrollController.position.pixels > triggerFetchMoreSize) {
         ref
-            .read(stemNotifierProvider.notifier)
+            .read(searchRepositoryProvider.notifier)
             .fetchMoreStems('${_data.stemList!.pageInfo.endCursor}');
       }
     });

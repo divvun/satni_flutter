@@ -12,9 +12,9 @@ class SearchResults extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final stemState = ref.watch(stemNotifierProvider);
+    final searchState = ref.watch(searchRepositoryProvider);
 
-    return stemState.when(
+    return searchState.when(
       error: (error) => Text(error),
       initial: () => const Text('Welcome'),
       loading: () => const CircularProgressIndicator(),

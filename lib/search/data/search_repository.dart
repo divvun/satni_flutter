@@ -7,13 +7,13 @@ import 'package:satni/filter/index.dart';
 import 'package:satni/graphql/index.dart';
 import 'package:satni/search/index.dart';
 
-class StemNotifier extends StateNotifier<StemState> {
-  StemNotifier(this._queryOptions, this._searchText, this._client)
-      : super(const StemState.initial()) {
+class SearchRepository extends StateNotifier<SearchState> {
+  SearchRepository(this._queryOptions, this._searchText, this._client)
+      : super(const SearchState.initial()) {
     print('constructing stemnotifier $_searchText');
     observableQuery = _client.watchQuery(_queryOptions);
     if (_searchText.isNotEmpty) {
-      state = const StemState.loading();
+      state = const SearchState.loading();
       observableQuery.fetchResults();
       listenToStream();
     }
@@ -36,18 +36,18 @@ class StemNotifier extends StateNotifier<StemState> {
     print('fetchStems');
     observableQuery.stream.listen((QueryResult result) {
       if (result.isLoading && result.data == null) {
-        state = const StemState.loading();
+        state = const SearchState.loading();
       }
 
       if (!result.isLoading && result.data != null) {
-        state = StemState.success(
+        state = SearchState.success(
             AllLemmas$Query.fromJson(result.data ?? {'stemList': []}));
       }
 
       final exception = result.exception;
 
       if (exception != null) {
-        state = StemState.error(exception.toString());
+        state = SearchState.error(exception.toString());
       } else {
         final f = AllLemmas$Query.fromJson(result.data ?? {'stemList': []});
         print(
@@ -61,7 +61,7 @@ class StemNotifier extends StateNotifier<StemState> {
     if (endCursor != oldEndcursor) {
       print('new endcursor $endCursor');
       oldEndcursor = endCursor;
-      state = StemState.loadingMore(AllLemmas$Query.fromJson(
+      state = SearchState.loadingMore(AllLemmas$Query.fromJson(
           observableQuery.latestResult!.data ?? {'stemList': []}));
 
       observableQuery.fetchMore(FetchMoreOptions.partial(
@@ -81,9 +81,9 @@ class StemNotifier extends StateNotifier<StemState> {
   }
 }
 
-final stemNotifierProvider =
-    StateNotifierProvider.autoDispose<StemNotifier, StemState>(
-        (AutoDisposeStateNotifierProviderRef<StemNotifier, StemState> ref) {
+final searchRepositoryProvider = StateNotifierProvider.autoDispose<
+        SearchRepository, SearchState>(
+    (AutoDisposeStateNotifierProviderRef<SearchRepository, SearchState> ref) {
   print('stemNotifierProvider');
   final search = ref.watch(searchProvider);
   final filter = ref.watch(filterProvider);
@@ -98,5 +98,5 @@ final stemNotifierProvider =
       wantedDicts: filter.wantedDicts,
     ).toJson(),
   );
-  return StemNotifier(queryOptions, search.searchText, client);
+  return SearchRepository(queryOptions, search.searchText, client);
 });

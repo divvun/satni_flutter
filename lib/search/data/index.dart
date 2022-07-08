@@ -1,1 +1,1 @@
-export 'stem_notifier.dart';
+export 'search_repository.dart';
