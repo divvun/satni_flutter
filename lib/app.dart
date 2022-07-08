@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/routing/index.dart';
+import 'package:satni/src/routing/index.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

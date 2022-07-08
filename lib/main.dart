@@ -11,7 +11,7 @@ import 'package:satni/app.dart';
 void main() {
   GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: App(),
     ),
   );
