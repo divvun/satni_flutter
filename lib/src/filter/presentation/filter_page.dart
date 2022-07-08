@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import 'package:satni/src/common_widgets/index.dart';
+import 'package:satni/src/constants/index.dart';
 import 'package:satni/src/filter/index.dart';
 
 class FilterPage extends ConsumerWidget {
@@ -99,16 +101,19 @@ class FilterPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: const Text('Filtering')),
-      body: ListView(
-        children: [
-          Row(
-            children: [
-              Expanded(flex: 6, child: _displaySrcLangs(context, ref)),
-              Expanded(flex: 6, child: _displayTargetLangs(context, ref)),
-            ],
-          ),
-          const ChooseDicts(),
-        ],
+      body: ResponsiveCenter(
+        padding: const EdgeInsets.all(Sizes.p16),
+        child: ListView(
+          children: [
+            Row(
+              children: [
+                Expanded(flex: 6, child: _displaySrcLangs(context, ref)),
+                Expanded(flex: 6, child: _displayTargetLangs(context, ref)),
+              ],
+            ),
+            const ChooseDicts(),
+          ],
+        ),
       ),
     );
   }
