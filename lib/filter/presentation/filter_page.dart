@@ -9,57 +9,15 @@ import 'package:satni/filter/index.dart';
 
 class FilterPage extends ConsumerWidget {
   FilterPage({Key? key}) : super(key: key);
-  final availableLangs = [
-    'eng',
-    'fin',
-    'lat',
-    'nno',
-    'nob',
-    'sma',
-    'smj',
-    'sme',
-    'smn',
-    'sms',
-    'swe',
-  ];
-  final availableDicts = [
-    {'name': 'termwiki'},
-    {'name': 'gtsmenob', 'src': 'sme', 'target': 'nob'},
-    {'name': 'gtnobsme', 'src': 'nob', 'target': 'sme'},
-    {'name': 'gtnobsma', 'src': 'nob', 'target': 'sma'},
-    {'name': 'gtsmanob', 'src': 'sma', 'target': 'nob'},
-    {'name': 'gtsmefin', 'src': 'sme', 'target': 'fin'},
-    {'name': 'gtfinsme', 'src': 'fin', 'target': 'sme'},
-    {'name': 'gtsmesmn', 'src': 'sme', 'target': 'smn'},
-    {'name': 'gtsmnsme', 'src': 'smn', 'target': 'sme'},
-    {'name': 'gtfinsmn', 'src': 'fin', 'target': 'smn'},
-    {'name': 'gtsmnfin', 'src': 'smn', 'target': 'fin'},
-    {'name': 'gtfinnob', 'src': 'fin', 'target': 'nob'},
-    {'name': 'sammallahtismefin', 'src': 'sme', 'target': 'fin'},
-  ];
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Filtering')),
-      body: ListView(
-        children: [
-          Row(
-            children: [
-              Expanded(flex: 6, child: _displaySrcLangs(context, ref)),
-              Expanded(flex: 6, child: _displayTargetLangs(context, ref)),
-            ],
-          ),
-          _displayDicts(context, ref),
-        ],
-      ),
-    );
-  }
 
   Iterable<Widget> _searchLangs(
     BuildContext context,
     WidgetRef ref,
   ) {
+    final f = ref.watch(filterRepositoryProvider);
+    final availableLangs = f.getAvailableLangs();
+    final availableDicts = f.getAvailableDicts();
+
     final filter = ref.watch(filterProvider);
     final List<String> srcLangs = [...filter.wantedSrcLangs];
     return availableLangs.map(
@@ -97,6 +55,10 @@ class FilterPage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
+    final f = ref.watch(filterRepositoryProvider);
+    final availableLangs = f.getAvailableLangs();
+    final availableDicts = f.getAvailableDicts();
+
     final filter = ref.watch(filterProvider);
     final List<String> targetLangs = [...filter.wantedTargetLangs];
 
@@ -133,38 +95,21 @@ class FilterPage extends ConsumerWidget {
     );
   }
 
-  Iterable<Widget> _wantedDicts(
-    BuildContext context,
-    WidgetRef ref,
-  ) {
-    final filter = ref.watch(filterProvider);
-    final List<String> dicts = [...filter.wantedDicts];
-    return availableDicts
-        .where((dictData) => (dictData['name'] == 'termwiki' ||
-            (filter.wantedSrcLangs.contains(dictData['src']) &&
-                filter.wantedTargetLangs.contains(dictData['target']))))
-        .map(
-          (dictData) => CheckboxListTile(
-            title: Text(dictData['name'] ?? 'termwiki'),
-            value: dicts.contains(dictData['name']),
-            onChanged: (newValue) {
-              newValue!
-                  ? dicts.add(dictData['name'] ?? 'termwiki')
-                  : dicts.remove(dictData['name']);
-              ref.read(filterProvider.notifier).updateDicts(dicts);
-            },
-            controlAffinity: ListTileControlAffinity.leading,
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Filtering')),
+      body: ListView(
+        children: [
+          Row(
+            children: [
+              Expanded(flex: 6, child: _displaySrcLangs(context, ref)),
+              Expanded(flex: 6, child: _displayTargetLangs(context, ref)),
+            ],
           ),
-        );
-  }
-
-  Widget _displayDicts(
-    BuildContext context,
-    WidgetRef ref,
-  ) {
-    return Column(children: [
-      const Text('Available dictionaries'),
-      ..._wantedDicts(context, ref),
-    ]);
+          const ChooseDicts(),
+        ],
+      ),
+    );
   }
 }

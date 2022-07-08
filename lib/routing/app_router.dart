@@ -40,10 +40,10 @@ final divvunRouter = GoRouter(routes: [
       ),
       state.pageKey,
     ),
-  ),  GoRoute(
+  ),
+  GoRoute(
     path: '/filtering',
     name: DivvunRoutes.filtering.name,
     builder: (context, state) => FilterPage(),
   ),
-
 ]);

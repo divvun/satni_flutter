@@ -16,7 +16,7 @@ class SearchResults extends ConsumerWidget {
 
     return searchState.when(
       error: (error) => Text(error),
-      initial: () => const Text('Welcome'),
+      initial: () => const Welcome(),
       loading: () => const CircularProgressIndicator(),
       loadingMore: (data) => NewStems(data: data),
       success: (data) => NewStems(data: data),
