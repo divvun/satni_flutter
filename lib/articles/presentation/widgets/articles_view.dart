@@ -16,7 +16,7 @@ class ArticlesView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(articlesServiceProvider(_lemma)).when(
+    return ref.watch(articlesControllerProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
         data: (articles) => ListView(
               children: [

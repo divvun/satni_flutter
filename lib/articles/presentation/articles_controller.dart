@@ -5,18 +5,19 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni/articles/index.dart';
 import 'package:satni/filter/index.dart';
 
-final articlesServiceProvider = StateNotifierProvider.family<ArticlesService,
-    AsyncValue<Articles>, String>((ref, lemma) {
-  return ArticlesService(lemma, ref);
+final articlesControllerProvider = StateNotifierProvider.autoDispose
+    .family<ArticlesController, AsyncValue<Articles>, String>((ref, lemma) {
+  return ArticlesController(lemma, ref);
 });
 
-class ArticlesService extends StateNotifier<AsyncValue<Articles>> {
-  ArticlesService(this._lemma, this._ref) : super(const AsyncValue.loading()) {
+class ArticlesController extends StateNotifier<AsyncValue<Articles>> {
+  ArticlesController(this._lemma, this._ref)
+      : super(const AsyncValue.loading()) {
     init();
   }
 
   final String _lemma;
-  final StateNotifierProviderRef _ref;
+  final AutoDisposeStateNotifierProviderRef _ref;
 
   void init() async {
     final filter = _ref.watch(filterProvider);

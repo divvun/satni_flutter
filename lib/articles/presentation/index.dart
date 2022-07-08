@@ -1,3 +1,4 @@
+export 'articles_controller.dart';
 export 'articles_page.dart';
 export 'widgets/articles_view.dart';
 export 'widgets/concept_widget.dart';
