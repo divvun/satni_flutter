@@ -22,6 +22,14 @@ query DictArticles(
                     pos
                     dialect
                     country
+                    spuriousAttributes {
+                        edges {
+                            node {
+                                name
+                                value
+                            }
+                        }
+                    }
                 }
             }
         }
