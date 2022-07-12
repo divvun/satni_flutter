@@ -145,9 +145,9 @@ class Generated$Query$GeneratorResultType$GeneratorAnalysis
           Map<String, dynamic> json) =>
       _$Generated$Query$GeneratorResultType$GeneratorAnalysisFromJson(json);
 
-  String? wordform;
+  late String wordform;
 
-  double? weight;
+  late double weight;
 
   @override
   List<Object?> get props => [wordform, weight];
@@ -165,7 +165,7 @@ class Generated$Query$GeneratorResultType extends JsonSerializable
           Map<String, dynamic> json) =>
       _$Generated$Query$GeneratorResultTypeFromJson(json);
 
-  String? paradigmTemplate;
+  late String paradigmTemplate;
 
   List<Generated$Query$GeneratorResultType$GeneratorAnalysis?>? analyses;
 

@@ -27,12 +27,12 @@ type ExampleGroupType {
 }
 
 type GeneratorAnalysis {
-  wordform: String
-  weight: Float
+  wordform: String!
+  weight: Float!
 }
 
 type GeneratorResultType {
-  paradigmTemplate: String
+  paradigmTemplate: String!
   analyses: [GeneratorAnalysis]
 }
 
@@ -44,6 +44,7 @@ type LemmaType implements Node {
   lemma: String!
   pos: String
   presentationLemma: String!
+  spuriousAttributes(before: String, after: String, first: Int, last: Int, id: ID, name: String, value: String): SpuriousAttributeTypeConnection
 }
 
 type LemmaTypeConnection {
@@ -90,6 +91,22 @@ type Query {
 type RestrictionType {
   attributes: String
   restriction: String
+}
+
+type SpuriousAttributeType implements Node {
+  id: ID!
+  name: String!
+  value: String!
+}
+
+type SpuriousAttributeTypeConnection {
+  pageInfo: PageInfo!
+  edges: [SpuriousAttributeTypeEdge]!
+}
+
+type SpuriousAttributeTypeEdge {
+  node: SpuriousAttributeType
+  cursor: String!
 }
 
 type StemType implements Node {

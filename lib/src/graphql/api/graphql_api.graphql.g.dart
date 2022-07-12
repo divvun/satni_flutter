@@ -117,8 +117,8 @@ Generated$Query$GeneratorResultType$GeneratorAnalysis
     _$Generated$Query$GeneratorResultType$GeneratorAnalysisFromJson(
             Map<String, dynamic> json) =>
         Generated$Query$GeneratorResultType$GeneratorAnalysis()
-          ..wordform = json['wordform'] as String?
-          ..weight = (json['weight'] as num?)?.toDouble();
+          ..wordform = json['wordform'] as String
+          ..weight = (json['weight'] as num).toDouble();
 
 Map<String, dynamic>
     _$Generated$Query$GeneratorResultType$GeneratorAnalysisToJson(
@@ -131,7 +131,7 @@ Map<String, dynamic>
 Generated$Query$GeneratorResultType
     _$Generated$Query$GeneratorResultTypeFromJson(Map<String, dynamic> json) =>
         Generated$Query$GeneratorResultType()
-          ..paradigmTemplate = json['paradigmTemplate'] as String?
+          ..paradigmTemplate = json['paradigmTemplate'] as String
           ..analyses = (json['analyses'] as List<dynamic>?)
               ?.map((e) => e == null
                   ? null
