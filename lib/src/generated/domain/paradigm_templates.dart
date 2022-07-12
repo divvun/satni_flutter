@@ -365,6 +365,225 @@ final Map<String, dynamic> paradigmTemplates = {
             'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
           },
         ]
+      },
+      'Adjective paradigm with cases': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Sg+Acc',
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Sg+Gen',
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Sg+Ill',
+            ],
+          },
+          {
+            'name': 'Sg/Loc',
+            'paradigms': [
+              '+A+Sg+Loc',
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Sg+Com',
+            ],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': [
+              '+A+Ess',
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Pl+Acc',
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Pl+Gen',
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Pl+Ill',
+            ],
+          },
+          {
+            'name': 'Pl/Loc',
+            'paradigms': [
+              '+A+Pl+Loc',
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Pl+Com',
+            ],
+          },
+        ]
+      },
+      'A+Ord paradigm': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Ord+Attr',
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Ord+Sg+Nom',
+            ],
+          },
+          {
+            'name': 'Sg/Acc',
+            'paradigms': [
+              '+A+Ord+Sg+Acc',
+            ],
+          },
+          {
+            'name': 'Sg/Gen',
+            'paradigms': [
+              '+A+Ord+Sg+Gen',
+            ],
+          },
+          {
+            'name': 'Sg/Ill',
+            'paradigms': [
+              '+A+Ord+Sg+Ill',
+            ],
+          },
+          {
+            'name': 'Sg/Loc',
+            'paradigms': [
+              '+A+Ord+Sg+Loc',
+            ],
+          },
+          {
+            'name': 'Sg/Com',
+            'paradigms': [
+              '+A+Ord+Sg+Com',
+            ],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': [
+              '+A+Ord+Ess',
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Ord+Pl+Nom',
+            ],
+          },
+          {
+            'name': 'Pl/Acc',
+            'paradigms': [
+              '+A+Ord+Pl+Acc',
+            ],
+          },
+          {
+            'name': 'Pl/Gen',
+            'paradigms': [
+              '+A+Ord+Pl+Gen',
+            ],
+          },
+          {
+            'name': 'Pl/Ill',
+            'paradigms': [
+              '+A+Ord+Pl+Ill',
+            ],
+          },
+          {
+            'name': 'Pl/Loc',
+            'paradigms': [
+              '+A+Ord+Pl+Loc',
+            ],
+          },
+          {
+            'name': 'Pl/Com',
+            'paradigms': [
+              '+A+Ord+Pl+Com',
+            ],
+          },
+        ]
+      },
+      'General adjective paradigm': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Attr',
+            'paradigms': [
+              '+A+Attr',
+            ],
+          },
+          {
+            'name': 'Sg/Nom',
+            'paradigms': [
+              '+A+Sg+Nom',
+            ],
+          },
+          {
+            'name': 'Pl/Nom',
+            'paradigms': [
+              '+A+Pl+Nom',
+            ],
+          },
+          {
+            'name': '+Der/Comp+A+Attr',
+            'paradigms': [
+              '+A+Der/Comp+A+Attr',
+            ],
+          },
+          {
+            'name': '+Der/Comp+A+Sg+Nom',
+            'paradigms': [
+              '+A+Der/Comp+A+Sg+Nom',
+            ],
+          },
+          {
+            'name': '+Der/Superl+A+Sg+Nom',
+            'paradigms': [
+              '+A+Der/Superl+A+Sg+Nom',
+            ],
+          },
+        ]
       }
     },
     'Adv': {
