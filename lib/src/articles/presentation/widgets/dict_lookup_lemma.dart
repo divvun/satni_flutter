@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
+import '../../../generated/domain/paradigm_templates.dart';
 import '../../../routing/app_router.dart';
 
 class DictLookupLemma extends StatelessWidget {
@@ -39,7 +40,13 @@ class DictLookupLemma extends StatelessWidget {
                   queryParams: {
                     'lang': lemma.node!.language,
                     'pos': '${lemma.node!.pos}',
-                    'posDomain': 'Default',
+                    'posDomain': getTemplateName(
+                      lemma.node!.pos as String,
+                      {
+                        for (var e in lemma.node!.spuriousAttributes!.edges)
+                          e!.node!.name: e.node!.value
+                      },
+                    ),
                   },
                 )
               : null,

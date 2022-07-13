@@ -1,3 +1,6 @@
+// Project imports:
+import 'package:satni/src/graphql/index.dart';
+
 final Map<String, dynamic> paradigmTemplates = {
   'sma': {
     'A': {
@@ -1733,4 +1736,18 @@ List<String> wantedParadigms(
   }
 
   return paradigms;
+}
+
+String getTemplateName(String pos, Map<String, String> attributes) {
+  if (pos == 'A') {
+    if (attributes['paradigme'] == 'cases') {
+      return 'Adjective paradigm with cases';
+    }
+    if (attributes['type'] == 'Ord') {
+      return 'A+Ord paradigm';
+    }
+    return 'General adjective paradigm';
+  }
+
+  return 'Default';
 }
