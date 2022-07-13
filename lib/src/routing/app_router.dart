@@ -34,12 +34,7 @@ final divvunRouter = GoRouter(routes: [
         '${state.params['lemma']}',
         '${state.queryParams['lang']}',
         '${state.queryParams['pos']}',
-        'Default',
-        wantedParadigms(
-          '${state.queryParams['lang']}',
-          '${state.queryParams['pos']}',
-          'Default',
-        ),
+        '${state.queryParams['posDomain']}',
       ),
       state.pageKey,
     ),

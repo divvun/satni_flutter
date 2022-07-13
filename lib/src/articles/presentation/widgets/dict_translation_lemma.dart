@@ -50,6 +50,7 @@ class DictTranslationLemma extends StatelessWidget {
                   queryParams: {
                     'lang': lemma.node!.language,
                     'pos': '${lemma.node!.pos}',
+                    'posDomain': 'Default',
                   },
                 )
               : null,

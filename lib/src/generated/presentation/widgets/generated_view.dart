@@ -79,7 +79,7 @@ Map<String, String> g2m(Query$Generated g) {
   for (final g2 in g.generated!) {
     final pt = g2!.paradigmTemplate;
     final n = g2.analyses!.map((analysis) => analysis!.wordform).join(', ');
-    pt != null ? m[pt] = n : null;
+    m[pt] = n;
   }
   return m;
 }

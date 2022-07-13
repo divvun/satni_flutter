@@ -39,6 +39,7 @@ class TermEntry extends StatelessWidget {
             queryParams: {
               'lang': term.expression!.language,
               'pos': '${term.expression!.pos}',
+              'posDomain': 'Default',
             },
           ),
         )
