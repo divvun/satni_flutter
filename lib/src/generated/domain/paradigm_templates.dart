@@ -1738,10 +1738,11 @@ List<String> wantedParadigms(
   return paradigms;
 }
 
-String getTemplateName(String pos, Map<String, String> attributes) {
   if (pos == 'A') {
     if (attributes['paradigme'] == 'cases') {
       return 'Adjective paradigm with cases';
+String getTemplateName(
+    String pos, String lang, Map<String, String> attributes) {
     }
     if (attributes['type'] == 'Ord') {
       return 'A+Ord paradigm';

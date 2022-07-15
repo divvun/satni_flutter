@@ -42,6 +42,7 @@ class DictLookupLemma extends StatelessWidget {
                     'pos': '${lemma.node!.pos}',
                     'posDomain': getTemplateName(
                       lemma.node!.pos as String,
+                      lemma.node!.language,
                       {
                         for (var e in lemma.node!.spuriousAttributes!.edges)
                           e!.node!.name: e.node!.value
