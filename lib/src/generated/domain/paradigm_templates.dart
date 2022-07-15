@@ -1,6 +1,3 @@
-// Project imports:
-import 'package:satni/src/graphql/index.dart';
-
 final Map<String, dynamic> paradigmTemplates = {
   'sma': {
     'A': {
@@ -256,119 +253,6 @@ final Map<String, dynamic> paradigmTemplates = {
   },
   'sme': {
     'A': {
-      'Default': {
-        'header': ['', 'Pos', 'Comp' 'Sup'],
-        'rows': [
-          {
-            'name': 'Attr',
-            'paradigms': [
-              '+A+Attr',
-              '+A+Der/Comp+A+Attr',
-              '+A+Der/Superl+A+Attr'
-            ],
-          },
-          {
-            'name': 'Sg/Nom',
-            'paradigms': [
-              '+A+Sg+Nom',
-              '+A+Der/Comp+A+Sg+Nom',
-              '+A+Der/Superl+A+Sg+Nom'
-            ],
-          },
-          {
-            'name': 'Pl/Nom',
-            'paradigms': [
-              '+A+Pl+Nom',
-              '+A+Der/Comp+A+Pl+Nom',
-              '+A+Der/Superl+A+Pl+Nom'
-            ],
-          },
-          {
-            'name': 'Sg/Acc',
-            'paradigms': [
-              '+A+Sg+Acc',
-              '+A+Der/Comp+A+Sg+Acc',
-              '+A+Der/Superl+A+Sg+Acc'
-            ],
-          },
-          {
-            'name': 'Pl/Acc',
-            'paradigms': [
-              '+A+Pl+Acc',
-              '+A+Der/Comp+A+Pl+Acc',
-              '+A+Der/Superl+A+Pl+Acc'
-            ],
-          },
-          {
-            'name': 'Sg/Gen',
-            'paradigms': [
-              '+A+Sg+Gen',
-              '+A+Der/Comp+A+Sg+Gen',
-              '+A+Der/Superl+A+Sg+Gen'
-            ],
-          },
-          {
-            'name': 'Pl/Gen',
-            'paradigms': [
-              '+A+Pl+Gen',
-              '+A+Der/Comp+A+Pl+Gen',
-              '+A+Der/Superl+A+Pl+Gen'
-            ],
-          },
-          {
-            'name': 'Sg/Ill',
-            'paradigms': [
-              '+A+Sg+Ill',
-              '+A+Der/Comp+A+Sg+Ill',
-              '+A+Der/Superl+A+Sg+Ill'
-            ],
-          },
-          {
-            'name': 'Pl/Ill',
-            'paradigms': [
-              '+A+Pl+Ill',
-              '+A+Der/Comp+A+Pl+Ill',
-              '+A+Der/Superl+A+Pl+Ill'
-            ],
-          },
-          {
-            'name': 'Sg/Loc',
-            'paradigms': [
-              '+A+Sg+Loc',
-              '+A+Der/Comp+A+Sg+Loc',
-              '+A+Der/Superl+A+Sg+Loc'
-            ],
-          },
-          {
-            'name': 'Pl/Loc',
-            'paradigms': [
-              '+A+Pl+Loc',
-              '+A+Der/Comp+A+Pl+Loc',
-              '+A+Der/Superl+A+Pl+Loc'
-            ],
-          },
-          {
-            'name': 'Sg/Com',
-            'paradigms': [
-              '+A+Sg+Com',
-              '+A+Der/Comp+A+Sg+Com',
-              '+A+Der/Superl+A+Sg+Com'
-            ],
-          },
-          {
-            'name': 'Pl/Com',
-            'paradigms': [
-              '+A+Pl+Com',
-              '+A+Der/Comp+A+Pl+Com',
-              '+A+Der/Superl+A+Pl+Com'
-            ],
-          },
-          {
-            'name': 'Ess',
-            'paradigms': ['+A+Ess', '+A+Der/Comp+A+Ess', '+A+Der/Superl+A+Ess'],
-          },
-        ]
-      },
       'Adjective paradigm with cases': {
         'header': [],
         'rows': [
@@ -547,7 +431,7 @@ final Map<String, dynamic> paradigmTemplates = {
           },
         ]
       },
-      'General adjective paradigm': {
+      'Default': {
         'header': [],
         'rows': [
           {
@@ -590,16 +474,232 @@ final Map<String, dynamic> paradigmTemplates = {
       }
     },
     'Adv': {
-      //
-      // Prepend '+A' in front of the elements in the list
-      //
-      'Default': [
-        '+Der/AAdv+Adv',
-        '+Der/Comp+A+Der/AAdv+Adv',
-        '+Der/Superl+A+Der/AAdv+Adv'
-      ]
+      'Default': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+A+Der/AAdv+Adv']
+          },
+          {
+            'name': 'Nom',
+            'paradigms': ['+A+Der/Comp+A+Der/AAdv+Adv']
+          },
+          {
+            'name': 'Nom',
+            'paradigms': ['+A+Der/Superl+A+Der/AAdv+Adv']
+          }
+        ]
+      }
     },
     'N': {
+      'Nouns without illative plural paradigm': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Sg+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Sg+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Sg+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Sg+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Sg+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Sg+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
+        ]
+      },
+      'Proper place nouns': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+Prop+Sem/Plc+Sg+Gen'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Prop+Sem/Plc+Sg+Loc'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Prop+Sem/Plc+Sg+Ill'],
+          },
+        ]
+      },
+      'Common noun pluralia tanta': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Pl+Acc'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Ess'],
+          },
+        ]
+      },
+      'Coll noun paradigm': {
+        'header': [],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+Coll+Sg+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+Coll+Sg+Acc'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+Coll+Sg+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+Coll+Sg+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+Coll+Sg+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+Coll+Ess'],
+          },
+        ]
+      },
+      'G3 noun paradigm': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+G3+Sg+Nom', '+N+G3+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+G3+Sg+Acc', '+N+G3+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+G3+Sg+Gen', '+N+G3+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+G3+Sg+Ill', '+N+G3+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+G3+Sg+Loc', '+N+G3+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+G3+Sg+Com', '+N+G3+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+G3+Ess'],
+          },
+        ]
+      },
+      'G7 noun paradigm': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+G7+Sg+Nom', '+N+G7+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+G7+Sg+Acc', '+N+G7+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+G7+Sg+Gen', '+N+G7+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+G7+Sg+Ill', '+N+G7+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+G7+Sg+Loc', '+N+G7+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+G7+Sg+Com', '+N+G7+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+G7+Ess'],
+          },
+        ]
+      },
+      'NomAg noun paradigm': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+N+NomAg+Sg+Nom', '+N+NomAg+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+N+NomAg+Sg+Acc', '+N+NomAg+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+N+NomAg+Sg+Gen', '+N+NomAg+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+N+NomAg+Sg+Ill', '+N+NomAg+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+N+NomAg+Sg+Loc', '+N+NomAg+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+N+NomAg+Sg+Com', '+N+NomAg+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+N+NomAg+Ess'],
+          },
+        ]
+      },
       'Default': {
         'header': ['', 'Sg', 'Pl'],
         'rows': [
@@ -635,64 +735,107 @@ final Map<String, dynamic> paradigmTemplates = {
       },
     },
     'Num': {
-      //
-      // Prepend '+Num' to the elements of the list
-      //
-      'Default': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Gen',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Gen',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com',
-        '+Ess'
-      ]
+      'Default': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+Num+Sg+Nom', '+Num+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+Num+Sg+Acc', '+Num+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+Num+Sg+Gen', '+Num+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+Num+Sg+Ill', '+Num+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+Num+Sg+Loc', '+Num+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+Num+Sg+Com', '+Num+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+Num+Ess'],
+          },
+        ]
+      },
     },
     'Pron': {
-      // 'name': 'Pronoun dem paradigm'
-      // morphology:
-      //   pos: Pron
-      //   pron_type: Dem
-      //
-      // Prepend '+Pron+Dem' to the elements of the list
-      //
-      'dem': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
-      // morphology:
-      //   pron_type: Indef
-      //
-      // Prepend '+Pron+Indef' to the elements of the list
-      //
-      'indef': [
-        '+Sg+Nom',
-        '+Sg+Acc',
-        '+Sg+Ill',
-        '+Sg+Loc',
-        '+Sg+Com',
-        '+Ess',
-        '+Pl+Nom',
-        '+Pl+Acc',
-        '+Pl+Ill',
-        '+Pl+Loc',
-        '+Pl+Com'
-      ],
+      'Pronoun dem paradigm': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+Pron+Dem+Sg+Nom', '+Pron+Dem+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+Pron+Dem+Sg+Acc', '+Pron+Dem+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+Pron+Dem+Sg+Gen', '+Pron+Dem+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+Pron+Dem+Sg+Ill', '+Pron+Dem+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+Pron+Dem+Sg+Loc', '+Pron+Dem+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+Pron+Dem+Sg+Com', '+Pron+Dem+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+Pron+Dem+Ess'],
+          },
+        ]
+      },
+      'Pronoun indef paradigm': {
+        'header': ['', 'Sg', 'Pl'],
+        'rows': [
+          {
+            'name': 'Nom',
+            'paradigms': ['+Pron+Indef+Sg+Nom', '+Pron+Indef+Pl+Nom'],
+          },
+          {
+            'name': 'Acc',
+            'paradigms': ['+Pron+Indef+Sg+Acc', '+Pron+Indef+Pl+Acc'],
+          },
+          {
+            'name': 'Gen',
+            'paradigms': ['+Pron+Indef+Sg+Gen', '+Pron+Indef+Pl+Gen'],
+          },
+          {
+            'name': 'Ill',
+            'paradigms': ['+Pron+Indef+Sg+Ill', '+Pron+Indef+Pl+Ill'],
+          },
+          {
+            'name': 'Loc',
+            'paradigms': ['+Pron+Indef+Sg+Loc', '+Pron+Indef+Pl+Loc'],
+          },
+          {
+            'name': 'Com',
+            'paradigms': ['+Pron+Indef+Sg+Com', '+Pron+Indef+Pl+Com'],
+          },
+          {
+            'name': 'Ess',
+            'paradigms': ['+Pron+Indef+Ess'],
+          },
+        ]
+      },
       // morphology:
       //   pron_type: Pers
       //
@@ -1738,17 +1881,36 @@ List<String> wantedParadigms(
   return paradigms;
 }
 
-  if (pos == 'A') {
-    if (attributes['paradigme'] == 'cases') {
-      return 'Adjective paradigm with cases';
 String getTemplateName(
     String pos, String lang, Map<String, String> attributes) {
+  if (lang == 'sme') {
+    if (pos == 'A') {
+      if (attributes['paradigme'] == 'cases') {
+        return 'Adjective paradigm with cases';
+      }
+      if (attributes['type'] == 'Ord') {
+        return 'A+Ord paradigm';
+      }
     }
-    if (attributes['type'] == 'Ord') {
-      return 'A+Ord paradigm';
+    if (pos == 'N') {
+      if (['G3', 'G7', 'NomAg', 'Coll'].contains(attributes['type'])) {
+        return '${attributes['type']} noun paradigm';
+      }
+      if (attributes['nr'] == 'Pl') {
+        return 'Common noun pluralia tanta';
+      }
+      if (attributes['type'] == 'Prop' && attributes['sem_type'] == 'Plc') {
+        return 'Proper place nouns';
+      }
     }
-    return 'General adjective paradigm';
+    if (pos == 'Pron') {
+      if (attributes['type'] == 'Dem') {
+        return 'Pronoun dem paradigm';
+      }
+      if (attributes['type'] == 'Indef') {
+        return 'Pronoun indef paradigm';
+      }
+    }
   }
-
   return 'Default';
 }
