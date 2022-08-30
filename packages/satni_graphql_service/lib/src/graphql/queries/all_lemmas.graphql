@@ -19,8 +19,16 @@ query AllLemmas(
         edges {
             node {
                 stem
-                srclangs
+                srclang
                 targetlangs
+                dicts {
+                    edges {
+                        node {
+                            dictname
+                            dicthits
+                        }
+                    }
+                }
             }
         }
         pageInfo {

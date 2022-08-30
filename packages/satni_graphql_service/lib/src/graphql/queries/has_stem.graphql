@@ -1,10 +1,12 @@
 query HasStem(
     $stem: String!
+    $srcLang: String!
     $targetLangs: [String]!
     $wantedDicts: [String]!
 ) {
     hasStem(
         exact: $stem
+        srcLang: $srcLang
         targetLangs: $targetLangs
         wantedDicts: $wantedDicts
     ) {
