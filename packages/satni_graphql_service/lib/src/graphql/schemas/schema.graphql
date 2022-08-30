@@ -84,8 +84,8 @@ type Query {
   conceptList(exact: String!, srcLangs: [String]!, targetLangs: [String]!): [ConceptType]
   lemmatised(lookupString: String!): [LemmatiserResultType]
   dictEntryList(exact: String!, srcLangs: [String]!, targetLangs: [String]!, wantedDicts: [String]!): [DictEntryType]
-  stemList(search: String!, mode: String!, srcLangs: [String]!, targetLangs: [String]!, wantedDicts: [String]!, before: String, after: String, first: Int, last: Int, dicts: String, id: ID, searchStem: String, srclangs: String, stem: String, targetlangs: String): StemTypeConnection
-  hasStem(exact: String!, srcLangs: [String]!, targetLangs: [String]!, wantedDicts: [String]!): [StemType]
+  stemList(search: String!, mode: String!, srcLangs: [String]!, targetLangs: [String]!, wantedDicts: [String]!, before: String, after: String, first: Int, last: Int, id: ID, searchStem: String, srclang: String, stem: String, targetlangs: String): StemTypeConnection
+  hasStem(exact: String!, srcLang: String!, targetLangs: [String]!, wantedDicts: [String]!): [StemType]
 }
 
 type RestrictionType {
@@ -109,11 +109,27 @@ type SpuriousAttributeTypeEdge {
   cursor: String!
 }
 
+type StemHitsType implements Node {
+  dicthits: Int!
+  dictname: String!
+  id: ID!
+}
+
+type StemHitsTypeConnection {
+  pageInfo: PageInfo!
+  edges: [StemHitsTypeEdge]!
+}
+
+type StemHitsTypeEdge {
+  node: StemHitsType
+  cursor: String!
+}
+
 type StemType implements Node {
-  dicts: [String]
+  dicts(before: String, after: String, first: Int, last: Int, dicthits: Int, dictname: String, id: ID): StemHitsTypeConnection
   id: ID!
   searchStem: String!
-  srclangs: [String]
+  srclang: String!
   stem: String!
   targetlangs: [String]
 }
