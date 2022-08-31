@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
+import '../../../filter/application/filter_notifier.dart';
 import '../../../routing/app_router.dart';
 import '../../application/search_service.dart';
 
@@ -58,18 +59,39 @@ class NewStems extends ConsumerWidget {
           scrollDirection: Axis.vertical,
           children: ListTile.divideTiles(
             context: context,
-            tiles: stems.map(
-              (stem) => ListTile(
-                title: Text(stem),
-                trailing: const Icon(Icons.star_border_rounded),
-                onTap: () => context.pushNamed(
-                  DivvunRoutes.articles.name,
-                  params: {'lemma': stem},
+            tiles: _data!.stemList!.edges.map((edge) => edge!.node).map(
+                  (stemNode) => StemTile(stemNode!),
                 ),
-              ),
-            ),
           ).toList(),
         ),
+      ),
+    );
+  }
+}
+
+class StemTile extends ConsumerWidget {
+  const StemTile(
+    this.stemNode, {
+    Key? key,
+  }) : super(key: key);
+
+  final Query$AllLemmas$stemList$edges$node stemNode;
+  @override
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
+    final wantedDicts = ref.watch(filterProvider).wantedDicts;
+
+    return ListTile(
+      title: Text(stemNode.stem),
+      subtitle: Text(
+          '${stemNode.dicts?.edges.where((edge) => wantedDicts.contains(edge!.node!.dictname)).fold(0, (int previousValue, edge) => previousValue + edge!.node!.dicthits)}'),
+      leading: Text(stemNode.srclang),
+      trailing: const Icon(Icons.star_border_rounded),
+      onTap: () => context.pushNamed(
+        DivvunRoutes.articles.name,
+        params: {'lemma': stemNode.stem},
       ),
     );
   }
