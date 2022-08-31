@@ -18,8 +18,8 @@ class FilterStatus extends ConsumerWidget {
     final availableDicts = f.getAvailableDicts();
 
     final filter = ref.watch(filterProvider);
-    final srcLangs = [...filter.wantedSrcLangs];
-    final targetLangs = [...filter.wantedTargetLangs];
+    final srcLangs = filter.wantedSrcLangs;
+    final targetLangs = filter.wantedTargetLangs;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
