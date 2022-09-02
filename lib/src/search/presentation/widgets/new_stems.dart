@@ -88,7 +88,20 @@ class StemTile extends ConsumerWidget {
             (int previousValue, edge) => previousValue + edge!.node!.dicthits);
 
     return ListTile(
-      title: Text(stemNode.stem),
+      title: SizedBox(
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 4.0),
+              child: Text(stemNode.stem),
+            ),
+            Text('(${stemNode.srclang})'),
+            Expanded(
+              child: Text('$hits', textAlign: TextAlign.end),
+            )
+          ],
+        ),
+      ),
       subtitle: (hits != null && hits > 1) ? Text('$hits') : null,
       trailing: const Icon(Icons.star_border_rounded),
       onTap: () => context.pushNamed(
