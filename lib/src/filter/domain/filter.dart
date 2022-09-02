@@ -51,6 +51,7 @@ class Filter with _$Filter {
       'gtsmnfin',
       'gtfinnob',
       'sammallahtismefin',
+      'sammallahtifinsme',
     ])
         List<String> wantedDicts,
   }) = _Filter;

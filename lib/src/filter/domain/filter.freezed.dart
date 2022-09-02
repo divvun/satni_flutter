@@ -151,7 +151,8 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
         'gtfinsmn',
         'gtsmnfin',
         'gtfinnob',
-        'sammallahtismefin'
+        'sammallahtismefin',
+        'sammallahtifinsme'
       ]})
       : _wantedSrcLangs = wantedSrcLangs,
         _wantedTargetLangs = wantedTargetLangs,

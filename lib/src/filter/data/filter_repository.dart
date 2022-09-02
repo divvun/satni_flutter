@@ -30,7 +30,7 @@ class FakeFilterRepository {
         {'name': 'gtsmnfin', 'src': 'smn', 'target': 'fin'},
         {'name': 'gtfinnob', 'src': 'fin', 'target': 'nob'},
         {'name': 'sammallahtismefin', 'src': 'sme', 'target': 'fin'},
-        {'name': 'sammallahtismefin', 'src': 'fin', 'target': 'sme'},
+        {'name': 'sammallahtifinsme', 'src': 'fin', 'target': 'sme'},
       ];
 }
 
