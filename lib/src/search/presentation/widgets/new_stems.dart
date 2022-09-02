@@ -87,7 +87,6 @@ class StemTile extends ConsumerWidget {
       title: Text(stemNode.stem),
       subtitle: Text(
           '${stemNode.dicts?.edges.where((edge) => wantedDicts.contains(edge!.node!.dictname)).fold(0, (int previousValue, edge) => previousValue + edge!.node!.dicthits)}'),
-      leading: Text(stemNode.srclang),
       trailing: const Icon(Icons.star_border_rounded),
       onTap: () => context.pushNamed(
         DivvunRoutes.articles.name,
