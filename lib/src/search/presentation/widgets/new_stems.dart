@@ -82,11 +82,14 @@ class StemTile extends ConsumerWidget {
     WidgetRef ref,
   ) {
     final wantedDicts = ref.watch(filterProvider).wantedDicts;
+    final hits = stemNode.dicts?.edges
+        .where((edge) => wantedDicts.contains(edge?.node!.dictname))
+        .fold(0,
+            (int previousValue, edge) => previousValue + edge!.node!.dicthits);
 
     return ListTile(
       title: Text(stemNode.stem),
-      subtitle: Text(
-          '${stemNode.dicts?.edges.where((edge) => wantedDicts.contains(edge!.node!.dictname)).fold(0, (int previousValue, edge) => previousValue + edge!.node!.dicthits)}'),
+      subtitle: (hits != null && hits > 1) ? Text('$hits') : null,
       trailing: const Icon(Icons.star_border_rounded),
       onTap: () => context.pushNamed(
         DivvunRoutes.articles.name,
