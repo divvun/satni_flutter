@@ -19,6 +19,7 @@ dependencies:
   rxdart: ^0.27.4
   satni_graphql_service:
     path: packages/satni_graphql_service
+  xml: ^6.1.0
 
 dev_dependencies:
   build_runner: ^2.2.0
