@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'dict_entry.dart';
 
 // **************************************************************************
@@ -12,7 +10,7 @@ _$_DictEntry _$$_DictEntryFromJson(Map<String, dynamic> json) => _$_DictEntry(
       dictName: json['dictName'] as String,
       srcLang: json['srcLang'] as String,
       targetLang: json['targetLang'] as String,
-      lemmas: (json['lemmas'] as List<dynamic>)
+      lookupLemmas: (json['lookupLemmas'] as List<dynamic>)
           .map((e) => Lemma.fromJson(e as Map<String, dynamic>))
           .toList(),
       translationGroups: (json['translationGroups'] as List<dynamic>)
@@ -25,6 +23,6 @@ Map<String, dynamic> _$$_DictEntryToJson(_$_DictEntry instance) =>
       'dictName': instance.dictName,
       'srcLang': instance.srcLang,
       'targetLang': instance.targetLang,
-      'lemmas': instance.lemmas,
+      'lookupLemmas': instance.lookupLemmas,
       'translationGroups': instance.translationGroups,
     };

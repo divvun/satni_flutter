@@ -23,7 +23,7 @@ mixin _$DictEntry {
   String get dictName => throw _privateConstructorUsedError;
   String get srcLang => throw _privateConstructorUsedError;
   String get targetLang => throw _privateConstructorUsedError;
-  List<Lemma> get lemmas => throw _privateConstructorUsedError;
+  List<Lemma> get lookupLemmas => throw _privateConstructorUsedError;
   List<TranslationGroup> get translationGroups =>
       throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $DictEntryCopyWith<$Res> {
       {String dictName,
       String srcLang,
       String targetLang,
-      List<Lemma> lemmas,
+      List<Lemma> lookupLemmas,
       List<TranslationGroup> translationGroups});
 }
 
@@ -58,7 +58,7 @@ class _$DictEntryCopyWithImpl<$Res> implements $DictEntryCopyWith<$Res> {
     Object? dictName = freezed,
     Object? srcLang = freezed,
     Object? targetLang = freezed,
-    Object? lemmas = freezed,
+    Object? lookupLemmas = freezed,
     Object? translationGroups = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,9 +74,9 @@ class _$DictEntryCopyWithImpl<$Res> implements $DictEntryCopyWith<$Res> {
           ? _value.targetLang
           : targetLang // ignore: cast_nullable_to_non_nullable
               as String,
-      lemmas: lemmas == freezed
-          ? _value.lemmas
-          : lemmas // ignore: cast_nullable_to_non_nullable
+      lookupLemmas: lookupLemmas == freezed
+          ? _value.lookupLemmas
+          : lookupLemmas // ignore: cast_nullable_to_non_nullable
               as List<Lemma>,
       translationGroups: translationGroups == freezed
           ? _value.translationGroups
@@ -96,7 +96,7 @@ abstract class _$$_DictEntryCopyWith<$Res> implements $DictEntryCopyWith<$Res> {
       {String dictName,
       String srcLang,
       String targetLang,
-      List<Lemma> lemmas,
+      List<Lemma> lookupLemmas,
       List<TranslationGroup> translationGroups});
 }
 
@@ -115,7 +115,7 @@ class __$$_DictEntryCopyWithImpl<$Res> extends _$DictEntryCopyWithImpl<$Res>
     Object? dictName = freezed,
     Object? srcLang = freezed,
     Object? targetLang = freezed,
-    Object? lemmas = freezed,
+    Object? lookupLemmas = freezed,
     Object? translationGroups = freezed,
   }) {
     return _then(_$_DictEntry(
@@ -131,9 +131,9 @@ class __$$_DictEntryCopyWithImpl<$Res> extends _$DictEntryCopyWithImpl<$Res>
           ? _value.targetLang
           : targetLang // ignore: cast_nullable_to_non_nullable
               as String,
-      lemmas: lemmas == freezed
-          ? _value._lemmas
-          : lemmas // ignore: cast_nullable_to_non_nullable
+      lookupLemmas: lookupLemmas == freezed
+          ? _value._lookupLemmas
+          : lookupLemmas // ignore: cast_nullable_to_non_nullable
               as List<Lemma>,
       translationGroups: translationGroups == freezed
           ? _value._translationGroups
@@ -150,9 +150,9 @@ class _$_DictEntry implements _DictEntry {
       {required this.dictName,
       required this.srcLang,
       required this.targetLang,
-      required final List<Lemma> lemmas,
+      required final List<Lemma> lookupLemmas,
       required final List<TranslationGroup> translationGroups})
-      : _lemmas = lemmas,
+      : _lookupLemmas = lookupLemmas,
         _translationGroups = translationGroups;
 
   factory _$_DictEntry.fromJson(Map<String, dynamic> json) =>
@@ -164,11 +164,11 @@ class _$_DictEntry implements _DictEntry {
   final String srcLang;
   @override
   final String targetLang;
-  final List<Lemma> _lemmas;
+  final List<Lemma> _lookupLemmas;
   @override
-  List<Lemma> get lemmas {
+  List<Lemma> get lookupLemmas {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lemmas);
+    return EqualUnmodifiableListView(_lookupLemmas);
   }
 
   final List<TranslationGroup> _translationGroups;
@@ -180,7 +180,7 @@ class _$_DictEntry implements _DictEntry {
 
   @override
   String toString() {
-    return 'DictEntry(dictName: $dictName, srcLang: $srcLang, targetLang: $targetLang, lemmas: $lemmas, translationGroups: $translationGroups)';
+    return 'DictEntry(dictName: $dictName, srcLang: $srcLang, targetLang: $targetLang, lookupLemmas: $lookupLemmas, translationGroups: $translationGroups)';
   }
 
   @override
@@ -192,7 +192,8 @@ class _$_DictEntry implements _DictEntry {
             const DeepCollectionEquality().equals(other.srcLang, srcLang) &&
             const DeepCollectionEquality()
                 .equals(other.targetLang, targetLang) &&
-            const DeepCollectionEquality().equals(other._lemmas, _lemmas) &&
+            const DeepCollectionEquality()
+                .equals(other._lookupLemmas, _lookupLemmas) &&
             const DeepCollectionEquality()
                 .equals(other._translationGroups, _translationGroups));
   }
@@ -204,7 +205,7 @@ class _$_DictEntry implements _DictEntry {
       const DeepCollectionEquality().hash(dictName),
       const DeepCollectionEquality().hash(srcLang),
       const DeepCollectionEquality().hash(targetLang),
-      const DeepCollectionEquality().hash(_lemmas),
+      const DeepCollectionEquality().hash(_lookupLemmas),
       const DeepCollectionEquality().hash(_translationGroups));
 
   @JsonKey(ignore: true)
@@ -225,7 +226,7 @@ abstract class _DictEntry implements DictEntry {
       {required final String dictName,
       required final String srcLang,
       required final String targetLang,
-      required final List<Lemma> lemmas,
+      required final List<Lemma> lookupLemmas,
       required final List<TranslationGroup> translationGroups}) = _$_DictEntry;
 
   factory _DictEntry.fromJson(Map<String, dynamic> json) =
@@ -238,7 +239,7 @@ abstract class _DictEntry implements DictEntry {
   @override
   String get targetLang;
   @override
-  List<Lemma> get lemmas;
+  List<Lemma> get lookupLemmas;
   @override
   List<TranslationGroup> get translationGroups;
   @override
