@@ -11,7 +11,7 @@ class Lemma with _$Lemma {
     required String lemma,
     required String presentationLemma,
     required String pos,
-    required List<SpuriousAttribute> spuriosAttributes,
+    @Default([]) List<SpuriousAttribute> spuriousAttributes,
   }) = _Lemma;
 
   factory Lemma.fromJson(Map<String, dynamic> json) => _$LemmaFromJson(json);

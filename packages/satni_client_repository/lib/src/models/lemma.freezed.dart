@@ -23,7 +23,7 @@ mixin _$Lemma {
   String get lemma => throw _privateConstructorUsedError;
   String get presentationLemma => throw _privateConstructorUsedError;
   String get pos => throw _privateConstructorUsedError;
-  List<SpuriousAttribute> get spuriosAttributes =>
+  List<SpuriousAttribute> get spuriousAttributes =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $LemmaCopyWith<$Res> {
       {String lemma,
       String presentationLemma,
       String pos,
-      List<SpuriousAttribute> spuriosAttributes});
+      List<SpuriousAttribute> spuriousAttributes});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$LemmaCopyWithImpl<$Res> implements $LemmaCopyWith<$Res> {
     Object? lemma = freezed,
     Object? presentationLemma = freezed,
     Object? pos = freezed,
-    Object? spuriosAttributes = freezed,
+    Object? spuriousAttributes = freezed,
   }) {
     return _then(_value.copyWith(
       lemma: lemma == freezed
@@ -70,9 +70,9 @@ class _$LemmaCopyWithImpl<$Res> implements $LemmaCopyWith<$Res> {
           ? _value.pos
           : pos // ignore: cast_nullable_to_non_nullable
               as String,
-      spuriosAttributes: spuriosAttributes == freezed
-          ? _value.spuriosAttributes
-          : spuriosAttributes // ignore: cast_nullable_to_non_nullable
+      spuriousAttributes: spuriousAttributes == freezed
+          ? _value.spuriousAttributes
+          : spuriousAttributes // ignore: cast_nullable_to_non_nullable
               as List<SpuriousAttribute>,
     ));
   }
@@ -87,7 +87,7 @@ abstract class _$$_LemmaCopyWith<$Res> implements $LemmaCopyWith<$Res> {
       {String lemma,
       String presentationLemma,
       String pos,
-      List<SpuriousAttribute> spuriosAttributes});
+      List<SpuriousAttribute> spuriousAttributes});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$_LemmaCopyWithImpl<$Res> extends _$LemmaCopyWithImpl<$Res>
     Object? lemma = freezed,
     Object? presentationLemma = freezed,
     Object? pos = freezed,
-    Object? spuriosAttributes = freezed,
+    Object? spuriousAttributes = freezed,
   }) {
     return _then(_$_Lemma(
       lemma: lemma == freezed
@@ -119,9 +119,9 @@ class __$$_LemmaCopyWithImpl<$Res> extends _$LemmaCopyWithImpl<$Res>
           ? _value.pos
           : pos // ignore: cast_nullable_to_non_nullable
               as String,
-      spuriosAttributes: spuriosAttributes == freezed
-          ? _value._spuriosAttributes
-          : spuriosAttributes // ignore: cast_nullable_to_non_nullable
+      spuriousAttributes: spuriousAttributes == freezed
+          ? _value._spuriousAttributes
+          : spuriousAttributes // ignore: cast_nullable_to_non_nullable
               as List<SpuriousAttribute>,
     ));
   }
@@ -134,8 +134,8 @@ class _$_Lemma implements _Lemma {
       {required this.lemma,
       required this.presentationLemma,
       required this.pos,
-      required final List<SpuriousAttribute> spuriosAttributes})
-      : _spuriosAttributes = spuriosAttributes;
+      final List<SpuriousAttribute> spuriousAttributes = const []})
+      : _spuriousAttributes = spuriousAttributes;
 
   factory _$_Lemma.fromJson(Map<String, dynamic> json) =>
       _$$_LemmaFromJson(json);
@@ -146,16 +146,17 @@ class _$_Lemma implements _Lemma {
   final String presentationLemma;
   @override
   final String pos;
-  final List<SpuriousAttribute> _spuriosAttributes;
+  final List<SpuriousAttribute> _spuriousAttributes;
   @override
-  List<SpuriousAttribute> get spuriosAttributes {
+  @JsonKey()
+  List<SpuriousAttribute> get spuriousAttributes {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_spuriosAttributes);
+    return EqualUnmodifiableListView(_spuriousAttributes);
   }
 
   @override
   String toString() {
-    return 'Lemma(lemma: $lemma, presentationLemma: $presentationLemma, pos: $pos, spuriosAttributes: $spuriosAttributes)';
+    return 'Lemma(lemma: $lemma, presentationLemma: $presentationLemma, pos: $pos, spuriousAttributes: $spuriousAttributes)';
   }
 
   @override
@@ -168,7 +169,7 @@ class _$_Lemma implements _Lemma {
                 .equals(other.presentationLemma, presentationLemma) &&
             const DeepCollectionEquality().equals(other.pos, pos) &&
             const DeepCollectionEquality()
-                .equals(other._spuriosAttributes, _spuriosAttributes));
+                .equals(other._spuriousAttributes, _spuriousAttributes));
   }
 
   @JsonKey(ignore: true)
@@ -178,7 +179,7 @@ class _$_Lemma implements _Lemma {
       const DeepCollectionEquality().hash(lemma),
       const DeepCollectionEquality().hash(presentationLemma),
       const DeepCollectionEquality().hash(pos),
-      const DeepCollectionEquality().hash(_spuriosAttributes));
+      const DeepCollectionEquality().hash(_spuriousAttributes));
 
   @JsonKey(ignore: true)
   @override
@@ -198,7 +199,7 @@ abstract class _Lemma implements Lemma {
       {required final String lemma,
       required final String presentationLemma,
       required final String pos,
-      required final List<SpuriousAttribute> spuriosAttributes}) = _$_Lemma;
+      final List<SpuriousAttribute> spuriousAttributes}) = _$_Lemma;
 
   factory _Lemma.fromJson(Map<String, dynamic> json) = _$_Lemma.fromJson;
 
@@ -209,7 +210,7 @@ abstract class _Lemma implements Lemma {
   @override
   String get pos;
   @override
-  List<SpuriousAttribute> get spuriosAttributes;
+  List<SpuriousAttribute> get spuriousAttributes;
   @override
   @JsonKey(ignore: true)
   _$$_LemmaCopyWith<_$_Lemma> get copyWith =>
