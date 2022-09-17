@@ -1,6 +1,15 @@
-// TODO: Put public facing types in this file.
+// Project imports:
+import 'models/models.dart';
 
-/// Checks if you are awesome. Spoiler: you are.
-class Awesome {
-  bool get isAwesome => true;
+class SatniRepository {
+  SatniRepository();
+
+  Future<List<Article>> getArticles(
+    String lookupString,
+    List<String> srcLangs,
+    List<String> targetLangs,
+    List<String> wantedDicts,
+  ) async {
+    return [];
+  }
 }
