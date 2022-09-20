@@ -2,7 +2,7 @@
 import 'package:xml/xml.dart';
 
 Map<String, String> makeSpuriousAttributes(XmlElement lemma) {
-  const excludes = ['pos', 'dialect', 'country'];
+  const excludes = ['pos'];
   return {
     for (final attribute in lemma.attributes
         .where((p0) => !excludes.contains(p0.name.toString())))
@@ -16,8 +16,6 @@ Map<String, dynamic> makeLemma(XmlElement lemma, String lang) {
     'presentation_lemma': lemma.text,
     'language': lang,
     'pos': lemma.getAttribute('pos'),
-    'dialect': lemma.getAttribute('dialect'),
-    'country': lemma.getAttribute('country'),
     'spurious_attributes': makeSpuriousAttributes(lemma)
   };
 }
