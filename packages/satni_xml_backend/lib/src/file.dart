@@ -5,8 +5,6 @@ import 'package:satni_xml_backend/src/xml_dictentry.dart';
 import 'package:xml/xml.dart';
 import 'package:path/path.dart' as p;
 
-import 'models/word_file.dart';
-
 DictFile makeDict(FileSystemEntity f) {
   final parts = p.split(f.path);
   final dictPos = parts.indexOf('dict');
