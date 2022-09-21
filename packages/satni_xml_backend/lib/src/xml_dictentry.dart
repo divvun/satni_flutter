@@ -83,6 +83,10 @@ Map<String, dynamic> makeDictEntry(XmlElement dictElement, String dictPrefix,
         .toList(),
     'translationGroups': dictElement
         .findAllElements('tg')
+        .where((translationGroupElement) => translationGroupElement.attributes
+            .any((attribute) =>
+                attribute.name.toString() == 'xml:lang' &&
+                attribute.value == targetLang))
         .map((translationGroupElement) =>
             makeTranslationGroup(translationGroupElement, targetLang))
         .toList(),
