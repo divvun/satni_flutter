@@ -1,7 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'spurious_attribute.dart';
-
 part 'restriction.freezed.dart';
 part 'restriction.g.dart';
 
@@ -9,7 +7,7 @@ part 'restriction.g.dart';
 class Restriction with _$Restriction {
   const factory Restriction({
     required String restriction,
-    @Default([]) List<SpuriousAttribute> attributes,
+    required String attributes,
   }) = _Restriction;
 
   factory Restriction.fromJson(Map<String, dynamic> json) =>

@@ -8,8 +8,8 @@ part 'concept.g.dart';
 class Concept with _$Concept {
   const factory Concept({
     required String lang,
-    @Default('') definition,
-    @Default('') explanation,
+    @Default('') String definition,
+    @Default('') String explanation,
     required List<Term> terms,
   }) = _Concept;
 

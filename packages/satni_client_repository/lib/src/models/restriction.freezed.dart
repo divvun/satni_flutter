@@ -21,7 +21,7 @@ Restriction _$RestrictionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Restriction {
   String get restriction => throw _privateConstructorUsedError;
-  List<SpuriousAttribute> get attributes => throw _privateConstructorUsedError;
+  String get attributes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $RestrictionCopyWith<$Res> {
   factory $RestrictionCopyWith(
           Restriction value, $Res Function(Restriction) then) =
       _$RestrictionCopyWithImpl<$Res>;
-  $Res call({String restriction, List<SpuriousAttribute> attributes});
+  $Res call({String restriction, String attributes});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$RestrictionCopyWithImpl<$Res> implements $RestrictionCopyWith<$Res> {
       attributes: attributes == freezed
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as List<SpuriousAttribute>,
+              as String,
     ));
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_RestrictionCopyWith<$Res>
           _$_Restriction value, $Res Function(_$_Restriction) then) =
       __$$_RestrictionCopyWithImpl<$Res>;
   @override
-  $Res call({String restriction, List<SpuriousAttribute> attributes});
+  $Res call({String restriction, String attributes});
 }
 
 /// @nodoc
@@ -94,9 +94,9 @@ class __$$_RestrictionCopyWithImpl<$Res> extends _$RestrictionCopyWithImpl<$Res>
           : restriction // ignore: cast_nullable_to_non_nullable
               as String,
       attributes: attributes == freezed
-          ? _value._attributes
+          ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as List<SpuriousAttribute>,
+              as String,
     ));
   }
 }
@@ -104,23 +104,15 @@ class __$$_RestrictionCopyWithImpl<$Res> extends _$RestrictionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Restriction implements _Restriction {
-  const _$_Restriction(
-      {required this.restriction,
-      final List<SpuriousAttribute> attributes = const []})
-      : _attributes = attributes;
+  const _$_Restriction({required this.restriction, required this.attributes});
 
   factory _$_Restriction.fromJson(Map<String, dynamic> json) =>
       _$$_RestrictionFromJson(json);
 
   @override
   final String restriction;
-  final List<SpuriousAttribute> _attributes;
   @override
-  @JsonKey()
-  List<SpuriousAttribute> get attributes {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attributes);
-  }
+  final String attributes;
 
   @override
   String toString() {
@@ -135,7 +127,7 @@ class _$_Restriction implements _Restriction {
             const DeepCollectionEquality()
                 .equals(other.restriction, restriction) &&
             const DeepCollectionEquality()
-                .equals(other._attributes, _attributes));
+                .equals(other.attributes, attributes));
   }
 
   @JsonKey(ignore: true)
@@ -143,7 +135,7 @@ class _$_Restriction implements _Restriction {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(restriction),
-      const DeepCollectionEquality().hash(_attributes));
+      const DeepCollectionEquality().hash(attributes));
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +153,7 @@ class _$_Restriction implements _Restriction {
 abstract class _Restriction implements Restriction {
   const factory _Restriction(
       {required final String restriction,
-      final List<SpuriousAttribute> attributes}) = _$_Restriction;
+      required final String attributes}) = _$_Restriction;
 
   factory _Restriction.fromJson(Map<String, dynamic> json) =
       _$_Restriction.fromJson;
@@ -169,7 +161,7 @@ abstract class _Restriction implements Restriction {
   @override
   String get restriction;
   @override
-  List<SpuriousAttribute> get attributes;
+  String get attributes;
   @override
   @JsonKey(ignore: true)
   _$$_RestrictionCopyWith<_$_Restriction> get copyWith =>

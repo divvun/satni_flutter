@@ -21,8 +21,8 @@ Concept _$ConceptFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Concept {
   String get lang => throw _privateConstructorUsedError;
-  dynamic get definition => throw _privateConstructorUsedError;
-  dynamic get explanation => throw _privateConstructorUsedError;
+  String get definition => throw _privateConstructorUsedError;
+  String get explanation => throw _privateConstructorUsedError;
   List<Term> get terms => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ConceptCopyWith<$Res> {
   factory $ConceptCopyWith(Concept value, $Res Function(Concept) then) =
       _$ConceptCopyWithImpl<$Res>;
   $Res call(
-      {String lang, dynamic definition, dynamic explanation, List<Term> terms});
+      {String lang, String definition, String explanation, List<Term> terms});
 }
 
 /// @nodoc
@@ -61,11 +61,11 @@ class _$ConceptCopyWithImpl<$Res> implements $ConceptCopyWith<$Res> {
       definition: definition == freezed
           ? _value.definition
           : definition // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String,
       explanation: explanation == freezed
           ? _value.explanation
           : explanation // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String,
       terms: terms == freezed
           ? _value.terms
           : terms // ignore: cast_nullable_to_non_nullable
@@ -81,7 +81,7 @@ abstract class _$$_ConceptCopyWith<$Res> implements $ConceptCopyWith<$Res> {
       __$$_ConceptCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String lang, dynamic definition, dynamic explanation, List<Term> terms});
+      {String lang, String definition, String explanation, List<Term> terms});
 }
 
 /// @nodoc
@@ -105,8 +105,14 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
-      definition: definition == freezed ? _value.definition : definition,
-      explanation: explanation == freezed ? _value.explanation : explanation,
+      definition: definition == freezed
+          ? _value.definition
+          : definition // ignore: cast_nullable_to_non_nullable
+              as String,
+      explanation: explanation == freezed
+          ? _value.explanation
+          : explanation // ignore: cast_nullable_to_non_nullable
+              as String,
       terms: terms == freezed
           ? _value._terms
           : terms // ignore: cast_nullable_to_non_nullable
@@ -132,10 +138,10 @@ class _$_Concept implements _Concept {
   final String lang;
   @override
   @JsonKey()
-  final dynamic definition;
+  final String definition;
   @override
   @JsonKey()
-  final dynamic explanation;
+  final String explanation;
   final List<Term> _terms;
   @override
   List<Term> get terms {
@@ -186,8 +192,8 @@ class _$_Concept implements _Concept {
 abstract class _Concept implements Concept {
   const factory _Concept(
       {required final String lang,
-      final dynamic definition,
-      final dynamic explanation,
+      final String definition,
+      final String explanation,
       required final List<Term> terms}) = _$_Concept;
 
   factory _Concept.fromJson(Map<String, dynamic> json) = _$_Concept.fromJson;
@@ -195,9 +201,9 @@ abstract class _Concept implements Concept {
   @override
   String get lang;
   @override
-  dynamic get definition;
+  String get definition;
   @override
-  dynamic get explanation;
+  String get explanation;
   @override
   List<Term> get terms;
   @override
