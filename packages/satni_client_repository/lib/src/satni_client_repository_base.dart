@@ -1,8 +1,6 @@
 // Project imports:
 import 'models/models.dart';
 
-enum SearchMode { start, middle, end }
-
 abstract class SatniRepository {
   Future<List<Article>> getArticles(
     String lookupString,
@@ -13,7 +11,7 @@ abstract class SatniRepository {
 
   Future<List<Stem>> getStems(
     String searchWord,
-    SearchMode searchMode,
+    String searchMode,
     List<String> srcLangs,
     List<String> targetLangs,
     List<String> wantedDicts,
