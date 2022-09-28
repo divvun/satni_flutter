@@ -1,11 +1,7 @@
 targets:
   $default:
-    sources:
-      - lib/**
     builders:
-      artemis:
+      graphql_codegen:
         options:
-          schema_mapping:
-            - schema: lib/src/graphql/schemas/schema.graphql
-              queries_glob: lib/src/graphql/queries/*.graphql
-              output: lib/src/graphql/api/graphql_api.dart
+          clients:
+            - graphql
