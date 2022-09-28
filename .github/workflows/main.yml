@@ -7,7 +7,7 @@ on:
 
 env:
   APP_ID: "org.divvun.satni"
-  FLUTTER_VERSION: "3.0.1"
+  FLUTTER_VERSION: "3.3.3"
 
 jobs:
   android_build:
