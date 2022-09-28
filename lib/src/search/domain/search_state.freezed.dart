@@ -21,8 +21,8 @@ mixin _$SearchState {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +30,8 @@ mixin _$SearchState {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +39,8 @@ mixin _$SearchState {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,8 +155,8 @@ class _$_Error implements _Error {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) {
     return error(message);
   }
@@ -167,8 +167,8 @@ class _$_Error implements _Error {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) {
     return error?.call(message);
   }
@@ -179,8 +179,8 @@ class _$_Error implements _Error {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -233,7 +233,7 @@ class _$_Error implements _Error {
 abstract class _Error implements SearchState {
   const factory _Error(final String message) = _$_Error;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
@@ -281,8 +281,8 @@ class _$_Initial implements _Initial {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) {
     return initial();
   }
@@ -293,8 +293,8 @@ class _$_Initial implements _Initial {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) {
     return initial?.call();
   }
@@ -305,8 +305,8 @@ class _$_Initial implements _Initial {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -402,8 +402,8 @@ class _$_Loading implements _Loading {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) {
     return loading();
   }
@@ -414,8 +414,8 @@ class _$_Loading implements _Loading {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) {
     return loading?.call();
   }
@@ -426,8 +426,8 @@ class _$_Loading implements _Loading {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -486,7 +486,7 @@ abstract class _$$_LoadingMoreCopyWith<$Res> {
   factory _$$_LoadingMoreCopyWith(
           _$_LoadingMore value, $Res Function(_$_LoadingMore) then) =
       __$$_LoadingMoreCopyWithImpl<$Res>;
-  $Res call({AllLemmas$Query stems});
+  $Res call({Query stems});
 }
 
 /// @nodoc
@@ -507,7 +507,7 @@ class __$$_LoadingMoreCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
       stems == freezed
           ? _value.stems
           : stems // ignore: cast_nullable_to_non_nullable
-              as AllLemmas$Query,
+              as Query,
     ));
   }
 }
@@ -518,7 +518,7 @@ class _$_LoadingMore implements _LoadingMore {
   const _$_LoadingMore(this.stems);
 
   @override
-  final AllLemmas$Query stems;
+  final Query stems;
 
   @override
   String toString() {
@@ -548,8 +548,8 @@ class _$_LoadingMore implements _LoadingMore {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) {
     return loadingMore(stems);
   }
@@ -560,8 +560,8 @@ class _$_LoadingMore implements _LoadingMore {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) {
     return loadingMore?.call(stems);
   }
@@ -572,8 +572,8 @@ class _$_LoadingMore implements _LoadingMore {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) {
     if (loadingMore != null) {
@@ -624,9 +624,9 @@ class _$_LoadingMore implements _LoadingMore {
 }
 
 abstract class _LoadingMore implements SearchState {
-  const factory _LoadingMore(final AllLemmas$Query stems) = _$_LoadingMore;
+  const factory _LoadingMore(final Query stems) = _$_LoadingMore;
 
-  AllLemmas$Query get stems => throw _privateConstructorUsedError;
+  Query get stems;
   @JsonKey(ignore: true)
   _$$_LoadingMoreCopyWith<_$_LoadingMore> get copyWith =>
       throw _privateConstructorUsedError;
@@ -637,7 +637,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
-  $Res call({AllLemmas$Query stems});
+  $Res call({Query stems});
 }
 
 /// @nodoc
@@ -657,7 +657,7 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
       stems == freezed
           ? _value.stems
           : stems // ignore: cast_nullable_to_non_nullable
-              as AllLemmas$Query,
+              as Query,
     ));
   }
 }
@@ -668,7 +668,7 @@ class _$_Success implements _Success {
   const _$_Success(this.stems);
 
   @override
-  final AllLemmas$Query stems;
+  final Query stems;
 
   @override
   String toString() {
@@ -698,8 +698,8 @@ class _$_Success implements _Success {
     required TResult Function(String message) error,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AllLemmas$Query stems) loadingMore,
-    required TResult Function(AllLemmas$Query stems) success,
+    required TResult Function(Query stems) loadingMore,
+    required TResult Function(Query stems) success,
   }) {
     return success(stems);
   }
@@ -710,8 +710,8 @@ class _$_Success implements _Success {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
   }) {
     return success?.call(stems);
   }
@@ -722,8 +722,8 @@ class _$_Success implements _Success {
     TResult Function(String message)? error,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AllLemmas$Query stems)? loadingMore,
-    TResult Function(AllLemmas$Query stems)? success,
+    TResult Function(Query stems)? loadingMore,
+    TResult Function(Query stems)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -774,9 +774,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements SearchState {
-  const factory _Success(final AllLemmas$Query stems) = _$_Success;
+  const factory _Success(final Query stems) = _$_Success;
 
-  AllLemmas$Query get stems => throw _privateConstructorUsedError;
+  Query get stems;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;

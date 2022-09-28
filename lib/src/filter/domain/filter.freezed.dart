@@ -110,7 +110,7 @@ class __$$_FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Filter with DiagnosticableTreeMixin implements _Filter {
+class _$_Filter implements _Filter {
   _$_Filter(
       {final List<String> wantedSrcLangs = const [
         'eng',
@@ -182,18 +182,8 @@ class _$_Filter with DiagnosticableTreeMixin implements _Filter {
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Filter(wantedSrcLangs: $wantedSrcLangs, wantedTargetLangs: $wantedTargetLangs, wantedDicts: $wantedDicts)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Filter'))
-      ..add(DiagnosticsProperty('wantedSrcLangs', wantedSrcLangs))
-      ..add(DiagnosticsProperty('wantedTargetLangs', wantedTargetLangs))
-      ..add(DiagnosticsProperty('wantedDicts', wantedDicts));
   }
 
   @override
@@ -229,11 +219,11 @@ abstract class _Filter implements Filter {
       final List<String> wantedDicts}) = _$_Filter;
 
   @override
-  List<String> get wantedSrcLangs => throw _privateConstructorUsedError;
+  List<String> get wantedSrcLangs;
   @override
-  List<String> get wantedTargetLangs => throw _privateConstructorUsedError;
+  List<String> get wantedTargetLangs;
   @override
-  List<String> get wantedDicts => throw _privateConstructorUsedError;
+  List<String> get wantedDicts;
   @override
   @JsonKey(ignore: true)
   _$$_FilterCopyWith<_$_Filter> get copyWith =>
