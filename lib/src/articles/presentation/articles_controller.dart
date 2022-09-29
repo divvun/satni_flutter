@@ -2,8 +2,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/articles/index.dart';
-import 'package:satni/src/filter/index.dart';
+import '../../filter/application/filter_notifier.dart';
+import '../data/dict_fetcher_repository.dart';
+import '../data/term_fetcher_repository.dart';
+import '../domain/articles.dart';
 
 final articlesControllerProvider = StateNotifierProvider.autoDispose
     .family<ArticlesController, AsyncValue<Articles>, String>((ref, lemma) {

@@ -6,18 +6,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/routing/app_router.dart';
-import 'package:satni/src/search/index.dart';
+import '../../../graphql/queries/all_lemmas.graphql.dart';
+import '../../../routing/app_router.dart';
+import '../../data/search_repository.dart';
 
 class NewStems extends ConsumerWidget {
   NewStems({
-    required AllLemmas$Query data,
+    required Query$AllLemmas data,
     Key? key,
   })  : _data = data,
         super(key: key);
 
-  final AllLemmas$Query _data;
+  final Query$AllLemmas _data;
   final _scrollController = ScrollController();
 
   @override

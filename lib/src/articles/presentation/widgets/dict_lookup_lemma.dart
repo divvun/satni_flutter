@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/routing/index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
+import '../../../routing/app_router.dart';
 
 class DictLookupLemma extends StatelessWidget {
   const DictLookupLemma(
@@ -14,8 +14,7 @@ class DictLookupLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final DictArticles$Query$DictEntryType$LemmaTypeConnection$LemmaTypeEdge
-      lemma;
+  final Query$DictArticles$dictEntryList$lookupLemmas$edges lemma;
 
   @override
   Widget build(BuildContext context) {

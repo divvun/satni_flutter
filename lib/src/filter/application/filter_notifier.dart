@@ -2,7 +2,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/filter/index.dart';
+import '../domain/filter.dart';
 
 class FilterNotifier extends StateNotifier<Filter> {
   FilterNotifier() : super(Filter());

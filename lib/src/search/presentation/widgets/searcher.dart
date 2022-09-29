@@ -7,8 +7,10 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/routing/index.dart';
-import 'package:satni/src/search/index.dart';
+import '../../../routing/app_router.dart';
+import '../../application/search_debounce_service.dart';
+import '../../domain/search_notifier.dart';
+import 'search_mode_menu.dart';
 
 class Searcher extends HookConsumerWidget {
   const Searcher({Key? key}) : super(key: key);

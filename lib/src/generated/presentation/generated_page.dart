@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/common_widgets/index.dart';
-import 'package:satni/src/constants/index.dart';
-import 'package:satni/src/generated/index.dart';
+import '../../common_widgets/responsive_center.dart';
+import '../../constants/app_sizes.dart';
+import '../domain/generated.dart';
+import 'widgets/generated_view.dart';
 
 class GeneratedPage extends StatelessWidget {
   const GeneratedPage(this.arguments, Key? key) : super(key: key);

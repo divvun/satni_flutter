@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import '../index.dart';
+import '../../../graphql/queries/term_articles.graphql.dart';
+import 'term_entry.dart';
 
 class ConceptWidget extends StatelessWidget {
   const ConceptWidget(
@@ -11,7 +11,7 @@ class ConceptWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final TermArticles$Query$ConceptType concept;
+  final Query$TermArticles$conceptList concept;
 
   @override
   Widget build(BuildContext context) {

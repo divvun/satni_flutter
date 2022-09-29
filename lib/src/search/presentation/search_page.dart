@@ -2,9 +2,13 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/common_widgets/index.dart';
-import 'package:satni/src/constants/index.dart';
-import 'package:satni/src/search/index.dart';
+import '../../common_widgets/responsive_center.dart';
+import '../../constants/app_sizes.dart';
+import 'widgets/filter_status.dart';
+import 'widgets/hit_counter.dart';
+import 'widgets/lemmatised.dart';
+import 'widgets/search_results.dart';
+import 'widgets/searcher.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);

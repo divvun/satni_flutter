@@ -3,22 +3,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql/client.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
+import '../../graphql/graphql_provider.dart';
+import '../../graphql/queries/lemmatised.graphql.dart';
 
 class LemmatisedRepository {
   const LemmatisedRepository(this._client);
 
   final GraphQLClient _client;
 
-  Future<Lemmatised$Query> getLemmatised(String lookupString) async {
-    final result = await _client.query(
-      QueryOptions(
-        document: LEMMATISED_QUERY_DOCUMENT,
-        variables: LemmatisedArguments(lookupString: lookupString).toJson(),
-      ),
-    );
+  Future<Query$Lemmatised?> getLemmatised(String lookupString) async {
+    final result = await _client.query$Lemmatised(Options$Query$Lemmatised(
+        variables: Variables$Query$Lemmatised(lookupString: lookupString)));
 
-    return Lemmatised$Query.fromJson(result.data ?? {'lemmatised': []});
+    return result.parsedData;
   }
 }
 

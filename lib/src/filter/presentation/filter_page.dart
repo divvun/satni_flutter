@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/common_widgets/index.dart';
-import 'package:satni/src/constants/index.dart';
-import 'package:satni/src/filter/index.dart';
+import '../../common_widgets/responsive_center.dart';
+import '../../constants/app_sizes.dart';
+import '../application/filter_notifier.dart';
+import '../data/filter_repository.dart';
+import 'choose_dicts.dart';
 
 class FilterPage extends ConsumerWidget {
   const FilterPage({Key? key}) : super(key: key);

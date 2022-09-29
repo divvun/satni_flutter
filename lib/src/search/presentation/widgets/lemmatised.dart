@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/lemmatised/index.dart';
-import 'package:satni/src/search/index.dart';
+import '../../../lemmatised/presentation/widgets/lemmatised_view.dart';
+import '../../domain/search_notifier.dart';
 
 class Lemmatised extends ConsumerWidget {
   const Lemmatised({Key? key}) : super(key: key);

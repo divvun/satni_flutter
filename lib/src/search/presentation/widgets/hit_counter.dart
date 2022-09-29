@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/search/index.dart';
+import '../../data/search_repository.dart';
+import 'search_status.dart';
 
 class HitCounter extends ConsumerWidget {
   const HitCounter({Key? key}) : super(key: key);

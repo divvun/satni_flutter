@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/search/index.dart';
+import '../../../graphql/queries/all_lemmas.graphql.dart';
+import '../../domain/search_notifier.dart';
 
 class SearchStatus extends ConsumerWidget {
   const SearchStatus(this.data, {Key? key}) : super(key: key);
 
-  final AllLemmas$Query data;
+  final Query$AllLemmas data;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

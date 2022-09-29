@@ -2,10 +2,12 @@
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:satni/src/articles/index.dart';
-import 'package:satni/src/filter/index.dart';
-import 'package:satni/src/generated/index.dart';
-import 'package:satni/src/search/index.dart';
+import '../articles/presentation/articles_page.dart';
+import '../filter/presentation/filter_page.dart';
+import '../generated/domain/generated.dart';
+import '../generated/domain/paradigm_templates.dart';
+import '../generated/presentation/generated_page.dart';
+import '../search/presentation/search_page.dart';
 
 enum DivvunRoutes { home, articles, paradigm, filtering }
 
@@ -44,6 +46,6 @@ final divvunRouter = GoRouter(routes: [
   GoRoute(
     path: '/filtering',
     name: DivvunRoutes.filtering.name,
-    builder: (context, state) => FilterPage(),
+    builder: (context, state) => const FilterPage(),
   ),
 ]);

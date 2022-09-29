@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/generated/index.dart';
-import 'package:satni/src/graphql/index.dart';
+import '../../../graphql/queries/generated.graphql.dart';
+import '../../application/generated_service.dart';
+import '../../domain/generated.dart';
+import '../../domain/paradigm_templates.dart';
 
 class GeneratedView extends ConsumerWidget {
   const GeneratedView(this.arguments, {Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class GeneratedView extends ConsumerWidget {
   final Arguments arguments;
 
   List<Widget> _generated(
-      BuildContext context, Arguments arguments, Generated$Query generated) {
+      BuildContext context, Arguments arguments, Query$Generated generated) {
     final m = g2m(generated);
     if (paradigmTemplates.keys.contains(arguments.language)) {
       return _smiNounDefaultGenerated(m, arguments);
@@ -46,7 +48,7 @@ class GeneratedView extends ConsumerWidget {
         data: (generated) => ListView(
               children: [
                 // ListTile(title: Text(g2m(generated).toString())),
-                ..._generated(context, arguments, generated)
+                ..._generated(context, arguments, generated!)
               ],
             ),
         error: (_, __) => const Text('Oops, generation went awry'));
@@ -71,7 +73,7 @@ class GeneratedRow extends StatelessWidget {
   }
 }
 
-Map<String, String> g2m(Generated$Query g) {
+Map<String, String> g2m(Query$Generated g) {
   var m = <String, String>{};
 
   for (final g2 in g.generated!) {

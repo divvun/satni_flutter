@@ -3,32 +3,33 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql/client.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
+import '../../graphql/graphql_provider.dart';
+import '../../graphql/queries/dict_articles.graphql.dart';
 
 class DictFetcherRepository {
   const DictFetcherRepository(this._client);
 
   final GraphQLClient _client;
 
-  Future<DictArticles$Query> getDicts(
-      lookupString, srcLangs, targetLangs, wantedDicts) async {
-    final result = await _client.query(
-      QueryOptions(
-        document: DICT_ARTICLES_QUERY_DOCUMENT,
-        variables: DictArticlesArguments(
+  Future<Query$DictArticles?> getDicts(
+    lookupString,
+    srcLangs,
+    targetLangs,
+    wantedDicts,
+  ) async {
+    final result = await _client.query$DictArticles(
+      Options$Query$DictArticles(
+        variables: Variables$Query$DictArticles(
           lemma: lookupString,
           srcLangs: srcLangs,
           targetLangs: targetLangs,
           wantedDicts: wantedDicts,
-        ).toJson(),
+        ),
       ),
     );
+    final parsedData = result.parsedData;
 
-    final dictArticles =
-        DictArticles$Query.fromJson(result.data ?? {'dictEntryList': []});
-
-    // print('api getDicts ${dictArticles.toString()}');
-    return dictArticles;
+    return parsedData;
   }
 }
 

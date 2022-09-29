@@ -2,15 +2,16 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import '../index.dart';
+import '../../../graphql/queries/term_articles.graphql.dart';
+import 'concept_widget.dart';
 
 class TermArticle extends StatelessWidget {
   const TermArticle(this.articleName, this.concepts, {Key? key})
       : super(key: key);
 
   final String articleName;
-  final List<TermArticles$Query$ConceptType> concepts;
+
+  final List<Query$TermArticles$conceptList> concepts;
 
   @override
   Widget build(BuildContext context) {

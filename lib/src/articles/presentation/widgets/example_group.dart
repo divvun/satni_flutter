@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
 
 class ExampleGroup extends StatelessWidget {
   const ExampleGroup(
@@ -10,7 +10,7 @@ class ExampleGroup extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final DictArticles$Query$DictEntryType$TranslationGroupType$ExampleGroupType
+  final Query$DictArticles$dictEntryList$translationGroups$exampleGroups
       exampleGroup;
 
   @override

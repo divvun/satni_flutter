@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/articles/index.dart';
+import '../../../graphql/queries/term_articles.graphql.dart';
+import '../articles_controller.dart';
+import 'dict_article.dart';
+import 'term_article.dart';
 
 class ArticlesView extends ConsumerWidget {
   const ArticlesView({required String lemma, Key? key})
@@ -18,19 +21,32 @@ class ArticlesView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ref.watch(articlesControllerProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
-        data: (articles) => ListView(
-              children: [
-                ...articles.terms.entries.map(
-                  (entry) => TermArticle(
-                    entry.key,
-                    entry.value,
-                  ),
+        data: (articles) {
+          final termArticles = articles.terms?.conceptList;
+          final Map<String, List<Query$TermArticles$conceptList>>
+              orderedTermArticles = {};
+          termArticles?.forEach((element) {
+            final name = element?.name;
+            if (!orderedTermArticles.containsKey(name)) {
+              orderedTermArticles[name!] = [];
+            }
+            orderedTermArticles[name]!.add(element!);
+          });
+
+          return ListView(
+            children: [
+              ...orderedTermArticles.entries.map(
+                (entry) => TermArticle(
+                  entry.key,
+                  entry.value,
                 ),
-                ...articles.dicts.dictEntryList!.map(
-                  (dictEntry) => DictArticle(dictEntry!),
-                )
-              ],
-            ),
+              ),
+              ...articles.dicts!.dictEntryList!.map(
+                (dictEntry) => DictArticle(dictEntry!),
+              )
+            ],
+          );
+        },
         error: (_, __) => const Text('Oops, articles went awry'));
   }
 }

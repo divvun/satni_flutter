@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/lemmatised/index.dart';
+import '../../../graphql/queries/lemmatised.graphql.dart';
+import '../../application/lemmatised_service.dart';
 
 class LemmatisedView extends ConsumerWidget {
   const LemmatisedView(this.lookupString, {Key? key}) : super(key: key);
 
   final String lookupString;
 
-  List<Widget> _lemmatised(BuildContext context, Lemmatised$Query lemmatised) {
+  List<Widget> _lemmatised(BuildContext context, Query$Lemmatised lemmatised) {
     return lemmatised.lemmatised!
         .where((element) => element!.wordforms.isNotEmpty)
         .map((languageResult) => Column(
@@ -34,7 +34,7 @@ class LemmatisedView extends ConsumerWidget {
     return ref.watch(lemmatisedService(lookupString)).when(
         loading: () => const CircularProgressIndicator(),
         data: (lemmatised) => Column(
-              children: [..._lemmatised(context, lemmatised)],
+              children: [..._lemmatised(context, lemmatised!)],
             ),
         error: (_, __) => const Text('Oops, generation went awry'));
   }

@@ -2,11 +2,11 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/lemmatised/index.dart';
+import '../../graphql/queries/lemmatised.graphql.dart';
+import '../data/lemmatised_repository.dart';
 
 final lemmatisedService =
-    FutureProvider.family<Lemmatised$Query, String>((ref, lookupString) async {
+    FutureProvider.family<Query$Lemmatised?, String>((ref, lookupString) async {
   final lemmatisedRepo = ref.watch(lemmatisedRepositoryProvider);
   final lemmatised = await lemmatisedRepo.getLemmatised(lookupString);
   return lemmatised;

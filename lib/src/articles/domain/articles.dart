@@ -1,9 +1,10 @@
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
+import '../../graphql/queries/dict_articles.graphql.dart';
+import '../../graphql/queries/term_articles.graphql.dart';
 
 class Articles {
   Articles(this.terms, this.dicts);
 
-  final DictArticles$Query dicts;
-  final Map<String, List<TermArticles$Query$ConceptType>> terms;
+  final Query$DictArticles? dicts;
+  final Query$TermArticles? terms;
 }

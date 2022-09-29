@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/routing/index.dart';
+import '../../../graphql/queries/term_articles.graphql.dart';
+import '../../../routing/app_router.dart';
 
 class TermEntry extends StatelessWidget {
   const TermEntry(
@@ -14,7 +14,7 @@ class TermEntry extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final TermArticles$Query$ConceptType$TermType term;
+  final Query$TermArticles$conceptList$terms term;
 
   @override
   Widget build(BuildContext context) {

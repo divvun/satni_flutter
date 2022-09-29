@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/articles/index.dart';
-import 'package:satni/src/graphql/index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
+import 'dict_article_content.dart';
 
 class DictArticle extends StatelessWidget {
   const DictArticle(this.dictEntry, {Key? key}) : super(key: key);
 
-  final DictArticles$Query$DictEntryType dictEntry;
+  final Query$DictArticles$dictEntryList? dictEntry;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class DictArticle extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
             child: Text(
-              dictEntry.dictName,
+              dictEntry!.dictName,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),

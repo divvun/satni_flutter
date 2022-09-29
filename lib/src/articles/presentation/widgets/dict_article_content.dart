@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import '../index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
+import 'dict_lookup_lemma.dart';
+import 'dict_translation_group.dart';
 
 class DictArticleContent extends StatelessWidget {
   const DictArticleContent(
@@ -11,19 +12,19 @@ class DictArticleContent extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final DictArticles$Query$DictEntryType dictEntry;
+  final Query$DictArticles$dictEntryList? dictEntry;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ...dictEntry.lookupLemmas!.edges.map(
+        ...dictEntry!.lookupLemmas!.edges.map(
           (lemma) => DictLookupLemma(lemma!),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Column(
-            children: dictEntry.translationGroups
+            children: dictEntry!.translationGroups
                 .map((translationGroup) =>
                     DictTranslationGroup(translationGroup!))
                 .toList(),

@@ -7,10 +7,9 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/filter/index.dart';
-import 'package:satni/src/routing/index.dart';
-
-// Project imports:
+import '../../../filter/application/filter_notifier.dart';
+import '../../../filter/data/filter_repository.dart';
+import '../../../routing/app_router.dart';
 
 enum UIFilter {
   satniorg,

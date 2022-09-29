@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/common_widgets/index.dart';
-import 'package:satni/src/constants/index.dart';
-import '../index.dart';
+import '../../common_widgets/responsive_center.dart';
+import '../../constants/app_sizes.dart';
+import 'widgets/articles_view.dart';
 
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage(this.lemma, Key? key) : super(key: key);

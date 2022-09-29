@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:satni/src/articles/index.dart';
-import 'package:satni/src/graphql/index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
+import 'dict_translation_lemma.dart';
+import 'example_group.dart';
 
 class DictTranslationGroup extends StatelessWidget {
   const DictTranslationGroup(
@@ -11,7 +12,7 @@ class DictTranslationGroup extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final DictArticles$Query$DictEntryType$TranslationGroupType translationGroup;
+  final Query$DictArticles$dictEntryList$translationGroups translationGroup;
 
   @override
   Widget build(BuildContext context) {

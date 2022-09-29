@@ -2,9 +2,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/search/index.dart';
-
-// Project imports:
+import 'search.dart';
 
 class SearchNotifier extends StateNotifier<Search> {
   SearchNotifier() : super(Search());

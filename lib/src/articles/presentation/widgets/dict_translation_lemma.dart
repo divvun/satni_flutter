@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:satni/src/graphql/index.dart';
-import 'package:satni/src/routing/index.dart';
+import '../../../graphql/queries/dict_articles.graphql.dart';
+import '../../../routing/app_router.dart';
 
 class DictTranslationLemma extends StatelessWidget {
   const DictTranslationLemma(
@@ -15,10 +15,10 @@ class DictTranslationLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final DictArticles$Query$DictEntryType$TranslationGroupType$LemmaTypeConnection$LemmaTypeEdge
+  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
       lemma;
 
-  final DictArticles$Query$DictEntryType$TranslationGroupType$RestrictionType?
+  final Query$DictArticles$dictEntryList$translationGroups$restriction?
       restriction;
 
   @override

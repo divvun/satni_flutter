@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:satni/src/filter/index.dart';
+import '../application/filter_notifier.dart';
+import '../data/filter_repository.dart';
 
 class ChooseDicts extends ConsumerWidget {
   const ChooseDicts({Key? key}) : super(key: key);
