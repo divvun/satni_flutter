@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../../graphql/queries/all_lemmas.graphql.dart';
 import '../../../routing/app_router.dart';
-import '../../data/search_repository.dart';
+import '../../application/search_service.dart';
 
 class NewStems extends ConsumerWidget {
   NewStems({
-    required Query$AllLemmas data,
+    required Query$AllLemmas? data,
     Key? key,
   })  : _data = data,
         super(key: key);
 
-  final Query$AllLemmas _data;
+  final Query$AllLemmas? _data;
   final _scrollController = ScrollController();
 
   @override
@@ -25,25 +25,26 @@ class NewStems extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    final itemCount = _data.stemList!.edges.length;
+    final itemCount = _data?.stemList!.edges.length;
 
-    if (itemCount == 0) {
+    if (_data == null || itemCount == 0) {
       return Container();
     }
 
     _scrollController.addListener(() {
       var triggerFetchMoreSize =
           0.9 * _scrollController.position.maxScrollExtent;
-      if (_data.stemList!.pageInfo.hasNextPage &&
+      if (_data == null &&
+          _data!.stemList!.pageInfo.hasNextPage &&
           _scrollController.position.pixels > triggerFetchMoreSize) {
         ref
-            .read(searchRepositoryProvider.notifier)
-            .fetchMoreStems('${_data.stemList!.pageInfo.endCursor}');
+            .read(searchControllerProvider.notifier)
+            .fetchMoreStems('${_data!.stemList!.pageInfo.endCursor}');
       }
     });
     List<String> stems = [];
 
-    for (final edge in _data.stemList!.edges) {
+    for (final edge in _data!.stemList!.edges) {
       final tu = edge!.node!.stem.toString();
       stems.add(tu);
     }

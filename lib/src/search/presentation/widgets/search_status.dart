@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../../graphql/queries/all_lemmas.graphql.dart';
 import '../../domain/search_notifier.dart';
 
 class SearchStatus extends ConsumerWidget {

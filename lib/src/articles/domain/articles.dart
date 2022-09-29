@@ -1,6 +1,5 @@
-// Project imports:
-import '../../graphql/queries/dict_articles.graphql.dart';
-import '../../graphql/queries/term_articles.graphql.dart';
+// Package imports:
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 class Articles {
   Articles(this.terms, this.dicts);

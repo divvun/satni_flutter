@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../../graphql/queries/term_articles.graphql.dart';
 import '../articles_controller.dart';
 import 'dict_article.dart';
 import 'term_article.dart';

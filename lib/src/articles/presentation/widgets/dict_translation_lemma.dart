@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:go_router/go_router.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../../graphql/queries/dict_articles.graphql.dart';
 import '../../../routing/app_router.dart';
 
 class DictTranslationLemma extends StatelessWidget {

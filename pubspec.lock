@@ -241,26 +241,19 @@ packages:
     source: hosted
     version: "3.1.1"
   gql:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: gql
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.1"
-  gql_code_builder:
-    dependency: "direct overridden"
-    description:
-      name: gql_code_builder
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.0"
   gql_dedupe_link:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: gql_dedupe_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.2"
   gql_error_link:
     dependency: transitive
     description:
@@ -269,21 +262,21 @@ packages:
     source: hosted
     version: "0.2.2"
   gql_exec:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: gql_exec
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.0"
   gql_http_link:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: gql_http_link
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
   gql_link:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: gql_link
       url: "https://pub.dartlang.org"
@@ -297,19 +290,12 @@ packages:
     source: hosted
     version: "0.2.2"
   graphql:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: graphql
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.1"
-  graphql_codegen:
-    dependency: "direct dev"
-    description:
-      name: graphql_codegen
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.11.1"
   graphs:
     dependency: transitive
     description:
@@ -471,13 +457,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
-  recase:
-    dependency: transitive
-    description:
-      name: recase
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.1.0"
   riverpod:
     dependency: transitive
     description:
@@ -492,6 +471,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.5"
+  satni_graphql_service:
+    dependency: "direct main"
+    description:
+      path: "packages/satni_graphql_service"
+      relative: true
+    source: path
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
@@ -638,5 +624,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.17.0 <3.0.0"
+  dart: ">=2.18.2 <3.0.0"
   flutter: ">=3.3.3"

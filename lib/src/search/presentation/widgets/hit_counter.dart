@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../../data/search_repository.dart';
+import '../../application/search_service.dart';
 import 'search_status.dart';
 
 class HitCounter extends ConsumerWidget {
@@ -13,14 +13,11 @@ class HitCounter extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchState = ref.watch(searchRepositoryProvider);
+    final searchState = ref.watch(searchControllerProvider);
 
     return searchState.when(
-      error: (error) => Container(),
-      initial: () => Container(),
-      loading: () => Container(),
-      loadingMore: (data) => SearchStatus(data),
-      success: (data) => SearchStatus(data),
-    );
+        loading: () => Container(),
+        data: (data) => SearchStatus(data!),
+        error: ((error, _) => Container()));
   }
 }

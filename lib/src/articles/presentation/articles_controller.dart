@@ -2,9 +2,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import '../../common_providers/satni_service_provider.dart';
 import '../../filter/application/filter_notifier.dart';
-import '../data/dict_fetcher_repository.dart';
-import '../data/term_fetcher_repository.dart';
 import '../domain/articles.dart';
 
 final articlesControllerProvider = StateNotifierProvider.autoDispose
@@ -23,15 +22,21 @@ class ArticlesController extends StateNotifier<AsyncValue<Articles>> {
 
   void init() async {
     final filter = _ref.watch(filterProvider);
-    final termFetcherRepository = _ref.watch(termFetcherRepositoryProvider);
-    final dictFetcherRepository = _ref.watch(dictFetcherRepositoryProvider);
+    final satniSearchRepository = _ref.watch(satniServiceProvider);
 
     state = const AsyncValue.loading();
     try {
-      final terms = await termFetcherRepository.getTerms(
-          _lemma, filter.wantedSrcLangs, filter.wantedTargetLangs);
-      final dicts = await dictFetcherRepository.getDicts(_lemma,
-          filter.wantedSrcLangs, filter.wantedTargetLangs, filter.wantedDicts);
+      final terms = await satniSearchRepository.getTerms(
+        _lemma,
+        filter.wantedSrcLangs,
+        filter.wantedTargetLangs,
+      );
+      final dicts = await satniSearchRepository.getDicts(
+        _lemma,
+        filter.wantedSrcLangs,
+        filter.wantedTargetLangs,
+        filter.wantedDicts,
+      );
 
       state = AsyncValue.data(Articles(terms, dicts));
     } catch (e) {

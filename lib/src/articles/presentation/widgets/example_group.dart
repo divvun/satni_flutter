@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Project imports:
-import '../../../graphql/queries/dict_articles.graphql.dart';
+// Package imports:
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 class ExampleGroup extends StatelessWidget {
   const ExampleGroup(

@@ -1,15 +1,15 @@
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../graphql/queries/generated.graphql.dart';
-import '../data/generated_repository.dart';
 import '../domain/generated.dart';
+import '../../common_providers/satni_service_provider.dart';
 
 final generatedService =
     FutureProvider.family<Query$Generated?, Arguments>((ref, arguments) async {
-  final generatedRepo = ref.watch(generatedRepositoryProvider);
-  final generated = await generatedRepo.getGenerated(
+  final satniSearchRepository = ref.watch(satniServiceProvider);
+  final generated = await satniSearchRepository.getGenerated(
       arguments.origform, arguments.language, arguments.wantedParadigms);
   return generated;
 });

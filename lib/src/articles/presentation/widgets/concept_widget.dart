@@ -1,8 +1,10 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:satni_graphql_service/satni_graphql_service.dart';
+
 // Project imports:
-import '../../../graphql/queries/term_articles.graphql.dart';
 import 'term_entry.dart';
 
 class ConceptWidget extends StatelessWidget {

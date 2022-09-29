@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:go_router/go_router.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
 import '../articles/presentation/articles_page.dart';

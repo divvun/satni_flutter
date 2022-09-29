@@ -1,8 +1,8 @@
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../../graphql/queries/all_lemmas.graphql.dart';
 
 part 'search_state.freezed.dart';
 
