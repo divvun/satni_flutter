@@ -14,37 +14,25 @@ query DictArticles(
         srcLang
         targetLang
         lookupLemmas {
-            edges {
-                node {
-                    lemma
-                    presentationLemma
-                    language
-                    pos
-                    dialect
-                    country
-                    spuriousAttributes {
-                        edges {
-                            node {
-                                name
-                                value
-                            }
-                        }
-                    }
-                }
+            lemma
+            presentationLemma
+            language
+            pos
+            dialect
+            country
+            spuriousAttributes {
+                name
+                value
             }
         }
         translationGroups {
             translationLemmas {
-                edges {
-                    node {
-                        lemma
-                        presentationLemma
-                        language
-                        pos
-                        dialect
-                        country
-                    }
-                }
+                lemma
+                presentationLemma
+                language
+                pos
+                dialect
+                country
             }
             restriction {
                 restriction

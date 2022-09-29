@@ -18,7 +18,7 @@ type DictEntryType {
   srcLang: String!
   targetLang: String!
   translationGroups: [TranslationGroupType]!
-  lookupLemmas(before: String, after: String, first: Int, last: Int, country: String, dialect: String, id: ID, language: String, lemma: String, pos: String, presentationLemma: String): LemmaTypeConnection
+  lookupLemmas: [LemmaType]!
 }
 
 type ExampleGroupType {
@@ -36,25 +36,15 @@ type GeneratorResultType {
   analyses: [GeneratorAnalysis]
 }
 
-type LemmaType implements Node {
+type LemmaType {
   country: String
   dialect: String
-  id: ID!
+  id: ID
   language: String!
   lemma: String!
   pos: String
   presentationLemma: String!
-  spuriousAttributes(before: String, after: String, first: Int, last: Int, id: ID, name: String, value: String): SpuriousAttributeTypeConnection
-}
-
-type LemmaTypeConnection {
-  pageInfo: PageInfo!
-  edges: [LemmaTypeEdge]!
-}
-
-type LemmaTypeEdge {
-  node: LemmaType
-  cursor: String!
+  spuriousAttributes: [SpuriousAttributeType]
 }
 
 type LemmatiserAnalysis {
@@ -93,20 +83,10 @@ type RestrictionType {
   restriction: String
 }
 
-type SpuriousAttributeType implements Node {
-  id: ID!
+type SpuriousAttributeType {
+  id: ID
   name: String!
   value: String!
-}
-
-type SpuriousAttributeTypeConnection {
-  pageInfo: PageInfo!
-  edges: [SpuriousAttributeTypeEdge]!
-}
-
-type SpuriousAttributeTypeEdge {
-  node: SpuriousAttributeType
-  cursor: String!
 }
 
 type StemHitsType implements Node {
@@ -156,5 +136,5 @@ type TermType {
 type TranslationGroupType {
   exampleGroups: [ExampleGroupType]
   restriction: RestrictionType
-  translationLemmas(before: String, after: String, first: Int, last: Int, country: String, dialect: String, id: ID, language: String, lemma: String, pos: String, presentationLemma: String): LemmaTypeConnection
+  translationLemmas: [LemmaType]
 }

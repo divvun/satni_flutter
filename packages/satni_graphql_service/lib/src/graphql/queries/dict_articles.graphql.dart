@@ -455,126 +455,66 @@ const documentNodeQueryDictArticles = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                name: NameNode(value: 'edges'),
+                name: NameNode(value: 'lemma'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'presentationLemma'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'language'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'pos'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'dialect'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'country'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'spuriousAttributes'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FieldNode(
-                    name: NameNode(value: 'node'),
+                    name: NameNode(value: 'name'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'lemma'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'presentationLemma'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'language'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'pos'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'dialect'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'country'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'spuriousAttributes'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                            name: NameNode(value: 'edges'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: SelectionSetNode(selections: [
-                              FieldNode(
-                                name: NameNode(value: 'node'),
-                                alias: null,
-                                arguments: [],
-                                directives: [],
-                                selectionSet: SelectionSetNode(selections: [
-                                  FieldNode(
-                                    name: NameNode(value: 'name'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null,
-                                  ),
-                                  FieldNode(
-                                    name: NameNode(value: 'value'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null,
-                                  ),
-                                  FieldNode(
-                                    name: NameNode(value: '__typename'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null,
-                                  ),
-                                ]),
-                              ),
-                              FieldNode(
-                                name: NameNode(value: '__typename'),
-                                alias: null,
-                                arguments: [],
-                                directives: [],
-                                selectionSet: null,
-                              ),
-                            ]),
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'value'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -607,76 +547,46 @@ const documentNodeQueryDictArticles = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FieldNode(
-                    name: NameNode(value: 'edges'),
+                    name: NameNode(value: 'lemma'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                            name: NameNode(value: 'lemma'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'presentationLemma'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'language'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'pos'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'dialect'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'country'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'presentationLemma'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'language'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'pos'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'dialect'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'country'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -883,7 +793,7 @@ class Query$DictArticles$dictEntryList {
     required this.dictName,
     required this.srcLang,
     required this.targetLang,
-    this.lookupLemmas,
+    required this.lookupLemmas,
     required this.translationGroups,
     required this.$__typename,
   });
@@ -899,10 +809,12 @@ class Query$DictArticles$dictEntryList {
       dictName: (l$dictName as String),
       srcLang: (l$srcLang as String),
       targetLang: (l$targetLang as String),
-      lookupLemmas: l$lookupLemmas == null
-          ? null
-          : Query$DictArticles$dictEntryList$lookupLemmas.fromJson(
-              (l$lookupLemmas as Map<String, dynamic>)),
+      lookupLemmas: (l$lookupLemmas as List<dynamic>)
+          .map((e) => e == null
+              ? null
+              : Query$DictArticles$dictEntryList$lookupLemmas.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
       translationGroups: (l$translationGroups as List<dynamic>)
           .map((e) => e == null
               ? null
@@ -919,7 +831,7 @@ class Query$DictArticles$dictEntryList {
 
   final String targetLang;
 
-  final Query$DictArticles$dictEntryList$lookupLemmas? lookupLemmas;
+  final List<Query$DictArticles$dictEntryList$lookupLemmas?> lookupLemmas;
 
   final List<Query$DictArticles$dictEntryList$translationGroups?>
       translationGroups;
@@ -935,7 +847,8 @@ class Query$DictArticles$dictEntryList {
     final l$targetLang = targetLang;
     _resultData['targetLang'] = l$targetLang;
     final l$lookupLemmas = lookupLemmas;
-    _resultData['lookupLemmas'] = l$lookupLemmas?.toJson();
+    _resultData['lookupLemmas'] =
+        l$lookupLemmas.map((e) => e?.toJson()).toList();
     final l$translationGroups = translationGroups;
     _resultData['translationGroups'] =
         l$translationGroups.map((e) => e?.toJson()).toList();
@@ -956,7 +869,7 @@ class Query$DictArticles$dictEntryList {
       l$dictName,
       l$srcLang,
       l$targetLang,
-      l$lookupLemmas,
+      Object.hashAll(l$lookupLemmas.map((v) => v)),
       Object.hashAll(l$translationGroups.map((v) => v)),
       l$$__typename,
     ]);
@@ -988,8 +901,15 @@ class Query$DictArticles$dictEntryList {
     }
     final l$lookupLemmas = lookupLemmas;
     final lOther$lookupLemmas = other.lookupLemmas;
-    if (l$lookupLemmas != lOther$lookupLemmas) {
+    if (l$lookupLemmas.length != lOther$lookupLemmas.length) {
       return false;
+    }
+    for (int i = 0; i < l$lookupLemmas.length; i++) {
+      final l$lookupLemmas$entry = l$lookupLemmas[i];
+      final lOther$lookupLemmas$entry = lOther$lookupLemmas[i];
+      if (l$lookupLemmas$entry != lOther$lookupLemmas$entry) {
+        return false;
+      }
     }
     final l$translationGroups = translationGroups;
     final lOther$translationGroups = other.translationGroups;
@@ -1034,12 +954,17 @@ abstract class CopyWith$Query$DictArticles$dictEntryList<TRes> {
     String? dictName,
     String? srcLang,
     String? targetLang,
-    Query$DictArticles$dictEntryList$lookupLemmas? lookupLemmas,
+    List<Query$DictArticles$dictEntryList$lookupLemmas?>? lookupLemmas,
     List<Query$DictArticles$dictEntryList$translationGroups?>?
         translationGroups,
     String? $__typename,
   });
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> get lookupLemmas;
+  TRes lookupLemmas(
+      Iterable<Query$DictArticles$dictEntryList$lookupLemmas?> Function(
+              Iterable<
+                  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<
+                      Query$DictArticles$dictEntryList$lookupLemmas>?>)
+          _fn);
   TRes translationGroups(
       Iterable<Query$DictArticles$dictEntryList$translationGroups?> Function(
               Iterable<
@@ -1079,9 +1004,10 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList<TRes>
         targetLang: targetLang == _undefined || targetLang == null
             ? _instance.targetLang
             : (targetLang as String),
-        lookupLemmas: lookupLemmas == _undefined
+        lookupLemmas: lookupLemmas == _undefined || lookupLemmas == null
             ? _instance.lookupLemmas
-            : (lookupLemmas as Query$DictArticles$dictEntryList$lookupLemmas?),
+            : (lookupLemmas
+                as List<Query$DictArticles$dictEntryList$lookupLemmas?>),
         translationGroups: translationGroups == _undefined ||
                 translationGroups == null
             ? _instance.translationGroups
@@ -1091,16 +1017,19 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
-      get lookupLemmas {
-    final local$lookupLemmas = _instance.lookupLemmas;
-    return local$lookupLemmas == null
-        ? CopyWith$Query$DictArticles$dictEntryList$lookupLemmas.stub(
-            _then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
-            local$lookupLemmas, (e) => call(lookupLemmas: e));
-  }
-
+  TRes lookupLemmas(
+          Iterable<Query$DictArticles$dictEntryList$lookupLemmas?> Function(
+                  Iterable<
+                      CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<
+                          Query$DictArticles$dictEntryList$lookupLemmas>?>)
+              _fn) =>
+      call(
+          lookupLemmas: _fn(_instance.lookupLemmas.map((e) => e == null
+              ? null
+              : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
+                  e,
+                  (i) => i,
+                ))).toList());
   TRes translationGroups(
           Iterable<Query$DictArticles$dictEntryList$translationGroups?> Function(
                   Iterable<
@@ -1127,335 +1056,18 @@ class _CopyWithStubImpl$Query$DictArticles$dictEntryList<TRes>
     String? dictName,
     String? srcLang,
     String? targetLang,
-    Query$DictArticles$dictEntryList$lookupLemmas? lookupLemmas,
+    List<Query$DictArticles$dictEntryList$lookupLemmas?>? lookupLemmas,
     List<Query$DictArticles$dictEntryList$translationGroups?>?
         translationGroups,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
-      get lookupLemmas =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas.stub(_res);
+  lookupLemmas(_fn) => _res;
   translationGroups(_fn) => _res;
 }
 
 class Query$DictArticles$dictEntryList$lookupLemmas {
   Query$DictArticles$dictEntryList$lookupLemmas({
-    required this.edges,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$lookupLemmas.fromJson(
-      Map<String, dynamic> json) {
-    final l$edges = json['edges'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas(
-      edges: (l$edges as List<dynamic>)
-          .map((e) => e == null
-              ? null
-              : Query$DictArticles$dictEntryList$lookupLemmas$edges.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<Query$DictArticles$dictEntryList$lookupLemmas$edges?> edges;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$edges = edges;
-    _resultData['edges'] = l$edges.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$edges = edges;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      Object.hashAll(l$edges.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$DictArticles$dictEntryList$lookupLemmas) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$edges = edges;
-    final lOther$edges = other.edges;
-    if (l$edges.length != lOther$edges.length) {
-      return false;
-    }
-    for (int i = 0; i < l$edges.length; i++) {
-      final l$edges$entry = l$edges[i];
-      final lOther$edges$entry = lOther$edges[i];
-      if (l$edges$entry != lOther$edges$entry) {
-        return false;
-      }
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas
-    on Query$DictArticles$dictEntryList$lookupLemmas {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<
-          Query$DictArticles$dictEntryList$lookupLemmas>
-      get copyWith => CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
-    Query$DictArticles$dictEntryList$lookupLemmas instance,
-    TRes Function(Query$DictArticles$dictEntryList$lookupLemmas) then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas;
-
-  TRes call({
-    List<Query$DictArticles$dictEntryList$lookupLemmas$edges?>? edges,
-    String? $__typename,
-  });
-  TRes edges(
-      Iterable<Query$DictArticles$dictEntryList$lookupLemmas$edges?> Function(
-              Iterable<
-                  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<
-                      Query$DictArticles$dictEntryList$lookupLemmas$edges>?>)
-          _fn);
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
-    implements CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$lookupLemmas _instance;
-
-  final TRes Function(Query$DictArticles$dictEntryList$lookupLemmas) _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? edges = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$DictArticles$dictEntryList$lookupLemmas(
-        edges: edges == _undefined || edges == null
-            ? _instance.edges
-            : (edges
-                as List<Query$DictArticles$dictEntryList$lookupLemmas$edges?>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  TRes edges(
-          Iterable<Query$DictArticles$dictEntryList$lookupLemmas$edges?> Function(
-                  Iterable<
-                      CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<
-                          Query$DictArticles$dictEntryList$lookupLemmas$edges>?>)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges.map((e) => e == null
-              ? null
-              : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges(
-                  e,
-                  (i) => i,
-                ))).toList());
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
-    implements CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas(this._res);
-
-  TRes _res;
-
-  call({
-    List<Query$DictArticles$dictEntryList$lookupLemmas$edges?>? edges,
-    String? $__typename,
-  }) =>
-      _res;
-  edges(_fn) => _res;
-}
-
-class Query$DictArticles$dictEntryList$lookupLemmas$edges {
-  Query$DictArticles$dictEntryList$lookupLemmas$edges({
-    this.node,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$lookupLemmas$edges.fromJson(
-      Map<String, dynamic> json) {
-    final l$node = json['node'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas$edges(
-      node: l$node == null
-          ? null
-          : Query$DictArticles$dictEntryList$lookupLemmas$edges$node.fromJson(
-              (l$node as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node? node;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$node = node;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$DictArticles$dictEntryList$lookupLemmas$edges) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$edges
-    on Query$DictArticles$dictEntryList$lookupLemmas$edges {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges(
-    Query$DictArticles$dictEntryList$lookupLemmas$edges instance,
-    TRes Function(Query$DictArticles$dictEntryList$lookupLemmas$edges) then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges;
-
-  TRes call({
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node? node,
-    String? $__typename,
-  });
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<TRes>
-      get node;
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges<TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges _instance;
-
-  final TRes Function(Query$DictArticles$dictEntryList$lookupLemmas$edges)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$DictArticles$dictEntryList$lookupLemmas$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node
-                as Query$DictArticles$dictEntryList$lookupLemmas$edges$node?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<TRes>
-      get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
-            .stub(_then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
-            local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges<TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges(
-      this._res);
-
-  TRes _res;
-
-  call({
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node? node,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<TRes>
-      get node =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
-              .stub(_res);
-}
-
-class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
-  Query$DictArticles$dictEntryList$lookupLemmas$edges$node({
     required this.lemma,
     required this.presentationLemma,
     required this.language,
@@ -1466,7 +1078,7 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
     required this.$__typename,
   });
 
-  factory Query$DictArticles$dictEntryList$lookupLemmas$edges$node.fromJson(
+  factory Query$DictArticles$dictEntryList$lookupLemmas.fromJson(
       Map<String, dynamic> json) {
     final l$lemma = json['lemma'];
     final l$presentationLemma = json['presentationLemma'];
@@ -1476,17 +1088,19 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
     final l$country = json['country'];
     final l$spuriousAttributes = json['spuriousAttributes'];
     final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
+    return Query$DictArticles$dictEntryList$lookupLemmas(
       lemma: (l$lemma as String),
       presentationLemma: (l$presentationLemma as String),
       language: (l$language as String),
       pos: (l$pos as String?),
       dialect: (l$dialect as String?),
       country: (l$country as String?),
-      spuriousAttributes: l$spuriousAttributes == null
-          ? null
-          : Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-              .fromJson((l$spuriousAttributes as Map<String, dynamic>)),
+      spuriousAttributes: (l$spuriousAttributes as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1503,7 +1117,7 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
 
   final String? country;
 
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes?
+  final List<Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>?
       spuriousAttributes;
 
   final String $__typename;
@@ -1523,7 +1137,8 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
     final l$country = country;
     _resultData['country'] = l$country;
     final l$spuriousAttributes = spuriousAttributes;
-    _resultData['spuriousAttributes'] = l$spuriousAttributes?.toJson();
+    _resultData['spuriousAttributes'] =
+        l$spuriousAttributes?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1546,7 +1161,9 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
       l$pos,
       l$dialect,
       l$country,
-      l$spuriousAttributes,
+      l$spuriousAttributes == null
+          ? null
+          : Object.hashAll(l$spuriousAttributes.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -1556,7 +1173,7 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$DictArticles$dictEntryList$lookupLemmas$edges$node) ||
+    if (!(other is Query$DictArticles$dictEntryList$lookupLemmas) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1592,7 +1209,18 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
     }
     final l$spuriousAttributes = spuriousAttributes;
     final lOther$spuriousAttributes = other.spuriousAttributes;
-    if (l$spuriousAttributes != lOther$spuriousAttributes) {
+    if (l$spuriousAttributes != null && lOther$spuriousAttributes != null) {
+      if (l$spuriousAttributes.length != lOther$spuriousAttributes.length) {
+        return false;
+      }
+      for (int i = 0; i < l$spuriousAttributes.length; i++) {
+        final l$spuriousAttributes$entry = l$spuriousAttributes[i];
+        final lOther$spuriousAttributes$entry = lOther$spuriousAttributes[i];
+        if (l$spuriousAttributes$entry != lOther$spuriousAttributes$entry) {
+          return false;
+        }
+      }
+    } else if (l$spuriousAttributes != lOther$spuriousAttributes) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1604,28 +1232,25 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
   }
 }
 
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
-    on Query$DictArticles$dictEntryList$lookupLemmas$edges$node {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
+extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas
+    on Query$DictArticles$dictEntryList$lookupLemmas {
+  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<
+          Query$DictArticles$dictEntryList$lookupLemmas>
+      get copyWith => CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node instance,
-    TRes Function(Query$DictArticles$dictEntryList$lookupLemmas$edges$node)
-        then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node;
+abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
+  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas(
+    Query$DictArticles$dictEntryList$lookupLemmas instance,
+    TRes Function(Query$DictArticles$dictEntryList$lookupLemmas) then,
+  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas;
 
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node.stub(
+  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node;
+      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas;
 
   TRes call({
     String? lemma,
@@ -1634,28 +1259,28 @@ abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
     String? pos,
     String? dialect,
     String? country,
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes?
+    List<Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>?
         spuriousAttributes,
     String? $__typename,
   });
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-      TRes> get spuriousAttributes;
+  TRes spuriousAttributes(
+      Iterable<Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>? Function(
+              Iterable<
+                  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
+                      Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes>?>?)
+          _fn);
 }
 
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-            TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
+class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
+    implements CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
+  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas(
     this._instance,
     this._then,
   );
 
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node _instance;
+  final Query$DictArticles$dictEntryList$lookupLemmas _instance;
 
-  final TRes Function(Query$DictArticles$dictEntryList$lookupLemmas$edges$node)
-      _then;
+  final TRes Function(Query$DictArticles$dictEntryList$lookupLemmas) _then;
 
   static const _undefined = {};
 
@@ -1669,7 +1294,7 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
     Object? spuriousAttributes = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
+      _then(Query$DictArticles$dictEntryList$lookupLemmas(
         lemma: lemma == _undefined || lemma == null
             ? _instance.lemma
             : (lemma as String),
@@ -1687,30 +1312,31 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
             country == _undefined ? _instance.country : (country as String?),
         spuriousAttributes: spuriousAttributes == _undefined
             ? _instance.spuriousAttributes
-            : (spuriousAttributes
-                as Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes?),
+            : (spuriousAttributes as List<
+                Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-      TRes> get spuriousAttributes {
-    final local$spuriousAttributes = _instance.spuriousAttributes;
-    return local$spuriousAttributes == null
-        ? CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-            .stub(_then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-            local$spuriousAttributes, (e) => call(spuriousAttributes: e));
-  }
+  TRes spuriousAttributes(
+          Iterable<Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>? Function(
+                  Iterable<
+                      CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
+                          Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes>?>?)
+              _fn) =>
+      call(
+          spuriousAttributes: _fn(_instance.spuriousAttributes?.map((e) => e ==
+                  null
+              ? null
+              : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node<
-            TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node(
-      this._res);
+class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas<TRes>
+    implements CopyWith$Query$DictArticles$dictEntryList$lookupLemmas<TRes> {
+  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas(this._res);
 
   TRes _res;
 
@@ -1721,381 +1347,27 @@ class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
     String? pos,
     String? dialect,
     String? country,
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes?
+    List<Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes?>?
         spuriousAttributes,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-          TRes>
-      get spuriousAttributes =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-              .stub(_res);
+  spuriousAttributes(_fn) => _res;
 }
 
-class Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes {
-  Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes({
-    required this.edges,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes.fromJson(
-      Map<String, dynamic> json) {
-    final l$edges = json['edges'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-      edges: (l$edges as List<dynamic>)
-          .map((e) => e == null
-              ? null
-              : Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges
-                  .fromJson((e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?>
-      edges;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$edges = edges;
-    _resultData['edges'] = l$edges.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$edges = edges;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      Object.hashAll(l$edges.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$edges = edges;
-    final lOther$edges = other.edges;
-    if (l$edges.length != lOther$edges.length) {
-      return false;
-    }
-    for (int i = 0; i < l$edges.length; i++) {
-      final l$edges$entry = l$edges[i];
-      final lOther$edges$entry = lOther$edges[i];
-      if (l$edges$entry != lOther$edges$entry) {
-        return false;
-      }
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-    on Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-        instance,
-    TRes Function(
-            Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes)
-        then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes;
-
-  TRes call({
-    List<Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?>?
-        edges,
-    String? $__typename,
-  });
-  TRes edges(
-      Iterable<Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?> Function(
-              Iterable<
-                  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-                      Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges>?>)
-          _fn);
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-            TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes
-      _instance;
-
-  final TRes Function(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? edges = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-        edges: edges == _undefined || edges == null
-            ? _instance.edges
-            : (edges as List<
-                Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  TRes edges(
-          Iterable<Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?> Function(
-                  Iterable<
-                      CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-                          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges>?>)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges.map((e) => e == null
-              ? null
-              : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-                  e,
-                  (i) => i,
-                ))).toList());
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes<
-            TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes(
-      this._res);
-
-  TRes _res;
-
-  call({
-    List<Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges?>?
-        edges,
-    String? $__typename,
-  }) =>
-      _res;
-  edges(_fn) => _res;
-}
-
-class Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges {
-  Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges({
-    this.node,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges.fromJson(
-      Map<String, dynamic> json) {
-    final l$node = json['node'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-      node: l$node == null
-          ? null
-          : Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
-              .fromJson((l$node as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node?
-      node;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$node = node;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges
-    on Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges
-        instance,
-    TRes Function(
-            Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges)
-        then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges;
-
-  TRes call({
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node?
-        node,
-    String? $__typename,
-  });
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
-      TRes> get node;
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-            TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges
-      _instance;
-
-  final TRes Function(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node
-                as Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
-      TRes> get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
-            .stub(_then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
-            local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges<
-            TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges(
-      this._res);
-
-  TRes _res;
-
-  call({
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node?
-        node,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
-          TRes>
-      get node =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
-              .stub(_res);
-}
-
-class Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node {
-  Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node({
+class Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes {
+  Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes({
     required this.name,
     required this.value,
     required this.$__typename,
   });
 
-  factory Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node.fromJson(
+  factory Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$value = json['value'];
     final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
+    return Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
       name: (l$name as String),
       value: (l$value as String),
       $__typename: (l$$__typename as String),
@@ -2137,7 +1409,7 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttribute
       return true;
     }
     if (!(other
-            is Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node) ||
+            is Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2160,30 +1432,29 @@ class Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttribute
   }
 }
 
-extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
-    on Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node {
-  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node>
+extension UtilityExtension$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes
+    on Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes {
+  CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
+          Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes>
       get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
+          CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
+abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
     TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
-    Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
-        instance,
+  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
+    Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes instance,
     TRes Function(
-            Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node)
+            Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes)
         then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node;
+  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes;
 
-  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node.stub(
+  factory CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node;
+      _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes;
 
   TRes call({
     String? name,
@@ -2192,22 +1463,21 @@ abstract class CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node
   });
 }
 
-class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
+class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
         TRes>
     implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
+        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
             TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
+  _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
     this._instance,
     this._then,
   );
 
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node
+  final Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes
       _instance;
 
   final TRes Function(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node)
-      _then;
+      Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes) _then;
 
   static const _undefined = {};
 
@@ -2216,8 +1486,7 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spu
     Object? value = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
+      _then(Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
@@ -2230,12 +1499,12 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spu
       ));
 }
 
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
+class _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
         TRes>
     implements
-        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node<
+        CopyWith$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes<
             TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$edges$node$spuriousAttributes$edges$node(
+  _CopyWithStubImpl$Query$DictArticles$dictEntryList$lookupLemmas$spuriousAttributes(
       this._res);
 
   TRes _res;
@@ -2263,10 +1532,12 @@ class Query$DictArticles$dictEntryList$translationGroups {
     final l$exampleGroups = json['exampleGroups'];
     final l$$__typename = json['__typename'];
     return Query$DictArticles$dictEntryList$translationGroups(
-      translationLemmas: l$translationLemmas == null
-          ? null
-          : Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-              .fromJson((l$translationLemmas as Map<String, dynamic>)),
+      translationLemmas: (l$translationLemmas as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$DictArticles$dictEntryList$translationGroups$translationLemmas
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
       restriction: l$restriction == null
           ? null
           : Query$DictArticles$dictEntryList$translationGroups$restriction
@@ -2281,7 +1552,8 @@ class Query$DictArticles$dictEntryList$translationGroups {
     );
   }
 
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas?
+  final List<
+          Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>?
       translationLemmas;
 
   final Query$DictArticles$dictEntryList$translationGroups$restriction?
@@ -2295,7 +1567,8 @@ class Query$DictArticles$dictEntryList$translationGroups {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$translationLemmas = translationLemmas;
-    _resultData['translationLemmas'] = l$translationLemmas?.toJson();
+    _resultData['translationLemmas'] =
+        l$translationLemmas?.map((e) => e?.toJson()).toList();
     final l$restriction = restriction;
     _resultData['restriction'] = l$restriction?.toJson();
     final l$exampleGroups = exampleGroups;
@@ -2313,7 +1586,9 @@ class Query$DictArticles$dictEntryList$translationGroups {
     final l$exampleGroups = exampleGroups;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$translationLemmas,
+      l$translationLemmas == null
+          ? null
+          : Object.hashAll(l$translationLemmas.map((v) => v)),
       l$restriction,
       l$exampleGroups == null
           ? null
@@ -2333,7 +1608,18 @@ class Query$DictArticles$dictEntryList$translationGroups {
     }
     final l$translationLemmas = translationLemmas;
     final lOther$translationLemmas = other.translationLemmas;
-    if (l$translationLemmas != lOther$translationLemmas) {
+    if (l$translationLemmas != null && lOther$translationLemmas != null) {
+      if (l$translationLemmas.length != lOther$translationLemmas.length) {
+        return false;
+      }
+      for (int i = 0; i < l$translationLemmas.length; i++) {
+        final l$translationLemmas$entry = l$translationLemmas[i];
+        final lOther$translationLemmas$entry = lOther$translationLemmas[i];
+        if (l$translationLemmas$entry != lOther$translationLemmas$entry) {
+          return false;
+        }
+      }
+    } else if (l$translationLemmas != lOther$translationLemmas) {
       return false;
     }
     final l$restriction = restriction;
@@ -2389,15 +1675,19 @@ abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups<
       _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups;
 
   TRes call({
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas?
+    List<Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>?
         translationLemmas,
     Query$DictArticles$dictEntryList$translationGroups$restriction? restriction,
     List<Query$DictArticles$dictEntryList$translationGroups$exampleGroups?>?
         exampleGroups,
     String? $__typename,
   });
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-      TRes> get translationLemmas;
+  TRes translationLemmas(
+      Iterable<Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>? Function(
+              Iterable<
+                  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
+                      Query$DictArticles$dictEntryList$translationGroups$translationLemmas>?>?)
+          _fn);
   CopyWith$Query$DictArticles$dictEntryList$translationGroups$restriction<TRes>
       get restriction;
   TRes exampleGroups(
@@ -2431,8 +1721,8 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups<TRes>
       _then(Query$DictArticles$dictEntryList$translationGroups(
         translationLemmas: translationLemmas == _undefined
             ? _instance.translationLemmas
-            : (translationLemmas
-                as Query$DictArticles$dictEntryList$translationGroups$translationLemmas?),
+            : (translationLemmas as List<
+                Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>?),
         restriction: restriction == _undefined
             ? _instance.restriction
             : (restriction
@@ -2445,16 +1735,20 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-      TRes> get translationLemmas {
-    final local$translationLemmas = _instance.translationLemmas;
-    return local$translationLemmas == null
-        ? CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-            .stub(_then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-            local$translationLemmas, (e) => call(translationLemmas: e));
-  }
-
+  TRes translationLemmas(
+          Iterable<Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>? Function(
+                  Iterable<
+                      CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
+                          Query$DictArticles$dictEntryList$translationGroups$translationLemmas>?>?)
+              _fn) =>
+      call(
+          translationLemmas: _fn(_instance.translationLemmas?.map((e) => e ==
+                  null
+              ? null
+              : CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
+                  e,
+                  (i) => i,
+                )))?.toList());
   CopyWith$Query$DictArticles$dictEntryList$translationGroups$restriction<TRes>
       get restriction {
     final local$restriction = _instance.restriction;
@@ -2489,7 +1783,7 @@ class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups<TRes>
   TRes _res;
 
   call({
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas?
+    List<Query$DictArticles$dictEntryList$translationGroups$translationLemmas?>?
         translationLemmas,
     Query$DictArticles$dictEntryList$translationGroups$restriction? restriction,
     List<Query$DictArticles$dictEntryList$translationGroups$exampleGroups?>?
@@ -2497,11 +1791,7 @@ class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups<TRes>
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-          TRes>
-      get translationLemmas =>
-          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-              .stub(_res);
+  translationLemmas(_fn) => _res;
   CopyWith$Query$DictArticles$dictEntryList$translationGroups$restriction<TRes>
       get restriction =>
           CopyWith$Query$DictArticles$dictEntryList$translationGroups$restriction
@@ -2511,356 +1801,6 @@ class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups<TRes>
 
 class Query$DictArticles$dictEntryList$translationGroups$translationLemmas {
   Query$DictArticles$dictEntryList$translationGroups$translationLemmas({
-    required this.edges,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$translationGroups$translationLemmas.fromJson(
-      Map<String, dynamic> json) {
-    final l$edges = json['edges'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-      edges: (l$edges as List<dynamic>)
-          .map((e) => e == null
-              ? null
-              : Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
-                  .fromJson((e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?>
-      edges;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$edges = edges;
-    _resultData['edges'] = l$edges.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$edges = edges;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      Object.hashAll(l$edges.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$DictArticles$dictEntryList$translationGroups$translationLemmas) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$edges = edges;
-    final lOther$edges = other.edges;
-    if (l$edges.length != lOther$edges.length) {
-      return false;
-    }
-    for (int i = 0; i < l$edges.length; i++) {
-      final l$edges$entry = l$edges[i];
-      final lOther$edges$entry = lOther$edges[i];
-      if (l$edges$entry != lOther$edges$entry) {
-        return false;
-      }
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-    on Query$DictArticles$dictEntryList$translationGroups$translationLemmas {
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-        instance,
-    TRes Function(
-            Query$DictArticles$dictEntryList$translationGroups$translationLemmas)
-        then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas;
-
-  TRes call({
-    List<Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?>?
-        edges,
-    String? $__typename,
-  });
-  TRes edges(
-      Iterable<Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?> Function(
-              Iterable<
-                  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-                      Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges>?>)
-          _fn);
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-            TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-      _instance;
-
-  final TRes Function(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? edges = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-        edges: edges == _undefined || edges == null
-            ? _instance.edges
-            : (edges as List<
-                Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  TRes edges(
-          Iterable<Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?> Function(
-                  Iterable<
-                      CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-                          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges>?>)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges.map((e) => e == null
-              ? null
-              : CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-                  e,
-                  (i) => i,
-                ))).toList());
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
-            TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
-      this._res);
-
-  TRes _res;
-
-  call({
-    List<Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges?>?
-        edges,
-    String? $__typename,
-  }) =>
-      _res;
-  edges(_fn) => _res;
-}
-
-class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges {
-  Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges({
-    this.node,
-    required this.$__typename,
-  });
-
-  factory Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges.fromJson(
-      Map<String, dynamic> json) {
-    final l$node = json['node'];
-    final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-      node: l$node == null
-          ? null
-          : Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
-              .fromJson((l$node as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node?
-      node;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$node = node;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
-    on Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges {
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges>
-      get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-    TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
-        instance,
-    TRes Function(
-            Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges)
-        then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges;
-
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges;
-
-  TRes call({
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node?
-        node,
-    String? $__typename,
-  });
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
-      TRes> get node;
-}
-
-class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-            TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-    this._instance,
-    this._then,
-  );
-
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
-      _instance;
-
-  final TRes Function(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node
-                as Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
-      TRes> get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
-            .stub(_then(_instance))
-        : CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
-            local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-        TRes>
-    implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges<
-            TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges(
-      this._res);
-
-  TRes _res;
-
-  call({
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node?
-        node,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
-          TRes>
-      get node =>
-          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
-              .stub(_res);
-}
-
-class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node {
-  Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node({
     required this.lemma,
     required this.presentationLemma,
     required this.language,
@@ -2870,7 +1810,7 @@ class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
     required this.$__typename,
   });
 
-  factory Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node.fromJson(
+  factory Query$DictArticles$dictEntryList$translationGroups$translationLemmas.fromJson(
       Map<String, dynamic> json) {
     final l$lemma = json['lemma'];
     final l$presentationLemma = json['presentationLemma'];
@@ -2879,7 +1819,7 @@ class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
     final l$dialect = json['dialect'];
     final l$country = json['country'];
     final l$$__typename = json['__typename'];
-    return Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
+    return Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
       lemma: (l$lemma as String),
       presentationLemma: (l$presentationLemma as String),
       language: (l$language as String),
@@ -2949,7 +1889,7 @@ class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
       return true;
     }
     if (!(other
-            is Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node) ||
+            is Query$DictArticles$dictEntryList$translationGroups$translationLemmas) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2992,30 +1932,30 @@ class Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
   }
 }
 
-extension UtilityExtension$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
-    on Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node {
-  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node>
+extension UtilityExtension$Query$DictArticles$dictEntryList$translationGroups$translationLemmas
+    on Query$DictArticles$dictEntryList$translationGroups$translationLemmas {
+  CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
+          Query$DictArticles$dictEntryList$translationGroups$translationLemmas>
       get copyWith =>
-          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
+          CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
+abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
     TRes> {
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
-    Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
+  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
+    Query$DictArticles$dictEntryList$translationGroups$translationLemmas
         instance,
     TRes Function(
-            Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node)
+            Query$DictArticles$dictEntryList$translationGroups$translationLemmas)
         then,
-  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node;
+  ) = _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas;
 
-  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node.stub(
+  factory CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node;
+      _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas;
 
   TRes call({
     String? lemma,
@@ -3028,21 +1968,21 @@ abstract class CopyWith$Query$DictArticles$dictEntryList$translationGroups$trans
   });
 }
 
-class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
+class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
         TRes>
     implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
+        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
             TRes> {
-  _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
+  _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
     this._instance,
     this._then,
   );
 
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node
+  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas
       _instance;
 
   final TRes Function(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node)
+          Query$DictArticles$dictEntryList$translationGroups$translationLemmas)
       _then;
 
   static const _undefined = {};
@@ -3057,7 +1997,7 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translati
     Object? $__typename = _undefined,
   }) =>
       _then(
-          Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
+          Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
         lemma: lemma == _undefined || lemma == null
             ? _instance.lemma
             : (lemma as String),
@@ -3079,12 +2019,12 @@ class _CopyWithImpl$Query$DictArticles$dictEntryList$translationGroups$translati
       ));
 }
 
-class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
+class _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
         TRes>
     implements
-        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node<
+        CopyWith$Query$DictArticles$dictEntryList$translationGroups$translationLemmas<
             TRes> {
-  _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges$node(
+  _CopyWithStubImpl$Query$DictArticles$dictEntryList$translationGroups$translationLemmas(
       this._res);
 
   TRes _res;
