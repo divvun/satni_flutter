@@ -15,42 +15,37 @@ class DictLookupLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$lookupLemmas$edges lemma;
+  final Query$DictArticles$dictEntryList$lookupLemmas lemma;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Text(
-          lemma.node!.presentationLemma,
+          lemma.presentationLemma,
           style: Theme.of(context).textTheme.bodyText1,
         ),
         const Spacer(),
         Text(
-          '${lemma.node!.pos}',
+          '${lemma.pos}',
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
-          onPressed: () => lemma.node != null
-              ? context.pushNamed(
-                  DivvunRoutes.paradigm.name,
-                  params: {
-                    'lemma': lemma.node!.presentationLemma,
-                  },
-                  queryParams: {
-                    'lang': lemma.node!.language,
-                    'pos': '${lemma.node!.pos}',
-                    'posDomain': getTemplateName(
-                      lemma.node!.pos as String,
-                      lemma.node!.language,
-                      {
-                        for (var e in lemma.node!.spuriousAttributes!.edges)
-                          e!.node!.name: e.node!.value
-                      },
-                    ),
-                  },
-                )
-              : null,
+          onPressed: () => context.pushNamed(
+            DivvunRoutes.paradigm.name,
+            params: {
+              'lemma': lemma.presentationLemma,
+            },
+            queryParams: {
+              'lang': lemma.language,
+              'pos': '${lemma.pos}',
+              'posDomain': getTemplateName(
+                lemma.pos as String,
+                lemma.language,
+                {for (var e in lemma.spuriousAttributes!) e!.name: e.value},
+              ),
+            },
+          ),
           icon: const Icon(Icons.info_outline),
         )
       ],

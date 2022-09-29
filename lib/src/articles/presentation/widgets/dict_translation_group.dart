@@ -22,7 +22,7 @@ class DictTranslationGroup extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...translationGroup.translationLemmas!.edges.map(
+        ...translationGroup.translationLemmas!.map(
           (lemma) => DictTranslationLemma(lemma!, restriction),
         ),
         Column(

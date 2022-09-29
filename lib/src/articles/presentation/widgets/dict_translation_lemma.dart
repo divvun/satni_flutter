@@ -15,7 +15,7 @@ class DictTranslationLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas$edges
+  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas
       lemma;
 
   final Query$DictArticles$dictEntryList$translationGroups$restriction?
@@ -26,7 +26,7 @@ class DictTranslationLemma extends StatelessWidget {
     return Row(
       children: <Widget>[
         Text(
-          lemma.node!.presentationLemma,
+          lemma.presentationLemma,
           style: Theme.of(context).textTheme.bodyText1,
         ),
         restriction != null
@@ -37,23 +37,21 @@ class DictTranslationLemma extends StatelessWidget {
             : const Text(''),
         const Spacer(),
         Text(
-          '${lemma.node!.pos}',
+          '${lemma.pos}',
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
-          onPressed: () => lemma.node != null
-              ? context.pushNamed(
-                  DivvunRoutes.paradigm.name,
-                  params: {
-                    'lemma': lemma.node!.presentationLemma,
-                  },
-                  queryParams: {
-                    'lang': lemma.node!.language,
-                    'pos': '${lemma.node!.pos}',
-                    'posDomain': 'Default',
-                  },
-                )
-              : null,
+          onPressed: () => context.pushNamed(
+            DivvunRoutes.paradigm.name,
+            params: {
+              'lemma': lemma.presentationLemma,
+            },
+            queryParams: {
+              'lang': lemma.language,
+              'pos': '${lemma.pos}',
+              'posDomain': 'Default',
+            },
+          ),
           icon: const Icon(Icons.info_outline),
         )
       ],

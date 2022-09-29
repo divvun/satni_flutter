@@ -20,7 +20,7 @@ class DictArticleContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ...dictEntry!.lookupLemmas!.edges.map(
+        ...dictEntry!.lookupLemmas.map(
           (lemma) => DictLookupLemma(lemma!),
         ),
         Padding(
