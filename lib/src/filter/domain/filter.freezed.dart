@@ -110,7 +110,7 @@ class __$$_FilterCopyWithImpl<$Res> extends _$FilterCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Filter implements _Filter {
+class _$_Filter with DiagnosticableTreeMixin implements _Filter {
   _$_Filter(
       {final List<String> wantedSrcLangs = const [
         'eng',
@@ -182,8 +182,18 @@ class _$_Filter implements _Filter {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Filter(wantedSrcLangs: $wantedSrcLangs, wantedTargetLangs: $wantedTargetLangs, wantedDicts: $wantedDicts)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Filter'))
+      ..add(DiagnosticsProperty('wantedSrcLangs', wantedSrcLangs))
+      ..add(DiagnosticsProperty('wantedTargetLangs', wantedTargetLangs))
+      ..add(DiagnosticsProperty('wantedDicts', wantedDicts));
   }
 
   @override

@@ -93,7 +93,7 @@ class __$$_SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Search implements _Search {
+class _$_Search with DiagnosticableTreeMixin implements _Search {
   _$_Search({this.searchText = '', this.searchMode = SearchModes.start});
 
   @override
@@ -104,8 +104,17 @@ class _$_Search implements _Search {
   final SearchModes searchMode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Search(searchText: $searchText, searchMode: $searchMode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Search'))
+      ..add(DiagnosticsProperty('searchText', searchText))
+      ..add(DiagnosticsProperty('searchMode', searchMode));
   }
 
   @override
