@@ -5,11 +5,13 @@ import 'package:graphql/client.dart' as graphql;
 class Variables$Query$HasStem {
   factory Variables$Query$HasStem({
     required String stem,
+    required String srcLang,
     required List<String?> targetLangs,
     required List<String?> wantedDicts,
   }) =>
       Variables$Query$HasStem._({
         r'stem': stem,
+        r'srcLang': srcLang,
         r'targetLangs': targetLangs,
         r'wantedDicts': wantedDicts,
       });
@@ -20,6 +22,8 @@ class Variables$Query$HasStem {
     final result$data = <String, dynamic>{};
     final l$stem = data['stem'];
     result$data['stem'] = (l$stem as String);
+    final l$srcLang = data['srcLang'];
+    result$data['srcLang'] = (l$srcLang as String);
     final l$targetLangs = data['targetLangs'];
     result$data['targetLangs'] =
         (l$targetLangs as List<dynamic>).map((e) => (e as String?)).toList();
@@ -32,12 +36,15 @@ class Variables$Query$HasStem {
   Map<String, dynamic> _$data;
 
   String get stem => (_$data['stem'] as String);
+  String get srcLang => (_$data['srcLang'] as String);
   List<String?> get targetLangs => (_$data['targetLangs'] as List<String?>);
   List<String?> get wantedDicts => (_$data['wantedDicts'] as List<String?>);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$stem = stem;
     result$data['stem'] = l$stem;
+    final l$srcLang = srcLang;
+    result$data['srcLang'] = l$srcLang;
     final l$targetLangs = targetLangs;
     result$data['targetLangs'] = l$targetLangs.map((e) => e).toList();
     final l$wantedDicts = wantedDicts;
@@ -62,6 +69,11 @@ class Variables$Query$HasStem {
     final l$stem = stem;
     final lOther$stem = other.stem;
     if (l$stem != lOther$stem) {
+      return false;
+    }
+    final l$srcLang = srcLang;
+    final lOther$srcLang = other.srcLang;
+    if (l$srcLang != lOther$srcLang) {
       return false;
     }
     final l$targetLangs = targetLangs;
@@ -94,10 +106,12 @@ class Variables$Query$HasStem {
   @override
   int get hashCode {
     final l$stem = stem;
+    final l$srcLang = srcLang;
     final l$targetLangs = targetLangs;
     final l$wantedDicts = wantedDicts;
     return Object.hashAll([
       l$stem,
+      l$srcLang,
       Object.hashAll(l$targetLangs.map((v) => v)),
       Object.hashAll(l$wantedDicts.map((v) => v)),
     ]);
@@ -115,6 +129,7 @@ abstract class CopyWith$Variables$Query$HasStem<TRes> {
 
   TRes call({
     String? stem,
+    String? srcLang,
     List<String?>? targetLangs,
     List<String?>? wantedDicts,
   });
@@ -135,12 +150,15 @@ class _CopyWithImpl$Variables$Query$HasStem<TRes>
 
   TRes call({
     Object? stem = _undefined,
+    Object? srcLang = _undefined,
     Object? targetLangs = _undefined,
     Object? wantedDicts = _undefined,
   }) =>
       _then(Variables$Query$HasStem._({
         ..._instance._$data,
         if (stem != _undefined && stem != null) 'stem': (stem as String),
+        if (srcLang != _undefined && srcLang != null)
+          'srcLang': (srcLang as String),
         if (targetLangs != _undefined && targetLangs != null)
           'targetLangs': (targetLangs as List<String?>),
         if (wantedDicts != _undefined && wantedDicts != null)
@@ -156,6 +174,7 @@ class _CopyWithStubImpl$Variables$Query$HasStem<TRes>
 
   call({
     String? stem,
+    String? srcLang,
     List<String?>? targetLangs,
     List<String?>? wantedDicts,
   }) =>
@@ -331,6 +350,15 @@ const documentNodeQueryHasStem = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'srcLang')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'targetLangs')),
         type: ListTypeNode(
           type: NamedTypeNode(
@@ -364,6 +392,10 @@ const documentNodeQueryHasStem = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'exact'),
             value: VariableNode(name: NameNode(value: 'stem')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'srcLang'),
+            value: VariableNode(name: NameNode(value: 'srcLang')),
           ),
           ArgumentNode(
             name: NameNode(value: 'targetLangs'),

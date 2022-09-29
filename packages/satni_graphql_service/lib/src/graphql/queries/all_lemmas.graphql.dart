@@ -503,7 +503,7 @@ const documentNodeQueryAllLemmas = DocumentNode(definitions: [
                     selectionSet: null,
                   ),
                   FieldNode(
-                    name: NameNode(value: 'srclangs'),
+                    name: NameNode(value: 'srclang'),
                     alias: null,
                     arguments: [],
                     directives: [],
@@ -515,6 +515,65 @@ const documentNodeQueryAllLemmas = DocumentNode(definitions: [
                     arguments: [],
                     directives: [],
                     selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'dicts'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'edges'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'node'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'dictname'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'dicthits'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -1033,33 +1092,40 @@ class _CopyWithStubImpl$Query$AllLemmas$stemList$edges<TRes>
 class Query$AllLemmas$stemList$edges$node {
   Query$AllLemmas$stemList$edges$node({
     required this.stem,
-    this.srclangs,
+    required this.srclang,
     this.targetlangs,
+    this.dicts,
     required this.$__typename,
   });
 
   factory Query$AllLemmas$stemList$edges$node.fromJson(
       Map<String, dynamic> json) {
     final l$stem = json['stem'];
-    final l$srclangs = json['srclangs'];
+    final l$srclang = json['srclang'];
     final l$targetlangs = json['targetlangs'];
+    final l$dicts = json['dicts'];
     final l$$__typename = json['__typename'];
     return Query$AllLemmas$stemList$edges$node(
       stem: (l$stem as String),
-      srclangs:
-          (l$srclangs as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+      srclang: (l$srclang as String),
       targetlangs: (l$targetlangs as List<dynamic>?)
           ?.map((e) => (e as String?))
           .toList(),
+      dicts: l$dicts == null
+          ? null
+          : Query$AllLemmas$stemList$edges$node$dicts.fromJson(
+              (l$dicts as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String stem;
 
-  final List<String?>? srclangs;
+  final String srclang;
 
   final List<String?>? targetlangs;
+
+  final Query$AllLemmas$stemList$edges$node$dicts? dicts;
 
   final String $__typename;
 
@@ -1067,10 +1133,12 @@ class Query$AllLemmas$stemList$edges$node {
     final _resultData = <String, dynamic>{};
     final l$stem = stem;
     _resultData['stem'] = l$stem;
-    final l$srclangs = srclangs;
-    _resultData['srclangs'] = l$srclangs?.map((e) => e).toList();
+    final l$srclang = srclang;
+    _resultData['srclang'] = l$srclang;
     final l$targetlangs = targetlangs;
     _resultData['targetlangs'] = l$targetlangs?.map((e) => e).toList();
+    final l$dicts = dicts;
+    _resultData['dicts'] = l$dicts?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1079,15 +1147,17 @@ class Query$AllLemmas$stemList$edges$node {
   @override
   int get hashCode {
     final l$stem = stem;
-    final l$srclangs = srclangs;
+    final l$srclang = srclang;
     final l$targetlangs = targetlangs;
+    final l$dicts = dicts;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$stem,
-      l$srclangs == null ? null : Object.hashAll(l$srclangs.map((v) => v)),
+      l$srclang,
       l$targetlangs == null
           ? null
           : Object.hashAll(l$targetlangs.map((v) => v)),
+      l$dicts,
       l$$__typename,
     ]);
   }
@@ -1106,20 +1176,9 @@ class Query$AllLemmas$stemList$edges$node {
     if (l$stem != lOther$stem) {
       return false;
     }
-    final l$srclangs = srclangs;
-    final lOther$srclangs = other.srclangs;
-    if (l$srclangs != null && lOther$srclangs != null) {
-      if (l$srclangs.length != lOther$srclangs.length) {
-        return false;
-      }
-      for (int i = 0; i < l$srclangs.length; i++) {
-        final l$srclangs$entry = l$srclangs[i];
-        final lOther$srclangs$entry = lOther$srclangs[i];
-        if (l$srclangs$entry != lOther$srclangs$entry) {
-          return false;
-        }
-      }
-    } else if (l$srclangs != lOther$srclangs) {
+    final l$srclang = srclang;
+    final lOther$srclang = other.srclang;
+    if (l$srclang != lOther$srclang) {
       return false;
     }
     final l$targetlangs = targetlangs;
@@ -1136,6 +1195,11 @@ class Query$AllLemmas$stemList$edges$node {
         }
       }
     } else if (l$targetlangs != lOther$targetlangs) {
+      return false;
+    }
+    final l$dicts = dicts;
+    final lOther$dicts = other.dicts;
+    if (l$dicts != lOther$dicts) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1168,10 +1232,12 @@ abstract class CopyWith$Query$AllLemmas$stemList$edges$node<TRes> {
 
   TRes call({
     String? stem,
-    List<String?>? srclangs,
+    String? srclang,
     List<String?>? targetlangs,
+    Query$AllLemmas$stemList$edges$node$dicts? dicts,
     String? $__typename,
   });
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> get dicts;
 }
 
 class _CopyWithImpl$Query$AllLemmas$stemList$edges$node<TRes>
@@ -1189,24 +1255,36 @@ class _CopyWithImpl$Query$AllLemmas$stemList$edges$node<TRes>
 
   TRes call({
     Object? stem = _undefined,
-    Object? srclangs = _undefined,
+    Object? srclang = _undefined,
     Object? targetlangs = _undefined,
+    Object? dicts = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$AllLemmas$stemList$edges$node(
         stem: stem == _undefined || stem == null
             ? _instance.stem
             : (stem as String),
-        srclangs: srclangs == _undefined
-            ? _instance.srclangs
-            : (srclangs as List<String?>?),
+        srclang: srclang == _undefined || srclang == null
+            ? _instance.srclang
+            : (srclang as String),
         targetlangs: targetlangs == _undefined
             ? _instance.targetlangs
             : (targetlangs as List<String?>?),
+        dicts: dicts == _undefined
+            ? _instance.dicts
+            : (dicts as Query$AllLemmas$stemList$edges$node$dicts?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> get dicts {
+    final local$dicts = _instance.dicts;
+    return local$dicts == null
+        ? CopyWith$Query$AllLemmas$stemList$edges$node$dicts.stub(
+            _then(_instance))
+        : CopyWith$Query$AllLemmas$stemList$edges$node$dicts(
+            local$dicts, (e) => call(dicts: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node<TRes>
@@ -1217,8 +1295,469 @@ class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node<TRes>
 
   call({
     String? stem,
-    List<String?>? srclangs,
+    String? srclang,
     List<String?>? targetlangs,
+    Query$AllLemmas$stemList$edges$node$dicts? dicts,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> get dicts =>
+      CopyWith$Query$AllLemmas$stemList$edges$node$dicts.stub(_res);
+}
+
+class Query$AllLemmas$stemList$edges$node$dicts {
+  Query$AllLemmas$stemList$edges$node$dicts({
+    required this.edges,
+    required this.$__typename,
+  });
+
+  factory Query$AllLemmas$stemList$edges$node$dicts.fromJson(
+      Map<String, dynamic> json) {
+    final l$edges = json['edges'];
+    final l$$__typename = json['__typename'];
+    return Query$AllLemmas$stemList$edges$node$dicts(
+      edges: (l$edges as List<dynamic>)
+          .map((e) => e == null
+              ? null
+              : Query$AllLemmas$stemList$edges$node$dicts$edges.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$AllLemmas$stemList$edges$node$dicts$edges?> edges;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$edges = edges;
+    _resultData['edges'] = l$edges.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$edges = edges;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$edges.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllLemmas$stemList$edges$node$dicts) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$edges = edges;
+    final lOther$edges = other.edges;
+    if (l$edges.length != lOther$edges.length) {
+      return false;
+    }
+    for (int i = 0; i < l$edges.length; i++) {
+      final l$edges$entry = l$edges[i];
+      final lOther$edges$entry = lOther$edges[i];
+      if (l$edges$entry != lOther$edges$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllLemmas$stemList$edges$node$dicts
+    on Query$AllLemmas$stemList$edges$node$dicts {
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts<
+          Query$AllLemmas$stemList$edges$node$dicts>
+      get copyWith => CopyWith$Query$AllLemmas$stemList$edges$node$dicts(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> {
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts(
+    Query$AllLemmas$stemList$edges$node$dicts instance,
+    TRes Function(Query$AllLemmas$stemList$edges$node$dicts) then,
+  ) = _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts;
+
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts;
+
+  TRes call({
+    List<Query$AllLemmas$stemList$edges$node$dicts$edges?>? edges,
+    String? $__typename,
+  });
+  TRes edges(
+      Iterable<Query$AllLemmas$stemList$edges$node$dicts$edges?> Function(
+              Iterable<
+                  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<
+                      Query$AllLemmas$stemList$edges$node$dicts$edges>?>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts<TRes>
+    implements CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> {
+  _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllLemmas$stemList$edges$node$dicts _instance;
+
+  final TRes Function(Query$AllLemmas$stemList$edges$node$dicts) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? edges = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllLemmas$stemList$edges$node$dicts(
+        edges: edges == _undefined || edges == null
+            ? _instance.edges
+            : (edges as List<Query$AllLemmas$stemList$edges$node$dicts$edges?>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes edges(
+          Iterable<Query$AllLemmas$stemList$edges$node$dicts$edges?> Function(
+                  Iterable<
+                      CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<
+                          Query$AllLemmas$stemList$edges$node$dicts$edges>?>)
+              _fn) =>
+      call(
+          edges: _fn(_instance.edges.map((e) => e == null
+              ? null
+              : CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges(
+                  e,
+                  (i) => i,
+                ))).toList());
+}
+
+class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts<TRes>
+    implements CopyWith$Query$AllLemmas$stemList$edges$node$dicts<TRes> {
+  _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$AllLemmas$stemList$edges$node$dicts$edges?>? edges,
+    String? $__typename,
+  }) =>
+      _res;
+  edges(_fn) => _res;
+}
+
+class Query$AllLemmas$stemList$edges$node$dicts$edges {
+  Query$AllLemmas$stemList$edges$node$dicts$edges({
+    this.node,
+    required this.$__typename,
+  });
+
+  factory Query$AllLemmas$stemList$edges$node$dicts$edges.fromJson(
+      Map<String, dynamic> json) {
+    final l$node = json['node'];
+    final l$$__typename = json['__typename'];
+    return Query$AllLemmas$stemList$edges$node$dicts$edges(
+      node: l$node == null
+          ? null
+          : Query$AllLemmas$stemList$edges$node$dicts$edges$node.fromJson(
+              (l$node as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$AllLemmas$stemList$edges$node$dicts$edges$node? node;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$node = node;
+    _resultData['node'] = l$node?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$node = node;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$node,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllLemmas$stemList$edges$node$dicts$edges) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$node = node;
+    final lOther$node = other.node;
+    if (l$node != lOther$node) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllLemmas$stemList$edges$node$dicts$edges
+    on Query$AllLemmas$stemList$edges$node$dicts$edges {
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<
+          Query$AllLemmas$stemList$edges$node$dicts$edges>
+      get copyWith => CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<TRes> {
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges(
+    Query$AllLemmas$stemList$edges$node$dicts$edges instance,
+    TRes Function(Query$AllLemmas$stemList$edges$node$dicts$edges) then,
+  ) = _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges;
+
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges;
+
+  TRes call({
+    Query$AllLemmas$stemList$edges$node$dicts$edges$node? node,
+    String? $__typename,
+  });
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes> get node;
+}
+
+class _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges<TRes>
+    implements CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<TRes> {
+  _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllLemmas$stemList$edges$node$dicts$edges _instance;
+
+  final TRes Function(Query$AllLemmas$stemList$edges$node$dicts$edges) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? node = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllLemmas$stemList$edges$node$dicts$edges(
+        node: node == _undefined
+            ? _instance.node
+            : (node as Query$AllLemmas$stemList$edges$node$dicts$edges$node?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes> get node {
+    final local$node = _instance.node;
+    return local$node == null
+        ? CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node.stub(
+            _then(_instance))
+        : CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+            local$node, (e) => call(node: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges<TRes>
+    implements CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges<TRes> {
+  _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges(this._res);
+
+  TRes _res;
+
+  call({
+    Query$AllLemmas$stemList$edges$node$dicts$edges$node? node,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes>
+      get node =>
+          CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node.stub(
+              _res);
+}
+
+class Query$AllLemmas$stemList$edges$node$dicts$edges$node {
+  Query$AllLemmas$stemList$edges$node$dicts$edges$node({
+    required this.dictname,
+    required this.dicthits,
+    required this.$__typename,
+  });
+
+  factory Query$AllLemmas$stemList$edges$node$dicts$edges$node.fromJson(
+      Map<String, dynamic> json) {
+    final l$dictname = json['dictname'];
+    final l$dicthits = json['dicthits'];
+    final l$$__typename = json['__typename'];
+    return Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+      dictname: (l$dictname as String),
+      dicthits: (l$dicthits as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String dictname;
+
+  final int dicthits;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$dictname = dictname;
+    _resultData['dictname'] = l$dictname;
+    final l$dicthits = dicthits;
+    _resultData['dicthits'] = l$dicthits;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$dictname = dictname;
+    final l$dicthits = dicthits;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$dictname,
+      l$dicthits,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllLemmas$stemList$edges$node$dicts$edges$node) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$dictname = dictname;
+    final lOther$dictname = other.dictname;
+    if (l$dictname != lOther$dictname) {
+      return false;
+    }
+    final l$dicthits = dicthits;
+    final lOther$dicthits = other.dicthits;
+    if (l$dicthits != lOther$dicthits) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllLemmas$stemList$edges$node$dicts$edges$node
+    on Query$AllLemmas$stemList$edges$node$dicts$edges$node {
+  CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<
+          Query$AllLemmas$stemList$edges$node$dicts$edges$node>
+      get copyWith =>
+          CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<
+    TRes> {
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+    Query$AllLemmas$stemList$edges$node$dicts$edges$node instance,
+    TRes Function(Query$AllLemmas$stemList$edges$node$dicts$edges$node) then,
+  ) = _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node;
+
+  factory CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node;
+
+  TRes call({
+    String? dictname,
+    int? dicthits,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes>
+    implements
+        CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes> {
+  _CopyWithImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+    this._instance,
+    this._then,
+  );
+
+  final Query$AllLemmas$stemList$edges$node$dicts$edges$node _instance;
+
+  final TRes Function(Query$AllLemmas$stemList$edges$node$dicts$edges$node)
+      _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? dictname = _undefined,
+    Object? dicthits = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+        dictname: dictname == _undefined || dictname == null
+            ? _instance.dictname
+            : (dictname as String),
+        dicthits: dicthits == _undefined || dicthits == null
+            ? _instance.dicthits
+            : (dicthits as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node<
+        TRes>
+    implements
+        CopyWith$Query$AllLemmas$stemList$edges$node$dicts$edges$node<TRes> {
+  _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node$dicts$edges$node(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? dictname,
+    int? dicthits,
     String? $__typename,
   }) =>
       _res;
