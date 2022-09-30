@@ -10,7 +10,7 @@ import 'dict_article_content.dart';
 class DictArticleView extends StatelessWidget {
   const DictArticleView(this.dictEntry, {Key? key}) : super(key: key);
 
-  final Query$DictArticles$dictEntryList? dictEntry;
+  final DictEntry dictEntry;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class DictArticleView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
             child: Text(
-              dictEntry!.dictName,
+              dictEntry.dictName,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),

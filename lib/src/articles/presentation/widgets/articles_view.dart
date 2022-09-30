@@ -41,7 +41,7 @@ class ArticlesView extends ConsumerWidget {
                   entry.value,
                 ),
               ),
-              ...articles.dicts!.dictEntryList!.map(
+              ...articles.dicts.map(
                 (dictEntry) => DictArticleView(dictEntry),
               )
             ],

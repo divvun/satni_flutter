@@ -15,11 +15,8 @@ class DictTranslationLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$translationGroups$translationLemmas
-      lemma;
-
-  final Query$DictArticles$dictEntryList$translationGroups$restriction?
-      restriction;
+  final Lemma lemma;
+  final Restriction? restriction;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class DictTranslationLemma extends StatelessWidget {
             : const Text(''),
         const Spacer(),
         Text(
-          '${lemma.pos}',
+          lemma.pos,
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
@@ -48,7 +45,7 @@ class DictTranslationLemma extends StatelessWidget {
             },
             queryParams: {
               'lang': lemma.language,
-              'pos': '${lemma.pos}',
+              'pos': lemma.pos,
               'posDomain': 'Default',
             },
           ),

@@ -14,7 +14,7 @@ class DictTranslationGroup extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$translationGroups translationGroup;
+  final TranslationGroup translationGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class DictTranslationGroup extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...translationGroup.translationLemmas!.map(
-          (lemma) => DictTranslationLemma(lemma!, restriction),
+        ...translationGroup.translationLemmas.map(
+          (lemma) => DictTranslationLemma(lemma, restriction),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

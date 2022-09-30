@@ -14,21 +14,21 @@ class DictArticleContent extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList? dictEntry;
+  final DictEntry dictEntry;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ...dictEntry!.lookupLemmas.map(
-          (lemma) => DictLookupLemma(lemma!),
+        ...dictEntry.lookupLemmas.map(
+          (lemma) => DictLookupLemma(lemma),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Column(
-            children: dictEntry!.translationGroups
+            children: dictEntry.translationGroups
                 .map((translationGroup) =>
-                    DictTranslationGroup(translationGroup!))
+                    DictTranslationGroup(translationGroup))
                 .toList(),
           ),
         ),

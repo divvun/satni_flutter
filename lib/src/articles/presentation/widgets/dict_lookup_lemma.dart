@@ -15,7 +15,7 @@ class DictLookupLemma extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$lookupLemmas lemma;
+  final Lemma lemma;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class DictLookupLemma extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          '${lemma.pos}',
+          lemma.pos,
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
@@ -37,12 +37,12 @@ class DictLookupLemma extends StatelessWidget {
               'lemma': lemma.presentationLemma,
             },
             queryParams: {
-              'lang': lemma.language,
-              'pos': '${lemma.pos}',
+              'lang': lemma,
+              'pos': lemma.pos,
               'posDomain': getTemplateName(
-                lemma.pos as String,
+                lemma.pos,
                 lemma.language,
-                {for (var e in lemma.spuriousAttributes!) e!.name: e.value},
+                {for (var e in lemma.spuriousAttributes) e.name: e.value},
               ),
             },
           ),

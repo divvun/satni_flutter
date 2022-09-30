@@ -10,8 +10,7 @@ class ExampleGroupView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$DictArticles$dictEntryList$translationGroups$exampleGroups
-      exampleGroup;
+  final ExampleGroup exampleGroup;
 
   @override
   Widget build(BuildContext context) {
