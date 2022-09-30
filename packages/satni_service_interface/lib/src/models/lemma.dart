@@ -11,6 +11,7 @@ class Lemma with _$Lemma {
     required String lemma,
     required String presentationLemma,
     required String pos,
+    required String language,
     @Default([]) List<SpuriousAttribute> spuriousAttributes,
   }) = _Lemma;
 

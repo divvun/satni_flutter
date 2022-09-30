@@ -5,3 +5,5 @@ export 'stem.dart';
 export 'stemhits.dart';
 export 'dict_entry.dart';
 export 'translation_group.dart';
+export 'restriction.dart';
+export 'example_group.dart';
