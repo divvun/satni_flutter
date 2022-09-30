@@ -7,3 +7,4 @@ export 'src/graphql/queries/generated.graphql.dart';
 export 'src/graphql/queries/has_stem.graphql.dart';
 export 'src/graphql/queries/lemmatised.graphql.dart';
 export 'src/graphql/queries/term_articles.graphql.dart';
+export 'package:satni_service_interface/satni_service_interface.dart';
