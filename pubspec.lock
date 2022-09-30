@@ -485,6 +485,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  satni_service_interface:
+    dependency: transitive
+    description:
+      path: "packages/satni_service_interface"
+      relative: true
+    source: path
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
