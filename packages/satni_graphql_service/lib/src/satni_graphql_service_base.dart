@@ -96,7 +96,11 @@ class SatniGraphQLService {
             wantedDicts: wantedDicts));
     final result = await _client.query$AllLemmas(currentStemOptions);
     previousStemResult = result;
-    return result.parsedData;
+    final parsed = result.parsedData ??
+        Query$AllLemmas.fromJson({
+          'stemList': {'totalCount': 0, 'edges': []}
+        });
+    return parsed;
   }
 
   Future<Query$AllLemmas?> fetchMoreStems(
