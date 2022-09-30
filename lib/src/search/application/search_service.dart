@@ -7,9 +7,9 @@ import 'package:satni/src/search/domain/search_notifier.dart';
 import '../../common_providers/satni_service_provider.dart';
 import '../../filter/application/filter_notifier.dart';
 
-final searchControllerProvider =
-    StateNotifierProvider<SearchController, AsyncValue<Query$AllLemmas?>>(
-        (ref) => SearchController(ref));
+final searchControllerProvider = StateNotifierProvider.autoDispose<
+    SearchController,
+    AsyncValue<Query$AllLemmas?>>((ref) => SearchController(ref));
 
 class SearchController extends StateNotifier<AsyncValue<Query$AllLemmas?>> {
   SearchController(this._ref)
@@ -17,8 +17,8 @@ class SearchController extends StateNotifier<AsyncValue<Query$AllLemmas?>> {
     getStems();
   }
 
-  final StateNotifierProviderRef<SearchController, AsyncValue<Query$AllLemmas?>>
-      _ref;
+  final AutoDisposeStateNotifierProviderRef<SearchController,
+      AsyncValue<Query$AllLemmas?>> _ref;
 
   void getStems() async {
     final search = _ref.watch(searchProvider);
