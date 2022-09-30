@@ -1,4 +1,6 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'spurious_attribute.freezed.dart';
 part 'spurious_attribute.g.dart';
 

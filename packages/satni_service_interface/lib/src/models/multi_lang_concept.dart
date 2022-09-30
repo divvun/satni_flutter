@@ -1,6 +1,9 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import 'concept.dart';
+
 part 'multi_lang_concept.freezed.dart';
 part 'multi_lang_concept.g.dart';
 

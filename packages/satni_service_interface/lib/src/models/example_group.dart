@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'example_group.freezed.dart';

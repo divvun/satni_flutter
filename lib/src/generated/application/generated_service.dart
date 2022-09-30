@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
-import '../domain/generated.dart';
 import '../../common_providers/satni_service_provider.dart';
+import '../domain/generated.dart';
 import '../domain/paradigm_templates.dart';
 
 final generatedService =

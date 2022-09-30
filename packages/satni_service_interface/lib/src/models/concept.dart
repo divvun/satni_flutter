@@ -1,6 +1,9 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import 'term.dart';
+
 part 'concept.freezed.dart';
 part 'concept.g.dart';
 

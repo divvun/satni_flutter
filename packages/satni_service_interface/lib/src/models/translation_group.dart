@@ -1,5 +1,7 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import 'example_group.dart';
 import 'lemma.dart';
 import 'restriction.dart';
