@@ -1,9 +1,10 @@
 // Package imports:
 import 'package:graphql/client.dart';
+import 'package:satni_service_interface/satni_service_interface.dart';
 
 // Project imports:
-import 'package:satni_graphql_service/src/graphql/graphql_provider.dart';
-import 'package:satni_graphql_service/src/graphql/queries/all_lemmas.graphql.dart';
+import 'graphql/graphql_provider.dart';
+import 'graphql/queries/all_lemmas.graphql.dart';
 import 'graphql/queries/dict_articles.graphql.dart';
 import 'graphql/queries/generated.graphql.dart';
 import 'graphql/queries/lemmatised.graphql.dart';
@@ -16,7 +17,7 @@ class SatniGraphQLService {
   late QueryResult<Query$AllLemmas> previousStemResult;
   late Options$Query$AllLemmas currentStemOptions;
 
-  Future<Query$DictArticles?> getDicts(
+  Future<List<DictEntry>> getDicts(
     lookupString,
     srcLangs,
     targetLangs,
@@ -32,7 +33,10 @@ class SatniGraphQLService {
         ),
       ),
     );
-    final parsedData = result.parsedData;
+    final parsedData = result.parsedData!.dictEntryList!
+        .map((graphqlDictEntry) =>
+            DictEntry.fromJson(graphqlDictEntry!.toJson()))
+        .toList();
 
     return parsedData;
   }
