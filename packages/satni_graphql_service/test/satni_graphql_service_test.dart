@@ -47,6 +47,7 @@ void main() {
               lemma: "boahkut",
               presentationLemma: "boahkut",
               pos: "N",
+              language: 'sme',
               spuriousAttributes: [
                 SpuriousAttribute(name: "nr", value: "Pl")
               ]));
