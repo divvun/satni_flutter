@@ -36,13 +36,13 @@ class ArticlesView extends ConsumerWidget {
           return ListView(
             children: [
               ...orderedTermArticles.entries.map(
-                (entry) => TermArticle(
+                (entry) => TermArticleView(
                   entry.key,
                   entry.value,
                 ),
               ),
               ...articles.dicts!.dictEntryList!.map(
-                (dictEntry) => DictArticle(dictEntry!),
+                (dictEntry) => DictArticleView(dictEntry),
               )
             ],
           );

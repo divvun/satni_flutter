@@ -7,8 +7,8 @@ import 'package:satni_graphql_service/satni_graphql_service.dart';
 // Project imports:
 import 'concept_widget.dart';
 
-class TermArticle extends StatelessWidget {
-  const TermArticle(this.articleName, this.concepts, {Key? key})
+class TermArticleView extends StatelessWidget {
+  const TermArticleView(this.articleName, this.concepts, {Key? key})
       : super(key: key);
 
   final String articleName;

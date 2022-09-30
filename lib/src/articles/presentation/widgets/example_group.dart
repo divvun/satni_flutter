@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:satni_graphql_service/satni_graphql_service.dart';
 
-class ExampleGroup extends StatelessWidget {
-  const ExampleGroup(
+class ExampleGroupView extends StatelessWidget {
+  const ExampleGroupView(
     this.exampleGroup, {
     Key? key,
   }) : super(key: key);

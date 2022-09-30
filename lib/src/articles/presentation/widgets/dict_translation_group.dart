@@ -28,7 +28,7 @@ class DictTranslationGroup extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: translationGroup.exampleGroups!
-              .map((exampleGroup) => ExampleGroup(exampleGroup!))
+              .map((exampleGroup) => ExampleGroupView(exampleGroup))
               .toList(),
         ),
       ],

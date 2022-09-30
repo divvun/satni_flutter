@@ -7,8 +7,8 @@ import 'package:satni_graphql_service/satni_graphql_service.dart';
 // Project imports:
 import 'dict_article_content.dart';
 
-class DictArticle extends StatelessWidget {
-  const DictArticle(this.dictEntry, {Key? key}) : super(key: key);
+class DictArticleView extends StatelessWidget {
+  const DictArticleView(this.dictEntry, {Key? key}) : super(key: key);
 
   final Query$DictArticles$dictEntryList? dictEntry;
 
