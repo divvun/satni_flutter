@@ -1,6 +1,4 @@
-import 'package:satni_client_repository/satni_client_repository.dart';
-import 'package:satni_client_repository/src/models/dict_entry.dart';
-import 'package:satni_client_repository/src/models/translation_group.dart';
+import 'package:satni_service_interface/satni_service_interface.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,7 +1,7 @@
 // Project imports:
 import 'models/models.dart';
 
-abstract class SatniRepository {
+abstract class SatniServiceInterface {
   Future<List<Article>> getArticles(
     String lookupString,
     List<String> srcLangs,
