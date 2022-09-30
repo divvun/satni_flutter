@@ -1,12 +1,10 @@
 // Package imports:
 import 'package:go_router/go_router.dart';
-import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
 import '../articles/presentation/articles_page.dart';
 import '../filter/presentation/filter_page.dart';
 import '../generated/domain/generated.dart';
-import '../generated/domain/paradigm_templates.dart';
 import '../generated/presentation/generated_page.dart';
 import '../search/presentation/search_page.dart';
 

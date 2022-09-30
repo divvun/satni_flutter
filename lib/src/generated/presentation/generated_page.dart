@@ -1,9 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:satni_graphql_service/satni_graphql_service.dart';
-
 // Project imports:
 import '../../common_widgets/responsive_center.dart';
 import '../../constants/app_sizes.dart';
