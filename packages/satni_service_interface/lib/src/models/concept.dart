@@ -10,6 +10,7 @@ part 'concept.g.dart';
 @freezed
 class Concept with _$Concept {
   const factory Concept({
+    required String name,
     required String lang,
     @Default('') String definition,
     @Default('') String explanation,

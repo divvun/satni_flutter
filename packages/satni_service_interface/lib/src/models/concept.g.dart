@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'concept.dart';
 
 // **************************************************************************
@@ -9,6 +7,7 @@ part of 'concept.dart';
 // **************************************************************************
 
 _$_Concept _$$_ConceptFromJson(Map<String, dynamic> json) => _$_Concept(
+      name: json['name'] as String,
       lang: json['lang'] as String,
       definition: json['definition'] as String? ?? '',
       explanation: json['explanation'] as String? ?? '',
@@ -19,6 +18,7 @@ _$_Concept _$$_ConceptFromJson(Map<String, dynamic> json) => _$_Concept(
 
 Map<String, dynamic> _$$_ConceptToJson(_$_Concept instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'lang': instance.lang,
       'definition': instance.definition,
       'explanation': instance.explanation,

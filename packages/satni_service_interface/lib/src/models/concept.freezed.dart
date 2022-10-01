@@ -20,6 +20,7 @@ Concept _$ConceptFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Concept {
+  String get name => throw _privateConstructorUsedError;
   String get lang => throw _privateConstructorUsedError;
   String get definition => throw _privateConstructorUsedError;
   String get explanation => throw _privateConstructorUsedError;
@@ -35,7 +36,11 @@ abstract class $ConceptCopyWith<$Res> {
   factory $ConceptCopyWith(Concept value, $Res Function(Concept) then) =
       _$ConceptCopyWithImpl<$Res>;
   $Res call(
-      {String lang, String definition, String explanation, List<Term> terms});
+      {String name,
+      String lang,
+      String definition,
+      String explanation,
+      List<Term> terms});
 }
 
 /// @nodoc
@@ -48,12 +53,17 @@ class _$ConceptCopyWithImpl<$Res> implements $ConceptCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? lang = freezed,
     Object? definition = freezed,
     Object? explanation = freezed,
     Object? terms = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: lang == freezed
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -81,7 +91,11 @@ abstract class _$$_ConceptCopyWith<$Res> implements $ConceptCopyWith<$Res> {
       __$$_ConceptCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String lang, String definition, String explanation, List<Term> terms});
+      {String name,
+      String lang,
+      String definition,
+      String explanation,
+      List<Term> terms});
 }
 
 /// @nodoc
@@ -95,12 +109,17 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? lang = freezed,
     Object? definition = freezed,
     Object? explanation = freezed,
     Object? terms = freezed,
   }) {
     return _then(_$_Concept(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: lang == freezed
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -125,7 +144,8 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Concept implements _Concept {
   const _$_Concept(
-      {required this.lang,
+      {required this.name,
+      required this.lang,
       this.definition = '',
       this.explanation = '',
       required final List<Term> terms})
@@ -134,6 +154,8 @@ class _$_Concept implements _Concept {
   factory _$_Concept.fromJson(Map<String, dynamic> json) =>
       _$$_ConceptFromJson(json);
 
+  @override
+  final String name;
   @override
   final String lang;
   @override
@@ -151,7 +173,7 @@ class _$_Concept implements _Concept {
 
   @override
   String toString() {
-    return 'Concept(lang: $lang, definition: $definition, explanation: $explanation, terms: $terms)';
+    return 'Concept(name: $name, lang: $lang, definition: $definition, explanation: $explanation, terms: $terms)';
   }
 
   @override
@@ -159,6 +181,7 @@ class _$_Concept implements _Concept {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Concept &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.lang, lang) &&
             const DeepCollectionEquality()
                 .equals(other.definition, definition) &&
@@ -171,6 +194,7 @@ class _$_Concept implements _Concept {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(lang),
       const DeepCollectionEquality().hash(definition),
       const DeepCollectionEquality().hash(explanation),
@@ -191,13 +215,16 @@ class _$_Concept implements _Concept {
 
 abstract class _Concept implements Concept {
   const factory _Concept(
-      {required final String lang,
+      {required final String name,
+      required final String lang,
       final String definition,
       final String explanation,
       required final List<Term> terms}) = _$_Concept;
 
   factory _Concept.fromJson(Map<String, dynamic> json) = _$_Concept.fromJson;
 
+  @override
+  String get name;
   @override
   String get lang;
   @override
