@@ -13,9 +13,10 @@ import 'graphql/queries/term_articles.graphql.dart';
 class SatniGraphQLService {
   SatniGraphQLService({required String uri}) : _client = getClient(uri: uri);
 
-  final GraphQLClient _client;
-  late QueryResult<Query$AllLemmas> previousStemResult;
   late Options$Query$AllLemmas currentStemOptions;
+  late QueryResult<Query$AllLemmas> previousStemResult;
+
+  final GraphQLClient _client;
 
   Future<List<DictEntry>> getDicts(
     lookupString,
@@ -110,6 +111,7 @@ class SatniGraphQLService {
   Future<Query$AllLemmas?> fetchMoreStems(
     String endCursor,
   ) async {
+    print('fetching more stems in satnigraphqlservice');
     final result = await _client.fetchMore(
         FetchMoreOptions.partial(
           updateQuery: (existingStems, newStems) => {

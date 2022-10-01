@@ -76,6 +76,7 @@ class StemTile extends ConsumerWidget {
   }) : super(key: key);
 
   final Query$AllLemmas$stemList$edges$node stemNode;
+
   @override
   Widget build(
     BuildContext context,
