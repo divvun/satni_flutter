@@ -10,6 +10,7 @@ query TermArticles(
         explanation
         terms {
             note
+            sanctioned
             source
             status
             expression {

@@ -1,4 +1,3 @@
-// Package imports:
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -420,6 +419,13 @@ const documentNodeQueryTermArticles = DocumentNode(definitions: [
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
                 name: NameNode(value: 'note'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'sanctioned'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -884,6 +890,7 @@ class _CopyWithStubImpl$Query$TermArticles$conceptList<TRes>
 class Query$TermArticles$conceptList$terms {
   Query$TermArticles$conceptList$terms({
     this.note,
+    this.sanctioned,
     this.source,
     this.status,
     this.expression,
@@ -893,12 +900,14 @@ class Query$TermArticles$conceptList$terms {
   factory Query$TermArticles$conceptList$terms.fromJson(
       Map<String, dynamic> json) {
     final l$note = json['note'];
+    final l$sanctioned = json['sanctioned'];
     final l$source = json['source'];
     final l$status = json['status'];
     final l$expression = json['expression'];
     final l$$__typename = json['__typename'];
     return Query$TermArticles$conceptList$terms(
       note: (l$note as String?),
+      sanctioned: (l$sanctioned as bool?),
       source: (l$source as String?),
       status: (l$status as String?),
       expression: l$expression == null
@@ -910,6 +919,8 @@ class Query$TermArticles$conceptList$terms {
   }
 
   final String? note;
+
+  final bool? sanctioned;
 
   final String? source;
 
@@ -923,6 +934,8 @@ class Query$TermArticles$conceptList$terms {
     final _resultData = <String, dynamic>{};
     final l$note = note;
     _resultData['note'] = l$note;
+    final l$sanctioned = sanctioned;
+    _resultData['sanctioned'] = l$sanctioned;
     final l$source = source;
     _resultData['source'] = l$source;
     final l$status = status;
@@ -937,12 +950,14 @@ class Query$TermArticles$conceptList$terms {
   @override
   int get hashCode {
     final l$note = note;
+    final l$sanctioned = sanctioned;
     final l$source = source;
     final l$status = status;
     final l$expression = expression;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$note,
+      l$sanctioned,
       l$source,
       l$status,
       l$expression,
@@ -962,6 +977,11 @@ class Query$TermArticles$conceptList$terms {
     final l$note = note;
     final lOther$note = other.note;
     if (l$note != lOther$note) {
+      return false;
+    }
+    final l$sanctioned = sanctioned;
+    final lOther$sanctioned = other.sanctioned;
+    if (l$sanctioned != lOther$sanctioned) {
       return false;
     }
     final l$source = source;
@@ -1009,6 +1029,7 @@ abstract class CopyWith$Query$TermArticles$conceptList$terms<TRes> {
 
   TRes call({
     String? note,
+    bool? sanctioned,
     String? source,
     String? status,
     Query$TermArticles$conceptList$terms$expression? expression,
@@ -1032,6 +1053,7 @@ class _CopyWithImpl$Query$TermArticles$conceptList$terms<TRes>
 
   TRes call({
     Object? note = _undefined,
+    Object? sanctioned = _undefined,
     Object? source = _undefined,
     Object? status = _undefined,
     Object? expression = _undefined,
@@ -1039,6 +1061,9 @@ class _CopyWithImpl$Query$TermArticles$conceptList$terms<TRes>
   }) =>
       _then(Query$TermArticles$conceptList$terms(
         note: note == _undefined ? _instance.note : (note as String?),
+        sanctioned: sanctioned == _undefined
+            ? _instance.sanctioned
+            : (sanctioned as bool?),
         source: source == _undefined ? _instance.source : (source as String?),
         status: status == _undefined ? _instance.status : (status as String?),
         expression: expression == _undefined
@@ -1067,6 +1092,7 @@ class _CopyWithStubImpl$Query$TermArticles$conceptList$terms<TRes>
 
   call({
     String? note,
+    bool? sanctioned,
     String? source,
     String? status,
     Query$TermArticles$conceptList$terms$expression? expression,
