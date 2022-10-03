@@ -9,7 +9,7 @@ abstract class SatniServiceInterface {
     List<String> wantedDicts,
   );
 
-  Future<List<Stem>> getStems(
+  Future<Stems> getStems(
     String searchWord,
     String searchMode,
     List<String> srcLangs,

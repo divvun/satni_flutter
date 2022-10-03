@@ -147,7 +147,7 @@ class _$_Stem implements _Stem {
       required this.searchStem,
       required this.srclang,
       required final List<String> targetlangs,
-      final List<StemHits> dicts = const []})
+      final List<StemHits> dicts = const <StemHits>[]})
       : _targetlangs = targetlangs,
         _dicts = dicts;
 

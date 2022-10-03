@@ -503,6 +503,13 @@ const documentNodeQueryAllLemmas = DocumentNode(definitions: [
                     selectionSet: null,
                   ),
                   FieldNode(
+                    name: NameNode(value: 'searchStem'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
                     name: NameNode(value: 'srclang'),
                     alias: null,
                     arguments: [],
@@ -1092,6 +1099,7 @@ class _CopyWithStubImpl$Query$AllLemmas$stemList$edges<TRes>
 class Query$AllLemmas$stemList$edges$node {
   Query$AllLemmas$stemList$edges$node({
     required this.stem,
+    required this.searchStem,
     required this.srclang,
     this.targetlangs,
     this.dicts,
@@ -1101,12 +1109,14 @@ class Query$AllLemmas$stemList$edges$node {
   factory Query$AllLemmas$stemList$edges$node.fromJson(
       Map<String, dynamic> json) {
     final l$stem = json['stem'];
+    final l$searchStem = json['searchStem'];
     final l$srclang = json['srclang'];
     final l$targetlangs = json['targetlangs'];
     final l$dicts = json['dicts'];
     final l$$__typename = json['__typename'];
     return Query$AllLemmas$stemList$edges$node(
       stem: (l$stem as String),
+      searchStem: (l$searchStem as String),
       srclang: (l$srclang as String),
       targetlangs: (l$targetlangs as List<dynamic>?)
           ?.map((e) => (e as String?))
@@ -1121,6 +1131,8 @@ class Query$AllLemmas$stemList$edges$node {
 
   final String stem;
 
+  final String searchStem;
+
   final String srclang;
 
   final List<String?>? targetlangs;
@@ -1133,6 +1145,8 @@ class Query$AllLemmas$stemList$edges$node {
     final _resultData = <String, dynamic>{};
     final l$stem = stem;
     _resultData['stem'] = l$stem;
+    final l$searchStem = searchStem;
+    _resultData['searchStem'] = l$searchStem;
     final l$srclang = srclang;
     _resultData['srclang'] = l$srclang;
     final l$targetlangs = targetlangs;
@@ -1147,12 +1161,14 @@ class Query$AllLemmas$stemList$edges$node {
   @override
   int get hashCode {
     final l$stem = stem;
+    final l$searchStem = searchStem;
     final l$srclang = srclang;
     final l$targetlangs = targetlangs;
     final l$dicts = dicts;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$stem,
+      l$searchStem,
       l$srclang,
       l$targetlangs == null
           ? null
@@ -1174,6 +1190,11 @@ class Query$AllLemmas$stemList$edges$node {
     final l$stem = stem;
     final lOther$stem = other.stem;
     if (l$stem != lOther$stem) {
+      return false;
+    }
+    final l$searchStem = searchStem;
+    final lOther$searchStem = other.searchStem;
+    if (l$searchStem != lOther$searchStem) {
       return false;
     }
     final l$srclang = srclang;
@@ -1232,6 +1253,7 @@ abstract class CopyWith$Query$AllLemmas$stemList$edges$node<TRes> {
 
   TRes call({
     String? stem,
+    String? searchStem,
     String? srclang,
     List<String?>? targetlangs,
     Query$AllLemmas$stemList$edges$node$dicts? dicts,
@@ -1255,6 +1277,7 @@ class _CopyWithImpl$Query$AllLemmas$stemList$edges$node<TRes>
 
   TRes call({
     Object? stem = _undefined,
+    Object? searchStem = _undefined,
     Object? srclang = _undefined,
     Object? targetlangs = _undefined,
     Object? dicts = _undefined,
@@ -1264,6 +1287,9 @@ class _CopyWithImpl$Query$AllLemmas$stemList$edges$node<TRes>
         stem: stem == _undefined || stem == null
             ? _instance.stem
             : (stem as String),
+        searchStem: searchStem == _undefined || searchStem == null
+            ? _instance.searchStem
+            : (searchStem as String),
         srclang: srclang == _undefined || srclang == null
             ? _instance.srclang
             : (srclang as String),
@@ -1295,6 +1321,7 @@ class _CopyWithStubImpl$Query$AllLemmas$stemList$edges$node<TRes>
 
   call({
     String? stem,
+    String? searchStem,
     String? srclang,
     List<String?>? targetlangs,
     Query$AllLemmas$stemList$edges$node$dicts? dicts,

@@ -13,12 +13,12 @@ import '../../application/search_service.dart';
 
 class NewStems extends ConsumerWidget {
   NewStems({
-    required Query$AllLemmas? data,
+    required Stems data,
     Key? key,
   })  : _data = data,
         super(key: key);
 
-  final Query$AllLemmas? _data;
+  final Stems _data;
   final _scrollController = ScrollController();
 
   @override
@@ -26,31 +26,30 @@ class NewStems extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
+    print('rebuilding newstems');
     bool fetchingMore = false;
-    final itemCount = _data?.stemList!.edges.length;
+    final itemCount = _data.stemList.length;
 
-    if (_data == null || itemCount == 0) {
+    if (itemCount == 0) {
       return Container();
     }
 
-    if (_data!.stemList!.pageInfo.hasNextPage) {
+    if (_data.hasNextPage) {
       _scrollController.addListener(() {
         var triggerFetchMoreSize =
             0.9 * _scrollController.position.maxScrollExtent;
         if (_scrollController.position.pixels > triggerFetchMoreSize) {
           if (!fetchingMore) {
             fetchingMore = true;
-            ref
-                .read(searchControllerProvider.notifier)
-                .fetchMoreStems('${_data!.stemList!.pageInfo.endCursor}');
+            ref.read(searchControllerProvider.notifier).fetchMoreStems();
           }
         }
       });
     }
     List<String> stems = [];
 
-    for (final edge in _data!.stemList!.edges) {
-      final tu = edge!.node!.stem.toString();
+    for (final edge in _data.stemList) {
+      final tu = edge.stem.toString();
       stems.add(tu);
     }
 
@@ -63,9 +62,9 @@ class NewStems extends ConsumerWidget {
           scrollDirection: Axis.vertical,
           children: ListTile.divideTiles(
             context: context,
-            tiles: _data!.stemList!.edges.map((edge) => edge!.node).map(
-                  (stemNode) => StemTile(stemNode!),
-                ),
+            tiles: _data.stemList.map(
+              (stemNode) => StemTile(stemNode),
+            ),
           ).toList(),
         ),
       ),
@@ -79,7 +78,7 @@ class StemTile extends ConsumerWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$AllLemmas$stemList$edges$node stemNode;
+  final Stem stemNode;
 
   @override
   Widget build(
@@ -87,10 +86,9 @@ class StemTile extends ConsumerWidget {
     WidgetRef ref,
   ) {
     final wantedDicts = ref.watch(filterProvider).wantedDicts;
-    final hits = stemNode.dicts?.edges
-        .where((edge) => wantedDicts.contains(edge?.node!.dictname))
-        .fold(0,
-            (int previousValue, edge) => previousValue + edge!.node!.dicthits);
+    final hits = stemNode.dicts
+        .where((edge) => wantedDicts.contains(edge.dictname))
+        .fold(0, (int previousValue, edge) => previousValue + edge.dicthits);
 
     return ListTile(
       title: SizedBox(
@@ -107,7 +105,7 @@ class StemTile extends ConsumerWidget {
           ],
         ),
       ),
-      subtitle: (hits != null && hits > 1) ? Text('$hits') : null,
+      subtitle: (hits > 1) ? Text('$hits') : null,
       trailing: const Icon(Icons.star_border_rounded),
       onTap: () => context.pushNamed(
         DivvunRoutes.articles.name,

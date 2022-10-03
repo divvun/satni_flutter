@@ -87,7 +87,32 @@ class SatniGraphQLService {
     return result.parsedData;
   }
 
-  Future<Query$AllLemmas?> getStems(
+  Stems toStems(QueryResult<Query$AllLemmas> result) {
+    previousStemResult = result;
+    final parsed = result.parsedData;
+    final s = parsed?.stemList?.edges
+            .map((queryStem) => Stem(
+                stem: queryStem!.node!.stem,
+                searchStem: queryStem.node!.searchStem,
+                srclang: queryStem.node!.srclang,
+                targetlangs:
+                    queryStem.node!.targetlangs!.map((e) => e!).toList(),
+                dicts: queryStem.node!.dicts!.edges
+                    .map((queryStemHits) =>
+                        StemHits.fromJson(queryStemHits!.node!.toJson()))
+                    .toList()))
+            .toList() ??
+        [];
+    final h = parsed?.stemList?.pageInfo.hasNextPage ?? false;
+    final t = parsed?.stemList?.totalCount ?? 0;
+    return Stems(
+      stemList: s,
+      hasNextPage: h,
+      totalCount: t,
+    );
+  }
+
+  Future<Stems> getStems(
     String searchText,
     String searchMode,
     List<String> wantedSrcLangs,
@@ -102,18 +127,13 @@ class SatniGraphQLService {
             targetLangs: wantedTargetLangs,
             wantedDicts: wantedDicts));
     final result = await _client.query$AllLemmas(currentStemOptions);
-    previousStemResult = result;
-    final parsed = result.parsedData ??
-        Query$AllLemmas.fromJson({
-          'stemList': {'totalCount': 0, 'edges': []}
-        });
-    return parsed;
+    return toStems(result);
   }
 
-  Future<Query$AllLemmas?> fetchMoreStems(
-    String endCursor,
-  ) async {
-    print('fetching more stems in satnigraphqlservice');
+  Future<Stems> fetchMoreStems() async {
+    final endCursor =
+        previousStemResult.parsedData!.stemList!.pageInfo.endCursor;
+    print('fetching more stems in satnigraphqlservice $endCursor');
     final result = await _client.fetchMore(
         FetchMoreOptions.partial(
           updateQuery: (existingStems, newStems) => {
@@ -131,7 +151,6 @@ class SatniGraphQLService {
         originalOptions: currentStemOptions,
         previousResult: previousStemResult);
 
-    previousStemResult = result;
-    return result.parsedData;
+    return toStems(result);
   }
 }

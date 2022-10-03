@@ -11,17 +11,17 @@ import '../../domain/search_notifier.dart';
 class SearchStatus extends ConsumerWidget {
   const SearchStatus(this.data, {Key? key}) : super(key: key);
 
-  final Query$AllLemmas data;
+  final Stems data;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final searchText =
         ref.watch(searchProvider.select((search) => search.searchText));
-    return (data.stemList!.totalCount! > 0)
+    return (data.totalCount > 0)
         ? Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-                '$searchText: ${data.stemList!.edges.length}/${data.stemList!.totalCount}'),
+            child:
+                Text('$searchText: ${data.stemList.length}/${data.totalCount}'),
           )
         : Padding(
             padding: const EdgeInsets.all(8.0),

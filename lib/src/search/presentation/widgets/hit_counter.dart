@@ -17,7 +17,7 @@ class HitCounter extends ConsumerWidget {
 
     return searchState.when(
         loading: () => Container(),
-        data: (data) => SearchStatus(data!),
+        data: (data) => SearchStatus(data),
         error: ((error, _) => Container()));
   }
 }

@@ -1,6 +1,7 @@
 export 'spurious_attribute.dart';
 export 'lemma.dart';
 export 'article.dart';
+export 'stems.dart';
 export 'stem.dart';
 export 'stemhits.dart';
 export 'dict_entry.dart';

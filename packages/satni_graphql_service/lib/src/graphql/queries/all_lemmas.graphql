@@ -19,6 +19,7 @@ query AllLemmas(
         edges {
             node {
                 stem
+                searchStem
                 srclang
                 targetlangs
                 dicts {

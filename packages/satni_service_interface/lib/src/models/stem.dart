@@ -14,7 +14,7 @@ class Stem with _$Stem {
       required String searchStem,
       required String srclang,
       required List<String> targetlangs,
-      @Default([]) List<StemHits> dicts}) = _Stem;
+      @Default(<StemHits>[]) List<StemHits> dicts}) = _Stem;
 
   factory Stem.fromJson(Map<String, dynamic> json) => _$StemFromJson(json);
 }

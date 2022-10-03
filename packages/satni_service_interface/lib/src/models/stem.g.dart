@@ -18,7 +18,7 @@ _$_Stem _$$_StemFromJson(Map<String, dynamic> json) => _$_Stem(
       dicts: (json['dicts'] as List<dynamic>?)
               ?.map((e) => StemHits.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <StemHits>[],
     );
 
 Map<String, dynamic> _$$_StemToJson(_$_Stem instance) => <String, dynamic>{
