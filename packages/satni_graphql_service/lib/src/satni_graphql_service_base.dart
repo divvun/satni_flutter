@@ -130,6 +130,8 @@ class SatniGraphQLService {
         ),
         originalOptions: currentStemOptions,
         previousResult: previousStemResult);
+
+    previousStemResult = result;
     return result.parsedData;
   }
 }
