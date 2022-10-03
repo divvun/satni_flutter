@@ -1,4 +1,6 @@
 // Package imports:
+// ignore_for_file: depend_on_referenced_packages, annotate_overrides, prefer_is_not_operator, prefer_final_fields, non_constant_identifier_names, no_leading_underscores_for_local_identifiers, unnecessary_this
+
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
