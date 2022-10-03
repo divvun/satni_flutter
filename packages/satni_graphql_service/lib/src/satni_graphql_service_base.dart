@@ -42,7 +42,7 @@ class SatniGraphQLService {
     return parsedData;
   }
 
-  Future<Query$TermArticles?> getTerms(
+  Future<List<Concept>> getTerms(
     lookupString,
     srcLangs,
     targetLangs,
@@ -57,7 +57,9 @@ class SatniGraphQLService {
       ),
     );
 
-    final parsedData = result.parsedData;
+    final parsedData = result.parsedData!.conceptList!
+        .map((conceptEntry) => Concept.fromJson(conceptEntry!.toJson()))
+        .toList();
 
     return parsedData;
   }

@@ -5,5 +5,5 @@ class Articles {
   Articles(this.terms, this.dicts);
 
   final List<DictEntry> dicts;
-  final Query$TermArticles? terms;
+  final List<Concept> terms;
 }

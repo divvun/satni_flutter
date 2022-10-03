@@ -13,7 +13,7 @@ class ConceptWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$TermArticles$conceptList concept;
+  final Concept concept;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class ConceptWidget extends StatelessWidget {
       child: Column(children: [
         const Divider(),
         Text(
-          concept.terms[0]!.expression!.language,
+          concept.terms[0].expression.language,
           style: Theme.of(context).textTheme.caption,
         ),
         ...concept.terms.map(
-          (term) => TermEntry(term!),
+          (term) => TermEntry(term),
         ),
       ]),
     );

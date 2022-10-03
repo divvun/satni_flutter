@@ -14,19 +14,19 @@ class TermEntry extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Query$TermArticles$conceptList$terms term;
+  final Term term;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Text(
-          term.expression!.presentationLemma,
+          term.expression.presentationLemma,
           style: Theme.of(context).textTheme.bodyText1,
         ),
         const Spacer(),
         Text(
-          '${term.expression!.pos}',
+          term.expression.pos,
           style: Theme.of(context).textTheme.bodyText2,
         ),
         IconButton(
@@ -34,11 +34,11 @@ class TermEntry extends StatelessWidget {
           onPressed: () => context.pushNamed(
             DivvunRoutes.paradigm.name,
             params: {
-              'lemma': term.expression!.presentationLemma,
+              'lemma': term.expression.presentationLemma,
             },
             queryParams: {
-              'lang': term.expression!.language,
-              'pos': '${term.expression!.pos}',
+              'lang': term.expression.language,
+              'pos': term.expression.pos,
               'posDomain': 'Default',
             },
           ),

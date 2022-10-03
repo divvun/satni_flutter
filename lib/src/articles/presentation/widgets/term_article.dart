@@ -13,7 +13,7 @@ class TermArticleView extends StatelessWidget {
 
   final String articleName;
 
-  final List<Query$TermArticles$conceptList> concepts;
+  final List<Concept> concepts;
 
   @override
   Widget build(BuildContext context) {

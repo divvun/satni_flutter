@@ -22,16 +22,15 @@ class ArticlesView extends ConsumerWidget {
     return ref.watch(articlesControllerProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
         data: (articles) {
-          final termArticles = articles.terms?.conceptList;
-          final Map<String, List<Query$TermArticles$conceptList>>
-              orderedTermArticles = {};
-          termArticles?.forEach((element) {
-            final name = element?.name;
+          final termArticles = articles.terms;
+          final Map<String, List<Concept>> orderedTermArticles = {};
+          for (var element in termArticles) {
+            final name = element.name;
             if (!orderedTermArticles.containsKey(name)) {
-              orderedTermArticles[name!] = [];
+              orderedTermArticles[name] = [];
             }
-            orderedTermArticles[name]!.add(element!);
-          });
+            orderedTermArticles[name]!.add(element);
+          }
 
           return ListView(
             children: [
