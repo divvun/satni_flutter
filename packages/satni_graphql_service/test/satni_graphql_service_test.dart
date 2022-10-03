@@ -138,5 +138,92 @@ void main() {
                 })
               ]));
     });
+
+    test('Term', () {
+      expect(
+          Term.fromJson(
+            Query$TermArticles$conceptList$terms.fromJson({
+              "__typename": "TermType",
+              "note": null,
+              "sanctioned": true,
+              "source": null,
+              "status": null,
+              "expression": {
+                "__typename": "LemmaType",
+                "lemma": "heargi",
+                "presentationLemma": "heargi",
+                "language": "sme",
+                "pos": "N"
+              }
+            }).toJson(),
+          ),
+          Term(
+              sanctioned: true,
+              expression: Lemma(
+                  lemma: 'heargi',
+                  presentationLemma: 'heargi',
+                  pos: 'N',
+                  language: 'sme')));
+    });
+
+    test('Concept', () {
+      final a = Query$TermArticles$conceptList.fromJson({
+        "__typename": "ConceptType",
+        "name": "Boazodoallu:heargi",
+        "explanation": null,
+        "definition": null,
+        "terms": [
+          {
+            "__typename": "TermType",
+            "note": null,
+            "sanctioned": true,
+            "source": null,
+            "status": null,
+            "expression": {
+              "__typename": "LemmaType",
+              "lemma": "ajoporo",
+              "presentationLemma": "ajoporo",
+              "language": "fin",
+              "pos": "N"
+            }
+          },
+          {
+            "__typename": "TermType",
+            "note": null,
+            "sanctioned": true,
+            "source": null,
+            "status": null,
+            "expression": {
+              "__typename": "LemmaType",
+              "lemma": "härkä",
+              "presentationLemma": "härkä",
+              "language": "fin",
+              "pos": "N"
+            }
+          }
+        ]
+      }).toJson();
+      expect(
+          Concept.fromJson(a),
+          Concept(
+            name: 'Boazodoallu:heargi',
+            terms: [
+              Term(
+                  sanctioned: true,
+                  expression: Lemma(
+                      lemma: 'ajoporo',
+                      presentationLemma: 'ajoporo',
+                      pos: 'N',
+                      language: 'fin')),
+              Term(
+                  sanctioned: true,
+                  expression: Lemma(
+                      lemma: 'härkä',
+                      presentationLemma: 'härkä',
+                      pos: 'N',
+                      language: 'fin'))
+            ],
+          ));
+    });
   });
 }
