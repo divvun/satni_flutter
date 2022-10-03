@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'term.dart';
 
 // **************************************************************************
@@ -10,7 +8,7 @@ part of 'term.dart';
 
 _$_Term _$$_TermFromJson(Map<String, dynamic> json) => _$_Term(
       status: json['status'] as String?,
-      sanctioned: json['sanctioned'] ?? false,
+      sanctioned: json['sanctioned'] as bool,
       note: json['note'] as String?,
       source: json['source'] as String?,
       expression: Lemma.fromJson(json['expression'] as Map<String, dynamic>),

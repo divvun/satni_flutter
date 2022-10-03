@@ -11,7 +11,7 @@ part 'term.g.dart';
 class Term with _$Term {
   const factory Term({
     String? status,
-    @Default(false) sanctioned,
+    required bool sanctioned,
     String? note,
     String? source,
     required Lemma expression,

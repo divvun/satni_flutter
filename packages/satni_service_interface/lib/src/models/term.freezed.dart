@@ -21,7 +21,7 @@ Term _$TermFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Term {
   String? get status => throw _privateConstructorUsedError;
-  dynamic get sanctioned => throw _privateConstructorUsedError;
+  bool get sanctioned => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
   Lemma get expression => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $TermCopyWith<$Res> {
       _$TermCopyWithImpl<$Res>;
   $Res call(
       {String? status,
-      dynamic sanctioned,
+      bool sanctioned,
       String? note,
       String? source,
       Lemma expression});
@@ -69,7 +69,7 @@ class _$TermCopyWithImpl<$Res> implements $TermCopyWith<$Res> {
       sanctioned: sanctioned == freezed
           ? _value.sanctioned
           : sanctioned // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as bool,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$$_TermCopyWith<$Res> implements $TermCopyWith<$Res> {
   @override
   $Res call(
       {String? status,
-      dynamic sanctioned,
+      bool sanctioned,
       String? note,
       String? source,
       Lemma expression});
@@ -131,7 +131,10 @@ class __$$_TermCopyWithImpl<$Res> extends _$TermCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
-      sanctioned: sanctioned == freezed ? _value.sanctioned : sanctioned,
+      sanctioned: sanctioned == freezed
+          ? _value.sanctioned
+          : sanctioned // ignore: cast_nullable_to_non_nullable
+              as bool,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -153,7 +156,7 @@ class __$$_TermCopyWithImpl<$Res> extends _$TermCopyWithImpl<$Res>
 class _$_Term implements _Term {
   const _$_Term(
       {this.status,
-      this.sanctioned = false,
+      required this.sanctioned,
       this.note,
       this.source,
       required this.expression});
@@ -163,8 +166,7 @@ class _$_Term implements _Term {
   @override
   final String? status;
   @override
-  @JsonKey()
-  final dynamic sanctioned;
+  final bool sanctioned;
   @override
   final String? note;
   @override
@@ -217,7 +219,7 @@ class _$_Term implements _Term {
 abstract class _Term implements Term {
   const factory _Term(
       {final String? status,
-      final dynamic sanctioned,
+      required final bool sanctioned,
       final String? note,
       final String? source,
       required final Lemma expression}) = _$_Term;
@@ -227,7 +229,7 @@ abstract class _Term implements Term {
   @override
   String? get status;
   @override
-  dynamic get sanctioned;
+  bool get sanctioned;
   @override
   String? get note;
   @override
