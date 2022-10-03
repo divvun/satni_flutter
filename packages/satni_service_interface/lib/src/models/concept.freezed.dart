@@ -21,7 +21,7 @@ Concept _$ConceptFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Concept {
   String get name => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  List<String> get collections => throw _privateConstructorUsedError;
   String get definition => throw _privateConstructorUsedError;
   String get explanation => throw _privateConstructorUsedError;
   List<Term> get terms => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $ConceptCopyWith<$Res> {
       _$ConceptCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      String lang,
+      List<String> collections,
       String definition,
       String explanation,
       List<Term> terms});
@@ -54,7 +54,7 @@ class _$ConceptCopyWithImpl<$Res> implements $ConceptCopyWith<$Res> {
   @override
   $Res call({
     Object? name = freezed,
-    Object? lang = freezed,
+    Object? collections = freezed,
     Object? definition = freezed,
     Object? explanation = freezed,
     Object? terms = freezed,
@@ -64,10 +64,10 @@ class _$ConceptCopyWithImpl<$Res> implements $ConceptCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      lang: lang == freezed
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String,
+      collections: collections == freezed
+          ? _value.collections
+          : collections // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       definition: definition == freezed
           ? _value.definition
           : definition // ignore: cast_nullable_to_non_nullable
@@ -92,7 +92,7 @@ abstract class _$$_ConceptCopyWith<$Res> implements $ConceptCopyWith<$Res> {
   @override
   $Res call(
       {String name,
-      String lang,
+      List<String> collections,
       String definition,
       String explanation,
       List<Term> terms});
@@ -110,7 +110,7 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? lang = freezed,
+    Object? collections = freezed,
     Object? definition = freezed,
     Object? explanation = freezed,
     Object? terms = freezed,
@@ -120,10 +120,10 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      lang: lang == freezed
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String,
+      collections: collections == freezed
+          ? _value._collections
+          : collections // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       definition: definition == freezed
           ? _value.definition
           : definition // ignore: cast_nullable_to_non_nullable
@@ -145,19 +145,26 @@ class __$$_ConceptCopyWithImpl<$Res> extends _$ConceptCopyWithImpl<$Res>
 class _$_Concept implements _Concept {
   const _$_Concept(
       {required this.name,
-      required this.lang,
+      final List<String> collections = const [],
       this.definition = '',
       this.explanation = '',
       required final List<Term> terms})
-      : _terms = terms;
+      : _collections = collections,
+        _terms = terms;
 
   factory _$_Concept.fromJson(Map<String, dynamic> json) =>
       _$$_ConceptFromJson(json);
 
   @override
   final String name;
+  final List<String> _collections;
   @override
-  final String lang;
+  @JsonKey()
+  List<String> get collections {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_collections);
+  }
+
   @override
   @JsonKey()
   final String definition;
@@ -173,7 +180,7 @@ class _$_Concept implements _Concept {
 
   @override
   String toString() {
-    return 'Concept(name: $name, lang: $lang, definition: $definition, explanation: $explanation, terms: $terms)';
+    return 'Concept(name: $name, collections: $collections, definition: $definition, explanation: $explanation, terms: $terms)';
   }
 
   @override
@@ -182,7 +189,8 @@ class _$_Concept implements _Concept {
         (other.runtimeType == runtimeType &&
             other is _$_Concept &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.lang, lang) &&
+            const DeepCollectionEquality()
+                .equals(other._collections, _collections) &&
             const DeepCollectionEquality()
                 .equals(other.definition, definition) &&
             const DeepCollectionEquality()
@@ -195,7 +203,7 @@ class _$_Concept implements _Concept {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(lang),
+      const DeepCollectionEquality().hash(_collections),
       const DeepCollectionEquality().hash(definition),
       const DeepCollectionEquality().hash(explanation),
       const DeepCollectionEquality().hash(_terms));
@@ -216,7 +224,7 @@ class _$_Concept implements _Concept {
 abstract class _Concept implements Concept {
   const factory _Concept(
       {required final String name,
-      required final String lang,
+      final List<String> collections,
       final String definition,
       final String explanation,
       required final List<Term> terms}) = _$_Concept;
@@ -226,7 +234,7 @@ abstract class _Concept implements Concept {
   @override
   String get name;
   @override
-  String get lang;
+  List<String> get collections;
   @override
   String get definition;
   @override

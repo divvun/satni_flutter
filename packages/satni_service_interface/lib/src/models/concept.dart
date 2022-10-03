@@ -11,7 +11,7 @@ part 'concept.g.dart';
 class Concept with _$Concept {
   const factory Concept({
     required String name,
-    required String lang,
+    @Default([]) List<String> collections,
     @Default('') String definition,
     @Default('') String explanation,
     required List<Term> terms,

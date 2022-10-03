@@ -8,7 +8,10 @@ part of 'concept.dart';
 
 _$_Concept _$$_ConceptFromJson(Map<String, dynamic> json) => _$_Concept(
       name: json['name'] as String,
-      lang: json['lang'] as String,
+      collections: (json['collections'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       definition: json['definition'] as String? ?? '',
       explanation: json['explanation'] as String? ?? '',
       terms: (json['terms'] as List<dynamic>)
@@ -19,7 +22,7 @@ _$_Concept _$$_ConceptFromJson(Map<String, dynamic> json) => _$_Concept(
 Map<String, dynamic> _$$_ConceptToJson(_$_Concept instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'lang': instance.lang,
+      'collections': instance.collections,
       'definition': instance.definition,
       'explanation': instance.explanation,
       'terms': instance.terms,
