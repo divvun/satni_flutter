@@ -7,3 +7,5 @@ export 'dict_entry.dart';
 export 'translation_group.dart';
 export 'restriction.dart';
 export 'example_group.dart';
+export 'concept.dart';
+export 'term.dart';
