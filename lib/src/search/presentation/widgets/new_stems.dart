@@ -26,23 +26,27 @@ class NewStems extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
+    bool fetchingMore = false;
     final itemCount = _data?.stemList!.edges.length;
 
     if (_data == null || itemCount == 0) {
       return Container();
     }
 
-    _scrollController.addListener(() {
-      var triggerFetchMoreSize =
-          0.9 * _scrollController.position.maxScrollExtent;
-      if (_data == null &&
-          _data!.stemList!.pageInfo.hasNextPage &&
-          _scrollController.position.pixels > triggerFetchMoreSize) {
-        ref
-            .read(searchControllerProvider.notifier)
-            .fetchMoreStems('${_data!.stemList!.pageInfo.endCursor}');
-      }
-    });
+    if (_data!.stemList!.pageInfo.hasNextPage) {
+      _scrollController.addListener(() {
+        var triggerFetchMoreSize =
+            0.9 * _scrollController.position.maxScrollExtent;
+        if (_scrollController.position.pixels > triggerFetchMoreSize) {
+          if (!fetchingMore) {
+            fetchingMore = true;
+            ref
+                .read(searchControllerProvider.notifier)
+                .fetchMoreStems('${_data!.stemList!.pageInfo.endCursor}');
+          }
+        }
+      });
+    }
     List<String> stems = [];
 
     for (final edge in _data!.stemList!.edges) {
