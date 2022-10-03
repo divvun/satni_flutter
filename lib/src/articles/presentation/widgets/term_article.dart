@@ -8,12 +8,11 @@ import 'package:satni_graphql_service/satni_graphql_service.dart';
 import 'concept_widget.dart';
 
 class TermArticleView extends StatelessWidget {
-  const TermArticleView(this.articleName, this.concepts, {Key? key})
+  const TermArticleView(this.article, {Key? key})
       : super(key: key);
 
-  final String articleName;
 
-  final List<Concept> concepts;
+  final MultiLangConcept article;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +22,11 @@ class TermArticleView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
             child: Text(
-              articleName,
+              article.name,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
-          ...concepts.map((concept) => ConceptWidget(concept))
+          ...article.concepts.map((concept) => ConceptWidget(concept))
         ],
       ),
     );

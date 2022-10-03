@@ -10,3 +10,4 @@ export 'restriction.dart';
 export 'example_group.dart';
 export 'concept.dart';
 export 'term.dart';
+export 'multi_lang_concept.dart';

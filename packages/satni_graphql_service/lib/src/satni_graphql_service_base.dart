@@ -10,13 +10,46 @@ import 'graphql/queries/generated.graphql.dart';
 import 'graphql/queries/lemmatised.graphql.dart';
 import 'graphql/queries/term_articles.graphql.dart';
 
-class SatniGraphQLService {
+class SatniGraphQLService implements SatniServiceInterface {
   SatniGraphQLService({required String uri}) : _client = getClient(uri: uri);
 
   late Options$Query$AllLemmas currentStemOptions;
   late QueryResult<Query$AllLemmas> previousStemResult;
 
   final GraphQLClient _client;
+
+  @override
+  Future<List<Article>> getArticles(
+    lookupString,
+    srcLangs,
+    targetLangs,
+    wantedDicts,
+  ) async {
+    final dicts =
+        await getDicts(lookupString, srcLangs, targetLangs, wantedDicts);
+    final terms = await getTerms(lookupString, srcLangs, targetLangs);
+    final dictArticles = dicts.map((de) => Article.dict(de));
+    final a = terms.fold(<String, dynamic>{}, (
+      previousValue,
+      element,
+    ) {
+      final name = element.name;
+      if (!previousValue.containsKey(name)) {
+        previousValue[name] = <Concept>[];
+      }
+      previousValue[name].add(element);
+      return previousValue;
+    });
+
+    final termArticles = a.entries
+        .map((e) => MultiLangConcept(
+              name: e.key,
+              concepts: e.value,
+            ))
+        .map((mlc) => Article.term(mlc));
+
+    return [...termArticles, ...dictArticles];
+  }
 
   Future<List<DictEntry>> getDicts(
     lookupString,
@@ -112,6 +145,7 @@ class SatniGraphQLService {
     );
   }
 
+  @override
   Future<Stems> getStems(
     String searchText,
     String searchMode,

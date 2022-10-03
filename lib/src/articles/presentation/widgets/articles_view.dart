@@ -22,30 +22,15 @@ class ArticlesView extends ConsumerWidget {
     return ref.watch(articlesControllerProvider(_lemma)).when(
         loading: () => const CircularProgressIndicator(),
         data: (articles) {
-          final termArticles = articles.terms;
-          final Map<String, List<Concept>> orderedTermArticles = {};
-          for (var element in termArticles) {
-            final name = element.name;
-            if (!orderedTermArticles.containsKey(name)) {
-              orderedTermArticles[name] = [];
-            }
-            orderedTermArticles[name]!.add(element);
-          }
-
           return ListView(
             children: [
-              ...orderedTermArticles.entries.map(
-                (entry) => TermArticleView(
-                  entry.key,
-                  entry.value,
-                ),
-              ),
-              ...articles.dicts.map(
-                (dictEntry) => DictArticleView(dictEntry),
-              )
+              ...articles.map((e) => e.when(
+                    term: (article) => TermArticleView(article),
+                    dict: (article) => DictArticleView(article),
+                  ))
             ],
           );
         },
-        error: (_, __) => const Text('Oops, articles went awry'));
+        error: (e, st) => Text('${e.toString()}\n' '${st.toString()}'));
   }
 }
