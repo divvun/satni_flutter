@@ -16,7 +16,7 @@ class GeneratedView extends ConsumerWidget {
   final Arguments arguments;
 
   List<Widget> _generated(
-      BuildContext context, Arguments arguments, Query$Generated generated) {
+      BuildContext context, Arguments arguments, GeneratorResults generated) {
     final m = g2m(generated);
     if (paradigmTemplates.keys.contains(arguments.language)) {
       return _smiNounDefaultGenerated(m, arguments);
@@ -48,7 +48,7 @@ class GeneratedView extends ConsumerWidget {
         data: (generated) => ListView(
               children: [
                 // ListTile(title: Text(g2m(generated).toString())),
-                ..._generated(context, arguments, generated!)
+                ..._generated(context, arguments, generated)
               ],
             ),
         error: (_, __) => const Text('Oops, generation went awry'));
@@ -73,12 +73,12 @@ class GeneratedRow extends StatelessWidget {
   }
 }
 
-Map<String, String> g2m(Query$Generated g) {
+Map<String, String> g2m(GeneratorResults g) {
   var m = <String, String>{};
 
-  for (final g2 in g.generated!) {
-    final pt = g2!.paradigmTemplate;
-    final n = g2.analyses!.map((analysis) => analysis!.wordform).join(', ');
+  for (final g2 in g.generated) {
+    final pt = g2.paradigmTemplate;
+    final n = g2.analyses.map((analysis) => analysis.wordform).join(', ');
     m[pt] = n;
   }
   return m;

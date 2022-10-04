@@ -97,7 +97,7 @@ class SatniGraphQLService implements SatniServiceInterface {
     return parsedData;
   }
 
-  Future<Query$Generated?> getGenerated(
+  Future<GeneratorResults> getGenerated(
     String origform,
     String language,
     List<String> wantedParadigms,
@@ -108,7 +108,10 @@ class SatniGraphQLService implements SatniServiceInterface {
             language: language,
             paradigmTemplates: wantedParadigms)));
 
-    return result.parsedData;
+    final parsed = result.parsedData;
+    final json = parsed?.toJson() ?? {'generated': []};
+
+    return GeneratorResults.fromJson(json);
   }
 
   Future<Query$Lemmatised?> getLemmatised(

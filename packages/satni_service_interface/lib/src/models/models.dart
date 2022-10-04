@@ -11,3 +11,6 @@ export 'example_group.dart';
 export 'concept.dart';
 export 'term.dart';
 export 'multi_lang_concept.dart';
+export 'generator_results.dart';
+export 'generator_result.dart';
+export 'generator_analysis.dart';

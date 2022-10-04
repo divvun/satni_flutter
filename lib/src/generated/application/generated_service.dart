@@ -8,7 +8,7 @@ import '../domain/generated.dart';
 import '../domain/paradigm_templates.dart';
 
 final generatedService =
-    FutureProvider.family<Query$Generated?, Arguments>((ref, arguments) async {
+    FutureProvider.family<GeneratorResults, Arguments>((ref, arguments) async {
   final satniSearchRepository = ref.watch(satniServiceProvider);
   final generated = await satniSearchRepository.getGenerated(
       arguments.origform,
