@@ -114,13 +114,16 @@ class SatniGraphQLService implements SatniServiceInterface {
     return GeneratorResults.fromJson(json);
   }
 
-  Future<Query$Lemmatised?> getLemmatised(
+  Future<LemmatisedResults> getLemmatised(
     String lookupString,
   ) async {
     final result = await _client.query$Lemmatised(Options$Query$Lemmatised(
         variables: Variables$Query$Lemmatised(lookupString: lookupString)));
 
-    return result.parsedData;
+    final parsed = result.parsedData;
+    final json = parsed?.toJson() ?? {'lemmatised': []};
+
+    return LemmatisedResults.fromJson(json);
   }
 
   Stems toStems(QueryResult<Query$AllLemmas> result) {

@@ -14,3 +14,6 @@ export 'multi_lang_concept.dart';
 export 'generator_results.dart';
 export 'generator_result.dart';
 export 'generator_analysis.dart';
+export 'lemmatised_result.dart';
+export 'lemmatised_results.dart';
+export 'lemmatiser_analysis.dart';

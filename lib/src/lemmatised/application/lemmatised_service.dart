@@ -6,7 +6,7 @@ import 'package:satni_graphql_service/satni_graphql_service.dart';
 import '../../common_providers/satni_service_provider.dart';
 
 final lemmatisedService =
-    FutureProvider.family<Query$Lemmatised?, String>((ref, lookupString) async {
+    FutureProvider.family<LemmatisedResults, String>((ref, lookupString) async {
   final satniSearchRepository = ref.watch(satniServiceProvider);
   final lemmatised = await satniSearchRepository.getLemmatised(lookupString);
   return lemmatised;

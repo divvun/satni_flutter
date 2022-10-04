@@ -13,15 +13,15 @@ class LemmatisedView extends ConsumerWidget {
 
   final String lookupString;
 
-  List<Widget> _lemmatised(BuildContext context, Query$Lemmatised lemmatised) {
-    return lemmatised.lemmatised!
-        .where((element) => element!.wordforms.isNotEmpty)
+  List<Widget> _lemmatised(BuildContext context, LemmatisedResults lemmatised) {
+    return lemmatised.lemmatised
+        .where((element) => element.wordforms.isNotEmpty)
         .map((languageResult) => Column(
               children: [
-                Text(languageResult!.language),
+                Text(languageResult.language),
                 Text(languageResult.wordforms.join(", ")),
                 Text(languageResult.analyses
-                    .map((aResult) => aResult!.analysis)
+                    .map((aResult) => aResult.analysis)
                     .toList()
                     .join('\n')),
               ],
@@ -34,7 +34,7 @@ class LemmatisedView extends ConsumerWidget {
     return ref.watch(lemmatisedService(lookupString)).when(
         loading: () => const CircularProgressIndicator(),
         data: (lemmatised) => Column(
-              children: [..._lemmatised(context, lemmatised!)],
+              children: [..._lemmatised(context, lemmatised)],
             ),
         error: (_, __) => const Text('Oops, generation went awry'));
   }
