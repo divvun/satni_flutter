@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:satni_graphql_service/satni_graphql_service.dart';
 
 // Project imports:
 import '../articles_controller.dart';

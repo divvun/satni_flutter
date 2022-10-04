@@ -26,7 +26,6 @@ class NewStems extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    print('rebuilding newstems');
     bool fetchingMore = false;
     final itemCount = _data.stemList.length;
 
